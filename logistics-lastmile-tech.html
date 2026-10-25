@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last-Mile Delivery Technology — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Last-mile delivery technology solutions including route optimization, delivery management systems, and customer experience platforms.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box { background:var(--primary-orange-light); border-radius:12px; padding:28px 24px; border-left:4px solid var(--primary-orange); }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:30px 0; }
+        .stat-box { background:linear-gradient(135deg,#ff6b00,#ff8534); color:#fff; border-radius:12px; padding:30px 24px; text-align:center; }
+        .stat-box .number { font-size:2.5rem; font-weight:700; margin-bottom:8px; }
+        .stat-box .label { font-size:0.95rem; opacity:0.95; }
+        @media(max-width:768px){ .feature-grid, .stats-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="logistics-transportation.html">Logistics & Transportation</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Last-Mile Delivery Technology</span>
+            </nav>
+            <h1 class="page-hero-title">Last-Mile Delivery <span>Technology</span></h1>
+            <p class="page-hero-subtitle">Digital platforms and optimization systems for efficient, transparent, and customer-centric final delivery</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Solving the Most Expensive Mile in Logistics</h2>
+                <p>The last mile — the final leg from distribution center to customer doorstep — represents 41% of total supply chain costs while being the most visible and critical touchpoint in the customer experience. Failed deliveries, long wait times, poor communication, and inflexible delivery windows directly impact customer satisfaction, repeat purchases, and brand reputation.</p>
+                <p>E-commerce growth, same-day delivery expectations, and the rise of omnichannel retail have intensified pressure on last-mile operations. Traditional delivery models designed for predictable B2B routes struggle with the variability, density, and service level demands of modern B2C and quick-commerce fulfillment.</p>
+                <p>Infrasys delivers last-mile delivery technology solutions that optimize routing, empower delivery agents, enhance customer visibility, and enable data-driven operational decisions. Our implementations span delivery management systems, route optimization engines, customer communication platforms, and proof-of-delivery mechanisms for logistics providers, e-commerce companies, and retail chains.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-box scroll-reveal reveal-up delay-1">
+                        <div class="number">25%</div>
+                        <div class="label">Cost Reduction</div>
+                    </div>
+                    <div class="stat-box scroll-reveal reveal-up delay-2">
+                        <div class="number">98%</div>
+                        <div class="label">On-Time Delivery Rate</div>
+                    </div>
+                    <div class="stat-box scroll-reveal reveal-up delay-3">
+                        <div class="number">30sec</div>
+                        <div class="label">Avg Proof Capture Time</div>
+                    </div>
+                </div>
+
+                <h3>Delivery Management System (DMS)</h3>
+                <p>A comprehensive Delivery Management System orchestrates the entire last-mile operation from order assignment through final proof of delivery. Our DMS implementations provide centralized command-and-control for dispatch managers, route coordinators, and customer service teams:</p>
+                <ul>
+                    <li><strong>Order Ingestion & Validation:</strong> API integration with e-commerce platforms, WMS, and OMS systems. Automatic address geocoding, serviceability checks, and delivery slot availability validation.</li>
+                    <li><strong>Automated Dispatch & Assignment:</strong> Rule-based or AI-driven assignment algorithms that consider vehicle capacity, delivery windows, rider locations, traffic patterns, and service level agreements.</li>
+                    <li><strong>Real-Time Visibility Dashboard:</strong> Live map tracking all active deliveries, rider locations, route progress, exception alerts, and performance KPIs accessible to operations teams and customer service.</li>
+                    <li><strong>Exception Handling Workflows:</strong> Automated escalation and resolution workflows for address issues, customer unavailability, damaged goods, and delivery failures with configurable business rules.</li>
+                    <li><strong>Multi-Channel Communication:</strong> Automated SMS, WhatsApp, email, and push notifications keeping customers informed of dispatch, ETA updates, delays, and delivery completion.</li>
+                </ul>
+
+                <h3>Dynamic Route Optimization</h3>
+                <p>Efficient last-mile delivery requires solving the Vehicle Routing Problem (VRP) with time windows — a complex combinatorial optimization challenge. Static route planning created at dispatch time quickly becomes suboptimal as real-world conditions evolve. We implement dynamic route optimization that continuously re-optimizes throughout the delivery cycle:</p>
+
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-route"></i> Multi-Stop Route Planning</h4>
+                        <p>Algorithms calculating optimal stop sequence considering delivery windows, vehicle capacities, road networks, traffic predictions, and driver breaks. Supports mixed pickups and deliveries.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-arrows-rotate"></i> Real-Time Re-Optimization</h4>
+                        <p>Continuous route adjustment as new orders arrive, deliveries complete, addresses change, or traffic conditions shift. Balances optimization gains against driver disruption.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-location-dot"></i> Geofence & Service Zones</h4>
+                        <p>Geographic boundaries defining serviceability, delivery fees, time slots, and vehicle types. Supports complex overlapping zones for express vs. standard delivery tiers.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-car"></i> Multi-Vehicle Fleet Mix</h4>
+                        <p>Optimization across heterogeneous fleets including bikes, vans, trucks, and third-party gig riders. Considers vehicle-specific constraints like parking, access restrictions, and capacity.</p>
+                    </div>
+                </div>
+
+                <h3>Mobile Delivery App for Field Agents</h3>
+                <p>The delivery agent's mobile app is the critical interface between digital planning and physical execution. Our delivery apps balance ease-of-use for riders with comprehensive data capture for operational analytics:</p>
+                <ul>
+                    <li><strong>Optimized Task List:</strong> Prioritized delivery sequence with turn-by-turn navigation, customer contact details, special delivery instructions, and package details.</li>
+                    <li><strong>Barcode Scanning:</strong> Scan-to-verify workflows ensuring correct package pickup and delivery, reducing errors and enabling package-level traceability.</li>
+                    <li><strong>Digital Proof of Delivery:</strong> Photo capture, e-signature, OTP verification, or biometric authentication as configurable proof mechanisms. Geostamped and timestamped for dispute resolution.</li>
+                    <li><strong>Exception Reporting:</strong> Intuitive interfaces for riders to report delivery failures, customer unavailability, address issues, or damaged goods with pre-defined reason codes and notes.</li>
+                    <li><strong>Offline Capability:</strong> Local data storage and sync enabling continued operation in areas with poor connectivity. Queues actions and uploads when connection restored.</li>
+                    <li><strong>Earnings & Incentives Dashboard:</strong> Transparent display of completed deliveries, earnings per delivery, bonuses, and performance metrics for gig economy workers.</li>
+                </ul>
+
+                <h3>Customer Experience & Communication</h3>
+                <p>Last-mile delivery is often the only physical touchpoint customers have with an e-commerce brand. Every delivery interaction shapes brand perception. We implement customer-facing technologies that enhance transparency, convenience, and satisfaction:</p>
+                <ul>
+                    <li><strong>Real-Time Tracking Page:</strong> Branded tracking interface showing rider location on map, estimated arrival time, delivery agent photo/name, and delivery progress milestones.</li>
+                    <li><strong>Delivery Slot Selection:</strong> Customer portal or API enabling flexible delivery window selection during checkout. Dynamic slot availability based on real-time capacity and route feasibility.</li>
+                    <li><strong>Proactive Notifications:</strong> Automated multi-channel alerts at key milestones — order dispatched, out for delivery, arriving soon (15 min ETA), delivered, or delivery attempted.</li>
+                    <li><strong>Two-Way Communication:</strong> Click-to-call or in-app chat connecting customers directly with delivery agents to provide gate codes, clarify addresses, or coordinate handoff.</li>
+                    <li><strong>Delivery Preferences Management:</strong> Customer profiles storing preferred time slots, safe-drop instructions, contactless preferences, and delivery location favorites (home, office, pickup points).</li>
+                    <li><strong>Post-Delivery Feedback:</strong> Automated rating and review collection capturing customer satisfaction, rider behavior, packaging quality, and delivery timeliness.</li>
+                </ul>
+
+                <h3>Alternative Delivery Models</h3>
+                <p>Traditional door-to-door delivery is not always the most efficient or customer-preferred option. We implement technology enabling alternative fulfillment models that reduce costs while maintaining customer convenience:</p>
+                <ul>
+                    <li><strong>Pickup Point Networks:</strong> Integration with retail partner locations, lockers, and kiosks where customers collect orders at their convenience. Reduces failed deliveries and delivery costs.</li>
+                    <li><strong>Smart Lockers:</strong> Automated parcel lockers with unique access codes or mobile app unlocking. Supports 24x7 pickup, multiple compartment sizes, and automated return processing.</li>
+                    <li><strong>Crowdshipping Platforms:</strong> Marketplaces connecting delivery demand with gig workers, Uber-style peer delivery, or customer-to-customer handoff models for flexible capacity.</li>
+                    <li><strong>Buy Online, Pick-up In Store (BOPIS):</strong> Omnichannel order fulfillment routing online orders to nearby stores for curbside or in-store pickup, leveraging existing retail footprints.</li>
+                </ul>
+
+                <h3>Analytics & Performance Optimization</h3>
+                <p>Continuous improvement in last-mile operations requires data-driven insights into performance drivers, bottlenecks, and cost levers. Our analytics platforms transform operational data into actionable intelligence:</p>
+                <ul>
+                    <li><strong>Delivery Performance Dashboards:</strong> Real-time and historical KPIs including on-time delivery rate, cost per delivery, deliveries per hour, failed delivery rate, and customer satisfaction scores.</li>
+                    <li><strong>Route Efficiency Analysis:</strong> Post-delivery evaluation of actual vs. planned routes, stop time analysis, traffic impact, and adherence to delivery windows identifying optimization opportunities.</li>
+                    <li><strong>Rider Performance Scorecards:</strong> Individual and cohort-level metrics on deliveries completed, average delivery time, customer ratings, and earnings enabling targeted coaching.</li>
+                    <li><strong>Capacity Planning & Forecasting:</strong> Predictive models forecasting delivery volume by geography and time, enabling proactive capacity adjustments, peak hiring, and resource allocation.</li>
+                    <li><strong>Cost Allocation & Profitability:</strong> Activity-based costing models attributing vehicle, labor, fuel, and overhead costs to individual deliveries, customers, or service tiers for margin visibility.</li>
+                </ul>
+
+                <h3>Integration Architecture</h3>
+                <p>Last-mile delivery systems must integrate with multiple upstream and downstream systems in the fulfillment ecosystem. We design API-first architectures enabling seamless data flow:</p>
+                <ul>
+                    <li><strong>E-Commerce & OMS Integration:</strong> Real-time order ingestion with status callbacks for out-for-delivery, delivered, and exception events visible in customer accounts.</li>
+                    <li><strong>WMS Integration:</strong> Pick-pack-ship workflows triggering delivery requests, printing shipping labels, and updating inventory upon successful delivery.</li>
+                    <li><strong>Payment Gateway Integration:</strong> Cash-on-delivery reconciliation, collection tracking, and automated remittance to merchants for marketplace models.</li>
+                    <li><strong>Mapping & Geocoding Services:</strong> Integration with Google Maps, OpenStreetMap, or Mapbox APIs for routing, distance calculation, and address validation.</li>
+                    <li><strong>Telematics Integration:</strong> Vehicle location, ignition status, and mileage data from fleet GPS devices enriching route adherence monitoring.</li>
+                </ul>
+
+                <h3>Compliance, Safety & Security</h3>
+                <p>Last-mile delivery operations involve handling customer data, cash transactions, and physical access to residences and offices. We implement controls ensuring compliance and security:</p>
+                <ul>
+                    <li><strong>Data Privacy:</strong> GDPR and data protection compliance for customer addresses, phone numbers, and delivery preferences. Data retention policies and right-to-forget workflows.</li>
+                    <li><strong>Driver Background Verification:</strong> Integration with government databases and third-party background check providers validating identity documents, criminal records, and driving licenses.</li>
+                    <li><strong>Contactless Delivery Protocols:</strong> Safe-drop workflows, photo proof of placement, and no-contact handoff procedures implemented during pandemic and retained as options.</li>
+                    <li><strong>Cash-on-Delivery Security:</strong> Daily collection limits, mandatory photo documentation of cash receipts, GPS-verified deposit workflows, and anomaly detection for rider collections.</li>
+                    <li><strong>SOS & Emergency Features:</strong> Panic buttons in rider apps alerting control centers and triggering location-sharing with emergency contacts or authorities.</li>
+                </ul>
+
+                <h3>Emerging Technologies in Last-Mile</h3>
+                <p>The last-mile delivery landscape is evolving with new technologies promising further efficiency gains and customer experience enhancements. We help clients pilot and implement emerging capabilities:</p>
+                <ul>
+                    <li><strong>Autonomous Delivery Vehicles:</strong> Integration readiness for sidewalk robots, drones, and autonomous vans as regulations and technology mature in select geographies.</li>
+                    <li><strong>Predictive ETA Algorithms:</strong> Machine learning models learning from historical delivery data to predict accurate arrival times accounting for traffic, parking, elevator wait, and handoff time.</li>
+                    <li><strong>Computer Vision for Address Detection:</strong> Mobile app features using smartphone cameras to automatically extract and validate delivery addresses from building facades or mailboxes.</li>
+                    <li><strong>Blockchain for Proof of Delivery:</strong> Immutable delivery records on distributed ledgers for high-value shipments requiring tamper-proof audit trails and multi-party verification.</li>
+                </ul>
+
+                <h3>Industry-Specific Last-Mile Solutions</h3>
+                <p>Different verticals have unique last-mile requirements. We deliver specialized solutions for specific industry needs:</p>
+                <ul>
+                    <li><strong>Food & Grocery Delivery:</strong> Temperature monitoring, expiry date tracking, insulated bag management, and quality assurance workflows for perishable goods.</li>
+                    <li><strong>Pharmacy & Healthcare:</strong> Cold-chain compliance, prescription validation, patient consent capture, and HIPAA-compliant documentation for controlled substances.</li>
+                    <li><strong>High-Value Goods:</strong> Enhanced security protocols, mandatory e-signature or OTP, age verification workflows, and insurance integration for jewelry, electronics, and luxury items.</li>
+                    <li><strong>B2B Last-Mile:</strong> Appointment scheduling, loading dock coordination, BOL generation, and invoice-to-delivery reconciliation for commercial deliveries.</li>
+                </ul>
+
+                <h3>Why Choose Infrasys for Last-Mile Delivery Technology?</h3>
+                <p>Last-mile delivery is an operational discipline as much as a technology challenge. Our team combines logistics domain knowledge with expertise in routing algorithms, mobile app development, real-time systems, and data analytics. We have implemented delivery management platforms processing millions of deliveries per month for e-commerce, food delivery, and courier companies across urban and semi-urban geographies.</p>
+                <p>We don't deliver off-the-shelf software — we design last-mile solutions tailored to your service model (express vs. standard, appointment vs. delivery window, attended vs. unattended), fleet composition (owned vs. gig, two-wheeler vs. van), and customer expectations (budget vs. premium, convenience vs. speed).</p>
+                <p>From pilot programs optimizing a single delivery hub to national rollouts spanning hundreds of cities, from delivery apps for your captive fleet to marketplace platforms connecting thousands of independent riders, Infrasys delivers last-mile technology that reduces costs, delights customers, and scales with your growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <h2 class="cta-title">Optimize your last-mile delivery operations</h2>
+            <p class="cta-desc">Discuss route optimization, delivery management platforms, or customer experience enhancements with our last-mile specialists.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Schedule Demo</a>
+                <a href="logistics-transportation.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Logistics</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

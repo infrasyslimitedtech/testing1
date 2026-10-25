@@ -1,0 +1,950 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Join Infrasys Limited — open positions for ERPNext Developer, Software Development Interns, and Business Analyst in Gurugram and remote.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .jobs-grid { display:grid; grid-template-columns:1fr; gap:28px; max-width:900px; margin:0 auto; }
+
+        .job-card {
+            background:var(--bg-white); border:1px solid var(--border-color);
+            border-radius:var(--border-radius-lg); overflow:hidden;
+            transition:var(--transition-smooth); box-shadow:var(--shadow-sm);
+        }
+        .job-card:hover { box-shadow:var(--shadow-lg); border-color:rgba(255,107,0,0.25); transform:translateY(-3px); }
+
+        .job-card-header {
+            padding:32px 36px 24px; display:flex; justify-content:space-between;
+            align-items:flex-start; gap:20px; cursor:pointer;
+            border-bottom:1px solid var(--border-color);
+        }
+        .job-card-header:hover .job-title { color:var(--primary-orange); }
+
+        .job-badge-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+        .job-badge {
+            display:inline-flex; align-items:center; gap:6px;
+            background:var(--primary-orange-light); color:var(--primary-orange);
+            border:1px solid rgba(255,107,0,0.2); padding:4px 12px;
+            border-radius:100px; font-size:0.75rem; font-weight:700;
+        }
+        .job-badge.blue {
+            background:var(--secondary-blue-light); color:var(--secondary-blue);
+            border-color:rgba(0,43,92,0.15);
+        }
+        .job-badge.green {
+            background:rgba(16,185,129,0.1); color:#059669;
+            border-color:rgba(16,185,129,0.2);
+        }
+
+        .job-title { font-size:1.35rem; color:var(--secondary-blue); font-family:var(--font-heading); font-weight:700; transition:var(--transition-fast); }
+        .job-count { font-size:0.82rem; color:var(--text-muted); margin-top:4px; }
+
+        .job-toggle-btn {
+            width:40px; height:40px; background:var(--bg-light); border:1px solid var(--border-color);
+            border-radius:10px; display:flex; align-items:center; justify-content:center;
+            color:var(--text-muted); font-size:0.85rem; cursor:pointer; flex-shrink:0;
+            transition:var(--transition-fast);
+        }
+        .job-card.open .job-toggle-btn { background:var(--primary-orange); color:#fff; border-color:var(--primary-orange); }
+        .job-card.open .job-toggle-btn i { transform:rotate(180deg); }
+
+        .job-card-body { padding:0 36px; max-height:0; overflow:hidden; transition:max-height 0.45s ease, padding 0.3s ease; }
+        .job-card.open .job-card-body { max-height:2000px; padding:32px 36px 36px; }
+
+        .job-section-title {
+            font-size:0.82rem; font-weight:700; text-transform:uppercase;
+            letter-spacing:1.5px; color:var(--primary-orange); margin-bottom:14px; margin-top:24px;
+        }
+        .job-section-title:first-child { margin-top:0; }
+
+        .job-desc { color:var(--text-muted); font-size:0.95rem; line-height:1.75; margin-bottom:16px; }
+
+        .job-list { display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+        .job-list li {
+            display:flex; align-items:flex-start; gap:10px;
+            font-size:0.92rem; color:var(--text-main); line-height:1.6;
+        }
+        .job-list li i { color:var(--primary-orange); font-size:0.6rem; margin-top:7px; flex-shrink:0; }
+
+        .apply-btn-row { margin-top:28px; display:flex; gap:12px; flex-wrap:wrap; }
+
+        /* Apply Form Modal */
+        .modal-overlay {
+            position:fixed; inset:0; background:rgba(0,0,0,0.6);
+            backdrop-filter:blur(8px); z-index:5000;
+            display:flex; align-items:center; justify-content:center; padding:20px;
+            opacity:0; visibility:hidden; transition:opacity 0.35s ease, visibility 0.35s ease;
+        }
+        .modal-overlay.open { opacity:1; visibility:visible; }
+        .modal-box {
+            background:var(--bg-white); border-radius:var(--border-radius-lg);
+            padding:44px 48px; max-width:580px; width:100%;
+            box-shadow:0 40px 80px rgba(0,0,0,0.25);
+            transform:translateY(24px) scale(0.97);
+            transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
+            max-height:90vh; overflow-y:auto;
+        }
+        .modal-overlay.open .modal-box { transform:translateY(0) scale(1); }
+        .modal-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:28px; gap:16px; }
+        .modal-header h3 { font-size:1.4rem; color:var(--secondary-blue); font-family:var(--font-heading); }
+        .modal-header p { font-size:0.85rem; color:var(--text-muted); margin-top:4px; }
+        .modal-close {
+            width:36px; height:36px; background:var(--bg-light); border:1px solid var(--border-color);
+            border-radius:8px; color:var(--text-muted); font-size:0.9rem;
+            display:flex; align-items:center; justify-content:center; cursor:pointer;
+            flex-shrink:0; transition:var(--transition-fast);
+        }
+        .modal-close:hover { background:var(--primary-orange); color:#fff; border-color:var(--primary-orange); }
+
+        .why-join-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin:48px 0 0; }
+        .why-join-card {
+            background:var(--bg-white); border:1px solid var(--border-color);
+            border-radius:var(--border-radius); padding:28px 22px; text-align:center;
+            transition:var(--transition-smooth);
+        }
+        .why-join-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-md); border-color:rgba(255,107,0,0.2); }
+        .why-join-icon { font-size:1.6rem; color:var(--primary-orange); margin-bottom:14px; }
+        .why-join-card h4 { font-size:1rem; color:var(--secondary-blue); margin-bottom:8px; }
+        .why-join-card p { font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+
+        @media(max-width:768px){
+            .job-card-header,.job-card.open .job-card-body { padding:24px 22px; }
+            .why-join-grid { grid-template-columns:1fr; }
+            .modal-box { padding:28px 22px; }
+        }
+        @media(max-width:480px){
+            .job-title { font-size:1.1rem; }
+            .apply-btn-row { flex-direction:column; }
+            .apply-btn-row .btn { width:100%; justify-content:center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>                                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+                        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Careers</span>
+            </nav>
+            <h1 class="page-hero-title">Build Your Career at <span>Infrasys</span></h1>
+            <p class="page-hero-subtitle">Join a team of 200+ technology professionals transforming enterprises through ERP, AI, Cloud, and Cybersecurity. We're growing — and we want builders, thinkers, and problem-solvers.</p>
+        </div>
+    </section>
+
+    <!-- Open Positions -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header scroll-reveal reveal-up">
+                <span class="section-tag">Open Positions</span>
+                <h2 class="section-title">Current Openings</h2>
+                <p class="section-subtitle">We are actively hiring across technical and consulting roles. Click any position to view the full job description and apply.</p>
+            </div>
+
+            <div class="jobs-grid scroll-reveal reveal-up delay-1">
+
+                <!-- JOB 1: ERPNext Developer -->
+                <div class="job-card" id="job-erpnext">
+                    <div class="job-card-header" onclick="toggleJob('job-erpnext')">
+                        <div>
+                            <div class="job-title">Full-Time ERPNext / Python Developer</div>
+                            <div class="job-count">1 Opening &nbsp;·&nbsp; Gurugram, Haryana (On-site)</div>
+                            <div class="job-badge-row">
+                                <span class="job-badge"><i class="fa-solid fa-briefcase"></i> Full-Time</span>
+                                <span class="job-badge blue"><i class="fa-solid fa-location-dot"></i> Gurugram, NCR</span>
+                                <span class="job-badge green"><i class="fa-solid fa-circle"></i> Actively Hiring</span>
+                                <span class="job-badge"><i class="fa-solid fa-indian-rupee-sign"></i> Based on Experience</span>
+                            </div>
+                        </div>
+                        <button class="job-toggle-btn" aria-label="Expand job"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div class="job-card-body">
+                        <p class="job-section-title">About the Role</p>
+                        <p class="job-desc">As an ERPNext Developer at Infrasys, you will handle end-to-end ERPNext implementations for enterprise clients, manage customisations across core modules, and provide expert technical development. We are looking for candidates with less than 3 years of experience who are passionate about ERP technology and Frappe framework.</p>
+
+                        <p class="job-section-title">Key Responsibilities</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Customise ERPNext core modules — Sales, Purchase, Inventory, Accounting, Projects, and HRMS</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Create new DocTypes, custom fields, server/client scripts, and automated workflows</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Design and build tailored reporting dashboards and analytics applications</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Configure and manage ERPNext instances to meet specific client business requirements</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> JavaScript and React frontend development for custom UI components</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Customise forms, list views, and UI layouts within ERPNext / Frappe</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Install, configure, and manage multiple ERPNext/Frappe sites using bench CLI</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Handle backup, restore, and migration of ERPNext sites across environments</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Manage updates, patches, and version upgrades for all ERPNext apps</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Collaborate directly with enterprise clients to gather requirements and deliver solutions</li>
+                        </ul>
+
+                        <p class="job-section-title">Required Skills</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Proficiency in Python and Frappe Framework</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Hands-on ERPNext customisation experience (DocTypes, scripts, workflows)</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> JavaScript / React for frontend UI development</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Experience with bench, Linux server management</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Understanding of accounting, inventory, and HR business processes</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Git version control and collaborative development</li>
+                        </ul>
+
+                        <p class="job-section-title">Experience &amp; Compensation</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Preferred: Less than 3 years of experience</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Salary based on quality of experience and current / last drawn salary</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Competitive benefits package as per company policy</li>
+                        </ul>
+
+                        <div class="apply-btn-row">
+                            <button class="btn btn-primary" onclick="openModal('ERPNext / Python Developer')"><i class="fa-solid fa-paper-plane"></i> Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JOB 2: Software Development Interns -->
+                <div class="job-card" id="job-intern">
+                    <div class="job-card-header" onclick="toggleJob('job-intern')">
+                        <div>
+                            <div class="job-title">Software Development Intern</div>
+                            <div class="job-count">2 Openings &nbsp;·&nbsp; Gurugram, NCR (On-site, Preferred Colleges)</div>
+                            <div class="job-badge-row">
+                                <span class="job-badge"><i class="fa-solid fa-graduation-cap"></i> Internship</span>
+                                <span class="job-badge blue"><i class="fa-solid fa-location-dot"></i> Gurugram, NCR</span>
+                                <span class="job-badge green"><i class="fa-solid fa-circle"></i> Actively Hiring</span>
+                                <span class="job-badge"><i class="fa-solid fa-clock"></i> 6 Months Minimum</span>
+                            </div>
+                        </div>
+                        <button class="job-toggle-btn" aria-label="Expand job"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div class="job-card-body">
+                        <p class="job-section-title">About the Role</p>
+                        <p class="job-desc">Infrasys is hiring 2 Software Development Interns from preferred colleges in the NCR region. This is a full-time internship for a minimum duration of 6 months. You will work directly alongside our engineering team on live client projects, gaining hands-on experience in ERP development, cloud platforms, and enterprise software.</p>
+
+                        <p class="job-section-title">What You Will Work On</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Assist in ERPNext / Frappe module development and customisation</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Support backend Python development for enterprise automation tasks</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Frontend UI development using JavaScript / React within Frappe</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Testing, debugging, and documenting software modules</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Participate in client requirement gathering sessions</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Exposure to cloud infrastructure and DevOps practices</li>
+                        </ul>
+
+                        <p class="job-section-title">Who Should Apply</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Currently enrolled in B.Tech / BCA / MCA or equivalent from an NCR-region college</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Basic knowledge of Python, JavaScript, or any programming language</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Eagerness to learn enterprise software development</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Available for full-time on-site internship for minimum 6 months</li>
+                        </ul>
+
+                        <p class="job-section-title">Stipend &amp; Benefits</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Stipend as per standard company policy</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Certificate of completion and letter of recommendation</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Possibility of full-time conversion based on performance</li>
+                        </ul>
+
+                        <div class="apply-btn-row">
+                            <button class="btn btn-primary" onclick="openModal('Software Development Intern')"><i class="fa-solid fa-paper-plane"></i> Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JOB 3: Business Analyst -->
+                <div class="job-card" id="job-ba">
+                    <div class="job-card-header" onclick="toggleJob('job-ba')">
+                        <div>
+                            <div class="job-title">Business Analyst</div>
+                            <div class="job-count">1 Opening &nbsp;·&nbsp; Remote (Mumbai-based preferred)</div>
+                            <div class="job-badge-row">
+                                <span class="job-badge"><i class="fa-solid fa-briefcase"></i> Full-Time</span>
+                                <span class="job-badge blue"><i class="fa-solid fa-wifi"></i> Remote</span>
+                                <span class="job-badge green"><i class="fa-solid fa-circle"></i> Actively Hiring</span>
+                            </div>
+                        </div>
+                        <button class="job-toggle-btn" aria-label="Expand job"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div class="job-card-body">
+                        <p class="job-section-title">About the Role</p>
+                        <p class="job-desc">Infrasys is looking for a Business Analyst to work closely with our delivery and consulting teams. This is a remote, full-time role and will primarily support our technology consulting and ERP implementation engagements. The role is based in Mumbai with remote collaboration with our Gurugram headquarters.</p>
+
+                        <p class="job-section-title">Key Responsibilities</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Gather, document, and analyse business requirements from enterprise clients</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Bridge communication between client stakeholders and the technical delivery team</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Prepare Business Requirement Documents (BRDs), functional specifications, and process flow diagrams</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Support ERP implementation projects — SAP, Oracle, or ERPNext — from a functional perspective</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Conduct gap analysis between current-state and to-be processes</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Assist in UAT planning, test case preparation, and sign-off facilitation</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Create dashboards and management reports to track project health</li>
+                        </ul>
+
+                        <p class="job-section-title">Required Skills</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Experience in business analysis within IT services or consulting</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Strong documentation and communication skills</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Familiarity with ERP systems (SAP / Oracle / ERPNext is a plus)</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Proficiency with tools: MS Office, Jira, Confluence, or similar</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Ability to work independently in a remote environment</li>
+                        </ul>
+
+                        <p class="job-section-title">Location &amp; Compensation</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Remote — based in Mumbai, collaborating with Gurugram team</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Salary and other terms to be discussed personally during the interview</li>
+                        </ul>
+
+                        <div class="apply-btn-row">
+                            <button class="btn btn-primary" onclick="openModal('Business Analyst')"><i class="fa-solid fa-paper-plane"></i> Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JOB 4: Salesforce Developer -->
+                <div class="job-card" id="job-salesforce">
+                    <div class="job-card-header" onclick="toggleJob('job-salesforce')">
+                        <div>
+                            <div class="job-title">Salesforce Developer</div>
+                            <div class="job-count">1 Opening &nbsp;·&nbsp; Gurugram, Haryana (On-site)</div>
+                            <div class="job-badge-row">
+                                <span class="job-badge"><i class="fa-solid fa-briefcase"></i> Full-Time</span>
+                                <span class="job-badge blue"><i class="fa-solid fa-location-dot"></i> Gurugram, NCR</span>
+                                <span class="job-badge green"><i class="fa-solid fa-circle"></i> Actively Hiring</span>
+                                <span class="job-badge"><i class="fa-solid fa-indian-rupee-sign"></i> Based on Experience</span>
+                            </div>
+                        </div>
+                        <button class="job-toggle-btn" aria-label="Expand job"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div class="job-card-body">
+                        <p class="job-section-title">About the Role</p>
+                        <p class="job-desc">We are seeking an experienced Salesforce Developer to join our growing team at Infrasys. You will be responsible for designing, developing, and implementing customized Salesforce solutions for enterprise clients across various industries. This role requires strong technical expertise in Salesforce development and a passion for delivering high-quality CRM solutions.</p>
+
+                        <p class="job-section-title">Key Responsibilities</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Design and develop custom Salesforce applications using Apex, Visualforce, and Lightning Web Components (LWC)</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Configure and customize Salesforce objects, fields, workflows, process builder, and validation rules</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Integrate Salesforce with third-party applications using REST/SOAP APIs</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Develop and maintain triggers, batch classes, and scheduled jobs in Apex</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Implement and customize Salesforce features including Sales Cloud, Service Cloud, and Experience Cloud</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Perform data migration, data loading, and data quality management using Data Loader and other ETL tools</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Create comprehensive technical documentation and design specifications</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Collaborate with business analysts and stakeholders to gather requirements and deliver solutions</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Provide technical support and troubleshooting for Salesforce applications</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Follow Salesforce best practices and maintain code quality standards</li>
+                        </ul>
+
+                        <p class="job-section-title">Required Skills & Experience</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> 3-4 years of hands-on Salesforce development experience</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Strong proficiency in Apex, Visualforce, Lightning Web Components (LWC), and Aura Components</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Experience with Salesforce declarative tools (Flows, Process Builder, Workflow Rules)</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Knowledge of Salesforce APIs (REST, SOAP, Bulk API) and integration patterns</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Understanding of Salesforce security model, sharing rules, and profiles/permissions</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Experience with version control systems (Git) and deployment tools (Change Sets, ANT, SFDX)</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Salesforce Platform Developer I certification (mandatory)</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Salesforce Administrator or Platform Developer II certification (preferred)</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Strong analytical and problem-solving skills</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Excellent communication and client-facing skills</li>
+                        </ul>
+
+                        <p class="job-section-title">Preferred Qualifications</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Experience with Salesforce CPQ, Marketing Cloud, or other Salesforce products</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Knowledge of JavaScript frameworks (React, Angular) and modern web development</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Experience working in Agile/Scrum development environment</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Understanding of DevOps practices for Salesforce</li>
+                        </ul>
+
+                        <p class="job-section-title">Location & Compensation</p>
+                        <ul class="job-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> Location: Gurugram, Haryana (On-site)</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Experience: 3-4 years required</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Compensation: Based on experience and current salary</li>
+                            <li><i class="fa-solid fa-circle-dot"></i> Benefits: Competitive package as per company policy</li>
+                        </ul>
+
+                        <div class="apply-btn-row">
+                            <button class="btn btn-primary" onclick="openModal('Salesforce Developer')"><i class="fa-solid fa-paper-plane"></i> Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /jobs-grid -->
+        </div>
+    </section>
+
+    <!-- Why Join Us -->
+    <section class="section section-bg">
+        <div class="container">
+            <div class="section-header scroll-reveal reveal-up">
+                <span class="section-tag">Life at Infrasys</span>
+                <h2 class="section-title">Why Join Our Team</h2>
+                <p class="section-subtitle">We invest in our people the same way we invest in our clients — with commitment, care, and a long-term perspective.</p>
+            </div>
+            <div class="why-join-grid scroll-reveal reveal-up delay-1">
+                <div class="why-join-card">
+                    <div class="why-join-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h4>Fast Career Growth</h4>
+                    <p>Work on real enterprise projects from day one. Your impact is visible and your growth is accelerated.</p>
+                </div>
+                <div class="why-join-card">
+                    <div class="why-join-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h4>Global Exposure</h4>
+                    <p>Engage with clients and teams across 6+ countries. Build a truly international professional profile.</p>
+                </div>
+                <div class="why-join-card">
+                    <div class="why-join-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h4>Continuous Learning</h4>
+                    <p>Access to certifications, workshops, and hands-on training in ERP, AI, Cloud, and Cybersecurity.</p>
+                </div>
+                <div class="why-join-card">
+                    <div class="why-join-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h4>Collaborative Culture</h4>
+                    <p>A flat, inclusive workplace where your ideas are heard and your contributions are recognised.</p>
+                </div>
+                <div class="why-join-card">
+                    <div class="why-join-icon"><i class="fa-solid fa-laptop"></i></div>
+                    <h4>Modern Tech Stack</h4>
+                    <p>Work with SAP, Oracle, ERPNext, AWS, Azure, Python, and cutting-edge AI frameworks.</p>
+                </div>
+                <div class="why-join-card">
+                    <div class="why-join-icon"><i class="fa-solid fa-heart"></i></div>
+                    <h4>Employee Wellbeing</h4>
+                    <p>Competitive compensation, flexible work arrangements, and a team that genuinely cares.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-users"></i></div>
+            <h2 class="cta-title">Don't see your role listed?</h2>
+            <p class="cta-desc">We're always open to hearing from talented individuals. Send us your CV and a note about what you'd like to contribute at Infrasys.</p>
+            <div class="cta-actions">
+                <a href="mailto:info@infrasys.tech?subject=Open%20Application%20-%20Infrasys" class="btn btn-primary btn-lg"><i class="fa-solid fa-envelope"></i> Send Open Application</a>
+                <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg"><i class="fa-brands fa-linkedin-in"></i> Follow Us on LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Contact Modal -->
+<div class="contact-modal" id="contact-modal">
+    <div class="contact-modal-content">
+        <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="contact-modal-grid">
+            <div class="contact-modal-info">
+                <div>
+                    <h2>Let's Connect</h2>
+                    <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                </div>
+                <div class="contact-modal-details">
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Hotline</div>
+                            <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Email Address</div>
+                            <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Headquarters</div>
+                            <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Gurugram, India</div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Business Hours</div>
+                            <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-modal-socials">
+                    <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-modal-form-wrapper">
+                <h3>Send us a message</h3>
+                <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                <form class="contact-form" id="modal-contact-form" action="https://formspree.io/f/xdaqypqy" method="POST" novalidate>
+                    <input type="hidden" name="_subject" value="New Website Enquiry — Infrasys">
+                    <input type="hidden" name="_next" value="https://infrasys.tech/">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-phone input-icon"></i>
+                                <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-tag input-icon"></i>
+                            <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                            <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openContactModal() {
+    document.getElementById('contact-modal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+    document.getElementById('contact-modal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+// Close on outside click
+document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+    if (e.target === this) closeContactModal();
+});
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+        closeContactModal();
+    }
+});
+</script>
+
+
+<footer class="footer">
+        <div class="footer-top"><div class="container"><div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-col"><h4>Company</h4><ul class="footer-links">
+                <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+            </ul></div>
+            <div class="footer-links-col">
+                <h4>Solutions</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                    <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                    <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                    <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col footer-newsletter-col">
+                <h4>Stay Updated</h4>
+                <p class="footer-newsletter-desc">Technology insights and career opportunities in your inbox.</p>
+                <form class="footer-newsletter" id="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+            </div>
+        </div></div></div>
+        <div class="footer-bottom"><div class="container"><div class="footer-bottom-inner">
+            <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+            <div class="footer-legal-links">
+                <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                <a href="compliance.html" class="footer-legal-link">Compliance</a>
+            </div>
+        </div></div></div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Apply Modal -->
+    <div class="modal-overlay" id="apply-modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div>
+                    <h3>Apply for <span id="modal-job-title" style="color:var(--primary-orange);"></span></h3>
+                    <p>All fields marked <span class="required">*</span> are required. Your application will be sent to <strong>infrasyslimited.tech@gmail.com</strong>.</p>
+                </div>
+                <button class="modal-close" onclick="closeModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="apply-form" novalidate enctype="multipart/form-data">
+                <input type="hidden" id="apply-position" name="position">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Full Name <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user input-icon"></i>
+                            <input type="text" name="name" id="af-name" class="form-input" required>
+                        </div>
+                        <span class="field-error" id="err-name" style="display:none;color:#ef4444;font-size:0.78rem;margin-top:5px;font-weight:600;">Full name is required.</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-phone input-icon"></i>
+                            <input type="tel" name="phone" id="af-phone" class="form-input" required>
+                        </div>
+                        <span class="field-error" id="err-phone" style="display:none;color:#ef4444;font-size:0.78rem;margin-top:5px;font-weight:600;">Phone number is required.</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email Address <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope input-icon"></i>
+                        <input type="email" name="email" id="af-email" class="form-input" required>
+                    </div>
+                    <span class="field-error" id="err-email" style="display:none;color:#ef4444;font-size:0.78rem;margin-top:5px;font-weight:600;">Valid email address is required.</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">LinkedIn Profile URL <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fa-brands fa-linkedin-in input-icon"></i>
+                        <input type="url" name="linkedin" id="af-linkedin" class="form-input" required>
+                    </div>
+                    <span class="field-error" id="err-linkedin" style="display:none;color:#ef4444;font-size:0.78rem;margin-top:5px;font-weight:600;">LinkedIn profile URL is required.</span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Current / Last Salary <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-indian-rupee-sign input-icon"></i>
+                            <input type="text" name="salary" id="af-salary" class="form-input" required>
+                        </div>
+                        <span class="field-error" id="err-salary" style="display:none;color:#ef4444;font-size:0.78rem;margin-top:5px;font-weight:600;">Salary information is required.</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Years of Experience <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-briefcase input-icon"></i>
+                            <input type="text" name="experience" id="af-experience" class="form-input" required>
+                        </div>
+                        <span class="field-error" id="err-experience" style="display:none;color:#ef4444;font-size:0.78rem;margin-top:5px;font-weight:600;">Experience is required.</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Resume / CV <span class="required">*</span></label>
+                    <div class="input-wrapper" style="position:relative;">
+                        <i class="fa-solid fa-file-pdf input-icon" style="top:16px;transform:none;"></i>
+                        <input type="file" name="resume" id="af-resume" accept=".pdf,.doc,.docx" required
+                            style="padding:12px 14px 12px 44px;cursor:pointer;background:var(--bg-light);"
+                            class="form-input">
+                    </div>
+                    <p style="font-size:0.75rem;color:var(--text-muted);margin-top:5px;"><i class="fa-solid fa-circle-info" style="color:var(--primary-orange);margin-right:4px;"></i>Accepted formats: PDF, DOC, DOCX. Max 5MB.</p>
+                    <span class="field-error" id="err-resume" style="display:none;color:#ef4444;font-size:0.78rem;margin-top:5px;font-weight:600;">Please upload your Resume / CV.</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Cover Note <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                        <textarea name="message" id="af-message" class="form-input" placeholder="Tell us about yourself, your skills, and why you want to join Infrasys..." required style="height:120px;"></textarea>
+                    </div>
+                    <span class="field-error" id="err-message" style="display:none;color:#ef4444;font-size:0.78rem;margin-top:5px;font-weight:600;">Cover note is required.</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-submit-btn">
+                    <i class="fa-solid fa-paper-plane"></i> Submit Application
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Open Application Mini Modal -->
+    <div class="modal-overlay" id="open-app-modal">
+        <div class="modal-box" style="max-width:480px;">
+            <div class="modal-header">
+                <div>
+                    <h3>Send an Open Application</h3>
+                    <p>Your details will be sent directly to <strong>info@infrasys.tech</strong>.</p>
+                </div>
+                <button class="modal-close" onclick="closeOpenAppModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="open-app-form" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Your Name <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user input-icon"></i>
+                            <input type="text" name="oa-name" id="oa-name" class="form-input" placeholder="Your full name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your Email <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" name="oa-email" id="oa-email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Role You're Interested In <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-briefcase input-icon"></i>
+                        <input type="text" name="oa-role" id="oa-role" class="form-input" placeholder="e.g. Cloud Architect, SAP Consultant..." required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Brief Message <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                        <textarea name="oa-message" id="oa-message" class="form-input" placeholder="Tell us about your skills and what you'd like to contribute at Infrasys..." required style="height:110px;"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit-btn">
+                    <i class="fa-solid fa-envelope"></i> Send Application to Infrasys
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Search
+        (function(){var st=document.getElementById('search-toggle'),so=document.getElementById('search-overlay'),sc=document.getElementById('search-close'),si=document.getElementById('search-input');if(st&&so){st.addEventListener('click',function(){so.classList.add('open');document.body.style.overflow='hidden';setTimeout(function(){if(si)si.focus();},200);});if(sc)sc.addEventListener('click',function(){so.classList.remove('open');document.body.style.overflow='';});so.addEventListener('click',function(e){if(e.target===so){so.classList.remove('open');document.body.style.overflow='';}});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&so.classList.contains('open')){so.classList.remove('open');document.body.style.overflow='';}});}})();
+        // Cookies
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+        // Jobs
+        function toggleJob(id){var card=document.getElementById(id);var isOpen=card.classList.contains('open');document.querySelectorAll('.job-card').forEach(function(c){c.classList.remove('open');});if(!isOpen)card.classList.add('open');}
+        function openModal(title){document.getElementById('modal-job-title').textContent=title;document.getElementById('apply-position').value=title;document.getElementById('apply-modal').classList.add('open');document.body.style.overflow='hidden';}
+        function closeModal(){document.getElementById('apply-modal').classList.remove('open');document.body.style.overflow='';}
+        document.getElementById('apply-modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+        document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+        document.getElementById('apply-form').addEventListener('submit', async function(e) {
+            // Validate required fields first
+            const fields = ['af-name','af-phone','af-email','af-linkedin','af-salary','af-experience','af-message','af-resume'];
+            const errIds = ['err-name','err-phone','err-email','err-linkedin','err-salary','err-experience','err-message','err-resume'];
+            let valid = true;
+            fields.forEach(function(id, i) {
+                var el = document.getElementById(id);
+                var errEl = document.getElementById(errIds[i]);
+                if (!el.value || (el.type === 'file' && el.files.length === 0)) {
+                    errEl.style.display = 'block';
+                    el.style.borderColor = '#ef4444';
+                    valid = false;
+                } else {
+                    errEl.style.display = 'none';
+                    el.style.borderColor = '';
+                }
+            });
+            if (!valid) { e.preventDefault(); return; }
+
+            var btn = this.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+
+            // On file:// — native form submit works directly
+            if (window.location.protocol === 'file:') return;
+
+            e.preventDefault();
+
+            var position = document.getElementById('apply-position').value;
+            var name     = document.getElementById('af-name').value;
+            var phone    = document.getElementById('af-phone').value;
+            var email    = document.getElementById('af-email').value;
+            var linkedin = document.getElementById('af-linkedin').value;
+            var salary   = document.getElementById('af-salary').value;
+            var exp      = document.getElementById('af-experience').value;
+            var message  = document.getElementById('af-message').value;
+            var resumeFile = document.getElementById('af-resume').files[0];
+
+            // Use FormData so the file attachment goes through
+            var fd = new FormData();
+            fd.append('_subject', 'Job Application: ' + position + ' — ' + name);
+            fd.append('_replyto', email);
+            fd.append('Position', position);
+            fd.append('Name', name);
+            fd.append('Phone', phone);
+            fd.append('Email', email);
+            fd.append('LinkedIn', linkedin);
+            fd.append('Current/Last Salary', salary);
+            fd.append('Experience', exp);
+            fd.append('Cover Note', message);
+            if (resumeFile) fd.append('Resume', resumeFile);
+
+            var self = this;
+            try {
+                var res = await fetch('/api/apply', {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: fd
+                });
+
+                if (res.ok) {
+                    self.innerHTML = '<div style="text-align:center;padding:32px 0;">' +
+                        '<div style="width:60px;height:60px;background:rgba(16,185,129,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.8rem;color:#10b981;border:2px solid rgba(16,185,129,0.25);">' +
+                        '<i class="fa-solid fa-check"></i></div>' +
+                        '<h3 style="font-family:var(--font-heading);color:var(--secondary-blue);margin-bottom:10px;">Application Submitted!</h3>' +
+                        '<p style="color:var(--text-muted);font-size:0.92rem;line-height:1.6;">We\'ve received your application for <strong>' + position + '</strong>. Our HR team will review your profile and reach out within 2 business days.</p>' +
+                        '</div>';
+                } else {
+                    throw new Error('Formspree error');
+                }
+            } catch(err) {
+                // Fallback to mailto with details in body
+                var subject = encodeURIComponent('Job Application: ' + position + ' — ' + name);
+                var body = encodeURIComponent(
+                    'Position: ' + position + '\n' +
+                    'Name: ' + name + '\n' +
+                    'Phone: ' + phone + '\n' +
+                    'Email: ' + email + '\n' +
+                    'LinkedIn: ' + linkedin + '\n' +
+                    'Salary: ' + salary + '\n' +
+                    'Experience: ' + exp + '\n\n' +
+                    'Cover Note:\n' + message + '\n\n' +
+                    '(Resume to be attached manually)'
+                );
+                window.location.href = 'mailto:info@infrasys.tech?subject=' + subject + '&body=' + body;
+                self.innerHTML = '<div style="text-align:center;padding:32px 0;">' +
+                    '<div style="width:60px;height:60px;background:rgba(255,107,0,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.8rem;color:var(--primary-orange);">' +
+                    '<i class="fa-solid fa-envelope"></i></div>' +
+                    '<h3 style="font-family:var(--font-heading);color:var(--secondary-blue);margin-bottom:10px;">Opening Email App...</h3>' +
+                    '<p style="color:var(--text-muted);font-size:0.92rem;line-height:1.6;">Your application details are pre-filled. Please attach your resume and send the email to complete your application.</p>' +
+                    '</div>';
+            }
+        });
+    </script>
+    <script src="form-handler.js"></script>
+</body>
+</html>
+

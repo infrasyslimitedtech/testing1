@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Meet the Infrasys leadership team — engineers, strategists, and technology experts driving global infrastructure excellence.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .team-grid-lg { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+        .team-grid-sm { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:24px; }
+        .team-card-sm {
+            background:var(--bg-white); border:1px solid var(--border-color);
+            border-radius:var(--border-radius); padding:28px 24px; text-align:center;
+            transition:var(--transition-smooth);
+        }
+        .team-card-sm:hover { transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:rgba(255,107,0,0.2); }
+        .team-card-sm .avatar-sm {
+            width:64px; height:64px; border-radius:50%; margin:0 auto 16px;
+            display:flex; align-items:center; justify-content:center;
+            font-size:1.6rem; color:rgba(255,255,255,0.3); border:3px solid rgba(255,107,0,0.15);
+        }
+        .team-card-sm h4 { font-size:1rem; color:var(--secondary-blue); margin-bottom:4px; }
+        .team-card-sm .role-sm { font-size:0.78rem; color:var(--primary-orange); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; }
+        .join-box {
+            background:linear-gradient(135deg,var(--primary-orange),#ff8533);
+            border-radius:var(--border-radius-lg); padding:60px; text-align:center;
+            color:#fff; position:relative; overflow:hidden; margin-top:60px;
+        }
+        .join-box::before {
+            content:''; position:absolute; top:-40%; right:-10%; width:280px; height:280px;
+            border-radius:50%; background:rgba(255,255,255,0.08);
+        }
+        .join-box h3 { font-size:2rem; font-weight:800; margin-bottom:16px; position:relative; z-index:1; color:#fff; }
+        .join-box p { font-size:1rem; opacity:0.85; max-width:480px; margin:0 auto 32px; line-height:1.7; position:relative; z-index:1; }
+        @media(max-width:1024px){ .team-grid-lg,.team-grid-sm{grid-template-columns:repeat(2,1fr);} }
+        @media(max-width:480px){ .team-grid-lg,.team-grid-sm{grid-template-columns:1fr;} .join-box{padding:36px 24px;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>                                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+                        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Our Team</span>
+            </nav>
+            <h1 class="page-hero-title">Meet Our <span>Experts</span></h1>
+            <p class="page-hero-subtitle">A team of engineers, strategists, and operators united by a passion for building infrastructure that lasts.</p>
+        </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header scroll-reveal reveal-up">
+                <span class="section-tag">Leadership</span>
+                <h2 class="section-title">Executive Team</h2>
+                <p class="section-subtitle">Visionary leaders with decades of combined experience driving global infrastructure transformation.</p>
+            </div>
+            <div class="team-grid-lg">
+                <div class="team-card scroll-reveal reveal-scale delay-1">
+                    <div class="team-image-wrapper">
+                        <img src="./assets/ajay-mishra.jpg" alt="Ajay Mishra — Managing Director" class="team-image" style="object-fit:cover;width:100%;height:100%;">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Ajay Mishra</h3>
+                        <p class="team-role">Director</p>
+                        <p class="team-bio">An MBA-qualified finance professional with over two decades of experience in infrastructure consulting and project management. Ajay plays a pivotal role in overseeing project execution, financial strategy, and operational excellence. He leads key business functions including finance, compliance, bidding, and resource management, ensuring strong governance and sustainable growth. His extensive industry expertise and strategic leadership continue to drive the company's expansion and long-term value creation.</p>
+                    </div>
+                </div>
+                <div class="team-card scroll-reveal reveal-scale delay-2">
+                    <div class="team-image-wrapper">
+                        <img src="./assets/ashish-paul.jpg" alt="Ashish Paul — Director" class="team-image" style="object-fit:cover;width:100%;height:100%;">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Ashish Paul</h3>
+                        <p class="team-role">Director</p>
+                        <p class="team-bio">An engineer and MBA with over 25 years of experience, Ashish leads corporate relationship development, drives business growth across sectors, and provides strategic direction in risk mitigation. He plays a key role in stakeholder engagement, serving as the company's liaison with policymakers and industry influencers, while guiding bidding strategy, contract management, corporate affairs, and governance. His leadership extends to strategic partnerships, commercial negotiations, policy advocacy, and enterprise-wide initiatives that drive operational excellence and long-term value creation.</p>
+                    </div>
+                </div>
+                <div class="team-card scroll-reveal reveal-scale delay-3">
+                    <div class="team-image-wrapper">
+                        <img src="./assets/suraj-jaiswal.jpg" alt="Suraj Jaiswal — Vice President" class="team-image" style="object-fit:cover;width:100%;height:100%;object-position:top;">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Suraj Jaiswal</h3>
+                        <p class="team-role">Vice President</p>
+                        <p class="team-bio">Suraj heads Business Development and Sales, leading strategic growth initiatives and fostering long-term client partnerships. With over 12 years of experience across technology, consulting, and digital transformation, he has advised Fortune enterprises and high-growth unicorn startups on large-scale transformation programs. He brings a proven track record in solution design, business consulting, and driving innovation-led outcomes, combining strategic thinking, commercial acumen, and deep technology expertise. Suraj holds an MBA from the Indian Institute of Management (IIM), Mumbai.</p>
+                    </div>
+                </div>
+                <div class="team-card scroll-reveal reveal-scale delay-4">
+                    <div class="team-image-wrapper">
+                        <img src="./assets/richa.jpg" alt="Richa Sharma — Director Compliance & Governance" class="team-image" style="object-fit:cover;width:100%;height:100%;object-position:top center;">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Richa Sharma</h3>
+                        <p class="team-role">Director</p>
+                        <p class="team-bio">As a Director, Richa brings over five years of experience in corporate compliance and governance, with a strong focus on ensuring regulatory compliance, promoting ethical business practices, and strengthening organizational governance frameworks. Her expertise spans statutory compliance, corporate governance, regulatory advisory, and risk management. She plays a key role in upholding the company's commitment to transparency, accountability, and operational excellence — contributing to a strong foundation that supports sustainable growth, stakeholder confidence, and long-term business success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Senior Consultants section removed -->
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-users"></i></div>
+            <h2 class="cta-title">Work with the best.</h2>
+            <p class="cta-desc">Our team is ready to bring their expertise to your next infrastructure challenge. Let's build something great together.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Get in Touch</a>
+                <a href="about.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-circle-info"></i> About Infrasys</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+<div class="contact-modal" id="contact-modal">
+    <div class="contact-modal-content">
+        <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="contact-modal-grid">
+            <div class="contact-modal-info">
+                <div>
+                    <h2>Let's Connect</h2>
+                    <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                </div>
+                <div class="contact-modal-details">
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Hotline</div>
+                            <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Email Address</div>
+                            <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Headquarters</div>
+                            <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Gurugram, India</div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Business Hours</div>
+                            <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-modal-socials">
+                    <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-modal-form-wrapper">
+                <h3>Send us a message</h3>
+                <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                <form class="contact-form" id="modal-contact-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-phone input-icon"></i>
+                                <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-tag input-icon"></i>
+                            <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                            <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openContactModal() {
+    document.getElementById('contact-modal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+    document.getElementById('contact-modal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+// Close on outside click
+document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+    if (e.target === this) closeContactModal();
+});
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+        closeContactModal();
+    }
+});
+</script>
+
+
+<footer class="footer">
+        <div class="footer-top"><div class="container"><div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-col"><h4>Company</h4><ul class="footer-links">
+                <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+            </ul></div>
+            <div class="footer-links-col">
+                <h4>Solutions</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                    <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                    <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                    <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col footer-newsletter-col">
+                <h4>Stay Updated</h4>
+                <p class="footer-newsletter-desc">Infrastructure insights in your inbox.</p>
+                <form class="footer-newsletter" id="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+            </div>
+        </div></div></div>
+        <div class="footer-bottom"><div class="container"><div class="footer-bottom-inner">
+            <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+            <div class="footer-legal-links">
+                <a href="#" class="footer-legal-link">Privacy Policy</a>
+                <a href="#" class="footer-legal-link">Terms of Service</a>
+                <a href="compliance.html" class="footer-legal-link">Compliance</a>
+            </div>
+        </div></div></div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Cookies only — search handled by app.js
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script><script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OT/IT Convergence for Smart Manufacturing — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Secure convergence of operational technology and information technology networks for smart manufacturing with maintained cybersecurity.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .tech-stack { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .tech-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="manufacturing.html">Manufacturing</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">OT/IT Convergence</span>
+            </nav>
+            <h1 class="page-hero-title">OT/IT <span>Convergence</span></h1>
+            <p class="page-hero-subtitle">Secure integration of operational and information technology for intelligent manufacturing operations</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Bridging Operational Technology and Information Technology</h2>
+                <p>For decades, manufacturing organizations maintained strict separation between Operational Technology (OT) — the systems controlling physical production processes — and Information Technology (IT) — the business systems managing enterprise operations. OT environments prioritized availability and safety, running specialized industrial protocols on air-gapped networks isolated from external threats. IT environments emphasized data security and flexibility, leveraging standard networking protocols and internet connectivity for business agility.</p>
+                <p>Industry 4.0 and digital manufacturing transformation demand convergence of these historically separate domains. Real-time production data from OT systems must flow to IT analytics platforms. Enterprise planning systems must communicate with shop floor execution systems. Cloud-based machine learning models require access to sensor data from production equipment. This OT/IT convergence unlocks tremendous value — predictive maintenance, quality optimization, supply chain visibility — but also introduces significant cybersecurity risks if not architected properly.</p>
+                <p>Infrasys specializes in designing secure OT/IT convergence architectures that enable data flow while maintaining production system integrity. Our implementations follow IEC 62443 industrial cybersecurity standards, Purdue Model network segmentation principles, and defense-in-depth strategies ensuring manufacturing operations remain protected against evolving cyber threats. We've delivered OT/IT convergence projects for automotive manufacturers, pharmaceutical plants, chemical facilities, and food production operations where cybersecurity failures could result in production shutdowns, safety incidents, or regulatory non-compliance.</p>
+
+                <h3>Core Convergence Capabilities</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-network-wired"></i> Network Segmentation & DMZ</h4>
+                        <p>Architectural design separating OT and IT networks with industrial demilitarized zones (DMZ), firewalls, and unidirectional gateways controlling data flow.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-shield-halved"></i> Industrial Cybersecurity</h4>
+                        <p>IEC 62443 compliant security controls including intrusion detection, access management, patch management, and security monitoring for OT environments.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-arrows-turn-right"></i> Secure Data Exchange</h4>
+                        <p>Industrial gateways and protocol translators enabling controlled bidirectional communication between OT control systems and IT business applications.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-eye"></i> Unified Security Monitoring</h4>
+                        <p>Security Operations Center (SOC) integration providing visibility into both OT and IT security events with correlated threat detection and response.</p>
+                    </div>
+                </div>
+
+                <h3>The Purdue Model for Industrial Network Segmentation</h3>
+                <p>The Purdue Enterprise Reference Architecture (PERA), also known as the Purdue Model, provides the foundational framework for OT/IT network segmentation. This hierarchical model defines six levels with specific security zones and conduits controlling communication between levels:</p>
+                <p><strong>Level 5 – Enterprise Network:</strong> Corporate IT systems including ERP, email, office productivity tools, and internet access. This zone operates standard IT security controls — antivirus, email filtering, web proxies, Active Directory authentication.</p>
+                <p><strong>Level 4 – Business Planning & Logistics:</strong> Plant-level business systems including MES, laboratory information management systems (LIMS), asset management, and advanced planning & scheduling. This zone bridges IT and OT, requiring controls from both domains.</p>
+                <p><strong>Level 3.5 – Industrial Demilitarized Zone (IDMZ):</strong> The critical security boundary where OT historians, application servers, and data exchange gateways reside. Firewalls, data diodes, and security appliances rigorously control traffic between OT and IT networks.</p>
+                <p><strong>Level 3 – Manufacturing Operations Management:</strong> MES, SCADA HMI servers, production workflow management, and batch management systems. This zone coordinates production operations without directly controlling equipment.</p>
+                <p><strong>Level 2 – Supervisory Control:</strong> SCADA servers, HMI workstations, engineering workstations, and supervisory control applications monitoring and controlling production processes.</p>
+                <p><strong>Levels 1 & 0 – Basic Control & Field Devices:</strong> PLCs, DCS controllers, RTUs, intelligent electronic devices (IEDs), sensors, and actuators directly controlling physical equipment. These systems require deterministic real-time performance and maximum availability.</p>
+                <p>Security policies govern communication between levels — Level 3 can communicate with Level 2 for supervisory control, but direct communication between Level 5 (enterprise IT) and Level 1 (control systems) is strictly prohibited. All cross-zone communication must traverse security enforcement points with deep packet inspection, protocol validation, and logging.</p>
+
+                <h3>Industrial Demilitarized Zone (IDMZ) Architecture</h3>
+                <p>The IDMZ serves as the secure buffer zone enabling controlled data exchange between OT and IT networks. Proper IDMZ design is critical for both operational continuity and cybersecurity:</p>
+                <p><strong>Dual Firewall Configuration:</strong> Two industrial firewalls create the IDMZ — one between Level 4 (IT) and Level 3.5 (IDMZ), another between Level 3.5 (IDMZ) and Level 3 (OT). This dual-firewall architecture ensures that compromise of one firewall doesn't provide direct access to production control systems. Firewalls implement application-layer inspection understanding industrial protocols (OPC-UA, Modbus TCP, DNP3) and blocking malformed or anomalous communications.</p>
+                <p><strong>Data Historians & Application Servers:</strong> OT historians (OSIsoft PI, GE Proficy, Wonderware) reside in the IDMZ, collecting production data from Level 2/3 systems. IT applications query historians via read-only connections, preventing IT security incidents from impacting OT data collection. Application servers hosting MES, production reporting, and analytics applications also operate in the IDMZ with controlled connections to both OT and IT zones.</p>
+                <p><strong>Unidirectional Gateways (Data Diodes):</strong> For highest-security environments — pharmaceuticals, aerospace, critical infrastructure — unidirectional gateways enforce one-way data flow from OT to IT. These hardware-enforced devices physically prevent reverse traffic, ensuring IT security compromises cannot reach production control systems. Data flows from OT historians through unidirectional gateways to IT data lakes and analytics platforms.</p>
+                <p><strong>Security Monitoring & Jump Servers:</strong> IDMZ hosts security monitoring appliances collecting logs from OT and IT zones. Secure jump servers (privileged access workstations) provide controlled administrative access to OT systems, requiring multi-factor authentication and session recording. Engineers access production systems only through jump servers, never directly from IT networks.</p>
+
+                <h3>Industrial Cybersecurity Controls</h3>
+                <p>OT environments require specialized cybersecurity controls recognizing the unique characteristics of industrial systems — 24x7 operations precluding maintenance windows, legacy equipment lacking modern security features, real-time performance requirements intolerant of inspection latencies:</p>
+                <p><strong>Network Segmentation:</strong> Beyond Purdue Model hierarchical segmentation, we implement lateral segmentation within OT zones — separating production lines, isolating safety systems, segregating wireless networks. VLANs, firewalls, and access control lists enforce segmentation policies preventing lateral movement by attackers.</p>
+                <p><strong>Intrusion Detection Systems (IDS):</strong> Industrial IDS appliances (Nozomi Networks, Claroty, Dragos) monitor OT network traffic using passive network taps or span ports. Unlike IT intrusion prevention systems that actively block traffic (potentially disrupting production), OT IDS alerts security teams to anomalies — unusual protocol commands, unauthorized device connections, malware signatures — for investigation and response.</p>
+                <p><strong>Asset Inventory & Vulnerability Management:</strong> Passive discovery tools identify all devices on OT networks — PLCs, HMIs, switches, IP cameras — creating comprehensive asset inventories. Vulnerability scanners (adapted for OT environments to avoid disrupting equipment) identify outdated firmware, missing patches, insecure configurations. Risk-based prioritization addresses critical vulnerabilities while deferring non-critical updates until planned maintenance windows.</p>
+                <p><strong>Access Control & Authentication:</strong> Role-based access control (RBAC) limits user permissions to job-required functions. Multi-factor authentication secures remote access to OT systems. Service accounts use strong passwords rotated regularly, with privileged access management (PAM) systems auditing all administrative actions. Physical access controls prevent unauthorized personnel from reaching control system cabinets and network closets.</p>
+                <p><strong>Patch Management for OT:</strong> Unlike IT systems with monthly patch cycles, OT systems require careful validation before applying updates — testing patches in lab environments, scheduling installations during planned shutdowns, maintaining rollback capabilities. Our patch management processes balance security risk against operational disruption, applying critical security patches promptly while deferring low-risk updates.</p>
+
+                <h3>Secure Data Exchange Patterns</h3>
+                <p>OT/IT convergence requires multiple data exchange patterns, each with appropriate security controls:</p>
+                <p><strong>OT to IT Data Publication:</strong> Production data, equipment status, and quality metrics flow from OT historians to IT data warehouses, data lakes, and analytics platforms. This one-way flow uses read-only database connections, REST APIs with API gateways enforcing rate limits, or message queues with IT systems as consumers only. Data validation at IDMZ boundaries prevents injection attacks through manipulated sensor data.</p>
+                <p><strong>IT to OT Data Subscription:</strong> Enterprise systems send production orders, product definitions, and scheduling information to MES and control systems. These messages traverse strict validation — schema validation, business rule enforcement, digital signatures — preventing malformed or malicious data from reaching production systems. Staging databases in IDMZ buffer incoming data, with OT systems pulling validated information rather than accepting pushed data directly from IT.</p>
+                <p><strong>Bidirectional API Integration:</strong> Modern MES and ERP systems exchange data via RESTful APIs. API gateways in IDMZ mediate these communications, enforcing authentication (OAuth tokens, API keys), rate limiting preventing denial-of-service attacks, input validation blocking SQL injection and other exploits, and comprehensive logging supporting security forensics.</p>
+                <p><strong>Remote Access for Vendors & Contractors:</strong> Equipment vendors and system integrators require remote access for troubleshooting and maintenance. Jump servers with multi-factor authentication, session time limits, and activity monitoring provide controlled access. Virtual Desktop Infrastructure (VDI) solutions isolate vendor sessions preventing introduction of malware. Remote access connections route through VPNs with network segmentation ensuring vendors access only assigned equipment.</p>
+
+                <h3>IEC 62443 Industrial Cybersecurity Standards</h3>
+                <p>IEC 62443 provides comprehensive requirements and guidance for industrial automation and control system security. Our OT/IT convergence architectures align with IEC 62443 foundational requirements:</p>
+                <ul>
+                    <li><strong>FR 1 – Identification and Authentication Control:</strong> All users, devices, and software processes accessing OT systems must be uniquely identified and authenticated before access is granted</li>
+                    <li><strong>FR 2 – Use Control:</strong> Enforce authorization of all users, limiting access rights based on job functions and principle of least privilege</li>
+                    <li><strong>FR 3 – System Integrity:</strong> Protect OT systems from unauthorized manipulation, ensuring configuration integrity and detecting unauthorized changes</li>
+                    <li><strong>FR 4 – Data Confidentiality:</strong> Protect sensitive information from unauthorized disclosure during storage and transmission using encryption</li>
+                    <li><strong>FR 5 – Restricted Data Flow:</strong> Segment networks and restrict communication flows based on security zone and conduit model</li>
+                    <li><strong>FR 6 – Timely Response to Events:</strong> Detect, report, and respond to security events in timeframes preventing or minimizing impact to operations</li>
+                    <li><strong>FR 7 – Resource Availability:</strong> Ensure availability of OT systems and networks against denial-of-service attacks and resource exhaustion</li>
+                </ul>
+                <p>IEC 62443 security level assessments determine appropriate security controls based on risk — SL 1 for protection against casual or coincidental violations, up to SL 4 for protection against intentional attacks by sophisticated adversaries. Our security architectures implement SL 2 or SL 3 controls appropriate for most manufacturing environments.</p>
+
+                <h3>Organizational & Process Considerations</h3>
+                <p>Successful OT/IT convergence requires more than technical architecture — it demands organizational alignment and process integration:</p>
+                <p><strong>Unified Security Governance:</strong> Traditional separation between IT security teams (managing enterprise networks) and OT engineering teams (managing production systems) creates gaps. Converged environments require unified security governance — joint risk assessments, coordinated incident response, shared security metrics. Security Operations Centers (SOC) must monitor both IT and OT environments, with analysts trained in industrial protocols and production impacts.</p>
+                <p><strong>Change Management Processes:</strong> Changes to OT networks and systems follow rigorous change control — impact assessment, testing in non-production environments, scheduled implementation windows, rollback procedures. Change advisory boards include representatives from operations, maintenance, IT, and security ensuring changes don't inadvertently disrupt production or introduce vulnerabilities.</p>
+                <p><strong>Incident Response Planning:</strong> Cybersecurity incident response playbooks address OT-specific scenarios — malware on HMI workstations, unauthorized access to control systems, network outages affecting production. Response procedures balance security containment with operational continuity — isolating affected systems while maintaining production, conducting forensics without destroying evidence, coordinating with regulatory authorities when required.</p>
+                <p><strong>Training & Awareness:</strong> Operations personnel receive cybersecurity awareness training adapted for industrial environments — recognizing phishing targeting industrial users, reporting suspicious USB drives, understanding consequences of connecting personal devices to OT networks. IT administrators learn OT fundamentals — industrial protocols, real-time requirements, production impact of system changes.</p>
+
+                <h3>Technology Stack for OT/IT Convergence</h3>
+                <p>Our convergence implementations leverage proven industrial cybersecurity technologies:</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Palo Alto Industrial Firewall</span>
+                    <span class="tech-badge">Waterfall Unidirectional Gateway</span>
+                    <span class="tech-badge">Nozomi Networks / Claroty</span>
+                    <span class="tech-badge">OSIsoft PI / AVEVA Historian</span>
+                    <span class="tech-badge">Cisco ISE / ForeScout</span>
+                    <span class="tech-badge">CyberArk / BeyondTrust PAM</span>
+                    <span class="tech-badge">Splunk / QRadar SIEM</span>
+                    <span class="tech-badge">Tenable.ot / Armis</span>
+                </div>
+
+                <h3>Implementation Approach</h3>
+                <p>OT/IT convergence projects follow a phased methodology minimizing operational disruption:</p>
+                <ul>
+                    <li><strong>Phase 1 – Assessment & Architecture:</strong> Document existing OT and IT network topologies, identify data flows requiring convergence, perform risk assessments, and design target-state architecture aligned with Purdue Model and IEC 62443</li>
+                    <li><strong>Phase 2 – Infrastructure Deployment:</strong> Install industrial firewalls, IDMZ infrastructure, historians, and security monitoring tools during planned outages or in parallel with existing systems</li>
+                    <li><strong>Phase 3 – Data Integration:</strong> Implement secure data exchange between OT and IT systems, migrate applications to IDMZ, validate data flows and business processes</li>
+                    <li><strong>Phase 4 – Security Hardening:</strong> Deploy intrusion detection, implement access controls, establish security monitoring, conduct penetration testing validating security posture</li>
+                    <li><strong>Phase 5 – Operational Transition:</strong> Train SOC analysts, establish incident response procedures, implement ongoing vulnerability management, conduct tabletop exercises simulating security incidents</li>
+                </ul>
+
+                <h3>Business Value & Risk Mitigation</h3>
+                <p>Properly architected OT/IT convergence delivers strategic business value while managing cybersecurity risks:</p>
+                <ul>
+                    <li><strong>Operational Visibility:</strong> Real-time production data accessible to enterprise stakeholders enables data-driven decision-making — identifying bottlenecks, optimizing asset utilization, improving on-time delivery</li>
+                    <li><strong>Predictive Maintenance:</strong> Equipment sensor data flowing to analytics platforms enables machine learning models predicting failures, reducing unplanned downtime 20-30%</li>
+                    <li><strong>Supply Chain Coordination:</strong> Production status visibility allows dynamic coordination with suppliers and customers — adjusting material deliveries, providing accurate order status, optimizing inventory</li>
+                    <li><strong>Regulatory Compliance:</strong> Documented network architectures, access controls, and security monitoring support ISO 27001, NIST Cybersecurity Framework, and industry-specific regulations (FDA, NERC CIP)</li>
+                    <li><strong>Risk Reduction:</strong> Defense-in-depth security architecture protects against ransomware, nation-state attacks, and insider threats that have disrupted manufacturing operations globally</li>
+                </ul>
+
+                <h3>Why Choose Infrasys for OT/IT Convergence?</h3>
+                <p>Infrasys brings unique expertise spanning industrial automation, network architecture, cybersecurity, and manufacturing operations. Our team includes engineers with PLC programming experience, certified information systems security professionals (CISSP), and operational technology specialists (GICSP) who understand both production requirements and security imperatives.</p>
+                <p>We've designed and implemented OT/IT convergence architectures for automotive assembly plants requiring 99.9% uptime, pharmaceutical facilities under FDA validation requirements, chemical plants with ISA 84 safety instrumented systems, and food production operations with supply chain traceability mandates. Our convergence projects don't just connect networks — they enable digital manufacturing transformation while protecting the production systems that keep businesses running.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-diagram-project"></i></div>
+            <h2 class="cta-title">Ready to securely converge your OT and IT networks?</h2>
+            <p class="cta-desc">Discuss network architecture, security assessments, or IEC 62443 implementation strategies with our convergence specialists.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Schedule Security Consultation</a>
+                <a href="manufacturing.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Manufacturing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

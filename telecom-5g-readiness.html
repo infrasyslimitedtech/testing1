@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5G Infrastructure Readiness Assessment — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Comprehensive 5G network readiness audits, spectrum planning, RAN modernization roadmaps, core network virtualization, and transport upgrade planning.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .protocol-list { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .protocol-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="telecom-media.html">Telecom & Media</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">5G Infrastructure Readiness</span>
+            </nav>
+            <h1 class="page-hero-title">5G Infrastructure <span>Readiness</span></h1>
+            <p class="page-hero-subtitle">Comprehensive network capability audits and modernization roadmaps for 5G deployment</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Strategic 5G Network Assessment & Planning</h2>
+                <p>The transition from 4G LTE to 5G represents the most significant transformation in mobile network architecture since the introduction of cellular technology. Unlike previous generation upgrades that focused primarily on radio access network improvements, 5G demands fundamental changes across radio, transport, core, and edge infrastructure — along with new operational capabilities for network slicing, ultra-reliable low-latency services, and massive IoT connectivity.</p>
+                <p>Infrasys specializes in comprehensive 5G readiness assessments that evaluate every layer of your network infrastructure, identify gaps preventing 5G deployment, and develop pragmatic multi-year roadmaps that balance technical requirements, capital investment constraints, and competitive pressures. Our assessments go beyond vendor marketing materials to provide actionable recommendations grounded in 3GPP standards, real-world deployment experience, and operational reality.</p>
+                <p>We work with mobile network operators, tower companies, private network deployers, and government entities planning 5G infrastructure investments. Our team brings expertise across radio frequency engineering, IP/MPLS transport networks, cloud-native core platforms, and the operational systems required to orchestrate and monetize 5G services.</p>
+
+                <h3>Core 5G Readiness Assessment Services</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-tower-cell"></i> RAN Architecture Audit</h4>
+                        <p>Assessment of existing macro sites, small cells, and DAS for 5G radio upgrade readiness including power, backhaul, and structural capacity constraints.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-microchip"></i> Spectrum Planning</h4>
+                        <p>Frequency band allocation strategy for low-band (coverage), mid-band (capacity), and mmWave (ultra-capacity) 5G deployments aligned with licensed spectrum holdings.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-network-wired"></i> Transport Network Analysis</h4>
+                        <p>Fronthaul, midhaul, and backhaul capacity assessment for eCPRI/NGFI interfaces, timing distribution (PTP), and latency requirements for URLLC services.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-cloud"></i> Core Network Readiness</h4>
+                        <p>Evaluation of EPC architecture for 5G NSA migration and gap analysis for cloud-native 5G SA core deployment with service-based architecture.</p>
+                    </div>
+                </div>
+
+                <h3>5G Non-Standalone (NSA) vs. Standalone (SA) Architecture</h3>
+                <p>Mobile operators face a critical decision between two 5G deployment paths, each with distinct technical requirements, capital investment profiles, and service capabilities. Our readiness assessments evaluate your network against both architectures and recommend the optimal migration strategy.</p>
+                <p><strong>5G NSA (Option 3x):</strong> Non-standalone deployments anchor 5G radio on existing 4G EPC core networks, enabling rapid deployment of enhanced mobile broadband services without core network replacement. NSA reuses LTE control plane signaling while delivering 5G user plane throughput exceeding 1Gbps. This approach minimizes initial capex and accelerates time-to-market for consumer 5G services.</p>
+                <p>However, NSA cannot deliver ultra-reliable low-latency communication (URLLC), network slicing, or massive IoT connectivity because these features require the service-based architecture of 5G SA core. NSA is a transitional architecture — operators will eventually migrate to SA to unlock 5G's full potential and reduce the operational complexity of running dual 4G/5G control planes.</p>
+                <p><strong>5G SA (Option 2):</strong> Standalone deployments implement full 5G core networks with cloud-native network functions (NRF, AMF, SMF, UPF) communicating over service-based interfaces (SBI). SA enables network slicing, edge computing integration, ultra-low latency for industrial applications, and massive IoT device support through NB-IoT and LTE-M evolution.</p>
+                <p>SA deployment requires wholesale replacement or virtualization of EPC core, implementation of CUPS (Control/User Plane Separation) architecture, and integration with edge computing infrastructure for distributed UPF placement. Capital investment is higher than NSA, but SA provides the architectural foundation for new enterprise services, private 5G networks, and mission-critical applications that justify premium pricing.</p>
+
+                <h3>Radio Access Network (RAN) Modernization Requirements</h3>
+                <p>Upgrading 4G macro sites to support 5G New Radio (NR) requires far more than software updates. We conduct site-by-site audits to identify infrastructure gaps and develop remediation plans:</p>
+                <ul>
+                    <li><strong>Antenna System Upgrades:</strong> Assessment of existing antenna ports, feeders, and combiners for multi-band 5G support. Massive MIMO antennas with 64T64R or 32T32R configurations require additional mounting hardware, wind loading analysis, and structural reinforcement</li>
+                    <li><strong>Power Infrastructure:</strong> 5G radios consume significantly more power than 4G (3-5kW per sector vs. 1-2kW for LTE). Site power systems must be upgraded to support higher DC load, with rectifier and battery capacity increases at most locations</li>
+                    <li><strong>Baseband Processing:</strong> Migration from distributed baseband units (BBU) to centralized or cloud RAN (C-RAN) architectures, enabling statistical multiplexing gains and simplifying software upgrades across the RAN</li>
+                    <li><strong>Fronthaul Connectivity:</strong> For C-RAN deployments, fiber connectivity between radios and centralized baseband pools must support eCPRI or enhanced CPRI bandwidth (10-25Gbps per sector) with strict latency budgets</li>
+                    <li><strong>Small Cell Densification:</strong> In urban areas, macro site upgrades alone cannot deliver 5G capacity targets. We model small cell deployment density required to achieve target data rates and user experience quality</li>
+                </ul>
+
+                <h3>Transport Network Capacity & Latency Requirements</h3>
+                <p>5G transport networks must deliver order-of-magnitude increases in bandwidth while simultaneously reducing latency to single-digit milliseconds for URLLC applications. Our transport assessments evaluate existing backhaul and identify upgrade paths:</p>
+                <p>For macro sites, backhaul capacity must scale from typical 4G requirements of 1-2Gbps per site to 10-20Gbps for multi-sector 5G deployment with massive MIMO. Existing microwave links may lack the spectrum bandwidth to support 5G throughput, requiring fiber deployment or high-capacity millimeter-wave (E-band) radio upgrades.</p>
+                <p>Latency becomes a first-class network requirement for 5G SA. Industrial automation, autonomous vehicles, and tactile internet applications demand end-to-end latency below 10ms. We model propagation delay, queueing delay, and processing delay across transport paths to identify bottlenecks and design low-latency routing for URLLC slices.</p>
+                <p>Timing distribution with sub-microsecond accuracy is mandatory for 5G TDD operation and carrier aggregation. We audit existing GPS/GNSS timing sources and design Precision Time Protocol (PTP) distribution using IEEE 1588v2 over transport networks, with redundant grandmaster clocks and boundary clock placement to ensure timing holdover during GPS outages.</p>
+
+                <h3>Spectrum Strategy & Frequency Band Planning</h3>
+                <p>5G deployments span a wide range of spectrum bands, each optimized for different coverage and capacity scenarios. Our spectrum planning services align your licensed spectrum holdings with network design and business objectives:</p>
+                <div class="protocol-list">
+                    <span class="protocol-badge">Low-Band (600-900 MHz)</span>
+                    <span class="protocol-badge">Mid-Band (2.5-3.7 GHz)</span>
+                    <span class="protocol-badge">C-Band (3.7-4.2 GHz)</span>
+                    <span class="protocol-badge">mmWave (24-39 GHz)</span>
+                    <span class="protocol-badge">Dynamic Spectrum Sharing</span>
+                    <span class="protocol-badge">Carrier Aggregation</span>
+                </div>
+                <p>Low-band spectrum (600-900 MHz) provides wide-area coverage with cell ranges exceeding 5 kilometers, enabling nationwide 5G footprint with existing macro site density. However, narrow channel bandwidths (10-20 MHz) limit peak throughput to 100-200 Mbps, insufficient for enhanced mobile broadband applications in urban markets.</p>
+                <p>Mid-band spectrum (2.5-3.7 GHz) balances coverage and capacity, delivering 300-500 Mbps typical user speeds with cell ranges of 1-3 kilometers. Mid-band forms the foundation of urban and suburban 5G deployments globally, supported by mature device ecosystems and reasonable propagation characteristics.</p>
+                <p>C-band spectrum (3.7-4.2 GHz) offers 100+ MHz contiguous bandwidths enabling multi-gigabit speeds, but with coverage ranges below 1 kilometer requiring densification of macro networks. C-band is critical for capacity in dense urban areas and high-traffic venues.</p>
+                <p>Millimeter wave spectrum (24-39 GHz) enables 5G's ultimate capacity potential with multi-gigabit speeds in small coverage areas (100-300 meters). mmWave deployments target fixed wireless access, stadiums, transportation hubs, and enterprise campuses where fiber-like bandwidth is required but trenching is cost-prohibitive.</p>
+
+                <h3>Cloud-Native Core Network Architecture</h3>
+                <p>5G Standalone core networks represent a complete architectural transformation from monolithic EPC elements to disaggregated, containerized network functions running on commercial off-the-shelf (COTS) servers. Our core network readiness assessments evaluate your infrastructure and operational readiness for this transformation:</p>
+                <ul>
+                    <li><strong>Virtualization Infrastructure:</strong> Assessment of existing datacenter capacity, server specifications, and hypervisor platforms for cloud-native VNF and CNF deployment. OpenStack, VMware, or Kubernetes-based platforms must meet telco-grade reliability requirements</li>
+                    <li><strong>Service-Based Architecture (SBA):</strong> Evaluation of network function decomposition into modular services (AMF, SMF, PCF, UDM, AUSF, UPF) communicating over HTTP/2-based interfaces rather than legacy diameter protocols</li>
+                    <li><strong>Network Slicing Implementation:</strong> Design of slice templates for eMBB, URLLC, and mMTC use cases with dedicated QoS policies, dedicated UPF instances, and isolation between tenant slices on shared infrastructure</li>
+                    <li><strong>Edge UPF Placement:</strong> Strategy for distributing User Plane Functions to edge data centers, central offices, and customer premises to minimize latency for URLLC and MEC applications</li>
+                    <li><strong>Automation & Orchestration:</strong> Assessment of OSS/BSS systems for lifecycle management of virtualized network functions, automated scaling, and closed-loop assurance based on real-time analytics</li>
+                </ul>
+
+                <h3>Network Slicing & Quality of Service Architecture</h3>
+                <p>Network slicing enables a single physical 5G infrastructure to behave as multiple virtual networks, each optimized for different application requirements. Enterprise customers, IoT platforms, and public safety agencies can each receive a dedicated slice with guaranteed bandwidth, latency, and reliability characteristics.</p>
+                <p>We design slicing architectures that span radio, transport, and core network domains with end-to-end orchestration. Radio resource management (RRM) algorithms allocate spectrum and scheduling priority per slice. Transport networks implement per-slice traffic engineering with MPLS or segment routing to ensure latency SLAs. Core network UPF instances are deployed per slice with dedicated compute resources and data plane isolation.</p>
+                <p>Slice lifecycle management requires automation platforms that instantiate, modify, and terminate slices in response to enterprise customer orders without manual configuration. We implement ETSI NFV MANO and ONAP-based orchestration that integrates with operator BSS systems for automated service fulfillment and usage-based billing.</p>
+
+                <h3>Private 5G Network Planning</h3>
+                <p>Beyond public mobile networks, 5G enables private wireless networks for enterprises requiring dedicated spectrum, on-premises infrastructure, and deterministic performance for industrial automation, warehouse logistics, and campus connectivity. Our readiness assessments for private 5G evaluate spectrum access options, deployment architectures, and integration with enterprise IT systems:</p>
+                <p>Spectrum options include licensed spectrum leased from operators, CBRS shared spectrum in 3.5 GHz band, and unlicensed spectrum (5 GHz, 6 GHz) using 5G NR-U. Each option presents different interference management, regulatory compliance, and performance tradeoffs that we analyze based on enterprise requirements and site characteristics.</p>
+                <p>Deployment architectures range from fully on-premises standalone core and RAN to hybrid models where RAN is on-premises but core functions are hosted in operator datacenters or public cloud. We design solutions aligned with enterprise security policies, latency requirements, and operational capabilities for managing telecom infrastructure.</p>
+
+                <h3>Security Architecture for 5G Networks</h3>
+                <p>5G introduces new security challenges alongside new capabilities. Cloud-native core networks expose larger attack surfaces than monolithic EPC. Network slicing requires tenant isolation stronger than VLAN segmentation. IoT device proliferation creates millions of potential entry points for attackers. Our 5G security assessments identify vulnerabilities and implement defense-in-depth protections:</p>
+                <ul>
+                    <li><strong>Zero Trust Network Architecture:</strong> Moving from perimeter-based security to identity-based access control with continuous authentication for network functions, management APIs, and subscriber devices</li>
+                    <li><strong>Service-Based Interface Security:</strong> OAuth 2.0 authentication and TLS encryption for all HTTP/2 communication between 5G core network functions, preventing unauthorized NF discovery and API exploitation</li>
+                    <li><strong>Slice Isolation:</strong> Cryptographic separation between network slices to prevent cross-slice traffic leakage and resource exhaustion attacks from compromised tenants</li>
+                    <li><strong>IoT Device Security:</strong> Lightweight authentication protocols (EAP-AKA'), certificate-based device identity, and network-based anomaly detection to identify compromised IoT endpoints</li>
+                    <li><strong>Subscriber Privacy:</strong> Enhanced privacy features including SUPI concealment, temporary identifiers, and protection against IMSI catching and location tracking</li>
+                </ul>
+
+                <h3>5G Deployment Roadmap & Business Case</h3>
+                <p>Our 5G readiness assessments culminate in multi-year deployment roadmaps that sequence investments, prioritize markets, and forecast financial outcomes. We develop business cases that quantify revenue opportunities from new 5G services while modeling the capital and operational expenditure required to deploy and operate next-generation infrastructure.</p>
+                <p>Roadmaps balance technical dependencies (NSA before SA, low-band coverage before mid-band capacity), competitive pressures (market-by-market 5G coverage races), and capital constraints (phased investments aligned with cash flow generation). We identify early 5G use cases that generate revenue to fund broader deployment — fixed wireless access in underserved markets, private networks for manufacturing, and enhanced mobile broadband in premium urban corridors.</p>
+                <p>Financial models forecast subscriber adoption, ARPU uplift from 5G plans, enterprise service revenue, and operational savings from network virtualization and automation. We quantify total cost of ownership including spectrum acquisition, site upgrades, transport augmentation, core virtualization, and OSS/BSS transformation to support new service models.</p>
+
+                <h3>Why Infrasys for 5G Readiness Assessment?</h3>
+                <p>Our 5G consulting team combines radio frequency engineering expertise with cloud architecture knowledge and operational experience from real-world 5G deployments. We understand 3GPP standards, vendor product roadmaps, and the operational reality of running carrier networks 24x7.</p>
+                <p>We deliver more than PowerPoint presentations — our assessments include detailed site inventories, capacity models, latency budgets, and actionable recommendations with vendor selection criteria and budget estimates. We work alongside your engineering and operations teams to build internal capabilities while accelerating your 5G transformation.</p>
+                <p>Whether you're a mobile operator planning nationwide 5G rollout, an enterprise evaluating private 5G for manufacturing, or a government entity deploying public safety broadband, Infrasys brings the expertise to make your 5G project succeed.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-signal"></i></div>
+            <h2 class="cta-title">Ready to assess your 5G infrastructure readiness?</h2>
+            <p class="cta-desc">Schedule a consultation with our 5G specialists to discuss network audits, spectrum planning, or SA migration roadmaps.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to 5G Specialist</a>
+                <a href="telecom-media.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Telecom & Media</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

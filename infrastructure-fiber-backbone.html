@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiber Optic Backbone Infrastructure — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="High-capacity fiber optic networks for commercial buildings, campus interconnects, data center connectivity, and carrier-neutral infrastructure design.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .protocol-list { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .protocol-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="infrastructure-realestate.html">Infrastructure & Real Estate</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Fiber Optic Backbone</span>
+            </nav>
+            <h1 class="page-hero-title">Fiber Optic <span>Backbone Infrastructure</span></h1>
+            <p class="page-hero-subtitle">High-bandwidth, low-latency fiber networks enabling digital transformation for commercial real estate and enterprise campuses</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Enterprise Fiber Optic Network Design & Implementation</h2>
+                <p>Fiber optic infrastructure forms the high-capacity backbone that enables all modern building technologies — from WiFi 6E and cellular DAS (Distributed Antenna Systems) to IP-based security cameras, BMS networks, and tenant enterprise networks. As commercial real estate properties compete to attract technology companies, financial services firms, and other bandwidth-intensive tenants, fiber connectivity has evolved from a nice-to-have amenity to a critical requirement directly impacting property valuations and rental premiums.</p>
+                <p>Infrasys designs and implements comprehensive fiber optic infrastructure for commercial office buildings, industrial parks, data centers, academic campuses, and mixed-use developments. Our solutions span structured cabling systems, intra-building fiber backbones, campus fiber networks, carrier interconnection facilities (meet-me rooms), and carrier-neutral data center connectivity. We combine expertise in fiber optic transmission engineering, structured cabling standards (TIA-568, ISO/IEC 11801), telecommunications infrastructure, and commercial real estate operations to deliver fiber networks that meet today's demands while providing headroom for decades of technology evolution.</p>
+                <p>We understand that fiber infrastructure represents a long-term capital investment with 25+ year design life. Our designs balance performance requirements, future scalability, cost constraints, and installation logistics (pathway availability, tenant disruption) to deliver practical, cost-effective solutions that protect client investments while positioning properties as digitally-enabled smart buildings.</p>
+
+                <h3>Core Fiber Infrastructure Services</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-building"></i> Intra-Building Fiber Backbones</h4>
+                        <p>Vertical riser and horizontal distribution fiber systems connecting telecommunications rooms, IDF closets, and equipment rooms throughout multi-story buildings.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-diagram-project"></i> Campus Fiber Networks</h4>
+                        <p>Underground and aerial fiber plant interconnecting multiple buildings across corporate campuses, industrial parks, and institutional properties with redundant paths.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-server"></i> Data Center Connectivity</h4>
+                        <p>High-fiber-count interconnections between buildings and colocation facilities, dark fiber provisioning, and optical transport systems (DWDM) for bandwidth scaling.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-tower-cell"></i> Carrier-Neutral Infrastructure</h4>
+                        <p>Meet-me room design, carrier entrance facilities, and multi-carrier interconnection enabling tenants to select from multiple telecom and internet service providers.</p>
+                    </div>
+                </div>
+
+                <h3>Fiber Optic Types & Selection</h3>
+                <p>Fiber optic cable selection depends on application requirements — transmission distance, bandwidth capacity, cost constraints, and compatibility with existing infrastructure. Infrasys engineers the appropriate fiber type and specifications for each deployment scenario:</p>
+                <ul>
+                    <li><strong>Multimode Fiber (OM3, OM4, OM5):</strong> Lower-cost fiber suitable for distances up to 300-550 meters, ideal for horizontal distribution and connections within telecommunications rooms. OM4 and OM5 optimized for 40/100 Gigabit Ethernet applications</li>
+                    <li><strong>Single-Mode Fiber (OS1, OS2):</strong> Long-distance fiber supporting transmission over kilometers with theoretically unlimited bandwidth capacity. Used for building-to-building campus backbones, data center interconnects, and connections to carrier networks</li>
+                    <li><strong>Bend-Insensitive Fiber:</strong> Specialized fiber designs tolerating tight bend radii (7.5-10mm) enabling installation in congested pathways, residential MDU risers, and retrofit scenarios with pathway constraints</li>
+                    <li><strong>Armored Fiber Cable:</strong> Fiber cables with protective steel or aluminum armor for outdoor direct-burial installations, aerial spans, or indoor environments with rodent concerns or mechanical hazard risks</li>
+                    <li><strong>Composite Cables:</strong> Hybrid cables combining fiber optic strands with copper pairs (for PoE device powering) or coaxial elements (for RF distribution) reducing cabling complexity in converged applications</li>
+                </ul>
+
+                <h3>Intra-Building Fiber Distribution Architecture</h3>
+                <p>Modern commercial buildings require structured fiber distribution systems connecting Main Distribution Frames (MDF), Intermediate Distribution Frames (IDF), and Horizontal Distribution Areas (HDA) throughout the facility. Infrasys designs hierarchical fiber architectures optimizing for performance, scalability, and manageability:</p>
+                <p><strong>Centralized Architecture:</strong> All horizontal cabling terminates in a single main telecommunications room (TR), simplifying network management and equipment consolidation. Best suited for smaller buildings (under 10 floors) where horizontal cabling distances remain within category 6A copper or multimode fiber reach limits.</p>
+                <p><strong>Distributed Architecture:</strong> Telecommunications rooms on each floor or zone with vertical fiber risers interconnecting floor TRs to the main equipment room. Enables support for large buildings while maintaining manageable horizontal cable runs. Active electronics (switches, access points) distributed throughout the building.</p>
+                <p><strong>Hybrid Architecture:</strong> Combines centralized and distributed approaches — centralized for low-density applications (conference rooms, common areas) and distributed for high-density zones (trading floors, call centers) optimizing cost and performance tradeoffs.</p>
+                <p><strong>Zone Cabling:</strong> Multi-user consolidation points (MUTOAs) on each floor served by high-fiber-count vertical risers, with shorter horizontal runs to workstations. Facilitates office reconfiguration without riser cable changes, ideal for multi-tenant buildings with frequent churn.</p>
+
+                <h3>Campus Fiber Network Design</h3>
+                <p>Enterprise campuses, industrial parks, and institutional properties spanning multiple buildings require robust inter-building fiber networks providing high-bandwidth connectivity and path redundancy. Infrasys designs campus fiber plants balancing performance, resilience, and cost:</p>
+                <ul>
+                    <li><strong>Ring Topology:</strong> Fiber cables forming closed loops connecting all buildings with bidirectional paths, enabling self-healing networks that reroute traffic around cable cuts or equipment failures. Common for mission-critical campuses requiring 99.99%+ uptime</li>
+                    <li><strong>Star Topology:</strong> All buildings connected via dedicated fiber runs to a central hub location (typically the main data center or network operations center). Simpler design suitable for campuses where hub-to-spoke traffic dominates</li>
+                    <li><strong>Mesh Topology:</strong> Selective direct connections between high-traffic building pairs supplementing ring or star backbones, optimizing latency and bandwidth for specific traffic flows</li>
+                    <li><strong>Underground vs. Aerial Installation:</strong> Underground conduit providing superior protection from weather, vandalism, and accidental damage but at higher installation cost. Aerial fiber on utility poles cost-effective where rights-of-way permit but vulnerable to storms and lightning</li>
+                </ul>
+
+                <h3>Structured Cabling Standards & Compliance</h3>
+                <p>Infrasys fiber designs adhere to international structured cabling standards ensuring interoperability, performance guarantees, and compliance with building codes:</p>
+                <div class="protocol-list">
+                    <span class="protocol-badge">TIA-568 (North America)</span>
+                    <span class="protocol-badge">ISO/IEC 11801 (International)</span>
+                    <span class="protocol-badge">EN 50173 (Europe)</span>
+                    <span class="protocol-badge">TIA-942 (Data Centers)</span>
+                    <span class="protocol-badge">TIA-862 (Smart Buildings)</span>
+                </div>
+                <p>Compliance with these standards ensures cabling infrastructure supports current and future applications without requiring premature replacement. Extended manufacturer warranties (15-25 years) and application assurances (guaranteeing support for specific transmission speeds) protect client investments and facilitate long-term planning.</p>
+
+                <h3>Fiber Termination & Connectivity</h3>
+                <p>Proper fiber termination is critical to achieving rated system performance and enabling flexible, scalable connectivity. Infrasys implements standardized termination strategies optimizing for reliability, manageability, and future modifications:</p>
+                <p><strong>High-Density Fiber Panels:</strong> Modular fiber patch panels supporting up to 144 fibers per 1U rack space using LC, SC, or MPO/MTP connectors. High-density designs maximize equipment room space efficiency in bandwidth-intensive data center and telecom room applications.</p>
+                <p><strong>Pre-Terminated Assemblies:</strong> Factory-terminated and factory-tested fiber trunk assemblies with connectors on both ends, enabling rapid deployment with guaranteed performance. Eliminates field termination labor and quality variability, ideal for new construction and time-sensitive projects.</p>
+                <p><strong>Fusion Splicing:</strong> Permanent fiber-to-fiber joints using fusion splicing equipment for lowest insertion loss (0.05-0.1 dB) and highest reliability. Preferred for outdoor cable entries, long-distance single-mode runs, and critical data center interconnects.</p>
+                <p><strong>Mechanical Splicing & Connectorization:</strong> Field-installable fiber connectors and mechanical splices enabling rapid repairs and modifications. Higher loss than fusion splicing (0.2-0.5 dB) but acceptable for most building applications and faster to deploy.</p>
+
+                <h3>Carrier-Neutral Infrastructure & Tenant Choice</h3>
+                <p>Modern commercial tenants — particularly technology companies and financial services firms — demand choice in telecommunications providers rather than accepting building-mandated monopolies. Carrier-neutral infrastructure enables multiple telecommunications carriers, internet service providers, and cloud connectivity providers to serve building tenants, creating competitive markets that drive down costs and improve service quality:</p>
+                <p><strong>Meet-Me Rooms (MMR):</strong> Dedicated telecommunications spaces where multiple carriers interconnect their networks, enabling cross-connects between tenant circuits and carrier networks. Design requirements include environmental controls, diverse entry pathways, robust power infrastructure, and physical security.</p>
+                <p><strong>Diverse Cable Entry Facilities:</strong> Multiple, geographically-separated pathways through which external telecommunications cables enter buildings, preventing single points of failure. Carriers enter from different manholes, streets, or property edges ensuring network resilience against dig-ups and infrastructure failures.</p>
+                <p><strong>Carrier Interconnection Policies:</strong> Formal policies and procedures governing how carriers access properties, install infrastructure, and interconnect with tenants. Standardized processes accelerate tenant circuit delivery while maintaining property management control over infrastructure modifications.</p>
+                <p><strong>WiredScore Certification:</strong> Third-party certification program evaluating building digital infrastructure including carrier diversity, fiber capacity, and connectivity options. WiredScore Platinum certification signals to technology tenants that properties offer world-class digital infrastructure, commanding 5-10% rental premiums in competitive markets.</p>
+
+                <h3>Data Center Fiber Infrastructure</h3>
+                <p>Data center environments demand the highest-performance, highest-density fiber infrastructure supporting rapid bandwidth scaling and ultra-low latency. Infrasys implements data center fiber systems optimized for hyperscale, colocation, and enterprise data center environments:</p>
+                <ul>
+                    <li><strong>Structured Cabling Zones:</strong> TIA-942 compliant cabling architecture dividing data centers into Main Distribution Area (MDA), Horizontal Distribution Area (HDA), Equipment Distribution Area (EDA), and Zone Distribution Area (ZDA) with prescribed fiber types and distances</li>
+                    <li><strong>High-Fiber-Count Trunks:</strong> Pre-terminated MPO/MTP trunk cables supporting 12, 24, 48, or 72 fibers per connector enabling rapid deployment of high-port-count switch fabrics and spine-leaf network architectures</li>
+                    <li><strong>Modular Patch Panels:</strong> Hot-swappable fiber cassettes and modules enabling network administrators to change connector types (LC to MPO) or fiber modes (multimode to single-mode) without rewiring backbone infrastructure</li>
+                    <li><strong>Cable Management Infrastructure:</strong> Overhead cable trays, underfloor pathways, and vertical cable managers preventing excessive bend radii, cable strain, and tangling that can cause performance degradation or outages</li>
+                    <li><strong>Fiber Testing & Documentation:</strong> Optical Time Domain Reflectometer (OTDR) testing, insertion loss measurement, and comprehensive as-built documentation ensuring all fiber links meet performance specifications and can be efficiently maintained</li>
+                </ul>
+
+                <h3>Dark Fiber & Optical Transport Systems</h3>
+                <p>As bandwidth demands outpace the capacity of traditional network electronics, dark fiber and optical transport technologies enable cost-effective capacity expansion:</p>
+                <p><strong>Dark Fiber Provisioning:</strong> Leasing unlit fiber strands between buildings or to carrier points-of-presence enables enterprises to deploy their own transmission equipment, controlling bandwidth capacity and network protocols. Ideal for organizations with high-bandwidth requirements (video production, research institutions, financial trading) or specific latency requirements.</p>
+                <p><strong>DWDM (Dense Wavelength Division Multiplexing):</strong> Optical transmission technology multiplexing multiple independent 10G, 40G, or 100G signals onto single fiber strands using different wavelengths (colors) of light. Enables scaling fiber capacity from 10 Gbps to 10+ Tbps without installing additional fiber cables.</p>
+                <p><strong>CWDM (Coarse Wavelength Division Multiplexing):</strong> Lower-cost wavelength multiplexing suitable for shorter distances (up to 80km) and campus environments. Commonly used for interconnecting buildings across corporate campuses or connecting buildings to nearby colocation facilities.</p>
+
+                <h3>Fiber Network Security & Physical Protection</h3>
+                <p>Fiber optic networks transmit mission-critical data and voice traffic requiring protection against both physical damage and security threats:</p>
+                <ul>
+                    <li><strong>Physical Security:</strong> Controlled access to telecommunications rooms, meet-me rooms, and cable pathways preventing unauthorized fiber tapping or sabotage. Badge access, surveillance cameras, and intrusion detection protecting critical infrastructure</li>
+                    <li><strong>Pathway Protection:</strong> Hardened conduits, armored cables, and secured enclosures protecting fiber from accidental damage, vandalism, and environmental hazards. Critical pathways enclosed in concrete-encased ductbanks or steel conduit</li>
+                    <li><strong>Fiber Monitoring:</strong> Optical Time Domain Reflectometer (OTDR) monitoring continuously testing fiber infrastructure for breaks, excessive attenuation, or connector degradation. Automated alerts notify network operations centers of infrastructure faults before service disruptions occur</li>
+                    <li><strong>Encryption & Optical Security:</strong> Layer 1 optical encryption protecting data traversing fiber networks from interception via tapping or wavelength monitoring. Particularly critical for government, defense, and financial services applications</li>
+                </ul>
+
+                <h3>Fiber Infrastructure Maintenance & Lifecycle Management</h3>
+                <p>Fiber optic infrastructure requires minimal maintenance compared to copper cabling but benefits from proactive lifecycle management ensuring long-term performance:</p>
+                <p><strong>Periodic Testing:</strong> Annual or biennial optical testing campaigns verifying all fiber links meet performance specifications. OTDR testing identifies degradation trends (connector contamination, mechanical stress) before failures occur.</p>
+                <p><strong>Documentation Updates:</strong> Maintaining accurate as-built documentation reflecting all fiber infrastructure changes — new cable installations, cross-connect modifications, repurposed dark fibers. Cable management databases (CMDB) or dedicated fiber management software tracking every strand.</p>
+                <p><strong>Fiber Cleaning & Inspection:</strong> Periodic connector cleaning and microscopic inspection removing dust and contaminants that cause insertion loss and back-reflection. Particularly important in data center environments with high connector density and frequent patching activity.</p>
+                <p><strong>Capacity Planning:</strong> Monitoring fiber utilization rates and bandwidth growth trends projecting when additional fiber capacity will be required. Proactive planning enables infrastructure expansions during scheduled outage windows rather than emergency retrofits.</p>
+
+                <h3>Sustainability & Green Building Certifications</h3>
+                <p>Fiber optic infrastructure contributes to building sustainability goals and green building certifications:</p>
+                <ul>
+                    <li><strong>Energy Efficiency:</strong> Fiber enabling centralized network architectures with consolidated equipment rooms reducing overall power consumption versus distributed copper-based networks requiring powered electronics at each floor</li>
+                    <li><strong>Material Longevity:</strong> 25+ year fiber infrastructure design life reducing material waste and renovation frequency compared to copper cabling typically replaced every 10-15 years</li>
+                    <li><strong>Low-Smoke Zero-Halogen (LSZH) Cables:</strong> Environmentally-friendly cable jackets meeting European RoHS directives and reducing toxic emissions during fires, supporting LEED and WELL Building certifications</li>
+                    <li><strong>Waste Reduction:</strong> Pre-terminated fiber assemblies and modular connectivity systems reducing field waste from cut cable remnants and failed termination attempts</li>
+                </ul>
+
+                <h3>Why Infrasys for Fiber Optic Infrastructure?</h3>
+                <p>Our fiber engineering team combines expertise in optical transmission theory, structured cabling standards, telecommunications infrastructure, and commercial real estate operations. We've designed fiber networks for Class A office towers, mission-critical data centers, academic research campuses, and multi-building industrial parks.</p>
+                <p>We deliver not just infrastructure but strategic assets that drive property valuations — our fiber designs enable WiredScore Platinum and LEED certifications, attract premium technology tenants, support future bandwidth demands without premature replacement, and position properties as digitally-enabled smart buildings commanding 5-10% rental premiums.</p>
+                <p>Whether you're building a new trophy office tower requiring carrier-neutral infrastructure, retrofitting a legacy building with modern fiber backbones, or connecting a multi-building campus with redundant fiber networks, Infrasys brings the technical expertise and real estate domain knowledge to deliver solutions that protect your investment for decades.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-network-wired"></i></div>
+            <h2 class="cta-title">Ready to future-proof your digital infrastructure?</h2>
+            <p class="cta-desc">Schedule a consultation with our fiber optics specialists to discuss backbone network design, carrier-neutral infrastructure, or campus fiber deployment strategies.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to Fiber Expert</a>
+                <a href="infrastructure-realestate.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Infrastructure & Real Estate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

@@ -1,0 +1,454 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Grid Solutions — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Advanced Metering Infrastructure, Demand Response Management, and Distribution Automation for intelligent power networks.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:30px 0; }
+        .stat-box { background:var(--secondary-blue); color:#fff; border-radius:12px; padding:30px 24px; text-align:center; }
+        .stat-box .number { font-size:2.5rem; font-weight:700; margin-bottom:8px; }
+        .stat-box .label { font-size:0.95rem; opacity:0.9; }
+        @media(max-width:768px){ .feature-grid, .stats-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="energy-utilities.html">Energy & Utilities</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Smart Grid Solutions</span>
+            </nav>
+            <h1 class="page-hero-title">Smart Grid <span>Solutions</span></h1>
+            <p class="page-hero-subtitle">Next-generation intelligent power networks with Advanced Metering Infrastructure and Distribution Automation</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Building the Power Grid of Tomorrow</h2>
+                <p>The transition from traditional electrical grids to intelligent, self-healing smart grids represents one of the most significant infrastructure transformations of the 21st century. Smart grids leverage bidirectional communication, advanced analytics, and automated control systems to optimize power generation, transmission, distribution, and consumption in real-time.</p>
+                <p>Infrasys delivers comprehensive smart grid solutions that enable utilities to reduce technical and commercial losses, integrate renewable energy sources, empower consumers with real-time usage data, and respond dynamically to demand fluctuations. Our implementations span Advanced Metering Infrastructure (AMI), Outage Management Systems (OMS), Distribution Management Systems (DMS), and Demand Response platforms.</p>
+                <p>We work with distribution companies (DISCOMs), state electricity boards, and private utilities to design, deploy, and operate smart grid ecosystems that meet regulatory mandates while delivering measurable improvements in grid reliability, energy efficiency, and customer satisfaction.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-box scroll-reveal reveal-up delay-1">
+                        <div class="number">30%</div>
+                        <div class="label">Reduction in T&D Losses</div>
+                    </div>
+                    <div class="stat-box scroll-reveal reveal-up delay-2">
+                        <div class="number">15min</div>
+                        <div class="label">Interval Metering Data</div>
+                    </div>
+                    <div class="stat-box scroll-reveal reveal-up delay-3">
+                        <div class="number">99.9%</div>
+                        <div class="label">Smart Meter Uptime</div>
+                    </div>
+                </div>
+
+                <h3>Advanced Metering Infrastructure (AMI)</h3>
+                <p>Advanced Metering Infrastructure forms the foundational layer of smart grid transformation. AMI replaces manual meter reading with automated, bidirectional communication between smart meters and utility head-end systems, enabling unprecedented visibility into consumption patterns and grid conditions.</p>
+                <p>Our AMI implementations encompass:</p>
+                <ul>
+                    <li><strong>Smart Meter Deployment:</strong> Single-phase and three-phase smart meters compliant with IS 16444 and CBIP standards, supporting prepaid and postpaid billing models with remote connect/disconnect capabilities</li>
+                    <li><strong>Communication Networks:</strong> RF mesh, PLC (Power Line Communication), GPRS/4G, and hybrid topologies optimized for urban high-density and rural low-density deployment scenarios</li>
+                    <li><strong>Data Concentrator Units (DCU):</strong> Field gateways aggregating meter data from 250-500 endpoints, performing local data validation and protocol translation before forwarding to head-end systems</li>
+                    <li><strong>Meter Data Management System (MDMS):</strong> Centralized platform for meter data acquisition, validation, editing, and estimation (VEE), billing determinant calculation, and integration with CIS/ERP systems</li>
+                    <li><strong>Head-End System (HES):</strong> Command and control interface for remote meter operations — firmware updates, configuration changes, on-demand reads, and service switch operations</li>
+                </ul>
+
+                <h3>Distribution Automation (DA)</h3>
+                <p>Distribution Automation extends intelligence to medium-voltage (11kV, 33kV) and low-voltage (400V) distribution networks. DA systems detect faults, isolate affected sections, and restore power to unaffected segments automatically — often before customers report outages.</p>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-bolt-lightning"></i> Feeder Automation</h4>
+                        <p>Auto-reclosers, sectionalizers, and remote-controlled switches that segment feeders and isolate faults autonomously, reducing SAIDI and SAIFI indices.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-magnifying-glass-chart"></i> Fault Detection & Location</h4>
+                        <p>Advanced algorithms analyzing voltage, current, and sequence components to pinpoint fault locations within 100-200 meters, accelerating crew dispatch.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-rotate-right"></i> Self-Healing Grid</h4>
+                        <p>Distributed intelligence in field devices enabling autonomous fault isolation and service restoration without human intervention in under 60 seconds.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-gauge-high"></i> Voltage/VAR Optimization</h4>
+                        <p>Capacitor bank controllers and voltage regulators coordinated via SCADA to maintain optimal voltage profiles, reducing losses and improving power quality.</p>
+                    </div>
+                </div>
+
+                <h3>Demand Response Management Systems (DRMS)</h3>
+                <p>As renewable energy penetration increases, balancing supply and demand becomes exponentially complex. Demand Response programs incentivize consumers to adjust their consumption during peak periods, reducing strain on generation and transmission infrastructure.</p>
+                <p>Infrasys designs and implements DRMS platforms that orchestrate demand-side flexibility across residential, commercial, and industrial consumer segments:</p>
+                <ul>
+                    <li><strong>Time-of-Use (TOU) Tariffs:</strong> Dynamic pricing structures that shift non-critical loads from peak to off-peak hours, enabled by smart meters with multi-register billing capabilities</li>
+                    <li><strong>Direct Load Control:</strong> Automated curtailment of air conditioning, water heating, and industrial processes during grid stress events, managed via secure communication to smart thermostats and IoT gateways</li>
+                    <li><strong>Demand Bidding:</strong> Market-based mechanisms where large consumers bid to reduce load during shortage conditions, earning incentives based on verified curtailment</li>
+                    <li><strong>Behind-the-Meter Assets:</strong> Integration with rooftop solar inverters, battery storage systems, and electric vehicle chargers to aggregate distributed energy resources (DER) as virtual power plants</li>
+                </ul>
+
+                <h3>Outage Management Systems (OMS)</h3>
+                <p>Outage Management Systems transform reactive fault response into proactive grid management. OMS platforms correlate data from smart meters, SCADA devices, customer calls, and mobile crew applications to predict, detect, and resolve outages faster.</p>
+                <p>Key capabilities include:</p>
+                <ul>
+                    <li><strong>Predictive Outage Detection:</strong> Machine learning models analyzing AMI voltage data to identify impending failures before customers lose power</li>
+                    <li><strong>Automated Outage Verification:</strong> Last gasp messages from smart meters during power loss events, eliminating dependence on customer complaints for outage awareness</li>
+                    <li><strong>Crew Management & Dispatch:</strong> Mobile workforce management with GPS tracking, work order assignment, and real-time status updates integrated with GIS and network models</li>
+                    <li><strong>Customer Communication:</strong> Automated SMS, email, and IVR notifications informing customers of outage cause, estimated restoration time, and resolution confirmation</li>
+                    <li><strong>Restoration Prioritization:</strong> Algorithm-based sequencing that restores critical infrastructure (hospitals, water pumping stations, railway signaling) before general residential loads</li>
+                </ul>
+
+                <h3>Renewable Energy Integration</h3>
+                <p>The intermittent nature of solar and wind generation challenges traditional grid operations built around dispatchable thermal plants. Smart grids provide the visibility, control, and flexibility needed to accommodate high renewable penetration without compromising reliability.</p>
+                <p>Our renewable integration solutions include:</p>
+                <ul>
+                    <li><strong>Solar Forecasting:</strong> Weather data, satellite imagery, and historical generation patterns fed into AI models predicting solar output 15 minutes to 7 days ahead</li>
+                    <li><strong>Inverter Control:</strong> Active and reactive power control of grid-tied inverters for voltage regulation and frequency support during grid disturbances</li>
+                    <li><strong>Energy Storage Coordination:</strong> Battery Energy Storage Systems (BESS) dispatched to absorb excess renewable generation and discharge during ramping events or supply deficits</li>
+                    <li><strong>Microgrid Controllers:</strong> Islanded operation of local grids with DER during mainline outages, seamlessly synchronizing when utility supply returns</li>
+                </ul>
+
+                <h3>Data Analytics & Predictive Insights</h3>
+                <p>Smart grids generate terabytes of granular data — 15-minute interval consumption from millions of meters, real-time voltage/current measurements from thousands of sensors, event logs from automated switches, and weather data from monitoring stations. The value lies not in collecting data but in extracting actionable insights.</p>
+                <p>Infrasys builds analytics platforms that transform raw smart grid data into operational intelligence:</p>
+                <ul>
+                    <li><strong>Non-Technical Loss Detection:</strong> Anomaly detection algorithms identifying meter tampering, bypass connections, and billing irregularities by comparing expected vs. actual consumption patterns</li>
+                    <li><strong>Transformer Health Monitoring:</strong> Predictive models analyzing load patterns, ambient temperature, and historical failure data to forecast distribution transformer failures 30-90 days in advance</li>
+                    <li><strong>Vegetation Management:</strong> Satellite imagery combined with outage history to prioritize tree trimming activities along overhead distribution lines</li>
+                    <li><strong>Load Forecasting:</strong> Short-term (hourly), medium-term (weekly), and long-term (annual) demand forecasts driving generation scheduling, capacity planning, and infrastructure investment decisions</li>
+                </ul>
+
+                <h3>Cybersecurity for Smart Grids</h3>
+                <p>The same connectivity that enables smart grid benefits also expands the attack surface. Millions of internet-connected meters, field devices, and communication networks create potential entry points for adversaries seeking to disrupt power supply or steal consumer data.</p>
+                <p>Our smart grid cybersecurity framework addresses threats at every layer:</p>
+                <ul>
+                    <li><strong>Meter Security:</strong> Encrypted communication (AES-128/256), secure boot, firmware signing, and tamper detection preventing unauthorized access or modification</li>
+                    <li><strong>Network Segmentation:</strong> Isolated VLANs for AMI, SCADA, and corporate traffic with industrial firewalls enforcing strict access policies</li>
+                    <li><strong>Authentication & Authorization:</strong> Certificate-based device authentication, role-based access control for operators, and multi-factor authentication for administrative functions</li>
+                    <li><strong>Security Monitoring:</strong> SIEM platforms with smart grid-specific correlation rules detecting protocol anomalies, unauthorized configuration changes, and reconnaissance activities</li>
+                </ul>
+
+                <h3>Regulatory Compliance & Standards</h3>
+                <p>Smart grid deployments must comply with national regulations and international standards governing metering accuracy, data privacy, interoperability, and cybersecurity. We ensure your implementation meets:</p>
+                <ul>
+                    <li>IS 16444 (Smart Meter Functional Requirements - India)</li>
+                    <li>IS 15959 (Prepayment Metering System Requirements)</li>
+                    <li>IEC 62056 (DLMS/COSEM Protocol Suite)</li>
+                    <li>IEEE 2030 (Smart Grid Interoperability)</li>
+                    <li>NIST Cybersecurity Framework for Smart Grids</li>
+                    <li>Personal Data Protection Act (PDPA) for consumer data privacy</li>
+                </ul>
+
+                <h3>Why Choose Infrasys for Smart Grid Solutions?</h3>
+                <p>Our team combines domain expertise in electrical distribution engineering, telecommunications, data analytics, and cybersecurity. We have deployed AMI systems covering millions of metering points, designed RF mesh networks spanning entire cities, and integrated smart grid platforms with legacy billing and outage management systems.</p>
+                <p>We understand that smart grid transformation is not just a technology upgrade — it's an operational, organizational, and cultural change. Our implementations include change management, operator training, vendor management, and phased rollout strategies that minimize risk while maximizing stakeholder buy-in.</p>
+                <p>From pilot programs validating technology choices to state-wide rollouts serving tens of millions of consumers, Infrasys has the experience and execution capability to make your smart grid vision a reality.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+            <h2 class="cta-title">Ready to transform your distribution network?</h2>
+            <p class="cta-desc">Discuss AMI deployment strategies, DA roadmaps, or demand response program design with our smart grid specialists.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Schedule Consultation</a>
+                <a href="energy-utilities.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Energy & Utilities</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal (same as other pages) -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

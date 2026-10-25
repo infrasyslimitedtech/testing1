@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiber Network Ring Design & Planning — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Metropolitan and long-haul fiber optic network design, DWDM engineering, self-healing ring topology, and right-of-way planning for carrier-grade connectivity.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .protocol-list { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .protocol-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="telecom-media.html">Telecom & Media</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Fiber Network Ring Design</span>
+            </nav>
+            <h1 class="page-hero-title">Fiber Network <span>Ring Design</span></h1>
+            <p class="page-hero-subtitle">Metropolitan and long-haul fiber optic infrastructure planning and deployment</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Enterprise-Grade Fiber Optic Network Architecture</h2>
+                <p>Fiber optic networks form the backbone of modern telecommunications, delivering the bandwidth, latency, and reliability required for 5G mobile networks, enterprise connectivity, data center interconnect, and broadband services. As data traffic grows exponentially, telecom operators and infrastructure providers are investing billions in expanding metropolitan and long-haul fiber deployments.</p>
+                <p>Infrasys specializes in designing resilient, scalable fiber optic networks using self-healing ring topologies, dense wavelength division multiplexing (DWDM), and carrier-grade optical transport equipment. Our fiber network designs span metropolitan area networks (MAN), regional long-haul routes, and last-mile fiber-to-the-home (FTTH) architectures, supporting both greenfield deployments and brownfield network expansion.</p>
+                <p>We understand that fiber network planning requires balancing technical performance (loss budgets, dispersion limits, protection switching times), operational requirements (route diversity, access to central offices, splicing locations), and commercial constraints (right-of-way costs, construction timelines, permitting complexity). Our implementations are grounded in optical engineering principles, telecom standards, and real-world deployment experience across urban, suburban, and rural environments.</p>
+
+                <h3>Core Fiber Network Design Services</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-circle-nodes"></i> Ring Topology Planning</h4>
+                        <p>Self-healing SONET/SDH and Ethernet ring architecture with sub-50ms protection switching, route diversity analysis, and node placement optimization.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-wave-square"></i> DWDM System Design</h4>
+                        <p>Dense wavelength division multiplexing engineering for 40-channel, 80-channel, and 96-channel C-band systems, supporting 100G and 400G coherent interfaces.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-route"></i> Route Survey & ROW Planning</h4>
+                        <p>Field surveys, GIS-based route planning, right-of-way acquisition strategy, permitting coordination, and construction cost estimation.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-diagram-project"></i> Optical Budget Analysis</h4>
+                        <p>Link loss calculations, chromatic dispersion modeling, polarization mode dispersion (PMD) analysis, and OSNR (Optical Signal-to-Noise Ratio) budgeting.</p>
+                    </div>
+                </div>
+
+                <h3>Metropolitan Fiber Ring Architecture</h3>
+                <p>Metropolitan area fiber rings connect central offices, cell tower aggregation sites, enterprise customer locations, and data centers within a city or region. These networks must deliver carrier-grade reliability while supporting diverse traffic types — mobile backhaul, business Ethernet, wavelength services, and data center interconnect.</p>
+                <p>Our metropolitan fiber designs typically use two-fiber or four-fiber bidirectional line-switched ring (BLSR) topologies, providing 50ms protection switching when a fiber cut or equipment failure occurs. We engineer networks for scalability, allowing operators to light additional wavelengths as bandwidth demand grows without requiring new fiber construction.</p>
+                <ul>
+                    <li><strong>Self-Healing Rings:</strong> Dual-ring topology with working and protection paths, automatic protection switching (APS) protocols, and diverse physical routing to minimize common-mode failures</li>
+                    <li><strong>Aggregation Site Selection:</strong> Strategic placement of optical aggregation nodes at telecom hotels, carrier-neutral facilities, and high-density business districts</li>
+                    <li><strong>Last-Mile Distribution:</strong> Active Ethernet or Gigabit Passive Optical Network (GPON) distribution from metro rings to multi-tenant buildings and fiber-to-the-home deployments</li>
+                    <li><strong>Capacity Planning:</strong> Traffic forecasting, wavelength allocation planning, and transponder/muxponder sizing to accommodate 5-10 year growth projections</li>
+                    <li><strong>Latency Optimization:</strong> Route selection to minimize propagation delay for latency-sensitive applications like high-frequency trading and real-time collaboration</li>
+                </ul>
+
+                <h3>Long-Haul Fiber Network Planning</h3>
+                <p>Long-haul fiber networks span hundreds or thousands of kilometers, connecting cities and regions across national or international boundaries. These networks face unique challenges including chromatic dispersion accumulation, amplifier spacing constraints, and the need for regeneration sites at regular intervals.</p>
+                <p>We design long-haul DWDM systems using coherent 100G, 200G, and 400G transponders with advanced modulation formats (DP-QPSK, DP-16QAM) and digital signal processing (DSP) to maximize reach and spectral efficiency. Our designs incorporate erbium-doped fiber amplifiers (EDFA), Raman amplification, and dispersion compensation techniques to achieve multi-span transmission distances.</p>
+                <p>For submarine and terrestrial long-haul routes, we model worst-case fiber characteristics (attenuation, dispersion, nonlinear effects) and design for 25-year cable lifetimes, accounting for fiber aging, connector degradation, and future maintenance splice losses.</p>
+
+                <h3>DWDM Technology Standards</h3>
+                <p>Our fiber network designs comply with ITU-T standards for wavelength division multiplexing and optical transport networks. We engineer systems using standardized channel spacing and protocols for interoperability:</p>
+                <div class="protocol-list">
+                    <span class="protocol-badge">ITU-T G.652 (Standard Single-Mode Fiber)</span>
+                    <span class="protocol-badge">ITU-T G.655 (Non-Zero Dispersion-Shifted)</span>
+                    <span class="protocol-badge">ITU-T G.694.1 (DWDM Frequency Grid)</span>
+                    <span class="protocol-badge">ITU-T G.709 (OTN Digital Wrapper)</span>
+                    <span class="protocol-badge">IEEE 802.3 (100G/400G Ethernet)</span>
+                    <span class="protocol-badge">SONET/SDH (OC-192, STM-64)</span>
+                </div>
+                <p>Each wavelength implementation is tested using optical time-domain reflectometers (OTDR), optical spectrum analyzers (OSA), and bit error rate testers (BERT) before commercial service turn-up. We validate chromatic dispersion compensation, ensure OSNR margins meet vendor specifications, and verify protection switching times under simulated failure scenarios.</p>
+
+                <h3>Right-of-Way Acquisition & Permitting</h3>
+                <p>Successful fiber network deployment depends on securing legal rights to install infrastructure along streets, highways, railways, and utility corridors. We manage the complex process of right-of-way (ROW) acquisition, working with municipalities, transportation authorities, railway companies, and private landowners:</p>
+                <ul>
+                    <li><strong>Route Feasibility Studies:</strong> Desktop analysis using GIS mapping, aerial imagery, and municipal infrastructure databases to identify viable fiber routes and potential obstacles</li>
+                    <li><strong>Permit Coordination:</strong> Applications for street opening permits, horizontal directional drilling (HDD) permits, railroad crossing agreements, and environmental clearances</li>
+                    <li><strong>Utility Coordination:</strong> Coordination with electric, gas, water, and sewer utilities through One Call systems and joint trench agreements to minimize construction conflicts</li>
+                    <li><strong>Make-Ready Engineering:</strong> Pole attachment applications for aerial fiber deployment on utility poles, including pole loading analysis and make-ready work coordination</li>
+                    <li><strong>Franchise Agreements:</strong> Negotiation of municipal franchise agreements and pole attachment rates with incumbent utilities in competitive telecom markets</li>
+                </ul>
+
+                <h3>Fiber Optic Cable Types & Installation Methods</h3>
+                <p>We select fiber optic cable designs and installation methods based on environment, distance, fiber count requirements, and budget constraints. Our designs specify appropriate cable construction for each segment of the network:</p>
+                <p><strong>Loose Tube Cable:</strong> For outdoor buried and aerial installations, loose tube cables protect individual fiber strands within gel-filled tubes that isolate fibers from cable stresses and temperature variations. We specify armored cables for direct-buried installations and all-dielectric self-supporting (ADSS) cables for aerial spans.</p>
+                <p><strong>Ribbon Cable:</strong> High-density ribbon cables with 12, 24, or 48 fibers per ribbon enable mass fusion splicing, reducing installation time in long-haul routes and high-fiber-count metropolitan networks. Ribbon cables fit more fibers into smaller duct space, critical for congested underground conduit systems.</p>
+                <p><strong>Micro-Cable & Micro-Duct:</strong> Blown fiber systems using micro-cables (less than 5mm diameter) installed into pre-placed micro-ducts offer flexibility for incremental fiber deployment, reducing upfront capital costs and enabling rapid service turn-up.</p>
+                <p>Installation methods include direct burial with vibratory plows, horizontal directional drilling (HDD) for road and river crossings, aerial lashing to existing utility cables, and underground placement in conduit systems. We design for future expansion by specifying spare conduit capacity and oversized splice enclosures.</p>
+
+                <h3>Fiber Network Testing & Commissioning</h3>
+                <p>Before accepting fiber infrastructure for service, we conduct comprehensive testing to verify optical performance meets design specifications and industry standards. Our testing protocols ensure networks deliver the reliability and performance that carrier SLAs demand:</p>
+                <ul>
+                    <li><strong>OTDR Testing:</strong> Optical time-domain reflectometer traces for every fiber strand, documenting splice loss, connector loss, fiber attenuation, and end-to-end link loss</li>
+                    <li><strong>Insertion Loss Testing:</strong> Bidirectional insertion loss measurements using stabilized light sources and optical power meters, verifying compliance with loss budgets</li>
+                    <li><strong>CD & PMD Testing:</strong> Chromatic dispersion and polarization mode dispersion measurements for long-haul DWDM systems, ensuring compatibility with 100G coherent optics</li>
+                    <li><strong>End-to-End Service Testing:</strong> RFC 2544 throughput and latency testing, Layer 2 Ethernet service validation, and DWDM transponder commissioning with BER testing</li>
+                    <li><strong>Protection Switching Tests:</strong> Simulated fiber cuts and equipment failures to validate sub-50ms protection switching times and verify network resilience</li>
+                </ul>
+
+                <h3>Fiber Asset Management & Documentation</h3>
+                <p>As fiber networks grow to thousands of route kilometers with hundreds of thousands of individual fiber strands, comprehensive asset management becomes critical. We implement fiber management systems that track physical infrastructure, logical circuit assignments, and available capacity:</p>
+                <p>GIS-based fiber management platforms document as-built fiber routes with GPS coordinates, splice locations, vault access points, and fiber assignments to active circuits. These systems enable rapid fault localization when outages occur and support capacity planning for future service provisioning.</p>
+                <p>We create detailed splice documentation with bidirectional OTDR traces stored in central databases, allowing field technicians to identify the exact location of cable breaks within meters. Color-coded fiber mapping and standardized labeling schemes ensure technicians can quickly identify the correct fiber strand during maintenance and troubleshooting activities.</p>
+
+                <h3>Why Infrasys for Fiber Network Design?</h3>
+                <p>Our fiber network engineering team combines optical engineering expertise with practical telecom deployment experience. We have designed metropolitan fiber rings serving millions of subscribers, long-haul DWDM systems spanning thousands of kilometers, and FTTH access networks delivering gigabit broadband to residential customers.</p>
+                <p>We don't just deliver CAD drawings and equipment lists — we deliver networks that operate reliably for decades. Our designs account for future technology evolution, allowing operators to upgrade from 10G to 100G to 400G optics without replacing fiber infrastructure. We specify spare capacity, diverse routing, and modular architectures that grow with your business.</p>
+                <p>Whether you're a mobile operator building fiber backhaul for 5G small cells, a cable company upgrading HFC networks to fiber-to-the-home, or an enterprise building a private fiber network connecting campuses and data centers, Infrasys brings the technical depth and deployment experience to make your fiber network project succeed.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+            <h2 class="cta-title">Ready to design your fiber optic network?</h2>
+            <p class="cta-desc">Schedule a consultation with our fiber network specialists to discuss metropolitan ring planning, DWDM design, or ROW acquisition strategy.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to Fiber Specialist</a>
+                <a href="telecom-media.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Telecom & Media</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

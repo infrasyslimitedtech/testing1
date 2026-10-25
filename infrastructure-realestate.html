@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure & Real Estate Solutions — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Smart building platforms, BMS integration, PropTech solutions, and fiber optic infrastructure for commercial real estate, data centers, and smart cities.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .subsection-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:30px; margin-top:50px; }
+        .subsection-card {
+            background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg);
+            padding:40px 35px; transition:var(--transition-smooth); cursor:pointer; text-decoration:none; display:block;
+        }
+        .subsection-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); border-color:var(--primary-orange); }
+        .subsection-icon {
+            width:56px; height:56px; border-radius:12px; background:var(--primary-orange-light);
+            color:var(--primary-orange); font-size:1.4rem; display:flex; align-items:center; justify-content:center;
+            margin-bottom:20px; transition:var(--transition-bounce);
+        }
+        .subsection-card:hover .subsection-icon { background:var(--primary-orange); color:#fff; transform:scale(1.08); }
+        .subsection-card h3 { font-size:1.3rem; color:var(--secondary-blue); margin-bottom:12px; }
+        .subsection-card p { color:var(--text-muted); font-size:0.92rem; line-height:1.65; margin-bottom:16px; }
+        .subsection-arrow {
+            color:var(--primary-orange); font-size:0.9rem; font-weight:600;
+            display:inline-flex; align-items:center; gap:8px;
+        }
+        .subsection-card:hover .subsection-arrow { gap:12px; }
+        .subsection-arrow i { transition:var(--transition-smooth); }
+        .industry-overview { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:60px; }
+        .industry-overview h2 { font-size:1.8rem; color:var(--secondary-blue); margin-bottom:20px; }
+        .industry-overview p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:16px; }
+        .key-challenges { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
+        .challenge-item { background:var(--primary-orange-light); border-radius:12px; padding:24px 20px; text-align:center; }
+        .challenge-item .icon { font-size:1.8rem; color:var(--primary-orange); margin-bottom:12px; }
+        .challenge-item h4 { font-size:1rem; color:var(--secondary-blue); margin-bottom:8px; }
+        .challenge-item p { font-size:0.85rem; color:var(--text-muted); line-height:1.5; }
+        @media(max-width:768px){
+            .subsection-grid, .key-challenges { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Infrastructure & Real Estate</span>
+            </nav>
+            <h1 class="page-hero-title">Infrastructure & <span>Real Estate</span></h1>
+            <p class="page-hero-subtitle">Enabling smart buildings, intelligent property management, and connected infrastructure through integrated technology</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="industry-overview scroll-reveal reveal-up">
+                <h2>Digital Transformation for Commercial Real Estate & Built Infrastructure</h2>
+                <p>The infrastructure and real estate sector is experiencing a fundamental shift from traditional brick-and-mortar construction to intelligent, connected buildings that optimize energy consumption, enhance occupant experience, and maximize operational efficiency. Modern commercial properties, data centers, industrial parks, and smart cities demand sophisticated technology integration spanning building automation, IoT platforms, and fiber optic connectivity.</p>
+                <p>Infrasys specializes in designing and implementing technology infrastructure for commercial real estate portfolios, enterprise campuses, data centers, and mixed-use developments. Our expertise spans Building Management Systems (BMS) integration, smart building platforms, PropTech solutions, and fiber optic backbone networks that form the nervous system of modern intelligent buildings.</p>
+                <p>We understand that real estate technology investments must deliver measurable ROI through reduced operational costs, improved tenant satisfaction, and enhanced asset valuation. Our solutions bridge the gap between traditional building engineering and modern IT infrastructure, enabling property owners, facility managers, and commercial tenants to harness the power of data-driven building operations.</p>
+                
+                <div class="key-challenges">
+                    <div class="challenge-item scroll-reveal reveal-up delay-1">
+                        <div class="icon"><i class="fa-solid fa-building-circle-check"></i></div>
+                        <h4>Legacy Systems Integration</h4>
+                        <p>Connecting aging HVAC, lighting, and fire safety systems with modern IoT platforms and cloud analytics</p>
+                    </div>
+                    <div class="challenge-item scroll-reveal reveal-up delay-2">
+                        <div class="icon"><i class="fa-solid fa-gauge-high"></i></div>
+                        <h4>Operational Efficiency</h4>
+                        <p>Reducing energy consumption, maintenance costs, and downtime through predictive analytics and automation</p>
+                    </div>
+                    <div class="challenge-item scroll-reveal reveal-up delay-3">
+                        <div class="icon"><i class="fa-solid fa-users"></i></div>
+                        <h4>Tenant Experience</h4>
+                        <p>Delivering modern workplace amenities, mobile access control, and personalized environmental controls</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header scroll-reveal reveal-up">
+                <span class="section-tag">Technology Solutions</span>
+                <h2 class="section-title">Explore Our Infrastructure & Real Estate Capabilities</h2>
+                <p class="section-subtitle">Click on any area to learn more about our specialized services</p>
+            </div>
+
+            <div class="subsection-grid">
+                <a href="infrastructure-bms-integration.html" class="subsection-card scroll-reveal reveal-up delay-1">
+                    <div class="subsection-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <h3>Building Management Systems Integration</h3>
+                    <p>Unified integration of HVAC, lighting, fire safety, and access control systems into centralized BMS platforms. Protocol conversion for BACnet, Modbus, LonWorks, and KNX systems.</p>
+                    <span class="subsection-arrow">Learn More <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <a href="infrastructure-smart-buildings.html" class="subsection-card scroll-reveal reveal-up delay-2">
+                    <div class="subsection-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>Smart Building Platforms & IoT</h3>
+                    <p>IoT sensor networks, occupancy analytics, indoor air quality monitoring, and predictive maintenance platforms for intelligent building operations.</p>
+                    <span class="subsection-arrow">Learn More <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <a href="infrastructure-proptech.html" class="subsection-card scroll-reveal reveal-up delay-3">
+                    <div class="subsection-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h3>PropTech Solutions for Real Estate</h3>
+                    <p>Digital tenant experience platforms, smart parking management, visitor management systems, and mobile-first building applications.</p>
+                    <span class="subsection-arrow">Learn More <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <a href="infrastructure-fiber-backbone.html" class="subsection-card scroll-reveal reveal-up delay-4">
+                    <div class="subsection-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3>Fiber Optic Backbone Infrastructure</h3>
+                    <p>High-capacity fiber optic networks for commercial buildings, campus interconnects, data center connectivity, and carrier-neutral infrastructure.</p>
+                    <span class="subsection-arrow">Learn More <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-building"></i></div>
+            <h2 class="cta-title">Ready to transform your real estate portfolio?</h2>
+            <p class="cta-desc">Speak with our infrastructure specialists to discuss smart building roadmaps, BMS modernization, or PropTech implementation strategies.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Schedule Consultation</a>
+                <a href="industries.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> All Industries</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!-- Contact Modal -->
+<div class="contact-modal" id="contact-modal">
+    <div class="contact-modal-content">
+        <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="contact-modal-grid">
+            <div class="contact-modal-info">
+                <div>
+                    <h2>Let's Connect</h2>
+                    <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                </div>
+                <div class="contact-modal-details">
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Hotline</div>
+                            <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 4959639</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Email Address</div>
+                            <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Headquarters</div>
+                            <div class="contact-modal-detail-value">Spaze Itech Park, Gurugram, India</div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Business Hours</div>
+                            <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-modal-socials">
+                    <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-modal-form-wrapper">
+                <h3>Send us a message</h3>
+                <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                <form class="contact-form" id="modal-contact-form" action="https://formspree.io/f/xdaqypqy" method="POST" novalidate>
+                    <input type="hidden" name="_subject" value="New Website Enquiry — Infrasys">
+                    <input type="hidden" name="_next" value="https://infrasys.tech/">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-phone input-icon"></i>
+                                <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-tag input-icon"></i>
+                            <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                            <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openContactModal() {
+    document.getElementById('contact-modal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+    document.getElementById('contact-modal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+// Close on outside click
+document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+    if (e.target === this) closeContactModal();
+});
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+        closeContactModal();
+    }
+});
+</script>

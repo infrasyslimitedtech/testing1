@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Asset Tracking Infrastructure — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="IoT-enabled tracking infrastructure for containers, pallets, and high-value shipments with geofencing, temperature monitoring, and tamper detection.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="logistics-transportation.html">Logistics & Transportation</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Real-Time Asset Tracking</span>
+            </nav>
+            <h1 class="page-hero-title">Real-Time <span>Asset Tracking</span></h1>
+            <p class="page-hero-subtitle">IoT-enabled monitoring for containers, pallets, and high-value shipments across the supply chain</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>IoT-Powered Supply Chain Visibility</h2>
+                <p>In global supply chains spanning ocean freight, rail transport, trucking, and air cargo, maintaining visibility of assets in transit has traditionally been a black box. Shipments disappear into containers, trailers, and warehouses with limited insight into location, condition, or handling until they emerge at the next checkpoint. This lack of visibility creates uncertainty, increases inventory buffers, delays exception detection, and leaves high-value or sensitive shipments vulnerable to theft, damage, or mishandling.</p>
+                <p>Real-time asset tracking using IoT sensors and wireless connectivity transforms this opacity into continuous visibility. Smart tracking devices attached to containers, pallets, parcels, and individual products transmit location coordinates, environmental conditions, and security events throughout the journey—from factory gate to destination warehouse—enabling proactive exception management and end-to-end supply chain transparency.</p>
+                <p>Infrasys designs and implements enterprise asset tracking solutions combining GPS/GNSS positioning, cellular and satellite connectivity, low-power wide-area network (LPWAN) technologies, and cloud analytics platforms. Our implementations serve freight forwarders, third-party logistics providers, manufacturers with high-value products, cold chain operators, and companies shipping regulated or hazardous materials requiring continuous compliance monitoring.</p>
+
+                <h3>Core Asset Tracking Capabilities</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-satellite-dish"></i> Multi-Network Connectivity</h4>
+                        <p>GPS tracking with cellular (4G/LTE/NB-IoT), satellite (Iridium, Globalstar), and LPWAN (LoRaWAN, Sigfox) ensuring global coverage across ocean, remote, and urban environments.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-temperature-half"></i> Environmental Monitoring</h4>
+                        <p>Temperature, humidity, shock, tilt, light exposure, and vibration sensors protecting pharmaceuticals, fresh produce, electronics, and other sensitive cargo from environmental damage.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-shield-halved"></i> Security & Tamper Detection</h4>
+                        <p>Door sensors, tamper alerts, unauthorized movement detection, and geofence breach notifications protecting high-value shipments from theft and diversion.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-battery-half"></i> Long-Life Battery Design</h4>
+                        <p>Optimized power management enabling multi-year battery life for reusable trackers on returnable assets like containers, pallets, and shipping cages.</p>
+                    </div>
+                </div>
+
+                <p>Our asset tracking platforms process millions of location updates, sensor readings, and alert events daily, correlating device telemetry with shipment data, route plans, and exception thresholds. Real-time dashboards provide logistics managers with visual maps showing asset locations, predicted ETAs, exception alerts, and historical movement trails. API integrations feed tracking data into transportation management systems (TMS), enterprise resource planning (ERP) platforms, and customer portals providing end-to-end supply chain visibility.</p>
+
+                <h3>GPS & Positioning Technologies</h3>
+                <p>Accurate location determination is the foundation of asset tracking. Our tracking devices utilize multi-constellation global navigation satellite systems (GNSS) including GPS, GLONASS, Galileo, and BeiDou for enhanced accuracy and reliability especially in challenging environments like urban canyons or under building overhangs.</p>
+                <p>For indoor environments where satellite signals are unavailable—inside warehouses, distribution centers, or intermodal facilities—we deploy complementary positioning technologies. Bluetooth Low Energy (BLE) beacons enable room-level indoor positioning. Wi-Fi fingerprinting uses signal strength patterns from access points for location estimation. Ultra-wideband (UWB) technology provides centimeter-level positioning accuracy for high-precision applications.</p>
+                <p>Positioning frequency is configurable based on application requirements and power constraints. High-value shipments may report location every 10-15 minutes during transit. Long-haul ocean containers might report twice daily via satellite to preserve battery. Event-triggered positioning activates upon geofence entry/exit, shock detection, or temperature excursion, ensuring critical events generate immediate location data.</p>
+
+                <h3>Cold Chain & Temperature Monitoring</h3>
+                <p>Temperature-sensitive products—pharmaceuticals, biologics, vaccines, fresh produce, frozen foods, chemicals—require continuous temperature monitoring throughout the cold chain. Brief excursions above acceptable ranges can render products unsaleable or unsafe, resulting in costly rejections and regulatory violations.</p>
+                <p>Our cold chain tracking solutions combine calibrated temperature sensors, real-time alerts, and compliance reporting. Configurable temperature thresholds trigger alerts when readings drift outside acceptable ranges. Alert escalation workflows notify logistics coordinators, warehouse managers, and quality assurance teams enabling rapid intervention—adjusting refrigeration equipment, rerouting shipments, or expediting deliveries before product integrity is compromised.</p>
+                <p>Multi-point temperature sensing distinguishes between ambient conditions and product temperature, critical for refrigerated containers where air temperature may differ from product core temperature. Data logger functionality maintains complete temperature history even when connectivity is unavailable, downloadable upon shipment completion for regulatory compliance documentation and insurance claims.</p>
+                <p>Integration with blockchain platforms provides immutable cold chain records, demonstrating unbroken chain of custody and continuous temperature compliance for pharmaceutical supply chains subject to GDP (Good Distribution Practice), FDA 21 CFR Part 11, and other regulatory standards.</p>
+
+                <h3>Shock, Tilt, & Handling Monitoring</h3>
+                <p>Fragile, high-value, or precision equipment requires careful handling throughout the supply chain. Multi-axis accelerometers detect shock events (sudden impacts), excessive vibration, and improper orientation (tilting packages marked "This Side Up"). Event-based alerts notify logistics managers when rough handling occurs, enabling investigation and carrier accountability.</p>
+                <p>Historical shock and vibration data supports damage claims, providing objective evidence of mishandling events correlated with timestamps and locations. This data strengthens insurance claims and helps identify problematic transfer points, carriers, or handling facilities where training interventions or process improvements are needed.</p>
+                <p>For shipments containing lithium batteries, dangerous goods, or other hazardous materials, shock monitoring supports regulatory compliance demonstrating shipments were handled according to transportation regulations (IATA, DOT, ADR) throughout the journey.</p>
+
+                <h3>Security & Theft Prevention</h3>
+                <p>High-value shipments—electronics, pharmaceuticals, luxury goods, precious metals—are vulnerable to cargo theft, container diversion, and unauthorized access. Security-focused tracking devices include tamper detection, door sensors, and light sensors detecting unauthorized container opening.</p>
+                <p>Geofence management defines virtual boundaries around authorized routes and facilities. Alerts trigger when shipments deviate from expected paths, remain stationary at unauthorized locations, or move during scheduled rest periods. Real-time alerting enables rapid response—contacting carriers, notifying law enforcement, or remotely immobilizing vehicles through integration with fleet management systems.</p>
+                <p>For returnable assets like shipping containers, pallets, IBCs (intermediate bulk containers), and reusable packaging, tracking prevents "shrinkage"—assets disappearing into customer facilities or diversion to grey markets. Automated asset recovery workflows trigger when containers exceed expected dwell times at customer sites or fail to return to designated depots.</p>
+
+                <h3>Satellite Tracking for Ocean & Remote Assets</h3>
+                <p>Cellular connectivity supports most asset tracking applications, but two scenarios require satellite communication—ocean freight crossing international waters beyond cellular coverage, and shipments through remote regions lacking terrestrial infrastructure.</p>
+                <p>Our satellite tracking solutions utilize Iridium, Globalstar, and Inmarsat satellite networks providing global coverage including polar regions, oceans, deserts, and mountainous terrain. Satellite transmission costs are higher than cellular, so our devices intelligently optimize reporting frequency and data payload size preserving battery life while maintaining necessary visibility.</p>
+                <p>Hybrid devices combine cellular and satellite connectivity, preferring lower-cost cellular when available and automatically switching to satellite when cellular signals are unavailable. This provides seamless global coverage while minimizing satellite air-time costs.</p>
+
+                <h3>Low-Power Wide-Area Networks (LPWAN)</h3>
+                <p>For applications requiring years of battery life tracking assets within metropolitan or regional areas—rental equipment, construction tools, retail display fixtures, medical equipment—LPWAN technologies provide optimal power efficiency.</p>
+                <p>LoRaWAN networks operated by telecommunications providers or private networks deployed on warehouses and distribution centers enable battery-powered tracking devices operating 5-10 years on a single battery. NB-IoT (Narrowband IoT) provides similar battery life using licensed cellular spectrum with better penetration into buildings.</p>
+                <p>Trade-offs exist—LPWAN networks transmit less data less frequently than cellular connections. For applications where hourly location updates suffice and detailed sensor telemetry is unnecessary, LPWAN provides compelling total cost of ownership advantages through extended battery life and lower connectivity costs.</p>
+
+                <h3>Integration & API Ecosystem</h3>
+                <p>Asset tracking devices generate value when their data flows into operational systems guiding decisions and actions. Our tracking platforms expose RESTful APIs enabling integration with diverse enterprise systems:</p>
+                <ul>
+                    <li><strong>Transportation Management Systems (TMS):</strong> Real-time shipment location data updates estimated arrival times, automatically advancing shipment milestones, and triggering customer notifications</li>
+                    <li><strong>Warehouse Management Systems (WMS):</strong> Inbound shipment visibility enables dock scheduling optimization, labor planning, and automated receiving workflows</li>
+                    <li><strong>Enterprise Resource Planning (ERP):</strong> In-transit inventory visibility improves order promising accuracy and enables dynamic inventory allocation decisions</li>
+                    <li><strong>Customer Portals:</strong> White-label tracking pages and notification APIs provide customers with real-time shipment visibility, predictive ETAs, and exception alerts</li>
+                    <li><strong>Business Intelligence (BI) Tools:</strong> Historical tracking data feeds dashboards and reports analyzing transit time performance, carrier service quality, and supply chain network optimization</li>
+                </ul>
+
+                <h3>Why Infrasys for Asset Tracking?</h3>
+                <p>Our asset tracking implementations combine IoT hardware expertise, wireless connectivity knowledge spanning cellular, satellite, and LPWAN technologies, cloud platform development, and deep logistics domain understanding. We've deployed tracking solutions for ocean containers crossing the Pacific, pharmaceutical shipments requiring GDP compliance, construction equipment rental fleets, and high-value electronics distribution.</p>
+                <p>We design solutions balancing visibility requirements, battery life constraints, connectivity costs, and operational workflows. Whether tracking 100 high-value shipments monthly or managing 10,000 returnable containers in a closed-loop pool, Infrasys delivers scalable, reliable, and cost-effective asset tracking infrastructure transforming supply chain operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <h2 class="cta-title">Ready to gain real-time asset visibility?</h2>
+            <p class="cta-desc">Discuss IoT tracking solutions, cold chain monitoring, or security tracking implementations with our supply chain technology specialists.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Start Tracking Project</a>
+                <a href="logistics-transportation.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Logistics & Transportation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

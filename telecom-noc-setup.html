@@ -1,0 +1,467 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Operations Center Setup & Monitoring — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="NOC design, build-out, fault management systems, performance monitoring platforms, alarm correlation, and 24x7 operational support for carrier networks.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .protocol-list { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .protocol-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="telecom-media.html">Telecom & Media</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">NOC Setup & Monitoring</span>
+            </nav>
+            <h1 class="page-hero-title">Network Operations <span>Center</span></h1>
+            <p class="page-hero-subtitle">24x7 monitoring, fault management, and operational support for carrier-grade networks</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Enterprise Network Operations Center Design & Implementation</h2>
+                <p>Network Operations Centers (NOCs) serve as the nerve center for telecom operators, monitoring thousands of network elements, detecting faults within seconds, and coordinating rapid restoration to minimize service impact. As networks grow in complexity — spanning legacy TDM systems, IP/MPLS transport, mobile packet core, and virtualized network functions — NOC operations become increasingly challenging and critical to maintaining competitive service quality.</p>
+                <p>Infrasys specializes in designing and building state-of-the-art NOC facilities that combine physical infrastructure (control rooms, video walls, workstations), operational technology (monitoring platforms, ticketing systems, automation tools), and operational processes (runbooks, escalation procedures, shift handover protocols). Our NOC solutions span greenfield facilities for new operators, modernization of legacy control centers, and managed services where we operate NOCs on behalf of telecom and enterprise clients.</p>
+                <p>We understand that effective NOC operations require more than just monitoring software — they demand carefully designed workflows, clear accountability structures, integration with field service organizations, and a culture of continuous improvement. Our implementations are grounded in ITIL service management principles, TM Forum Frameworx standards, and operational best practices developed through managing real-world carrier networks.</p>
+
+                <h3>Core NOC Design & Setup Services</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-building"></i> Facility Design & Build-Out</h4>
+                        <p>Control room layout, video wall configuration, workstation ergonomics, lighting design, and backup power systems for 24x7 operations.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-chart-line"></i> Monitoring Platform Implementation</h4>
+                        <p>Multi-vendor network management system (NMS) integration, unified dashboards, alarm correlation engines, and real-time KPI visualization.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-clipboard-list"></i> Process & Workflow Design</h4>
+                        <p>ITIL-based incident, problem, and change management processes with role definitions, escalation matrices, and shift handover protocols.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-users"></i> Staff Training & Certification</h4>
+                        <p>Technical training on monitoring tools, vendor equipment, and troubleshooting procedures plus ITIL Foundation and vendor certifications.</p>
+                    </div>
+                </div>
+
+                <h3>NOC Facility Design & Physical Infrastructure</h3>
+                <p>The physical environment of a NOC directly impacts operator effectiveness, fatigue levels, and incident response times. We design control rooms that balance operational efficiency, ergonomic considerations, and the ability to scale as networks and teams grow.</p>
+                <p>Video wall displays provide at-a-glance network health visibility, showing geographic network maps, real-time alarm lists, key performance indicators, and trending graphs. We specify appropriate display technologies (LCD, LED, projection cubes) based on viewing distance, ambient lighting, and budget constraints. Typical NOC video walls range from 6 displays (2x3 grid) for regional operations to 30+ displays for national carrier control centers.</p>
+                <p>Operator workstations incorporate multiple monitors (typically 3-4 per position) to enable simultaneous viewing of monitoring dashboards, ticketing systems, network diagrams, and communication tools. Ergonomic furniture with adjustable height desks and lumbar support seating reduces operator fatigue during 12-hour shifts. We design lighting systems with adjustable intensity and color temperature to minimize eye strain while maintaining alertness during overnight hours.</p>
+                <ul>
+                    <li><strong>Tiered Seating Layout:</strong> Elevated platforms for shift supervisors and senior engineers to oversee operator consoles and video walls with clear sightlines across the entire control room</li>
+                    <li><strong>Acoustic Treatment:</strong> Sound-absorbing panels, carpet flooring, and white noise systems to maintain concentration in 24x7 environments with multiple voice conversations</li>
+                    <li><strong>Backup Power Systems:</strong> UPS and generator capacity to sustain full NOC operations for 24-48 hours during utility outages, including HVAC and lighting systems</li>
+                    <li><strong>Redundant Network Connectivity:</strong> Diverse fiber paths from NOC facility to core network sites, ensuring NOC can monitor and control infrastructure even during network failures</li>
+                    <li><strong>Physical Security:</strong> Biometric access control, surveillance cameras, visitor escort policies, and separation between NOC and general office areas</li>
+                </ul>
+
+                <h3>Multi-Vendor Network Management System Integration</h3>
+                <p>Carrier networks comprise equipment from multiple vendors — Nokia, Ericsson, Huawei, Cisco, Juniper, Ciena — each with proprietary element management systems (EMS) and alarm formats. NOC platforms must aggregate monitoring data from these disparate systems into unified dashboards and alarm lists.</p>
+                <p>We implement Network Management System (NMS) platforms that integrate with vendor EMS through standard protocols (SNMP, Netconf, TL1) and proprietary APIs. These platforms normalize alarm severity, enrich alarms with location and circuit impact data, and present a single pane of glass for NOC operators regardless of underlying vendor diversity.</p>
+                <div class="protocol-list">
+                    <span class="protocol-badge">SNMP v2c/v3</span>
+                    <span class="protocol-badge">Netconf/YANG</span>
+                    <span class="protocol-badge">TL1 (Transaction Language 1)</span>
+                    <span class="protocol-badge">Syslog</span>
+                    <span class="protocol-badge">Streaming Telemetry (gNMI)</span>
+                    <span class="protocol-badge">REST APIs</span>
+                </div>
+                <p>For wireless networks, we integrate RAN management systems that monitor cell site KPIs including accessibility, retainability, handover success rates, and throughput per sector. For IP networks, we implement performance monitoring using IP SLA, Y.1731 Ethernet OAM, and TWAMP to measure latency, jitter, and packet loss across service paths.</p>
+
+                <h3>Alarm Correlation & Root Cause Analysis</h3>
+                <p>Major network incidents generate alarm storms — hundreds or thousands of alarms triggered within minutes as downstream elements lose connectivity or dependencies fail. Without intelligent correlation, NOC operators drown in alarm noise, unable to identify the root cause requiring immediate attention.</p>
+                <p>We implement alarm correlation engines that apply rule-based and machine learning algorithms to identify root cause alarms while suppressing consequential alarms. When a fiber cut occurs on a major transport route, the correlation engine recognizes that hundreds of alarms from downstream routers, cell sites, and customer circuits are consequences of the single fiber failure, presenting operators with one critical alarm rather than overwhelming them with hundreds.</p>
+                <p>Correlation rules encode network topology, dependency relationships, and fault propagation patterns. When configured properly, these systems reduce alarm volumes by 80-90%, enabling operators to focus on actionable incidents rather than sorting through redundant notifications.</p>
+                <p>Machine learning models trained on historical alarm data identify anomalous patterns that don't match predefined rules, detecting novel fault scenarios that human engineers haven't anticipated. These systems improve over time as they observe more incidents and receive feedback on correct and incorrect correlations.</p>
+
+                <h3>Incident Management & Ticketing Systems</h3>
+                <p>Effective NOC operations require structured incident management workflows that ensure no fault falls through the cracks, accountability is clear, and resolution progress is tracked from detection to closure. We implement ticketing systems integrated with monitoring platforms to automate ticket creation, escalation, and closure workflows.</p>
+                <p>When critical alarms occur, tickets are automatically generated and assigned to appropriate teams based on element type, location, and alarm characteristics. Escalation timers ensure that if tickets aren't acknowledged within defined timeframes (typically 5-15 minutes for critical incidents), they automatically escalate to senior engineers and management.</p>
+                <ul>
+                    <li><strong>Severity Classification:</strong> Critical (immediate revenue impact), Major (partial service degradation), Minor (informational, no customer impact) with corresponding response time SLAs</li>
+                    <li><strong>Assignment Automation:</strong> Intelligent ticket routing based on network domain (core, access, mobile, enterprise), geographic region, and on-call engineer schedules</li>
+                    <li><strong>Knowledge Base Integration:</strong> Links from tickets to troubleshooting runbooks, vendor TAC procedures, and past incident resolutions with similar symptoms</li>
+                    <li><strong>Customer Impact Assessment:</strong> Automatic identification of affected services, enterprise customers, and subscriber counts to prioritize restoration efforts</li>
+                    <li><strong>Post-Incident Review:</strong> Mandatory root cause analysis for all major incidents with remediation action items tracked to closure</li>
+                </ul>
+
+                <h3>Performance Monitoring & KPI Dashboards</h3>
+                <p>Beyond fault monitoring, NOCs must track network performance trends to identify degradation before it causes service impact and validate that networks meet SLA commitments to enterprise customers. We implement KPI monitoring dashboards that visualize key metrics across network layers.</p>
+                <p>For mobile networks, dashboards display accessibility (call setup success rate), retainability (call drop rate), handover performance, data session throughput, and spectrum utilization per cell sector. Geographic heatmaps highlight areas with poor RF coverage or capacity constraints, enabling proactive capacity planning.</p>
+                <p>For IP/MPLS networks, dashboards show interface utilization, packet loss, latency, and BGP peering session stability. Service performance monitoring tracks end-to-end SLA metrics for MPLS VPNs, internet transit, and wavelength services delivered to enterprise customers.</p>
+                <p>Real-time alerting triggers when KPI thresholds are breached — for example, when average sector throughput falls below targets or when call drop rates exceed operator quality standards. This proactive monitoring enables NOCs to identify and resolve issues before customer complaints escalate to executive escalations or regulatory penalties.</p>
+
+                <h3>Automation & Self-Healing Networks</h3>
+                <p>Modern NOC operations increasingly leverage automation to handle routine incidents without human intervention, reducing mean time to repair (MTTR) and freeing operators to focus on complex problems requiring human judgment. We implement automation workflows that detect common fault patterns and execute remediation scripts.</p>
+                <p>Common automation scenarios include:</p>
+                <ul>
+                    <li><strong>Service Restarts:</strong> When monitoring detects process crashes or service degradation, automation scripts restart affected services and verify restoration before creating tickets for persistent failures</li>
+                    <li><strong>Traffic Rerouting:</strong> Automatic activation of protection paths or MPLS fast reroute when primary transport links fail, maintaining service continuity while field technicians dispatch to repair sites</li>
+                    <li><strong>Configuration Backup:</strong> Scheduled configuration backups for all network elements with automatic alerts when backups fail or configurations change outside maintenance windows</li>
+                    <li><strong>Threshold Adjustment:</strong> Dynamic adjustment of alarm thresholds based on time-of-day traffic patterns to reduce false positives during peak usage periods</li>
+                    <li><strong>Capacity Expansion:</strong> For virtualized network functions, automatic scaling of compute resources when CPU or memory utilization exceeds thresholds</li>
+                </ul>
+
+                <h3>Integration with Field Service Management</h3>
+                <p>Many network faults require physical intervention — fiber splicing, equipment replacement, antenna alignment, power system repairs. NOC operations must seamlessly integrate with field service organizations to dispatch technicians, track work order status, and verify restoration.</p>
+                <p>We implement integrations between NOC ticketing systems and field service management platforms that enable automatic technician dispatch, GPS tracking of field crews, and mobile access to site documentation and troubleshooting procedures. When NOCs close tickets based on alarm clearance, field technicians receive notifications to confirm physical work is complete and sites are secure.</p>
+                <p>Spare parts inventory systems integrate with NOC workflows to ensure replacement components are available at regional warehouses before dispatching technicians. When critical spares reach minimum stock levels, procurement workflows automatically trigger replenishment orders.</p>
+
+                <h3>Security Operations Center (SOC) Integration</h3>
+                <p>As telecom networks face increasing cybersecurity threats — DDoS attacks, BGP hijacking, SS7 exploitation, malware infections — NOC and SOC functions must coordinate to distinguish between network faults and security incidents. We design integrated NOC/SOC operations that share visibility, correlate events, and coordinate response.</p>
+                <p>Anomaly detection systems identify unusual traffic patterns, signaling activity, or device behavior that may indicate security incidents. When detected, alerts flow to both NOC teams (to assess network impact) and SOC teams (to investigate attack vectors and deploy countermeasures).</p>
+                <p>DDoS mitigation systems integrate with NOC monitoring to automatically divert attack traffic to scrubbing centers when volumetric attacks exceed threshold rates. NOC operators monitor mitigation effectiveness and coordinate with upstream transit providers when attacks exceed local mitigation capacity.</p>
+
+                <h3>NOC Operational Processes & Shift Management</h3>
+                <p>Technology platforms alone don't create effective NOCs — structured processes, clear roles, and disciplined execution are equally critical. We develop comprehensive operational procedures covering all aspects of 24x7 NOC operations:</p>
+                <ul>
+                    <li><strong>Shift Handover Protocols:</strong> Standardized briefing templates covering active incidents, pending maintenance, outstanding escalations, and notable events from previous shift</li>
+                    <li><strong>Escalation Matrices:</strong> Clear definitions of when to escalate incidents to senior engineers, vendor technical support, executive management, and regulatory authorities</li>
+                    <li><strong>Major Incident Management:</strong> Bridge call procedures, communication templates, status update cadence, and post-incident review requirements for incidents affecting large customer populations</li>
+                    <li><strong>Change Management:</strong> Coordination of planned maintenance windows, pre-change checklists, backout procedures, and post-change verification testing</li>
+                    <li><strong>Continuous Improvement:</strong> Monthly operational reviews analyzing incident trends, MTTR metrics, false alarm rates, and process improvement opportunities</li>
+                </ul>
+
+                <h3>NOC Staff Training & Competency Development</h3>
+                <p>NOC effectiveness depends on operator competency across network technologies, monitoring tools, troubleshooting methodologies, and operational processes. We develop comprehensive training programs that bring new hires from basic networking knowledge to proficient NOC operators within 3-6 months.</p>
+                <p>Training curricula cover foundational topics (OSI model, IP routing, optical transport) before progressing to operator-specific skills (alarm interpretation, ticket handling, escalation judgment). Hands-on lab exercises using network simulators allow operators to practice troubleshooting scenarios without impacting production networks.</p>
+                <p>Certification programs (ITIL Foundation, vendor-specific certifications) provide credentials that demonstrate competency and career progression paths. We implement knowledge management systems where experienced operators document troubleshooting procedures, lessons learned, and tips that become training materials for future hires.</p>
+
+                <h3>Managed NOC Services</h3>
+                <p>For operators preferring to outsource NOC functions rather than build internal capabilities, Infrasys offers managed NOC services delivering 24x7 monitoring, incident response, and operational support. Our managed service model provides multiple engagement options:</p>
+                <p><strong>Full Outsourced NOC:</strong> Complete responsibility for network monitoring, fault management, performance reporting, and coordination with field service providers. We staff, train, and manage NOC teams operating from Infrasys facilities with contractual SLAs for incident detection, response times, and escalation procedures.</p>
+                <p><strong>Co-Managed NOC:</strong> Shared responsibility model where Infrasys provides 24x7 monitoring and first-level incident response while customer engineers handle escalations and complex troubleshooting. This approach reduces customer staffing requirements while maintaining internal expertise for critical decisions.</p>
+                <p><strong>Follow-the-Sun NOC:</strong> Geographic distribution of NOC functions across time zones to provide 24x7 coverage with primarily day-shift staffing. Incidents seamlessly hand off between NOC locations as business hours rotate around the globe.</p>
+
+                <h3>NOC Metrics & Key Performance Indicators</h3>
+                <p>Continuous improvement requires measurement. We implement KPI frameworks that track NOC operational effectiveness and identify areas for improvement:</p>
+                <ul>
+                    <li><strong>Mean Time to Detect (MTTD):</strong> Average time from fault occurrence to alarm generation, targeting sub-60 second detection for critical elements</li>
+                    <li><strong>Mean Time to Acknowledge (MTTA):</strong> Average time from alarm generation to operator acknowledgment, targeting 5 minutes for critical alarms</li>
+                    <li><strong>Mean Time to Repair (MTTR):</strong> Average time from alarm generation to service restoration, varies by fault type but typically targeting 2-4 hours for major incidents</li>
+                    <li><strong>Alarm-to-Ticket Ratio:</strong> Percentage of alarms requiring ticket creation vs. auto-cleared informational alarms, targeting ratios below 20% through effective correlation</li>
+                    <li><strong>First-Time Fix Rate:</strong> Percentage of incidents resolved without requiring multiple dispatch cycles or escalations, targeting above 80%</li>
+                    <li><strong>False Alarm Rate:</strong> Percentage of alarms that don't represent actual faults, targeting below 10% through threshold tuning and monitoring configuration optimization</li>
+                </ul>
+
+                <h3>Why Infrasys for NOC Design & Operations?</h3>
+                <p>Our NOC team combines deep technical knowledge of carrier networks with practical experience operating 24x7 control centers for mobile operators, ISPs, and enterprise network service providers. We have designed and built NOCs ranging from 10-person regional operations to 200+ person national control centers monitoring networks serving tens of millions of subscribers.</p>
+                <p>We don't just deliver monitoring platforms — we deliver operational capabilities. Our implementations include comprehensive runbooks, trained operators, and mature processes that enable effective incident response from day one. We work alongside your teams during transition periods, transferring knowledge and refining procedures until operations stabilize.</p>
+                <p>Whether you're building your first NOC as a new operator, modernizing a legacy control center with outdated tools and manual processes, or seeking managed services to reduce operational costs, Infrasys brings the expertise and experience to make your NOC operations succeed.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-monitor-waveform"></i></div>
+            <h2 class="cta-title">Ready to build or modernize your NOC?</h2>
+            <p class="cta-desc">Schedule a consultation with our NOC specialists to discuss facility design, monitoring platforms, or managed service options.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to NOC Specialist</a>
+                <a href="telecom-media.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Telecom & Media</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

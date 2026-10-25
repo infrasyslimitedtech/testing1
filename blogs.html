@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Read the latest blogs and articles from Infrasys Limited on ERP, AI, Cloud, Cybersecurity, and digital transformation.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+        .article-card{background:var(--bg-white);border:1px solid var(--border-color);border-radius:var(--border-radius);overflow:hidden;transition:var(--transition-smooth);display:flex;flex-direction:column;height:100%;}
+        .article-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:rgba(255,107,0,0.2);}
+        .article-thumb{height:200px;background:linear-gradient(135deg,#002b5c,#003d82);display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(255,255,255,0.2);position:relative;overflow:hidden;}
+        .article-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.3));}
+        .article-tag{position:absolute;top:16px;left:16px;background:var(--primary-orange);color:#fff;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:1px;z-index:1;}
+        .article-body{padding:24px;flex:1;display:flex;flex-direction:column;}
+        .article-meta{display:flex;gap:14px;margin-bottom:12px;font-size:0.78rem;color:var(--text-muted);flex-wrap:wrap;}
+        .article-meta span{display:flex;align-items:center;gap:5px;}
+        .article-title{font-size:1.1rem;font-weight:700;color:var(--secondary-blue);margin-bottom:10px;line-height:1.4;font-family:var(--font-heading);}
+        .article-excerpt{font-size:0.88rem;color:var(--text-muted);line-height:1.7;flex:1;margin-bottom:16px;}
+        .article-link{display:inline-flex;align-items:center;gap:6px;color:var(--primary-orange);font-size:0.85rem;font-weight:700;transition:var(--transition-fast);margin-top:auto;}
+        .article-link:hover{gap:10px;}
+        @media(max-width:1024px){.articles-grid{grid-template-columns:1fr 1fr;}}
+        @media(max-width:768px){.articles-grid{grid-template-columns:1fr;}}
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>                                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+                        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search blogs, articles, insights..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb"><a href="index.html">Home</a><span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span><span class="current">Blogs</span></nav>
+            <h1 class="page-hero-title">Blogs &amp; <span>Articles</span></h1>
+            <p class="page-hero-subtitle">Expert insights, thought leadership, and practical guides on ERP, AI, Cloud, Cybersecurity, and digital transformation from our global team.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="articles-grid">
+                <!-- Blog 1 - Featured Style but in grid -->
+                <div class="article-card scroll-reveal reveal-up">
+                    <div class="article-thumb" style="height:240px;"><i class="fa-solid fa-robot" style="font-size:4rem;"></i><span class="article-tag">AI/ML - Featured</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> August 18, 2026</span><span><i class="fa-solid fa-clock"></i> 12 min</span></div>
+                        <h3 class="article-title">Generative AI in ERP: Beyond Chatbots to Intelligent Automation</h3>
+                        <p class="article-excerpt">Large Language Models are revolutionizing how enterprises interact with ERP systems. From natural language queries to AI-generated workflows that adapt to business changes.</p>
+                        <a href="blog-gen-ai-erp.html" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-1">
+                    <div class="article-thumb"><i class="fa-solid fa-microchip"></i><span class="article-tag">AI/ML</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> August 14, 2026</span><span><i class="fa-solid fa-clock"></i> 9 min</span></div>
+                        <h3 class="article-title">Training Custom LLMs on Enterprise Data: A Practical Guide for CFOs and CIOs</h3>
+                        <p class="article-excerpt">How to fine-tune large language models on your company's proprietary data without compromising security. We cover data preparation, model selection, cost optimization, and compliance frameworks.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-2">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#dc2626,#f87171);"><i class="fa-solid fa-user-shield"></i><span class="article-tag">Identity</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> August 11, 2026</span><span><i class="fa-solid fa-clock"></i> 7 min</span></div>
+                        <h3 class="article-title">Passwordless Authentication in Enterprise: Why 2026 is the Tipping Point</h3>
+                        <p class="article-excerpt">Biometric authentication, hardware keys, and magic links are replacing passwords across Fortune 500 companies. Here's what works, what doesn't, and how to roll it out safely.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-3">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#0891b2,#06b6d4);"><i class="fa-solid fa-server"></i><span class="article-tag">Infrastructure</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> August 7, 2026</span><span><i class="fa-solid fa-clock"></i> 8 min</span></div>
+                        <h3 class="article-title">Edge Computing for Real-Time ERP: Why Latency Still Matters in 2026</h3>
+                        <p class="article-excerpt">As manufacturing and logistics move to real-time operations, edge computing becomes critical for ERP deployments. We break down architecture patterns and cost tradeoffs.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-4">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);"><i class="fa-solid fa-chart-pie"></i><span class="article-tag">Analytics</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> August 3, 2026</span><span><i class="fa-solid fa-clock"></i> 6 min</span></div>
+                        <h3 class="article-title">Real-Time Financial Consolidation: Moving Beyond Month-End Close</h3>
+                        <p class="article-excerpt">CFOs are demanding live visibility into P&L across subsidiaries. We show how modern ERP platforms enable continuous accounting and what it takes to implement successfully.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-5">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#059669,#10b981);"><i class="fa-solid fa-leaf"></i><span class="article-tag">Sustainability</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> August 1, 2026</span><span><i class="fa-solid fa-clock"></i> 10 min</span></div>
+                        <h3 class="article-title">Carbon Accounting in ERP: Meeting ESG Reporting Requirements in 2026</h3>
+                        <p class="article-excerpt">New SEBI and EU regulations require real-time carbon tracking. Learn how to integrate Scope 1, 2, and 3 emissions data into SAP, Oracle, and ERPNext for automated ESG reporting.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-1">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);"><i class="fa-solid fa-shield-halved"></i><span class="article-tag">Cybersecurity</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> July 28, 2026</span><span><i class="fa-solid fa-clock"></i> 8 min</span></div>
+                        <h3 class="article-title">Ransomware Recovery Strategies: Lessons from the 2026 Supply Chain Attacks</h3>
+                        <p class="article-excerpt">With ransomware targeting critical infrastructure at unprecedented scale, we outline a four-phase recovery framework that minimizes downtime and protects data integrity.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-2">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);"><i class="fa-solid fa-code"></i><span class="article-tag">Development</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> July 22, 2026</span><span><i class="fa-solid fa-clock"></i> 7 min</span></div>
+                        <h3 class="article-title">Low-Code ERP Customization: When to Use Frappe vs Custom Python Development</h3>
+                        <p class="article-excerpt">ERPNext's Frappe framework enables rapid customization, but knowing when to use low-code vs full Python development can save months of rework. Here's our decision matrix.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-3">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#ec4899,#f472b6);"><i class="fa-solid fa-gears"></i><span class="article-tag">Automation</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> July 18, 2026</span><span><i class="fa-solid fa-clock"></i> 9 min</span></div>
+                        <h3 class="article-title">Robotic Process Automation (RPA) Meets AI: The Next Generation of Intelligent Workflows</h3>
+                        <p class="article-excerpt">Traditional RPA is evolving with AI-powered decision-making. We explore how intelligent automation is transforming invoice processing, inventory management, and HR onboarding.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-4">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#10b981,#34d399);"><i class="fa-solid fa-indian-rupee-sign"></i><span class="article-tag">Finance</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> July 12, 2026</span><span><i class="fa-solid fa-clock"></i> 6 min</span></div>
+                        <h3 class="article-title">GST Compliance Automation in Indian ERP: Handling GSTR-1, GSTR-3B, and E-Invoicing</h3>
+                        <p class="article-excerpt">A complete guide to automating GST workflows in SAP, Oracle, and ERPNext — from invoice generation to return filing and reconciliation with government portals.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-5">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#ef4444,#f87171);"><i class="fa-solid fa-chart-line"></i><span class="article-tag">Strategy</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> July 6, 2026</span><span><i class="fa-solid fa-clock"></i> 10 min</span></div>
+                        <h3 class="article-title">CIO Playbook 2026: Balancing Innovation with Technical Debt Reduction</h3>
+                        <p class="article-excerpt">How leading CIOs allocate IT budgets between new AI initiatives and legacy system modernization. Includes benchmarks from 50+ enterprise technology leaders.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-1">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#ff6b00,#ff8533);"><i class="fa-solid fa-cloud"></i><span class="article-tag">Cloud</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> June 29, 2026</span><span><i class="fa-solid fa-clock"></i> 11 min</span></div>
+                        <h3 class="article-title">Migrating SAP S/4HANA to Azure: 10 Lessons from Live Enterprise Deployments</h3>
+                        <p class="article-excerpt">From performance tuning to disaster recovery, we share hard-won insights from moving mission-critical SAP workloads to Microsoft Azure across 10+ Fortune 500 clients.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-2">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#0891b2,#06b6d4);"><i class="fa-solid fa-database"></i><span class="article-tag">Data Engineering</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> June 20, 2026</span><span><i class="fa-solid fa-clock"></i> 9 min</span></div>
+                        <h3 class="article-title">Real-Time Data Lakes for Manufacturing: From Concept to Production</h3>
+                        <p class="article-excerpt">Building streaming pipelines that process IoT sensor data, MES outputs, and ERP transactions in real-time � reducing decision latency from hours to seconds.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-3">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);"><i class="fa-solid fa-layer-group"></i><span class="article-tag">ERP Comparison</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> June 12, 2026</span><span><i class="fa-solid fa-clock"></i> 14 min</span></div>
+                        <h3 class="article-title">ERPNext vs SAP S/4HANA vs Oracle Cloud: The 2026 Enterprise Buyer's Guide</h3>
+                        <p class="article-excerpt">An unbiased deep-dive comparing TCO, feature completeness, implementation timelines, and scalability across the three leading ERP platforms for mid-to-large enterprises.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-4">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#dc2626,#ef4444);"><i class="fa-solid fa-chart-mixed"></i><span class="article-tag">Business Intelligence</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> May 28, 2026</span><span><i class="fa-solid fa-clock"></i> 8 min</span></div>
+                        <h3 class="article-title">Measuring ERP ROI Beyond Go-Live: The Metrics That Actually Matter</h3>
+                        <p class="article-excerpt">Cost savings are table stakes. Learn how to track process efficiency gains, user productivity, data quality improvements, and strategic agility � the KPIs that prove ERP value.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-5">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#ea580c,#fb923c);"><i class="fa-solid fa-network-wired"></i><span class="article-tag">Architecture</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> May 15, 2026</span><span><i class="fa-solid fa-clock"></i> 10 min</span></div>
+                        <h3 class="article-title">Hybrid Cloud Architecture for Mission-Critical ERP: Design Patterns That Work</h3>
+                        <p class="article-excerpt">Balancing on-premises compliance with cloud elasticity. We share reference architectures for SAP, Oracle, and Microsoft Dynamics in regulated industries.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="article-card scroll-reveal reveal-up delay-1">
+                    <div class="article-thumb" style="background:linear-gradient(135deg,#0284c7,#38bdf8);"><i class="fa-solid fa-people-group"></i><span class="article-tag">Change Management</span></div>
+                    <div class="article-body">
+                        <div class="article-meta"><span><i class="fa-solid fa-calendar"></i> May 5, 2026</span><span><i class="fa-solid fa-clock"></i> 7 min</span></div>
+                        <h3 class="article-title">Driving ERP User Adoption: How We Achieve 90%+ Engagement Rates</h3>
+                        <p class="article-excerpt">Technical excellence means nothing without user buy-in. Our proven change management framework for training, communications, and incentive design that turns skeptics into champions.</p>
+                        <a href="#" class="article-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+<div class="contact-modal" id="contact-modal">
+    <div class="contact-modal-content">
+        <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="contact-modal-grid">
+            <div class="contact-modal-info">
+                <div>
+                    <h2>Let's Connect</h2>
+                    <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                </div>
+                <div class="contact-modal-details">
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Hotline</div>
+                            <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Email Address</div>
+                            <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Headquarters</div>
+                            <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Gurugram, India</div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Business Hours</div>
+                            <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-modal-socials">
+                    <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-modal-form-wrapper">
+                <h3>Send us a message</h3>
+                <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                <form class="contact-form" id="modal-contact-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-phone input-icon"></i>
+                                <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-tag input-icon"></i>
+                            <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                            <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openContactModal() {
+    document.getElementById('contact-modal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+    document.getElementById('contact-modal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+// Close on outside click
+document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+    if (e.target === this) closeContactModal();
+});
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+        closeContactModal();
+    }
+});
+</script>
+
+
+<footer class="footer">
+        <div class="footer-top"><div class="container"><div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-col"><h4>Company</h4><ul class="footer-links">
+                <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+            </ul></div>
+            <div class="footer-links-col">
+                <h4>Solutions</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                    <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                    <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                    <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col footer-newsletter-col">
+                <h4>Stay Updated</h4>
+                <p class="footer-newsletter-desc">Infrastructure insights in your inbox.</p>
+                <form class="footer-newsletter" id="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+            </div>
+        </div></div></div>
+        <div class="footer-bottom"><div class="container"><div class="footer-bottom-inner">
+            <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+            <div class="footer-legal-links">
+                <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                <a href="compliance.html" class="footer-legal-link">Compliance</a>
+            </div>
+        </div></div></div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Search
+        (function(){var st=document.getElementById('search-toggle'),so=document.getElementById('search-overlay'),sc=document.getElementById('search-close'),si=document.getElementById('search-input');if(st&&so){st.addEventListener('click',function(){so.classList.add('open');document.body.style.overflow='hidden';setTimeout(function(){if(si)si.focus();},200);});if(sc)sc.addEventListener('click',function(){so.classList.remove('open');document.body.style.overflow='';});so.addEventListener('click',function(e){if(e.target===so){so.classList.remove('open');document.body.style.overflow='';}});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&so.classList.contains('open')){so.classList.remove('open');document.body.style.overflow='';}});}})();
+        // Cookies
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script><script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>
+

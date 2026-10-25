@@ -1,0 +1,430 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Management Systems Integration — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Unified BMS integration for HVAC, lighting, fire safety, and access control systems. Protocol conversion for BACnet, Modbus, LonWorks, and KNX platforms.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .protocol-list { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .protocol-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="infrastructure-realestate.html">Infrastructure & Real Estate</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">BMS Integration</span>
+            </nav>
+            <h1 class="page-hero-title">Building Management <span>Systems Integration</span></h1>
+            <p class="page-hero-subtitle">Unified control platforms connecting HVAC, lighting, fire safety, and access systems across commercial properties</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Enterprise BMS Architecture for Modern Buildings</h2>
+                <p>Building Management Systems (BMS) — also known as Building Automation Systems (BAS) — serve as the central nervous system of modern commercial real estate. These integrated control platforms monitor and manage mechanical, electrical, and electromechanical systems including HVAC (Heating, Ventilation, and Air Conditioning), lighting, fire safety, elevators, and security infrastructure. In enterprise-grade facilities, BMS platforms can monitor tens of thousands of data points in real-time, optimizing energy consumption while maintaining occupant comfort and safety.</p>
+                <p>Infrasys specializes in designing, implementing, and integrating BMS platforms for commercial office towers, industrial parks, data centers, hospitals, educational campuses, and mixed-use developments. Our solutions unify disparate building systems — often from multiple vendors with incompatible protocols — into cohesive control environments that enable centralized monitoring, automated control sequences, and data-driven operational insights.</p>
+                <p>We understand that BMS integration projects must navigate the complexity of legacy building systems, proprietary protocols, and the conflicting priorities of energy efficiency, occupant comfort, and operational budgets. Our approach combines deep knowledge of building automation protocols (BACnet, Modbus, LonWorks, KNX), mechanical engineering principles, and IT infrastructure best practices to deliver BMS platforms that deliver measurable ROI through reduced energy costs and improved operational efficiency.</p>
+
+                <h3>Core BMS Integration Services</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-wind"></i> HVAC System Integration</h4>
+                        <p>Centralized control of chillers, boilers, air handling units (AHU), variable air volume (VAV) boxes, and energy recovery systems with optimized control sequences.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-lightbulb"></i> Lighting Control Systems</h4>
+                        <p>Integration of occupancy-based lighting, daylight harvesting, dimming controls, and emergency lighting with building schedules and energy management.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-fire-extinguisher"></i> Fire & Life Safety Integration</h4>
+                        <p>Integration of fire alarm panels, smoke detection, sprinkler systems, and emergency ventilation with automated evacuation sequences.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-key"></i> Access Control Systems</h4>
+                        <p>Integration of card access, biometric readers, visitor management, and elevator dispatch systems with time-based access policies.</p>
+                    </div>
+                </div>
+
+                <h3>Protocol Engineering & Interoperability</h3>
+                <p>Modern commercial buildings often contain a heterogeneous mix of building automation systems from multiple manufacturers, each speaking different communication protocols. The key challenge in BMS integration is achieving seamless interoperability between these disparate systems while preserving their native functionality and reliability.</p>
+                <p>Infrasys provides protocol engineering and gateway solutions that enable different building systems to communicate regardless of their native protocols:</p>
+                <div class="protocol-list">
+                    <span class="protocol-badge">BACnet IP / MS/TP</span>
+                    <span class="protocol-badge">Modbus TCP / RTU</span>
+                    <span class="protocol-badge">LonWorks (ISO/IEC 14908)</span>
+                    <span class="protocol-badge">KNX (ISO/IEC 14543)</span>
+                    <span class="protocol-badge">DALI (Digital Addressable Lighting)</span>
+                    <span class="protocol-badge">OPC-UA</span>
+                    <span class="protocol-badge">MQTT (IoT Integration)</span>
+                </div>
+                <p>Our protocol engineering approach involves deep packet analysis, conformance testing, and load simulation to ensure that integrated systems maintain their operational integrity. We deploy intelligent gateway devices that perform real-time protocol translation, data normalization, and alarm aggregation, presenting a unified interface to facility managers regardless of underlying system complexity.</p>
+
+                <h3>BMS Network Architecture & Segmentation</h3>
+                <p>Enterprise BMS networks demand robust, resilient architectures that isolate building automation traffic from corporate IT networks while enabling secure data exchange for analytics and reporting. Our BMS network designs incorporate defense-in-depth principles aligned with ISA/IEC 62443 industrial security standards:</p>
+                <ul>
+                    <li><strong>Building Automation Network (BAN):</strong> Dedicated physical or logical network segments for BMS controllers, sensors, actuators, and field devices, isolated from corporate networks through industrial firewalls</li>
+                    <li><strong>Management Network Zone:</strong> DMZ segment hosting BMS operator workstations, historian databases, and web-based dashboards with controlled access from corporate networks</li>
+                    <li><strong>Field Controller Redundancy:</strong> Dual network paths for critical BMS controllers ensuring continued operation during network failures or maintenance windows</li>
+                    <li><strong>Network Time Synchronization:</strong> NTP (Network Time Protocol) infrastructure ensuring precise timestamp correlation across distributed building systems for event sequencing and fault analysis</li>
+                    <li><strong>Bandwidth Planning:</strong> Quality of Service (QoS) policies and traffic shaping to prioritize critical control traffic over less time-sensitive monitoring data</li>
+                </ul>
+
+                <h3>Energy Management & Optimization</h3>
+                <p>Beyond basic monitoring and control, modern BMS platforms serve as energy management systems that continuously optimize building operations to minimize utility costs while maintaining occupant comfort. Infrasys implements advanced control strategies that leverage building performance data, weather forecasts, and occupancy patterns to achieve significant energy savings:</p>
+                <p><strong>Demand-Based HVAC Control:</strong> Real-time occupancy sensing triggers dynamic adjustment of ventilation rates, temperature setpoints, and air distribution — reducing energy waste in unoccupied zones while maintaining comfort where occupants are present. CO2 sensors enable demand-controlled ventilation, modulating outside air intake based on actual occupancy rather than maximum design capacity.</p>
+                <p><strong>Thermal Energy Storage Optimization:</strong> For facilities with chilled water or ice storage systems, predictive algorithms shift cooling load to off-peak hours when electricity rates are lower. The BMS pre-cools thermal mass during low-cost periods and discharges stored cooling during peak demand, achieving 20-40% reduction in demand charges.</p>
+                <p><strong>Peak Demand Curtailment:</strong> Integration with utility demand response programs enables automated load shedding during grid stress events. The BMS prioritizes critical systems while temporarily reducing non-essential loads — dimming perimeter lighting, raising cooling setpoints, or deferring equipment starts — to avoid demand charge penalties.</p>
+                <p><strong>Fault Detection & Diagnostics (FDD):</strong> Machine learning algorithms continuously analyze system performance, detecting degraded operation patterns that indicate impending failures or suboptimal configuration. Early detection of stuck dampers, fouled heat exchangers, or refrigerant leaks enables proactive maintenance before costly failures occur.</p>
+
+                <h3>BMS User Interfaces & Visualization</h3>
+                <p>The effectiveness of a BMS platform depends not only on its technical capabilities but on how intuitively facility operators can interact with thousands of data points and control sequences. Infrasys designs operator interfaces that balance comprehensive functionality with usability:</p>
+                <ul>
+                    <li><strong>Graphical Building Layouts:</strong> Interactive floor plans and 3D building models providing visual representation of system status, with color-coded equipment states and alarm overlays</li>
+                    <li><strong>Responsive Web Dashboards:</strong> Mobile-responsive HTML5 interfaces enabling facility managers to monitor and control systems from tablets and smartphones without proprietary client software</li>
+                    <li><strong>Alarm Management & Prioritization:</strong> Intelligent alarm filtering and escalation rules preventing operator alarm fatigue by suppressing nuisance alarms and escalating critical events</li>
+                    <li><strong>Trending & Historical Analysis:</strong> Time-series visualization of energy consumption, space temperatures, equipment runtimes, and performance metrics enabling data-driven decision making</li>
+                    <li><strong>Scheduling & Calendar Integration:</strong> Time-based control schedules synchronized with occupancy calendars, holiday schedules, and special events, with override capabilities for exceptions</li>
+                </ul>
+
+                <h3>Integration with Enterprise Systems</h3>
+                <p>Modern BMS platforms no longer operate in isolation but integrate with broader enterprise IT systems to enable data-driven property management and financial planning. Infrasys implements bi-directional data exchange between BMS platforms and corporate systems:</p>
+                <p><strong>CMMS Integration:</strong> Automated work order generation in Computerized Maintenance Management Systems (CMMS) based on BMS alarms or predictive maintenance triggers. Equipment runtime hours, cycle counts, and filter differential pressure measurements automatically schedule preventive maintenance tasks.</p>
+                <p><strong>Real Estate Management Systems:</strong> BMS occupancy data feeds into space utilization analytics, enabling data-driven decisions about lease renewals, workspace redesigns, and portfolio optimization. Automated billing of tenant utility consumption based on sub-metered BMS data ensures accurate cost allocation in multi-tenant facilities.</p>
+                <p><strong>Environmental Sustainability Reporting:</strong> Automated extraction of energy consumption, water usage, and carbon emissions data from BMS platforms into sustainability dashboards and regulatory reporting systems (LEED, ENERGY STAR, GRI frameworks).</p>
+                <p><strong>Business Intelligence Integration:</strong> Export of BMS time-series data into enterprise data warehouses and BI platforms (Power BI, Tableau) enabling correlation of building performance with business KPIs — analyzing how HVAC comfort impacts productivity or correlating equipment failures with maintenance spending.</p>
+
+                <h3>BMS Security & Cybersecurity</h3>
+                <p>As BMS platforms become increasingly connected to corporate networks and cloud platforms, they inherit cybersecurity risks traditionally associated with IT systems. Infrasys implements security controls specifically tailored to building automation environments:</p>
+                <ul>
+                    <li><strong>Network Segmentation & Firewalls:</strong> Industrial firewalls with protocol-aware deep packet inspection isolating building networks from corporate IT while enabling controlled data exchange</li>
+                    <li><strong>Role-Based Access Control (RBAC):</strong> Granular permission models ensuring facility operators, contractors, and administrators can only access systems appropriate to their role</li>
+                    <li><strong>Multi-Factor Authentication (MFA):</strong> Two-factor authentication for BMS operator logins preventing unauthorized access from stolen credentials</li>
+                    <li><strong>Audit Logging & Forensics:</strong> Comprehensive logging of all operator actions, configuration changes, and remote access sessions enabling post-incident forensics</li>
+                    <li><strong>Patch Management Programs:</strong> Structured vulnerability management processes ensuring BMS controllers and workstations receive security updates while minimizing operational disruption</li>
+                </ul>
+
+                <h3>Retrofitting Legacy BMS Infrastructure</h3>
+                <p>Many commercial buildings operate with aging BMS platforms — often 15-20 years old — running on obsolete operating systems with limited vendor support. Complete replacement of functional building automation infrastructure is capital-intensive and operationally disruptive. Infrasys specializes in phased BMS modernization strategies that extend the life of legacy investments:</p>
+                <p><strong>Overlay Architecture:</strong> Deploying modern supervisory controllers and web-based interfaces that sit above existing field controllers. Legacy BACnet, Modbus, or LonWorks field devices continue operating while the new supervisory layer provides modern HMI, analytics, and integration capabilities.</p>
+                <p><strong>Controller Migration:</strong> Systematic replacement of end-of-life field controllers on a zone-by-zone or system-by-system basis, minimizing operational disruption. New controllers maintain backward compatibility with existing sensors and actuators, avoiding costly field device replacements.</p>
+                <p><strong>Protocol Gateway Integration:</strong> When replacing proprietary legacy systems, protocol gateways enable gradual migration by translating between old and new systems during transition periods. This approach allows testing new BMS functionality on non-critical zones before full cutover.</p>
+
+                <h3>Why Infrasys for BMS Integration?</h3>
+                <p>Our BMS engineering team combines expertise in building automation protocols, mechanical HVAC engineering, IT networking, and cybersecurity. We have integrated BMS platforms for Class A office towers, mission-critical data centers, manufacturing facilities, and smart campus environments.</p>
+                <p>We deliver not just technology but business outcomes — reduced energy costs (typically 15-30%), improved equipment reliability through predictive maintenance, enhanced tenant satisfaction through comfort management, and increased property valuations through smart building certifications (LEED, WELL, WiredScore).</p>
+                <p>Whether you're building a new smart office tower, retrofitting a 1990s-era BMS, or integrating recently acquired properties into a unified portfolio management platform, Infrasys brings the expertise to make it happen.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-sliders"></i></div>
+            <h2 class="cta-title">Ready to modernize your building management systems?</h2>
+            <p class="cta-desc">Schedule a consultation with our BMS specialists to discuss integration roadmaps, protocol engineering, or energy optimization strategies.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to BMS Expert</a>
+                <a href="infrastructure-realestate.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Infrastructure & Real Estate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

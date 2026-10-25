@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet Telematics & GPS Tracking Systems — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Enterprise fleet management solutions with real-time GPS tracking, driver behavior monitoring, predictive maintenance, fuel optimization, and compliance reporting.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .protocol-list { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .protocol-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="logistics-transportation.html">Logistics & Transportation</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Fleet Telematics & GPS Tracking</span>
+            </nav>
+            <h1 class="page-hero-title">Fleet Telematics & <span>GPS Tracking</span></h1>
+            <p class="page-hero-subtitle">Real-time vehicle monitoring, driver analytics, and predictive maintenance for commercial fleets</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Enterprise Fleet Management Through Connected Vehicle Technology</h2>
+                <p>Fleet telematics has revolutionized how logistics companies, transportation providers, and enterprises with commercial vehicle operations manage their mobile assets. By combining GPS tracking, onboard diagnostics, wireless connectivity, and cloud-based analytics, modern telematics platforms provide unprecedented visibility into vehicle location, driver behavior, fuel consumption, maintenance needs, and regulatory compliance.</p>
+                <p>Infrasys specializes in designing and deploying comprehensive fleet telematics solutions for organizations operating fleets ranging from dozens to thousands of vehicles. Our implementations span light commercial vehicles, heavy trucks, refrigerated transport, tanker fleets, construction equipment, and specialized vehicles requiring custom monitoring capabilities.</p>
+                <p>We understand that effective fleet management goes beyond simply tracking vehicle locations. Our telematics platforms integrate multi-dimensional data streams — GPS coordinates, engine diagnostics, fuel levels, temperature sensors, door open/close events, driver identification, geofence violations, and more — into actionable insights that reduce operational costs, improve safety, enhance customer service, and ensure regulatory compliance.</p>
+
+                <h3>Core Fleet Telematics Capabilities</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-location-crosshairs"></i> Real-Time GPS Tracking</h4>
+                        <p>Sub-minute location updates with mapping interfaces, historical playback, breadcrumb trails, and predictive ETA calculations based on current traffic conditions.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-gauge-high"></i> Driver Behavior Analytics</h4>
+                        <p>Monitoring harsh braking, rapid acceleration, excessive idling, speeding violations, and cornering events with driver scorecards and coaching recommendations.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-wrench"></i> Predictive Maintenance</h4>
+                        <p>Engine diagnostics, fault code detection, maintenance scheduling, and predictive failure analysis to minimize unplanned downtime and repair costs.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-gas-pump"></i> Fuel Management</h4>
+                        <p>Real-time fuel consumption monitoring, idle time analysis, route optimization for fuel efficiency, and fuel theft detection through tank level sensors.</p>
+                    </div>
+                </div>
+
+                <p>Our fleet telematics platforms are built on ruggedized hardware designed for the harsh conditions of commercial vehicle operations. We deploy cellular-connected tracking devices supporting 4G/LTE connectivity with fallback to 3G in rural coverage areas, satellite communication options for remote operations, and dual-SIM capabilities for international fleets crossing borders.</p>
+                <p>The telematics data flows through secure cloud infrastructure processing millions of GPS location updates, sensor readings, and diagnostic events daily. Our real-time processing engines correlate vehicle telemetry with external data sources—traffic patterns, weather conditions, road closures, fuel prices—to provide fleet managers with contextual intelligence supporting operational decisions.</p>
+
+                <h3>Driver Safety & Compliance Management</h3>
+                <p>For commercial fleets, driver safety is paramount both for employee well-being and liability management. Our telematics solutions include comprehensive driver monitoring and coaching capabilities:</p>
+                <ul>
+                    <li><strong>Driver Identification:</strong> RFID cards, key fobs, or mobile app authentication ensuring every trip is associated with a specific driver for accountability and compliance reporting</li>
+                    <li><strong>Hours of Service (HOS) Tracking:</strong> Electronic logging devices (ELD) automatically recording driving time, rest periods, and duty status changes in compliance with transportation regulations</li>
+                    <li><strong>Safety Event Detection:</strong> Accelerometer-based detection of harsh braking, acceleration, and collision events with automatic alert generation and video footage retrieval from dash cameras</li>
+                    <li><strong>Speeding Alerts:</strong> Real-time notifications when vehicles exceed posted speed limits or company-defined thresholds, with historical speeding reports by driver and route</li>
+                    <li><strong>Fatigue Monitoring:</strong> Integration with driver-facing cameras and AI algorithms detecting signs of drowsiness or distraction, triggering audible warnings and supervisor alerts</li>
+                    <li><strong>Geofence Management:</strong> Defining virtual boundaries for depots, customer sites, restricted areas, and authorized routes with automated entry/exit notifications</li>
+                </ul>
+
+                <h3>Maintenance Optimization Through Predictive Analytics</h3>
+                <p>Traditional fleet maintenance follows fixed schedules based on calendar time or odometer readings, often resulting in premature part replacement or unexpected failures. Our telematics-enabled predictive maintenance approach monitors actual vehicle condition:</p>
+                <p>OBD-II integration extracts engine diagnostic codes, battery voltage, coolant temperature, oil pressure, transmission performance, and dozens of other parameters indicating vehicle health. Machine learning models analyze historical failure patterns across your fleet, identifying early warning signs of impending component failures.</p>
+                <p>When a vehicle exhibits anomalous behavior — rising engine temperature, voltage fluctuations, unusual vibration signatures — the system generates maintenance alerts prioritized by severity and predicted time-to-failure. This enables proactive scheduling of repairs during planned downtime rather than roadside breakdowns during deliveries.</p>
+                <p>Integration with fleet maintenance management systems automatically generates work orders, schedules service appointments, orders parts, and maintains complete maintenance histories for each vehicle. This documentation supports warranty claims, resale value preservation, and compliance with manufacturer service requirements.</p>
+
+                <h3>Fuel Efficiency & Cost Reduction</h3>
+                <p>Fuel represents one of the largest operating expenses for commercial fleets. Our telematics solutions provide multi-faceted fuel management capabilities targeting waste reduction:</p>
+                <p><strong>Idle Time Monitoring:</strong> Vehicles idling with engines running consume fuel without productive work. Our platform tracks idle duration at each stop, identifying drivers with excessive idling habits and opportunities for idle-reduction coaching. For fleets with auxiliary power units (APUs), telematics ensures drivers utilize these fuel-efficient alternatives for climate control during rest periods.</p>
+                <p><strong>Route Optimization:</strong> Historical telematics data reveals actual fuel consumption patterns by route, time of day, traffic conditions, and driver. This intelligence feeds route planning algorithms that minimize fuel burn while meeting delivery windows. Real-time traffic integration dynamically re-routes vehicles around congestion, reducing fuel wasted in stop-and-go traffic.</p>
+                <p><strong>Fuel Theft Detection:</strong> For fleets with fuel level sensors, telematics monitors fuel quantity changes. Sudden drops inconsistent with driving patterns trigger alerts for potential theft or unauthorized fueling. Integration with fuel card systems cross-references dispensed quantities against tank level changes, identifying discrepancies.</p>
+                <p><strong>Driver Behavior Impact:</strong> Aggressive acceleration, harsh braking, and excessive speeding significantly impact fuel economy. Our driver scorecards quantify the fuel cost of poor driving habits, providing concrete metrics for coaching programs. Gamification through driver leaderboards and incentive programs promotes fuel-efficient driving behaviors across the fleet.</p>
+
+                <h3>Integration with Transportation Management Systems</h3>
+                <p>Fleet telematics delivers maximum value when integrated with existing enterprise systems. We build bi-directional integrations with transportation management systems (TMS), warehouse management systems (WMS), enterprise resource planning (ERP) platforms, and customer relationship management (CRM) applications:</p>
+                <p>When dispatch systems assign deliveries to vehicles, telematics platforms receive the route manifest, delivery addresses, appointment windows, and special instructions. Real-time vehicle locations enable accurate ETA calculations shared automatically with customers via SMS or web portals. Geofence arrivals trigger workflows — notifying customers of imminent delivery, marking shipments as delivered in TMS systems, and initiating electronic proof of delivery capture through driver mobile apps.</p>
+                <p>This integration eliminates manual data entry, reduces communication overhead between dispatchers and drivers, and provides customers with Amazon-level delivery visibility even for traditional B2B logistics operations.</p>
+
+                <h3>Why Infrasys for Fleet Telematics?</h3>
+                <p>Our fleet telematics implementations combine deep logistics domain knowledge with technical expertise in IoT hardware, cellular connectivity, real-time data processing, mobile development, and enterprise system integration. We've deployed solutions for last-mile delivery fleets, long-haul trucking operations, refrigerated transport companies, construction equipment rental firms, and municipal vehicle fleets.</p>
+                <p>We understand that telematics is not just about technology—it's about changing operational culture, gaining driver buy-in, and translating data into decisions. Our implementations include change management support, driver training programs, and executive dashboards that demonstrate ROI through reduced fuel costs, improved safety records, extended vehicle life, and enhanced customer satisfaction.</p>
+                <p>Whether you're deploying telematics for the first time or migrating from a legacy platform, Infrasys brings the expertise to make your fleet transformation successful.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <h2 class="cta-title">Ready to optimize your fleet operations?</h2>
+            <p class="cta-desc">Schedule a consultation with our fleet telematics specialists to discuss tracking solutions, driver safety programs, or fuel management strategies.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to Fleet Expert</a>
+                <a href="logistics-transportation.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Logistics & Transportation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

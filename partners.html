@@ -1,0 +1,530 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners & Collaborations — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Partner with Infrasys Limited - Strategic technology partnerships in Cloud, ERP, AI, Security, and Infrastructure consulting.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .partner-hero { background: linear-gradient(135deg, var(--secondary-blue) 0%, #003A70 100%); color: #fff; padding: 120px 0 80px; text-align: center; }
+        .partner-hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; }
+        .partner-hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; opacity: 0.95; line-height: 1.7; }
+        
+        .partnership-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 60px 0; }
+        .partner-type-card { background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 16px; padding: 40px 30px; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .partner-type-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary-orange), #ff8534); transform: scaleX(0); transition: transform 0.3s ease; }
+        .partner-type-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--primary-orange); }
+        .partner-type-card:hover::before { transform: scaleX(1); }
+        .partner-icon { width: 80px; height: 80px; background: var(--primary-orange-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--primary-orange); margin: 0 auto 20px; transition: all 0.3s ease; }
+        .partner-type-card:hover .partner-icon { background: var(--primary-orange); color: #fff; transform: scale(1.1) rotate(5deg); }
+        .partner-type-card h3 { font-size: 1.4rem; color: var(--secondary-blue); margin-bottom: 15px; }
+        .partner-type-card p { color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
+        
+        .opportunities-section { background: var(--bg-light); padding: 80px 0; }
+        .opportunity-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 50px; }
+        .opportunity-card { background: var(--bg-white); border-left: 4px solid var(--primary-orange); border-radius: 12px; padding: 35px 30px; transition: all 0.3s ease; }
+        .opportunity-card:hover { box-shadow: var(--shadow-lg); transform: translateX(5px); }
+        .opportunity-card h4 { font-size: 1.3rem; color: var(--secondary-blue); margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+        .opportunity-card h4 i { color: var(--primary-orange); font-size: 1.2rem; }
+        .opportunity-card p { color: var(--text-muted); line-height: 1.7; margin-bottom: 15px; }
+        .opportunity-card ul { list-style: none; padding: 0; margin: 15px 0; }
+        .opportunity-card ul li { color: var(--text-muted); padding: 8px 0; padding-left: 24px; position: relative; font-size: 0.95rem; }
+        .opportunity-card ul li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary-orange); font-size: 0.8rem; }
+        
+        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 50px; }
+        .benefit-box { background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 25px; text-align: center; }
+        .benefit-box .icon { font-size: 2.5rem; color: var(--primary-orange); margin-bottom: 15px; }
+        .benefit-box h4 { font-size: 1.1rem; color: var(--secondary-blue); margin-bottom: 10px; font-weight: 700; }
+        .benefit-box p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+        
+        .process-timeline { max-width: 900px; margin: 60px auto; position: relative; }
+        .process-timeline::before { content: ''; position: absolute; left: 40px; top: 0; bottom: 0; width: 2px; background: var(--primary-orange-light); }
+        .process-step { display: flex; gap: 25px; margin-bottom: 40px; position: relative; }
+        .step-number { width: 80px; height: 80px; background: var(--primary-orange); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 700; flex-shrink: 0; box-shadow: 0 4px 15px rgba(255,107,0,0.3); z-index: 1; }
+        .step-content { flex: 1; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 30px; }
+        .step-content h4 { font-size: 1.2rem; color: var(--secondary-blue); margin-bottom: 10px; }
+        .step-content p { color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
+        
+        .cta-partner { background: linear-gradient(135deg, var(--primary-orange) 0%, #ff8534 100%); color: #fff; padding: 80px 0; text-align: center; }
+        .cta-partner h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .cta-partner p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.95; }
+        .cta-partner .btn { background: #fff; color: var(--primary-orange); font-weight: 700; padding: 16px 40px; font-size: 1.1rem; border-radius: 50px; transition: all 0.3s ease; border: none; }
+        .cta-partner .btn:hover { background: var(--secondary-blue); color: #fff; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        
+        @media(max-width: 768px) {
+            .partner-hero h1 { font-size: 2rem; }
+            .opportunity-grid, .benefits-grid { grid-template-columns: 1fr; }
+            .process-timeline::before { left: 30px; }
+            .step-number { width: 60px; height: 60px; font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="partner-hero">
+        <div class="container">
+            <h1 class="scroll-reveal reveal-up">Build a Dedicated <span style="color:var(--primary-orange);">Partners</span> Page</h1>
+            <p class="scroll-reveal reveal-up delay-1">Create a strong Partners page explaining collaboration opportunities, capabilities, and the process for getting started.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header scroll-reveal reveal-up">
+                <span class="section-tag">Partnership Models</span>
+                <h2 class="section-title">How We Collaborate</h2>
+                <p class="section-subtitle">We believe in building long-term relationships through multiple partnership models tailored to your business needs</p>
+            </div>
+
+            <div class="partnership-types">
+                <div class="partner-type-card scroll-reveal reveal-up delay-1">
+                    <div class="partner-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>Technology Partners</h3>
+                    <p>Collaborate with leading technology vendors to deliver integrated solutions across cloud platforms, enterprise software, and infrastructure.</p>
+                </div>
+                <div class="partner-type-card scroll-reveal reveal-up delay-2">
+                    <div class="partner-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Consulting Partners</h3>
+                    <p>Join our network of specialized consulting firms to expand service offerings and tackle complex enterprise transformation projects.</p>
+                </div>
+                <div class="partner-type-card scroll-reveal reveal-up delay-3">
+                    <div class="partner-icon"><i class="fa-solid fa-building"></i></div>
+                    <h3>Implementation Partners</h3>
+                    <p>Partner with us for end-to-end implementation services, leveraging our proven methodologies and technical expertise.</p>
+                </div>
+                <div class="partner-type-card scroll-reveal reveal-up delay-4">
+                    <div class="partner-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3>Reseller Partners</h3>
+                    <p>Extend your portfolio by reselling Infrasys services and solutions to your customer base with our full support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="opportunities-section">
+        <div class="container">
+            <div class="section-header scroll-reveal reveal-up">
+                <span class="section-tag">Opportunities</span>
+                <h2 class="section-title">Partnership Opportunities</h2>
+                <p class="section-subtitle">Explore specific partnership areas where we can create value together</p>
+            </div>
+
+            <div class="opportunity-grid">
+                <div class="opportunity-card scroll-reveal reveal-up delay-1">
+                    <h4><i class="fa-solid fa-cloud"></i> Cloud & Infrastructure</h4>
+                    <p>Cloud services, migration, integration and managed operations.</p>
+                    <ul>
+                        <li>Multi-cloud architecture design (AWS, Azure, GCP)</li>
+                        <li>Cloud migration and modernization services</li>
+                        <li>DevOps and infrastructure automation</li>
+                        <li>Managed cloud operations and support</li>
+                    </ul>
+                </div>
+
+                <div class="opportunity-card scroll-reveal reveal-up delay-2">
+                    <h4><i class="fa-solid fa-layer-group"></i> Software & ERP</h4>
+                    <p>Enterprise application delivery, implementation and integration.</p>
+                    <ul>
+                        <li>SAP S/4HANA implementation and migration</li>
+                        <li>Oracle ERP Cloud deployment</li>
+                        <li>Microsoft Dynamics 365 integration</li>
+                        <li>Custom ERP module development</li>
+                    </ul>
+                </div>
+
+                <div class="opportunity-card scroll-reveal reveal-up delay-3">
+                    <h4><i class="fa-solid fa-brain"></i> AI & Data</h4>
+                    <p>AI adoption, automation, analytics and data solutions.</p>
+                    <ul>
+                        <li>Machine learning model development</li>
+                        <li>Data warehouse and analytics platforms</li>
+                        <li>Business intelligence dashboards</li>
+                        <li>AI-powered automation solutions</li>
+                    </ul>
+                </div>
+
+                <div class="opportunity-card scroll-reveal reveal-up delay-4">
+                    <h4><i class="fa-solid fa-shield-halved"></i> Security & Services</h4>
+                    <p>Cybersecurity consulting and complementary service delivery.</p>
+                    <ul>
+                        <li>Security assessment and auditing</li>
+                        <li>Identity and access management (IAM)</li>
+                        <li>SOC and SIEM implementation</li>
+                        <li>Compliance and governance frameworks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header scroll-reveal reveal-up">
+                <span class="section-tag">Partner Benefits</span>
+                <h2 class="section-title">Why Partner With Infrasys?</h2>
+                <p class="section-subtitle">Access a comprehensive ecosystem of benefits designed to accelerate growth</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-box scroll-reveal reveal-up delay-1">
+                    <div class="icon"><i class="fa-solid fa-trophy"></i></div>
+                    <h4>Proven Track Record</h4>
+                    <p>Over 50+ successful projects across 6+ countries with enterprise clients</p>
+                </div>
+                <div class="benefit-box scroll-reveal reveal-up delay-2">
+                    <div class="icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h4>Training & Enablement</h4>
+                    <p>Comprehensive training programs and certifications for partner teams</p>
+                </div>
+                <div class="benefit-box scroll-reveal reveal-up delay-3">
+                    <div class="icon"><i class="fa-solid fa-headset"></i></div>
+                    <h4>Dedicated Support</h4>
+                    <p>24/7 technical and business support for all partnership engagements</p>
+                </div>
+                <div class="benefit-box scroll-reveal reveal-up delay-4">
+                    <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h4>Revenue Growth</h4>
+                    <p>Competitive margins and incentives to drive mutual business growth</p>
+                </div>
+                <div class="benefit-box scroll-reveal reveal-up delay-5">
+                    <div class="icon"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h4>Co-Marketing</h4>
+                    <p>Joint marketing initiatives, events, and demand generation programs</p>
+                </div>
+                <div class="benefit-box scroll-reveal reveal-up delay-6">
+                    <div class="icon"><i class="fa-solid fa-award"></i></div>
+                    <h4>Certified Expertise</h4>
+                    <p>ISO 27001, GDPR compliant with industry-recognized certifications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background:var(--bg-light);">
+        <div class="container">
+            <div class="section-header scroll-reveal reveal-up">
+                <span class="section-tag">Getting Started</span>
+                <h2 class="section-title">Partnership Process</h2>
+                <p class="section-subtitle">A simple 5-step process to become an Infrasys partner</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step scroll-reveal reveal-left delay-1">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Initial Contact</h4>
+                        <p>Reach out to our partnership team via email or contact form. Tell us about your organization and areas of interest.</p>
+                    </div>
+                </div>
+                <div class="process-step scroll-reveal reveal-left delay-2">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Discovery Call</h4>
+                        <p>Schedule a consultation to discuss capabilities, synergies, and explore potential collaboration opportunities.</p>
+                    </div>
+                </div>
+                <div class="process-step scroll-reveal reveal-left delay-3">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Proposal & Agreement</h4>
+                        <p>Review partnership proposal, terms, and sign the partnership agreement outlining roles and responsibilities.</p>
+                    </div>
+                </div>
+                <div class="process-step scroll-reveal reveal-left delay-4">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Onboarding & Training</h4>
+                        <p>Complete onboarding process including technical training, sales enablement, and access to partner resources.</p>
+                    </div>
+                </div>
+                <div class="process-step scroll-reveal reveal-left delay-5">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Go to Market</h4>
+                        <p>Launch partnership with joint marketing, co-selling initiatives, and ongoing support from our team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-partner">
+        <div class="container">
+            <h2 class="scroll-reveal reveal-up">Ready to Partner with Infrasys?</h2>
+            <p class="scroll-reveal reveal-up delay-1">Let's discuss how we can create value together. Reach out to our partnerships team today.</p>
+            <a href="#" onclick="openContactModal(); return false;" class="btn scroll-reveal reveal-up delay-2">
+                <i class="fa-solid fa-handshake"></i> Become a Partner
+            </a>
+        </div>
+    </section>
+
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

@@ -1,0 +1,760 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Infrasys Limited compliance framework — GDPR, India DPDP Act 2023, ISO 27001, data security, regulatory adherence and client data protection policies.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        /* ── Layout ── */
+        .legal-layout{display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start;}
+        .legal-toc{position:sticky;top:100px;background:var(--bg-white);border:1px solid var(--border-color);border-radius:var(--border-radius);padding:28px 24px;box-shadow:var(--shadow-sm);}
+        .legal-toc h4{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);margin-bottom:16px;}
+        .toc-list{display:flex;flex-direction:column;gap:4px;}
+        .toc-link{display:block;padding:7px 12px;border-radius:8px;font-size:.84rem;color:var(--text-muted);font-weight:500;transition:var(--transition-fast);text-decoration:none;}
+        .toc-link:hover{background:var(--primary-orange-light);color:var(--primary-orange);}
+        .toc-link.active{background:var(--primary-orange-light);color:var(--primary-orange);font-weight:700;}
+        /* ── Content ── */
+        .legal-content{max-width:780px;}
+        .legal-meta{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--border-color);}
+        .legal-meta-item{display:flex;align-items:center;gap:8px;font-size:.83rem;color:var(--text-muted);font-weight:600;}
+        .legal-meta-item i{color:var(--primary-orange);}
+        .legal-section{margin-bottom:52px;scroll-margin-top:100px;}
+        .legal-section h2{font-size:1.35rem;color:var(--secondary-blue);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--primary-orange-light);display:flex;align-items:center;gap:10px;}
+        .legal-section h2 i{color:var(--primary-orange);font-size:1rem;}
+        .legal-section h3{font-size:1.05rem;color:var(--secondary-blue);margin:22px 0 10px;font-family:var(--font-heading);}
+        .legal-section p{color:var(--text-main);font-size:.95rem;line-height:1.8;margin-bottom:14px;}
+        .legal-section ul{display:flex;flex-direction:column;gap:9px;margin-bottom:16px;padding-left:4px;}
+        .legal-section ul li{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--text-muted);line-height:1.65;}
+        .legal-section ul li::before{content:'\f111';font-family:'Font Awesome 6 Free';font-weight:900;font-size:.38rem;color:var(--primary-orange);margin-top:9px;flex-shrink:0;}
+        .legal-highlight{background:var(--primary-orange-light);border:1px solid rgba(255,107,0,.2);border-left:4px solid var(--primary-orange);border-radius:10px;padding:18px 20px;margin:20px 0;font-size:.92rem;color:var(--text-main);line-height:1.75;}
+        .legal-contact-box{background:var(--bg-light);border:1px solid var(--border-color);border-radius:var(--border-radius);padding:28px;margin-top:16px;}
+        .legal-contact-box p{margin-bottom:6px;font-size:.93rem;color:var(--text-muted);}
+        .legal-contact-box a{color:var(--primary-orange);font-weight:600;}
+        /* ── Compliance Cards ── */
+        .compliance-badges{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:28px 0;}
+        .comp-badge{background:var(--bg-white);border:1px solid var(--border-color);border-radius:var(--border-radius);padding:24px 20px;text-align:center;transition:var(--transition-smooth);}
+        .comp-badge:hover{box-shadow:var(--shadow-md);border-color:rgba(255,107,0,.2);transform:translateY(-4px);}
+        .comp-badge-icon{font-size:2rem;color:var(--primary-orange);margin-bottom:12px;}
+        .comp-badge-title{font-size:.9rem;font-weight:700;color:var(--secondary-blue);margin-bottom:6px;font-family:var(--font-heading);}
+        .comp-badge-sub{font-size:.78rem;color:var(--text-muted);}
+        /* ── Framework Table ── */
+        .comp-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:.9rem;}
+        .comp-table th{background:var(--primary-orange-light);color:var(--primary-orange);font-weight:700;padding:12px 16px;text-align:left;border:1px solid rgba(255,107,0,.15);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;}
+        .comp-table td{padding:12px 16px;border:1px solid var(--border-color);color:var(--text-muted);line-height:1.55;vertical-align:top;}
+        .comp-table tr:nth-child(even) td{background:var(--bg-light);}
+        .comp-table tr:hover td{background:var(--primary-orange-light);}
+        .status-active{display:inline-flex;align-items:center;gap:5px;color:#059669;font-weight:700;font-size:.8rem;}
+        .status-active::before{content:'';width:7px;height:7px;border-radius:50%;background:#059669;display:inline-block;}
+        .status-inprogress{display:inline-flex;align-items:center;gap:5px;color:#d97706;font-weight:700;font-size:.8rem;}
+        .status-inprogress::before{content:'';width:7px;height:7px;border-radius:50%;background:#d97706;display:inline-block;}
+        /* ── Responsive ── */
+        @media(max-width:1024px){.legal-layout{grid-template-columns:1fr;}.legal-toc{position:static;}.compliance-badges{grid-template-columns:1fr 1fr;}}
+        @media(max-width:480px){.legal-section h2{font-size:1.15rem;}.compliance-badges{grid-template-columns:1fr;}.comp-table{font-size:.8rem;}.comp-table th,.comp-table td{padding:9px 12px;}}
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited">
+            </a>
+            <nav>
+                                                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i>
+                    <i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+                        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:.6rem;"></i></span>
+                <span class="current">Compliance</span>
+            </nav>
+            <h1 class="page-hero-title">Our <span>Compliance</span> Framework</h1>
+            <p class="page-hero-subtitle">
+                Infrasys Limited is committed to operating at the highest standards of regulatory compliance, data protection, and ethical business conduct — across every country, client, and engagement we serve.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Compliance Content -->
+    <section class="section">
+        <div class="container">
+            <div class="legal-layout">
+
+                <!-- Sticky TOC -->
+                <aside class="legal-toc scroll-reveal reveal-right">
+                    <h4>Contents</h4>
+                    <nav class="toc-list">
+                        <a href="#overview" class="toc-link">1. Overview</a>
+                        <a href="#frameworks" class="toc-link">2. Regulatory Frameworks</a>
+                        <a href="#data-protection" class="toc-link">3. Data Protection</a>
+                        <a href="#iso" class="toc-link">4. ISO &amp; Security Standards</a>
+                        <a href="#gdpr" class="toc-link">5. GDPR Compliance</a>
+                        <a href="#dpdp" class="toc-link">6. India DPDP Act 2023</a>
+                        <a href="#client-data" class="toc-link">7. Client Data Handling</a>
+                        <a href="#vendor" class="toc-link">8. Vendor &amp; Supply Chain</a>
+                        <a href="#employee" class="toc-link">9. Employee Conduct</a>
+                        <a href="#anti-bribery" class="toc-link">10. Anti-Bribery &amp; Ethics</a>
+                        <a href="#incident" class="toc-link">11. Incident Response</a>
+                        <a href="#audit" class="toc-link">12. Audits &amp; Reviews</a>
+                        <a href="#reporting" class="toc-link">13. Reporting Concerns</a>
+                        <a href="#contact-compliance" class="toc-link">14. Contact Us</a>
+                    </nav>
+                </aside>
+
+                <!-- Content -->
+                <div class="legal-content scroll-reveal reveal-left">
+
+                    <!-- Meta row -->
+                    <div class="legal-meta">
+                        <div class="legal-meta-item"><i class="fa-solid fa-calendar"></i> Effective: 1 January 2024</div>
+                        <div class="legal-meta-item"><i class="fa-solid fa-rotate"></i> Last Reviewed: July 2026</div>
+                        <div class="legal-meta-item"><i class="fa-solid fa-building"></i> Infrasys Limited</div>
+                        <div class="legal-meta-item"><i class="fa-solid fa-globe"></i> Global Scope</div>
+                    </div>
+
+                    <!-- Compliance Badges -->
+                    <div class="compliance-badges">
+                        <div class="comp-badge">
+                            <div class="comp-badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="comp-badge-title">ISO 27001</div>
+                            <div class="comp-badge-sub">Information Security Management</div>
+                        </div>
+                        <div class="comp-badge">
+                            <div class="comp-badge-icon"><i class="fa-solid fa-flag"></i></div>
+                            <div class="comp-badge-title">DPDP Act 2023</div>
+                            <div class="comp-badge-sub">India Data Protection Law</div>
+                        </div>
+                        <div class="comp-badge">
+                            <div class="comp-badge-icon"><i class="fa-brands fa-european-union"></i></div>
+                            <div class="comp-badge-title">GDPR</div>
+                            <div class="comp-badge-sub">EU Data Protection Regulation</div>
+                        </div>
+                        <div class="comp-badge">
+                            <div class="comp-badge-icon"><i class="fa-solid fa-lock"></i></div>
+                            <div class="comp-badge-title">IT Act 2000</div>
+                            <div class="comp-badge-sub">India Information Technology Act</div>
+                        </div>
+                        <div class="comp-badge">
+                            <div class="comp-badge-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                            <div class="comp-badge-title">Anti-Bribery</div>
+                            <div class="comp-badge-sub">Prevention of Corruption Act</div>
+                        </div>
+                        <div class="comp-badge">
+                            <div class="comp-badge-icon"><i class="fa-solid fa-user-shield"></i></div>
+                            <div class="comp-badge-title">SOC 2 Type II</div>
+                            <div class="comp-badge-sub">Security &amp; Availability Trust</div>
+                        </div>
+                    </div>
+
+                    <div class="legal-section" id="overview">
+                        <h2><i class="fa-solid fa-circle-info"></i> 1. Overview</h2>
+                        <div class="legal-highlight">
+                            Infrasys Limited ("Infrasys", "we", "us", or "our") is a public IT services and consulting company founded in 2016, headquartered at 422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India. We operate across 6+ countries, serving enterprises in energy, finance, manufacturing, healthcare, telecom, logistics, and government sectors.
+                        </div>
+                        <p>This Compliance Statement outlines the regulatory frameworks, standards, and internal policies we adhere to in the conduct of our business. It applies to all Infrasys employees, contractors, consultants, and partners acting on our behalf.</p>
+                        <p>Our compliance programme is not a checkbox exercise. It is embedded into how we hire, how we deliver, how we handle data, and how we engage with clients, vendors, and regulators. We believe that integrity and compliance are prerequisites for sustainable business growth.</p>
+                        <p>Our compliance obligations are overseen by our internal Legal &amp; Compliance function, with ultimate accountability resting with our Board of Directors and senior leadership team.</p>
+                    </div>
+
+                    <div class="legal-section" id="frameworks">
+                        <h2><i class="fa-solid fa-sitemap"></i> 2. Regulatory Frameworks We Operate Under</h2>
+                        <p>As a global IT services company, Infrasys is subject to multiple regulatory frameworks depending on the country of operation, the nature of the service, and the type of data being handled.</p>
+                        <table class="comp-table">
+                            <thead>
+                                <tr>
+                                    <th>Framework / Law</th>
+                                    <th>Jurisdiction</th>
+                                    <th>Relevance</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Digital Personal Data Protection Act 2023 (DPDP)</strong></td>
+                                    <td>India</td>
+                                    <td>Governs all personal data processed in India or relating to Indian citizens</td>
+                                    <td><span class="status-active">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Information Technology Act 2000 (IT Act)</strong></td>
+                                    <td>India</td>
+                                    <td>Covers electronic records, cybercrime, intermediary liability and data security</td>
+                                    <td><span class="status-active">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>General Data Protection Regulation (GDPR)</strong></td>
+                                    <td>European Union</td>
+                                    <td>Applies when processing personal data of EU residents in our UK / EU engagements</td>
+                                    <td><span class="status-active">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ISO/IEC 27001:2022</strong></td>
+                                    <td>International</td>
+                                    <td>Information Security Management System (ISMS) framework</td>
+                                    <td><span class="status-active">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SOC 2 Type II</strong></td>
+                                    <td>USA / International</td>
+                                    <td>Security, availability, and confidentiality controls for cloud-hosted services</td>
+                                    <td><span class="status-inprogress">In Progress</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Prevention of Corruption Act 1988</strong></td>
+                                    <td>India</td>
+                                    <td>Anti-bribery and corruption compliance for all public and private sector dealings</td>
+                                    <td><span class="status-active">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>UK Bribery Act 2010</strong></td>
+                                    <td>United Kingdom</td>
+                                    <td>Applies to our UK-based client engagements and UK-resident employees</td>
+                                    <td><span class="status-active">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Companies Act 2013</strong></td>
+                                    <td>India</td>
+                                    <td>Corporate governance, financial reporting, and director obligations</td>
+                                    <td><span class="status-active">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>HIPAA (Health Insurance Portability and Accountability Act)</strong></td>
+                                    <td>USA</td>
+                                    <td>Applies when handling Protected Health Information (PHI) for US healthcare clients</td>
+                                    <td><span class="status-active">Active</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="legal-section" id="data-protection">
+                        <h2><i class="fa-solid fa-database"></i> 3. Data Protection Principles</h2>
+                        <p>Infrasys processes personal data in accordance with the following core data protection principles, which apply across all our global operations regardless of local law:</p>
+                        <ul>
+                            <li><strong>Lawfulness, Fairness &amp; Transparency:</strong> We only process personal data with a valid legal basis and communicate clearly with individuals about how their data is used.</li>
+                            <li><strong>Purpose Limitation:</strong> Personal data is collected for specified, explicit, and legitimate purposes and not processed in ways incompatible with those purposes.</li>
+                            <li><strong>Data Minimisation:</strong> We collect only the personal data that is necessary for the stated purpose — no more.</li>
+                            <li><strong>Accuracy:</strong> We maintain reasonable steps to ensure personal data is accurate and kept up to date.</li>
+                            <li><strong>Storage Limitation:</strong> Personal data is retained only for as long as necessary, in line with our Data Retention Policy.</li>
+                            <li><strong>Integrity &amp; Confidentiality:</strong> We process personal data in a manner that ensures appropriate security, including protection against unauthorised access, accidental loss, destruction or damage.</li>
+                            <li><strong>Accountability:</strong> We are responsible for compliance and can demonstrate it through documentation, training, and governance processes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="iso">
+                        <h2><i class="fa-solid fa-certificate"></i> 4. ISO &amp; Security Standards</h2>
+                        <p>Infrasys aligns its internal security and operational processes with internationally recognised standards to provide clients with confidence in our delivery capabilities.</p>
+                        <h3>ISO/IEC 27001 — Information Security Management</h3>
+                        <p>Our Information Security Management System (ISMS) is designed in accordance with ISO/IEC 27001:2022. This includes:</p>
+                        <ul>
+                            <li>Risk assessment and treatment processes for all information assets</li>
+                            <li>Access control policies — role-based, least-privilege access across all systems</li>
+                            <li>Physical and environmental security controls for office and co-located infrastructure</li>
+                            <li>Supplier security assessments and contractual security obligations</li>
+                            <li>Regular internal audits and management reviews of security controls</li>
+                            <li>Incident management procedures including detection, containment, and root cause analysis</li>
+                        </ul>
+                        <h3>ISO/IEC 27701 — Privacy Information Management</h3>
+                        <p>As an extension of ISO 27001, we have implemented privacy controls aligned with ISO 27701 to govern the processing of Personally Identifiable Information (PII) across our systems and those we manage on behalf of clients.</p>
+                        <h3>Cloud Security (CSP Compliance)</h3>
+                        <p>When delivering cloud-based services on AWS, Azure, or Google Cloud, we operate within the Shared Responsibility Model. Our engineers are trained on each platform's compliance certifications including:</p>
+                        <ul>
+                            <li>AWS — ISO 27001, SOC 1/2/3, PCI DSS, HIPAA BAA eligible</li>
+                            <li>Microsoft Azure — ISO 27001, GDPR, SOC 2, FedRAMP (relevant to US clients)</li>
+                            <li>Google Cloud — ISO 27001, SOC 2/3, GDPR, HIPAA BAA eligible</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="gdpr">
+                        <h2><i class="fa-brands fa-european-union"></i> 5. GDPR Compliance</h2>
+                        <p>Where Infrasys processes personal data of individuals located in the European Union or United Kingdom, we comply fully with the General Data Protection Regulation (GDPR) and UK GDPR respectively.</p>
+                        <h3>Our GDPR Roles</h3>
+                        <ul>
+                            <li><strong>Data Controller:</strong> For personal data we collect directly (e.g. website visitors, newsletter subscribers, job applicants, client contact data)</li>
+                            <li><strong>Data Processor:</strong> When processing personal data on behalf of our clients as part of a service engagement — governed by a Data Processing Agreement (DPA)</li>
+                        </ul>
+                        <h3>Legal Bases for Processing (GDPR Art. 6)</h3>
+                        <ul>
+                            <li>Consent — for marketing communications and newsletter subscriptions</li>
+                            <li>Contract — for delivering agreed professional services</li>
+                            <li>Legitimate Interests — for client relationship management and fraud prevention</li>
+                            <li>Legal Obligation — for tax records, employment law, and regulatory reporting</li>
+                        </ul>
+                        <h3>Data Subject Rights Under GDPR</h3>
+                        <p>EU and UK data subjects have the right to: access, rectification, erasure ("right to be forgotten"), restriction of processing, data portability, and objection to processing. Requests can be submitted to <a href="mailto:info@infrasys.tech" style="color:var(--primary-orange);font-weight:600;">info@infrasys.tech</a> and will be fulfilled within 30 days.</p>
+                        <h3>International Data Transfers</h3>
+                        <p>Where personal data of EU/UK data subjects is transferred outside the EEA, Infrasys ensures appropriate safeguards are in place, including Standard Contractual Clauses (SCCs) approved by the European Commission, and adequacy assessments where applicable.</p>
+                    </div>
+
+                    <div class="legal-section" id="dpdp">
+                        <h2><i class="fa-solid fa-flag"></i> 6. India DPDP Act 2023</h2>
+                        <p>Infrasys is fully committed to compliance with India's Digital Personal Data Protection Act 2023 (DPDP Act), which governs the processing of digital personal data within India and personal data collected in India even if processed abroad.</p>
+                        <h3>Key Obligations We Fulfil</h3>
+                        <ul>
+                            <li><strong>Consent-Based Processing:</strong> We obtain free, specific, informed, and unambiguous consent before processing personal data, except where a legitimate use applies.</li>
+                            <li><strong>Purpose Limitation:</strong> Data is processed only for the purpose for which consent was given.</li>
+                            <li><strong>Data Minimisation:</strong> We collect only data that is necessary for the specified purpose.</li>
+                            <li><strong>Accuracy:</strong> We maintain mechanisms to correct inaccurate personal data on request.</li>
+                            <li><strong>Security Safeguards:</strong> We implement reasonable security measures to prevent personal data breach.</li>
+                            <li><strong>Breach Notification:</strong> In the event of a personal data breach, we will notify the Data Protection Board of India and affected data principals as required by law.</li>
+                            <li><strong>Grievance Redressal:</strong> Individuals can raise grievances through our designated Grievance Officer (contact details in Section 14).</li>
+                            <li><strong>Data Fiduciary Obligations:</strong> As a Data Fiduciary, Infrasys takes full responsibility for decisions relating to the purpose and means of processing personal data.</li>
+                        </ul>
+                        <h3>Rights of Data Principals Under DPDP Act</h3>
+                        <ul>
+                            <li>Right to access information about personal data being processed</li>
+                            <li>Right to correction and erasure of inaccurate or unnecessary data</li>
+                            <li>Right to grievance redressal through our Grievance Officer</li>
+                            <li>Right to nominate a person to exercise rights in the event of incapacity or death</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="client-data">
+                        <h2><i class="fa-solid fa-user-shield"></i> 7. Client Data Handling</h2>
+                        <p>When Infrasys processes data on behalf of a client in the course of a professional services engagement, we operate as a Data Processor. Our obligations include:</p>
+                        <ul>
+                            <li>Processing client data only on documented instructions from the client (Data Controller)</li>
+                            <li>Ensuring all persons authorised to process the data are bound by confidentiality obligations</li>
+                            <li>Implementing appropriate technical and organisational security measures</li>
+                            <li>Not engaging sub-processors without prior written authorisation from the client</li>
+                            <li>Assisting the client in fulfilling data subject rights requests and breach notification obligations</li>
+                            <li>Deleting or returning all personal data upon termination of the engagement, unless retention is required by law</li>
+                            <li>Providing all information necessary to demonstrate compliance and cooperating with audits</li>
+                        </ul>
+                        <p>All client engagements involving personal data processing are governed by a formal Data Processing Agreement (DPA), which is available as a standard exhibit to our Master Service Agreement (MSA).</p>
+                        <h3>Data Classification</h3>
+                        <p>All data processed by Infrasys — whether internal or on behalf of clients — is classified into four tiers:</p>
+                        <ul>
+                            <li><strong>Public:</strong> Information approved for public release (e.g. marketing content, published case studies)</li>
+                            <li><strong>Internal:</strong> Non-sensitive business data accessible to employees on a need-to-know basis</li>
+                            <li><strong>Confidential:</strong> Sensitive business data including client information, contracts, financial records, and personal data</li>
+                            <li><strong>Restricted:</strong> Highly sensitive data including health records, financial credentials, and security configurations — access tightly controlled</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="vendor">
+                        <h2><i class="fa-solid fa-truck-ramp-box"></i> 8. Vendor &amp; Supply Chain Compliance</h2>
+                        <p>Infrasys applies due diligence to all third-party vendors, sub-contractors, and technology partners to ensure that our supply chain meets our compliance standards.</p>
+                        <ul>
+                            <li><strong>Vendor Assessment:</strong> All new vendors undergo a security and compliance assessment before onboarding, covering data handling practices, security certifications, and financial stability.</li>
+                            <li><strong>Contractual Obligations:</strong> All vendors with access to Infrasys or client data must sign a Vendor Agreement that includes data protection, confidentiality, and security clauses aligned with our DPA standards.</li>
+                            <li><strong>Ongoing Monitoring:</strong> Key vendors are reviewed annually for continued compliance with our standards and applicable regulations.</li>
+                            <li><strong>Cloud Service Providers:</strong> Our primary CSPs (AWS, Azure, GCP) hold recognised certifications (ISO 27001, SOC 2) and have signed Data Processing Agreements with Infrasys.</li>
+                            <li><strong>Sub-processing:</strong> Any sub-processing of client personal data requires prior written consent from the relevant client and is subject to the same data protection obligations as the primary engagement.</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="employee">
+                        <h2><i class="fa-solid fa-users-gear"></i> 9. Employee Conduct &amp; Training</h2>
+                        <p>Compliance begins with our people. All Infrasys employees, contractors, and interns are required to:</p>
+                        <ul>
+                            <li>Complete mandatory compliance and data protection training at onboarding and annually thereafter</li>
+                            <li>Adhere to our Code of Conduct, which sets out expected standards for professional behaviour, conflicts of interest, and confidentiality</li>
+                            <li>Report any suspected compliance violation, data breach, or unethical conduct through our Grievance Reporting channel</li>
+                            <li>Comply with our Information Security Policy including acceptable use of systems, password management, and device security</li>
+                            <li>Maintain confidentiality of client, employee, and business information at all times — including after leaving the organisation</li>
+                        </ul>
+                        <h3>Training Programme</h3>
+                        <ul>
+                            <li>Data Protection &amp; Privacy (DPDP Act / GDPR) — Annual mandatory</li>
+                            <li>Information Security Awareness — Annual mandatory</li>
+                            <li>Anti-Bribery &amp; Corruption — Annual mandatory</li>
+                            <li>Code of Conduct — Onboarding + Annual refresh</li>
+                            <li>Role-specific compliance training (e.g. HIPAA for healthcare project teams)</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="anti-bribery">
+                        <h2><i class="fa-solid fa-scale-balanced"></i> 10. Anti-Bribery, Anti-Corruption &amp; Ethics</h2>
+                        <p>Infrasys has a zero-tolerance policy towards bribery and corruption in all forms. We comply with the Prevention of Corruption Act 1988 (India), the UK Bribery Act 2010, and all applicable anti-corruption legislation in the countries where we operate.</p>
+                        <ul>
+                            <li><strong>Prohibited:</strong> Offering, giving, requesting, or receiving bribes — whether in cash, gifts, hospitality, or any other form — to influence business decisions</li>
+                            <li><strong>Gifts &amp; Hospitality:</strong> Employees may only give or receive gifts or hospitality within defined thresholds and must declare any gifts above INR 2,000 in value</li>
+                            <li><strong>Political Contributions:</strong> Infrasys does not make political contributions on behalf of the company</li>
+                            <li><strong>Third-Party Risk:</strong> All intermediaries, agents, and business partners are screened for bribery and corruption risk before engagement</li>
+                            <li><strong>Facilitation Payments:</strong> We do not make or accept facilitation payments under any circumstances</li>
+                        </ul>
+                        <h3>Business Ethics</h3>
+                        <p>Beyond anti-bribery, our ethics commitments extend to:</p>
+                        <ul>
+                            <li>Fair competition — we comply with all applicable competition and antitrust laws</li>
+                            <li>Honest marketing — we do not make false or misleading claims about our services, certifications, or capabilities</li>
+                            <li>Conflicts of interest — employees must declare and manage conflicts through our formal process</li>
+                            <li>Modern slavery — we do not engage in or facilitate forced labour, human trafficking, or child labour in our operations or supply chain</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="incident">
+                        <h2><i class="fa-solid fa-triangle-exclamation"></i> 11. Incident Response &amp; Breach Notification</h2>
+                        <p>Infrasys operates a documented Incident Response Plan covering detection, containment, investigation, remediation, and post-incident review for security incidents and personal data breaches.</p>
+                        <h3>Breach Response Timeline</h3>
+                        <ul>
+                            <li><strong>0–1 hours:</strong> Detection and initial triage — classify severity, activate response team</li>
+                            <li><strong>1–4 hours:</strong> Containment — isolate affected systems, preserve evidence</li>
+                            <li><strong>4–24 hours:</strong> Investigation — determine scope, affected data, and root cause</li>
+                            <li><strong>24–72 hours:</strong> Regulatory notification — notify relevant Data Protection Authorities as required by law (GDPR requires within 72 hours of becoming aware)</li>
+                            <li><strong>72 hours+:</strong> Individual notification — notify affected data principals where required</li>
+                            <li><strong>Post-incident:</strong> Root cause analysis, remediation, and policy update</li>
+                        </ul>
+                        <h3>Client Notification</h3>
+                        <p>Where a security incident or data breach affects client data, we will notify the relevant client contact without undue delay and provide a written incident report within 5 business days of containment.</p>
+                    </div>
+
+                    <div class="legal-section" id="audit">
+                        <h2><i class="fa-solid fa-magnifying-glass-chart"></i> 12. Audits &amp; Compliance Reviews</h2>
+                        <p>Infrasys conducts regular internal and external reviews to verify the effectiveness of our compliance programme:</p>
+                        <ul>
+                            <li><strong>Internal Compliance Audits:</strong> Conducted quarterly by our Legal &amp; Compliance team covering data handling practices, access controls, and policy adherence</li>
+                            <li><strong>Information Security Audits:</strong> Annual ISMS audit aligned with ISO 27001 requirements</li>
+                            <li><strong>Vulnerability Assessments &amp; Penetration Testing (VAPT):</strong> Conducted bi-annually on all production systems and client-facing infrastructure</li>
+                            <li><strong>Third-Party Audits:</strong> Client-commissioned audits are accommodated under our standard MSA, subject to reasonable notice and scope agreement</li>
+                            <li><strong>Regulatory Inspections:</strong> We cooperate fully with any inspection or investigation by a competent regulatory authority</li>
+                            <li><strong>Annual Management Review:</strong> Our Compliance Status Report is reviewed by senior leadership annually and presented to the Board</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="reporting">
+                        <h2><i class="fa-solid fa-bullhorn"></i> 13. Reporting Compliance Concerns</h2>
+                        <p>Infrasys takes all compliance concerns seriously. We operate a confidential reporting mechanism for employees, clients, and third parties to raise concerns about potential violations of law, regulation, or our internal policies.</p>
+                        <div class="legal-highlight">
+                            <strong>Whistleblower Protection:</strong> Any individual who reports a genuine compliance concern in good faith will be protected from retaliation. Infrasys prohibits victimisation of whistleblowers and treats such reports with strict confidentiality to the extent permitted by law.
+                        </div>
+                        <h3>How to Report</h3>
+                        <ul>
+                            <li><strong>Email:</strong> Send concerns to <a href="mailto:info@infrasys.tech" style="color:var(--primary-orange);font-weight:600;">info@infrasys.tech</a> with subject line "Compliance Concern"</li>
+                            <li><strong>Written Correspondence:</strong> Address to the Compliance Officer, Infrasys Limited, 422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</li>
+                            <li><strong>Regulatory Bodies:</strong> Data protection complaints can also be submitted to the Data Protection Board of India (DPDP Act) or the relevant supervisory authority in your country</li>
+                        </ul>
+                        <p>All reports are triaged within 2 business days. Investigations are conducted confidentially and findings are reported back to the complainant where legally permissible.</p>
+                    </div>
+
+                    <div class="legal-section" id="contact-compliance">
+                        <h2><i class="fa-solid fa-envelope"></i> 14. Compliance Contact</h2>
+                        <p>For any compliance-related queries, Data Processing Agreement requests, audit enquiries, or data subject rights requests, please contact our Compliance &amp; Legal team:</p>
+                        <div class="legal-contact-box">
+                            <p><strong>Infrasys Limited — Legal, Compliance &amp; Data Protection</strong></p>
+                            <p>422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</p>
+                            <p>Email: <a href="mailto:info@infrasys.tech">info@infrasys.tech</a></p>
+                            <p>Phone: <a href="tel:+911244959639">+91 124 495 9639</a></p>
+                            <p>Website: <a href="https://infrasys.tech/" target="_blank" rel="noopener">https://infrasys.tech/</a></p>
+                            <p style="margin-top:14px;font-size:.85rem;color:var(--text-muted);">
+                                <strong>Grievance Officer (DPDP Act):</strong> Same contact details above.<br>
+                                Response Time: Legal &amp; Compliance queries — 5 business days | Data subject rights — 30 days
+                            </p>
+                        </div>
+                        <p style="margin-top:20px;font-size:.88rem;color:var(--text-muted);">
+                            Related documents:
+                            <a href="privacy-policy.html" style="color:var(--primary-orange);font-weight:600;margin-right:16px;">Privacy Policy</a>
+                            <a href="terms.html" style="color:var(--primary-orange);font-weight:600;">Terms of Service</a>
+                        </p>
+                    </div>
+
+                </div><!-- /legal-content -->
+            </div><!-- /legal-layout -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Contact Modal -->
+<div class="contact-modal" id="contact-modal">
+    <div class="contact-modal-content">
+        <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="contact-modal-grid">
+            <div class="contact-modal-info">
+                <div>
+                    <h2>Let's Connect</h2>
+                    <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                </div>
+                <div class="contact-modal-details">
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Hotline</div>
+                            <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Email Address</div>
+                            <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Headquarters</div>
+                            <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Gurugram, India</div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Business Hours</div>
+                            <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-modal-socials">
+                    <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-modal-form-wrapper">
+                <h3>Send us a message</h3>
+                <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                <form class="contact-form" id="modal-contact-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-phone input-icon"></i>
+                                <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-tag input-icon"></i>
+                            <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                            <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openContactModal() {
+    document.getElementById('contact-modal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+    document.getElementById('contact-modal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+// Close on outside click
+document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+    if (e.target === this) closeContactModal();
+});
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+        closeContactModal();
+    }
+});
+</script>
+
+
+<footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited">
+                        </a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> ERP &amp; Enterprise Apps</a></li>
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> AI &amp; Machine Learning</a></li>
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Cybersecurity</a></li>
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Cloud Transformation</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Technology insights and compliance updates delivered to your inbox.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){
+            if(!localStorage.getItem('infrasys-cookies')){
+                setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);
+            }
+            var a=document.getElementById('cookie-accept');
+            var d=document.getElementById('cookie-decline');
+            if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});
+            if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});
+        })();
+    </script>
+    <script src="app.js"></script>
+    <script>
+        // Active TOC on scroll
+        const sections = document.querySelectorAll('.legal-section');
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-25% 0px -65% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+    <script src="form-handler.js"></script>
+</body>
+</html>
+

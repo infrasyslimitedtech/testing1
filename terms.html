@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Terms of Service for Infrasys Limited — the legal terms governing use of our website and services.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .legal-layout { display:grid; grid-template-columns:260px 1fr; gap:56px; align-items:start; }
+        .legal-toc { position:sticky; top:100px; background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius); padding:28px 24px; box-shadow:var(--shadow-sm); }
+        .legal-toc h4 { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--text-muted); margin-bottom:16px; }
+        .toc-list { display:flex; flex-direction:column; gap:4px; }
+        .toc-link { display:block; padding:7px 12px; border-radius:8px; font-size:0.84rem; color:var(--text-muted); font-weight:500; transition:var(--transition-fast); text-decoration:none; }
+        .toc-link:hover { background:var(--primary-orange-light); color:var(--primary-orange); }
+        .toc-link.active { background:var(--primary-orange-light); color:var(--primary-orange); font-weight:700; }
+        .legal-content { max-width:780px; }
+        .legal-meta { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:40px; padding-bottom:32px; border-bottom:1px solid var(--border-color); }
+        .legal-meta-item { display:flex; align-items:center; gap:8px; font-size:0.83rem; color:var(--text-muted); font-weight:600; }
+        .legal-meta-item i { color:var(--primary-orange); }
+        .legal-section { margin-bottom:48px; scroll-margin-top:100px; }
+        .legal-section h2 { font-size:1.35rem; color:var(--secondary-blue); margin-bottom:16px; padding-bottom:12px; border-bottom:2px solid var(--primary-orange-light); display:flex; align-items:center; gap:10px; }
+        .legal-section h2 i { color:var(--primary-orange); font-size:1rem; }
+        .legal-section h3 { font-size:1.05rem; color:var(--secondary-blue); margin:20px 0 10px; }
+        .legal-section p { color:var(--text-muted); font-size:0.95rem; line-height:1.8; margin-bottom:14px; }
+        .legal-section ul { display:flex; flex-direction:column; gap:8px; margin-bottom:14px; padding-left:4px; }
+        .legal-section ul li { display:flex; align-items:flex-start; gap:10px; font-size:0.92rem; color:var(--text-muted); line-height:1.65; }
+        .legal-section ul li::before { content:'\f111'; font-family:'Font Awesome 6 Free'; font-weight:900; font-size:0.4rem; color:var(--primary-orange); margin-top:8px; flex-shrink:0; }
+        .legal-highlight { background:var(--primary-orange-light); border:1px solid rgba(255,107,0,0.2); border-left:4px solid var(--primary-orange); border-radius:10px; padding:18px 20px; margin:20px 0; font-size:0.92rem; color:var(--text-main); line-height:1.7; }
+        .legal-contact-box { background:var(--bg-light); border:1px solid var(--border-color); border-radius:var(--border-radius); padding:28px; margin-top:16px; }
+        .legal-contact-box p { margin-bottom:6px; }
+        .legal-contact-box a { color:var(--primary-orange); font-weight:600; }
+        @media(max-width:1024px){ .legal-layout{grid-template-columns:1fr;} .legal-toc{position:static;} }
+        @media(max-width:480px){ .legal-section h2{font-size:1.15rem;} }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>                                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+                        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Terms of Service</span>
+            </nav>
+            <h1 class="page-hero-title">Terms of <span>Service</span></h1>
+            <p class="page-hero-subtitle">The legal terms and conditions governing your use of the Infrasys Limited website and services.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="legal-layout">
+                <aside class="legal-toc scroll-reveal reveal-right">
+                    <h4>Contents</h4>
+                    <nav class="toc-list">
+                        <a href="#acceptance" class="toc-link">1. Acceptance of Terms</a>
+                        <a href="#company-info" class="toc-link">2. Company Information</a>
+                        <a href="#services-desc" class="toc-link">3. Our Services</a>
+                        <a href="#website-use" class="toc-link">4. Website Use</a>
+                        <a href="#ip" class="toc-link">5. Intellectual Property</a>
+                        <a href="#user-content" class="toc-link">6. User Submissions</a>
+                        <a href="#client-obligations" class="toc-link">7. Client Obligations</a>
+                        <a href="#confidentiality" class="toc-link">8. Confidentiality</a>
+                        <a href="#disclaimers" class="toc-link">9. Disclaimers</a>
+                        <a href="#liability" class="toc-link">10. Limitation of Liability</a>
+                        <a href="#indemnity" class="toc-link">11. Indemnification</a>
+                        <a href="#termination" class="toc-link">12. Termination</a>
+                        <a href="#governing-law" class="toc-link">13. Governing Law</a>
+                        <a href="#dispute" class="toc-link">14. Dispute Resolution</a>
+                        <a href="#changes-terms" class="toc-link">15. Changes to Terms</a>
+                        <a href="#contact-legal" class="toc-link">16. Contact</a>
+                    </nav>
+                </aside>
+
+                <div class="legal-content scroll-reveal reveal-left">
+                    <div class="legal-meta">
+                        <div class="legal-meta-item"><i class="fa-solid fa-calendar"></i> Effective: 1 January 2024</div>
+                        <div class="legal-meta-item"><i class="fa-solid fa-rotate"></i> Last Updated: July 2026</div>
+                        <div class="legal-meta-item"><i class="fa-solid fa-building"></i> Infrasys Limited</div>
+                    </div>
+
+                    <div class="legal-highlight">
+                        Please read these Terms of Service carefully before using the Infrasys Limited website or engaging our services. By accessing our website at <strong>https://infrasys.tech/</strong> or entering into a service agreement with us, you agree to be bound by these terms. If you do not agree, please discontinue use of our website and services.
+                    </div>
+
+                    <div class="legal-section" id="acceptance">
+                        <h2><i class="fa-solid fa-signature"></i> 1. Acceptance of Terms</h2>
+                        <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User", "Client", or "you") and <strong>Infrasys Limited</strong> ("Infrasys", "we", "us", or "our"). By accessing or using our website, submitting an enquiry, or entering into a consulting or services agreement with us, you confirm that you have read, understood, and agree to be bound by these Terms and our Privacy Policy.</p>
+                        <p>If you are accessing our services on behalf of a company or organisation, you represent that you have the authority to bind that entity to these Terms.</p>
+                    </div>
+
+                    <div class="legal-section" id="company-info">
+                        <h2><i class="fa-solid fa-building"></i> 2. Company Information</h2>
+                        <p>Infrasys Limited is a public company incorporated in India under the Companies Act, 2013.</p>
+                        <ul>
+                            <li><strong>Registered Name:</strong> Infrasys Limited</li>
+                            <li><strong>Industry:</strong> IT Services and IT Consulting</li>
+                            <li><strong>Founded:</strong> 2016</li>
+                            <li><strong>Headquarters:</strong> Spaze Itech Park, Sector 49, Gurugram, Haryana 122018, India</li>
+                            <li><strong>Website:</strong> https://infrasys.tech/</li>
+                            <li><strong>Email:</strong> info@infrasys.tech</li>
+                            <li><strong>Phone:</strong> +91 124 495 9639</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="services-desc">
+                        <h2><i class="fa-solid fa-briefcase"></i> 3. Our Services</h2>
+                        <p>Infrasys Limited provides global technology and consulting services including but not limited to:</p>
+                        <ul>
+                            <li>ERP &amp; Enterprise Applications (SAP, Oracle, Microsoft Dynamics, ERPNext)</li>
+                            <li>Artificial Intelligence &amp; Machine Learning</li>
+                            <li>Data Analytics &amp; Business Intelligence</li>
+                            <li>Cybersecurity &amp; Data Risk Management</li>
+                            <li>Cloud &amp; Digital Transformation</li>
+                            <li>Business Consulting &amp; Managed Services</li>
+                            <li>Infrastructure Design, Data Centers, and Network Engineering</li>
+                            <li>Programme Management and IT Strategy Consulting</li>
+                        </ul>
+                        <p>The specific scope, deliverables, timelines, and commercial terms for each engagement are governed by the applicable Statement of Work (SOW), Master Service Agreement (MSA), or other written agreement executed between Infrasys and the client. In the event of conflict, such agreements shall take precedence over these Terms.</p>
+                    </div>
+
+                    <div class="legal-section" id="website-use">
+                        <h2><i class="fa-solid fa-globe"></i> 4. Website Use</h2>
+                        <h3>4.1 Permitted Use</h3>
+                        <p>You may access and use the Infrasys website for lawful purposes, including obtaining information about our services, submitting business enquiries, and applying for employment opportunities.</p>
+                        <h3>4.2 Prohibited Activities</h3>
+                        <p>You must not:</p>
+                        <ul>
+                            <li>Use the website in any way that violates applicable Indian or international law</li>
+                            <li>Attempt to gain unauthorised access to any part of our systems or infrastructure</li>
+                            <li>Transmit malware, viruses, or any other harmful or disruptive code</li>
+                            <li>Scrape, crawl, or systematically extract data from our website without prior written consent</li>
+                            <li>Impersonate Infrasys Limited, its employees, or any other person or entity</li>
+                            <li>Use our brand name, logo, or trademarks without explicit written permission</li>
+                            <li>Post or transmit any content that is unlawful, defamatory, obscene, or harmful</li>
+                        </ul>
+                        <p>We reserve the right to suspend or terminate access to our website for any user who violates these provisions.</p>
+                    </div>
+
+                    <div class="legal-section" id="ip">
+                        <h2><i class="fa-solid fa-copyright"></i> 5. Intellectual Property</h2>
+                        <p>All content on the Infrasys website — including but not limited to text, graphics, logos, icons, images, page layouts, software code, and the overall design — is the exclusive intellectual property of Infrasys Limited or its licensors, and is protected by applicable copyright, trademark, and other intellectual property laws.</p>
+                        <ul>
+                            <li>You may not reproduce, distribute, modify, display, or create derivative works of any website content without prior written consent from Infrasys Limited</li>
+                            <li>The Infrasys name, logo, and all associated marks are registered or unregistered trademarks of Infrasys Limited</li>
+                            <li>Deliverables produced for clients under a separate services agreement are governed by the IP provisions of that agreement</li>
+                            <li>Any feedback, suggestions, or ideas you submit to us may be used by Infrasys without obligation or compensation</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="user-content">
+                        <h2><i class="fa-solid fa-upload"></i> 6. User Submissions</h2>
+                        <p>When you submit information through our website — including contact forms, job applications, or newsletter sign-ups — you represent that:</p>
+                        <ul>
+                            <li>All information you provide is accurate, current, and complete</li>
+                            <li>You have the right to submit the information and it does not violate any third-party rights</li>
+                            <li>You consent to Infrasys processing and using the submitted information as described in our Privacy Policy</li>
+                        </ul>
+                        <p>For job applications, submitted CVs and personal information will be handled in accordance with our Privacy Policy and retained only for the purposes of recruitment.</p>
+                    </div>
+
+                    <div class="legal-section" id="client-obligations">
+                        <h2><i class="fa-solid fa-handshake"></i> 7. Client Obligations</h2>
+                        <p>Clients engaging Infrasys for professional services agree to:</p>
+                        <ul>
+                            <li>Provide accurate, timely, and complete information required for service delivery</li>
+                            <li>Designate a responsible point of contact for each engagement</li>
+                            <li>Comply with all payment terms as specified in the applicable service agreement</li>
+                            <li>Ensure Infrasys consultants have appropriate access to systems, data, and personnel required for the engagement</li>
+                            <li>Not engage in any activity that interferes with or disrupts Infrasys's ability to perform its obligations</li>
+                            <li>Maintain confidentiality of any proprietary methodologies, tools, or processes shared by Infrasys</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="confidentiality">
+                        <h2><i class="fa-solid fa-user-secret"></i> 8. Confidentiality</h2>
+                        <p>Each party acknowledges that in the course of business, they may receive or have access to confidential information belonging to the other party. Both parties agree to:</p>
+                        <ul>
+                            <li>Keep all confidential information strictly confidential and not disclose it to third parties without prior written consent</li>
+                            <li>Use confidential information only for the purposes of the relevant engagement</li>
+                            <li>Apply the same degree of protection to the other party's confidential information as they apply to their own</li>
+                        </ul>
+                        <p>These confidentiality obligations survive the termination of any service agreement and remain in force for a period of 3 years thereafter, unless a separate NDA specifies a different term.</p>
+                    </div>
+
+                    <div class="legal-section" id="disclaimers">
+                        <h2><i class="fa-solid fa-triangle-exclamation"></i> 9. Disclaimers</h2>
+                        <p>The Infrasys website and all information contained therein are provided on an "as is" and "as available" basis. To the fullest extent permitted by law:</p>
+                        <ul>
+                            <li>Infrasys makes no warranties, express or implied, regarding the accuracy, completeness, or fitness for purpose of any website content</li>
+                            <li>We do not guarantee uninterrupted or error-free access to our website</li>
+                            <li>General information on our website does not constitute professional consulting advice — specific advice is only provided under a formal service engagement</li>
+                            <li>Third-party links on our website are provided for convenience only; Infrasys does not endorse or take responsibility for any third-party content</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="liability">
+                        <h2><i class="fa-solid fa-shield"></i> 10. Limitation of Liability</h2>
+                        <p>To the maximum extent permitted by applicable Indian law, Infrasys Limited shall not be liable for:</p>
+                        <ul>
+                            <li>Indirect, incidental, consequential, punitive, or special damages arising from the use of our website or services</li>
+                            <li>Loss of profits, revenue, data, business, or goodwill</li>
+                            <li>Any damages resulting from your reliance on content published on our website</li>
+                            <li>Interruptions to service caused by circumstances beyond our reasonable control (force majeure)</li>
+                        </ul>
+                        <p>Our total aggregate liability for any claim arising from or related to use of our website shall not exceed INR 10,000 (Ten Thousand Rupees) unless a separate service agreement specifies a higher liability cap for professional services rendered.</p>
+                    </div>
+
+                    <div class="legal-section" id="indemnity">
+                        <h2><i class="fa-solid fa-umbrella"></i> 11. Indemnification</h2>
+                        <p>You agree to indemnify, defend, and hold harmless Infrasys Limited and its officers, directors, employees, agents, and consultants from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising from:</p>
+                        <ul>
+                            <li>Your use of our website in violation of these Terms</li>
+                            <li>Your violation of any applicable law or regulation</li>
+                            <li>Any false, inaccurate, or misleading information you provide to us</li>
+                            <li>Any breach of your obligations under a service agreement with Infrasys</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-section" id="termination">
+                        <h2><i class="fa-solid fa-power-off"></i> 12. Termination</h2>
+                        <p>Infrasys reserves the right to suspend or terminate your access to our website at any time, without notice, if we believe you have violated these Terms or engaged in conduct harmful to Infrasys or other users.</p>
+                        <p>For professional service engagements, termination rights and procedures are governed by the applicable MSA or SOW. Unless otherwise specified, either party may terminate an engagement with 30 days' written notice, subject to payment of all fees for services rendered up to the termination date.</p>
+                    </div>
+
+                    <div class="legal-section" id="governing-law">
+                        <h2><i class="fa-solid fa-landmark"></i> 13. Governing Law</h2>
+                        <p>These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions. Specifically, the following laws may apply:</p>
+                        <ul>
+                            <li>The Information Technology Act, 2000 (and its amendments)</li>
+                            <li>The Digital Personal Data Protection Act, 2023</li>
+                            <li>The Indian Contract Act, 1872</li>
+                            <li>The Arbitration and Conciliation Act, 1996 (for dispute resolution)</li>
+                        </ul>
+                        <p>The courts at Gurugram, Haryana shall have exclusive jurisdiction over any disputes arising from these Terms, unless the parties agree to arbitration as described in Section 14.</p>
+                    </div>
+
+                    <div class="legal-section" id="dispute">
+                        <h2><i class="fa-solid fa-scale-balanced"></i> 14. Dispute Resolution</h2>
+                        <p>In the event of any dispute, controversy, or claim arising out of or relating to these Terms or any service agreement:</p>
+                        <ul>
+                            <li><strong>Step 1 — Negotiation:</strong> The parties shall first attempt to resolve the dispute amicably through good-faith negotiation within 30 days of written notice</li>
+                            <li><strong>Step 2 — Mediation:</strong> If negotiation fails, the parties may agree to non-binding mediation before a neutral mediator</li>
+                            <li><strong>Step 3 — Arbitration:</strong> Unresolved disputes shall be finally settled by binding arbitration in accordance with the Arbitration and Conciliation Act, 1996, with the seat of arbitration in Gurugram, Haryana</li>
+                        </ul>
+                        <p>The language of arbitration proceedings shall be English. The arbitral award shall be final and binding on both parties.</p>
+                    </div>
+
+                    <div class="legal-section" id="changes-terms">
+                        <h2><i class="fa-solid fa-pen-to-square"></i> 15. Changes to These Terms</h2>
+                        <p>Infrasys Limited reserves the right to modify these Terms at any time. Changes will be effective immediately upon posting to our website with an updated "Last Updated" date. It is your responsibility to review these Terms periodically.</p>
+                        <p>For significant changes affecting active service engagements, we will provide reasonable notice to clients via email. Continued use of our website or services after changes are posted constitutes your acceptance of the revised Terms.</p>
+                    </div>
+
+                    <div class="legal-section" id="contact-legal">
+                        <h2><i class="fa-solid fa-envelope"></i> 16. Contact Us</h2>
+                        <p>For any questions about these Terms of Service, please contact our legal team:</p>
+                        <div class="legal-contact-box">
+                            <p><strong>Infrasys Limited — Legal &amp; Compliance</strong></p>
+                            <p>Spaze Itech Park, Sector 49, Gurugram, Haryana 122018, India</p>
+                            <p>Email: <a href="mailto:info@infrasys.tech">info@infrasys.tech</a></p>
+                            <p>Phone: <a href="tel:+911244959639">+91 124 495 9639</a></p>
+                            <p>Website: <a href="https://infrasys.tech/" target="_blank" rel="noopener">https://infrasys.tech/</a></p>
+                            <p style="margin-top:12px; font-size:0.85rem; color:var(--text-muted);">We aim to respond to all legal queries within 5 business days.</p>
+                        </div>
+                        <p style="margin-top:24px; font-size:0.85rem; color:var(--text-muted);">Also see: <a href="privacy-policy.html" style="color:var(--primary-orange); font-weight:600;">Privacy Policy</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+<div class="contact-modal" id="contact-modal">
+    <div class="contact-modal-content">
+        <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="contact-modal-grid">
+            <div class="contact-modal-info">
+                <div>
+                    <h2>Let's Connect</h2>
+                    <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                </div>
+                <div class="contact-modal-details">
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Hotline</div>
+                            <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Email Address</div>
+                            <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Headquarters</div>
+                            <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Gurugram, India</div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Business Hours</div>
+                            <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-modal-socials">
+                    <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-modal-form-wrapper">
+                <h3>Send us a message</h3>
+                <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                <form class="contact-form" id="modal-contact-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-phone input-icon"></i>
+                                <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-tag input-icon"></i>
+                            <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                            <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openContactModal() {
+    document.getElementById('contact-modal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+    document.getElementById('contact-modal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+// Close on outside click
+document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+    if (e.target === this) closeContactModal();
+});
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+        closeContactModal();
+    }
+});
+</script>
+
+
+<footer class="footer">
+        <div class="footer-top"><div class="container"><div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-col"><h4>Solutions</h4><ul class="footer-links">
+                <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> ERP &amp; Enterprise Apps</a></li>
+                <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> AI &amp; Machine Learning</a></li>
+                <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Cybersecurity</a></li>
+                <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Cloud Transformation</a></li>
+            </ul></div>
+            <div class="footer-links-col"><h4>Company</h4><ul class="footer-links">
+                <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+            </ul></div>
+            <div class="footer-links-col footer-newsletter-col">
+                <h4>Stay Updated</h4>
+                <p class="footer-newsletter-desc">Technology insights delivered to your inbox.</p>
+                <form class="footer-newsletter" id="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+            </div>
+        </div></div></div>
+        <div class="footer-bottom"><div class="container"><div class="footer-bottom-inner">
+            <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+            <div class="footer-legal-links">
+                <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                <a href="compliance.html" class="footer-legal-link">Compliance</a>
+            </div>
+        </div></div></div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){
+            if(!localStorage.getItem('infrasys-cookies')){
+                setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);
+            }
+            var a=document.getElementById('cookie-accept');
+            var d=document.getElementById('cookie-decline');
+            if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});
+            if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});
+        })();
+    </script>
+    <script src="app.js"></script>
+    <script>
+        const sections = document.querySelectorAll('.legal-section');
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+    <script src="form-handler.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Building Platforms & IoT — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="IoT sensor networks, occupancy analytics, indoor air quality monitoring, and predictive maintenance platforms for intelligent building operations.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .protocol-list { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .protocol-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="infrastructure-realestate.html">Infrastructure & Real Estate</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Smart Buildings & IoT</span>
+            </nav>
+            <h1 class="page-hero-title">Smart Building <span>Platforms & IoT</span></h1>
+            <p class="page-hero-subtitle">Intelligent sensor networks, predictive analytics, and data-driven building operations for modern commercial real estate</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>IoT-Enabled Intelligent Building Operations</h2>
+                <p>Smart buildings represent the next evolution beyond traditional Building Management Systems, leveraging Internet of Things (IoT) sensors, edge computing, cloud analytics, and artificial intelligence to create responsive, adaptive, and sustainable built environments. Modern smart buildings continuously monitor thousands of environmental parameters — temperature, humidity, CO2 levels, occupancy patterns, equipment vibration, water consumption — and use this data to optimize operations in real-time while providing occupants with personalized experiences.</p>
+                <p>Infrasys designs and implements comprehensive smart building platforms that bridge the gap between traditional building automation and modern data-driven operations. Our solutions combine wireless sensor networks, edge analytics gateways, time-series databases, and machine learning platforms to transform commercial properties into intelligent assets that reduce operational costs, enhance tenant satisfaction, and maximize property valuations.</p>
+                <p>We understand that smart building initiatives must deliver measurable ROI beyond the hype of buzzwords. Our implementations focus on solving concrete business problems: reducing energy waste through occupancy-driven HVAC control, preventing costly equipment failures through predictive maintenance, improving space utilization through workplace analytics, and achieving sustainability certifications (LEED, WELL Building Standard) that command premium lease rates.</p>
+
+                <h3>Core Smart Building Capabilities</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-users-viewfinder"></i> Occupancy Analytics & Space Optimization</h4>
+                        <p>Real-time occupancy sensing through PIR sensors, CO2 monitoring, and WiFi/Bluetooth beacon analytics enabling dynamic space allocation and hoteling management.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-wind"></i> Indoor Air Quality (IAQ) Monitoring</h4>
+                        <p>Continuous monitoring of CO2, VOCs, particulate matter (PM2.5/PM10), temperature, and humidity with automated ventilation response for occupant health.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-wrench"></i> Predictive Maintenance & FDD</h4>
+                        <p>Machine learning algorithms analyzing equipment vibration, temperature differentials, and performance trends to predict failures before they occur.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-bolt"></i> Energy Disaggregation & Analytics</h4>
+                        <p>Sub-metering and NILM (Non-Intrusive Load Monitoring) identifying specific equipment energy consumption patterns and optimization opportunities.</p>
+                    </div>
+                </div>
+
+                <h3>IoT Sensor Network Architecture</h3>
+                <p>The foundation of any smart building platform is a robust, scalable sensor network capable of capturing granular operational data across diverse building systems. Infrasys designs IoT architectures that balance coverage, reliability, power consumption, and cost:</p>
+                <ul>
+                    <li><strong>Wireless Sensor Networks:</strong> LoRaWAN, Zigbee, or Bluetooth Low Energy (BLE) mesh networks providing battery-powered sensors with 5-10 year operational life, ideal for retrofit deployments where wired infrastructure is impractical</li>
+                    <li><strong>IP-Based IoT Devices:</strong> WiFi and Ethernet-connected sensors for high-bandwidth applications requiring real-time streaming data — occupancy cameras, air quality sensors, smart meters — leveraging existing network infrastructure</li>
+                    <li><strong>Edge Computing Gateways:</strong> Local processing nodes performing data aggregation, protocol translation, and edge analytics to reduce cloud bandwidth and enable low-latency control responses even during internet outages</li>
+                    <li><strong>Sensor Fusion Platforms:</strong> Integration of diverse sensor types (environmental, motion, acoustic, vibration) using data fusion algorithms to improve accuracy and reduce false positives in occupancy detection and equipment fault prediction</li>
+                    <li><strong>Digital Twin Integration:</strong> Real-time sensor data feeding 3D building information models (BIM) creating dynamic digital twins that visualize building performance and enable scenario simulation</li>
+                </ul>
+
+                <h3>Occupancy Analytics & Workplace Optimization</h3>
+                <p>The shift toward hybrid work models and flexible office strategies has made accurate occupancy data critical for real estate portfolio optimization. Infrasys implements multi-modal occupancy sensing solutions that provide granular insights into space utilization patterns:</p>
+                <p><strong>Desk-Level Occupancy Sensing:</strong> Ultrasonic, PIR, or pressure sensors deployed at individual workstations enable hot-desking and desk booking applications. Employees use mobile apps to locate available workspaces in real-time, while facility managers identify underutilized zones for space consolidation or repurposing.</p>
+                <p><strong>Meeting Room Utilization Analytics:</strong> Integration of occupancy sensors with calendar systems automatically releases no-show conference room reservations, reducing "ghost meetings" that block resources. Analytics identify patterns — rooms consistently overbooked, spaces with capacity mismatches — informing space planning decisions.</p>
+                <p><strong>Foot Traffic & Circulation Analysis:</strong> Anonymous WiFi/Bluetooth probe counting and computer vision-based people counting (GDPR/privacy-compliant) map foot traffic flows through lobbies, corridors, and amenity spaces. Heatmap visualizations identify congestion points and underutilized zones.</p>
+                <p><strong>Density Management for Health & Safety:</strong> Real-time occupancy monitoring enforces density thresholds in post-pandemic workplace strategies, triggering alerts when zones exceed safe capacity and enabling contact tracing via badge interaction logs.</p>
+
+                <h3>Indoor Air Quality (IAQ) & Wellness Monitoring</h3>
+                <p>The WELL Building Standard and growing awareness of indoor environmental quality have made IAQ monitoring a key differentiator for premium office properties. Infrasys deploys comprehensive air quality monitoring networks that go far beyond basic temperature and humidity:</p>
+                <ul>
+                    <li><strong>CO2 Monitoring:</strong> Real-time carbon dioxide measurement indicating ventilation effectiveness, with automated demand-controlled ventilation adjusting outside air intake to maintain optimal levels (typically 600-800 ppm)</li>
+                    <li><strong>Particulate Matter (PM) Sensing:</strong> PM2.5 and PM10 sensors detecting fine particulates from outdoor pollution, printing operations, or cleaning activities, triggering air filtration adjustments</li>
+                    <li><strong>Volatile Organic Compound (VOC) Detection:</strong> Sensors identifying harmful chemicals from furniture off-gassing, cleaning products, or building materials, alerting facility managers to poor air quality events</li>
+                    <li><strong>Radon Monitoring:</strong> Continuous radon detection in basement and ground-floor spaces ensuring compliance with EPA action levels through automated ventilation response</li>
+                    <li><strong>Mold Risk Prediction:</strong> Temperature and humidity correlation algorithms identifying spaces at risk for mold growth, triggering preventive dehumidification before visible growth occurs</li>
+                </ul>
+                <p>IAQ data is visualized on public dashboards in building lobbies and published via mobile apps, demonstrating commitment to occupant health and supporting wellness certifications that command 5-10% rent premiums.</p>
+
+                <h3>Predictive Maintenance & Fault Detection</h3>
+                <p>Unplanned equipment failures in commercial buildings result in emergency repair costs 3-4x higher than preventive maintenance, plus productivity losses from HVAC outages or elevator downtime. Infrasys implements predictive maintenance platforms that shift from reactive firefighting to proactive intervention:</p>
+                <p><strong>Vibration Analysis for Rotating Equipment:</strong> Wireless vibration sensors on motors, pumps, fans, and chillers detect bearing wear, shaft misalignment, and imbalance through frequency spectrum analysis. Machine learning models trained on equipment-specific vibration signatures identify abnormal patterns weeks before catastrophic failure.</p>
+                <p><strong>Thermal Imaging & Hot Spot Detection:</strong> Periodic thermal surveys using handheld cameras or fixed thermal sensors identify electrical connection degradation, motor overheating, and insulation failures. Automated thermal anomaly detection flags issues requiring investigation.</p>
+                <p><strong>Performance Degradation Trending:</strong> Continuous monitoring of chiller efficiency (kW/ton), boiler combustion efficiency, and heat exchanger effectiveness detects gradual performance decline indicating fouling, refrigerant leaks, or control calibration drift. Early intervention through cleaning or adjustment restores efficiency before energy waste accumulates.</p>
+                <p><strong>Filter Differential Pressure Monitoring:</strong> Smart differential pressure sensors on HVAC filters trigger replacement based on actual loading rather than fixed time intervals, optimizing filter life while preventing fan energy waste from excessive pressure drop.</p>
+                <p><strong>Water Leak Detection:</strong> Wireless water sensors deployed at risk locations (under sinks, near water heaters, in mechanical rooms) provide instant leak alerts, preventing water damage that can cost tens of thousands in repairs and tenant disruption.</p>
+
+                <h3>Energy Disaggregation & Sub-Metering</h3>
+                <p>Understanding where and how buildings consume energy is fundamental to identifying optimization opportunities. Beyond building-level utility meters, Infrasys implements granular energy monitoring strategies:</p>
+                <p><strong>Circuit-Level Sub-Metering:</strong> Installation of current transformers (CTs) and power meters on major electrical panels enables tracking of specific loads — HVAC systems, lighting circuits, data centers, elevators — identifying which systems consume the most energy and where efficiency investments yield highest ROI.</p>
+                <p><strong>NILM (Non-Intrusive Load Monitoring):</strong> Advanced algorithms analyze total building power consumption patterns, disaggregating contributions from individual equipment types without requiring individual sensors. Machine learning identifies load signatures — the characteristic startup profile of a chiller, the steady load of IT equipment — enabling virtual metering at a fraction of sub-metering cost.</p>
+                <p><strong>Tenant Sub-Metering & Cost Allocation:</strong> Individual tenant energy metering in multi-tenant commercial buildings enables fair cost allocation based on actual consumption rather than square footage, incentivizing tenants to implement energy-saving behaviors. Automated utility billing integration streamlines cost recovery.</p>
+                <p><strong>Renewable Energy Monitoring:</strong> For buildings with on-site solar PV or cogeneration, production monitoring and grid export tracking maximize feed-in tariff revenues and renewable energy credit (REC) eligibility.</p>
+
+                <h3>Smart Building Data Platforms & Analytics</h3>
+                <p>The value of smart building IoT sensors is realized through analytics platforms that transform raw sensor data into actionable insights. Infrasys implements end-to-end data platforms purpose-built for building operations:</p>
+                <ul>
+                    <li><strong>Time-Series Databases:</strong> High-performance storage engines (InfluxDB, TimescaleDB) optimized for ingesting millions of sensor measurements per day with efficient compression and query performance</li>
+                    <li><strong>Real-Time Analytics Engines:</strong> Stream processing platforms (Apache Kafka, Spark Streaming) enabling real-time anomaly detection, automated control responses, and instant alert generation</li>
+                    <li><strong>Machine Learning Pipelines:</strong> Automated model training workflows using historical building performance data to develop predictive models for energy consumption forecasting, occupancy prediction, and equipment failure probability</li>
+                    <li><strong>Visualization Dashboards:</strong> Role-specific dashboards for facility managers (operational KPIs), property managers (financial metrics), and sustainability teams (carbon emissions, ESG reporting)</li>
+                    <li><strong>API-First Architecture:</strong> RESTful and GraphQL APIs enabling integration with third-party systems — CMMS, ERP, tenant experience apps — ensuring smart building data flows throughout the enterprise ecosystem</li>
+                </ul>
+
+                <h3>Integration with Building Systems</h3>
+                <p>Smart building IoT platforms don't replace existing Building Management Systems but augment them with enhanced sensing and analytics. Infrasys implements bi-directional integration strategies:</p>
+                <p><strong>BMS Data Ingestion:</strong> Extracting time-series data from BACnet, Modbus, or proprietary BMS platforms into centralized analytics platforms for correlation analysis across traditional building automation and new IoT sensors.</p>
+                <p><strong>Closed-Loop Control:</strong> Analytics-driven control commands sent back to BMS systems enabling automated optimization — adjusting HVAC setpoints based on occupancy forecasts, modulating lighting based on daylight availability, or triggering maintenance workflows based on predictive fault detection.</p>
+                <p><strong>Mobile Occupant Interfaces:</strong> Tenant-facing mobile applications enabling personalized environmental control (temperature, lighting preferences within acceptable ranges), space booking, visitor pre-registration, and amenity reservations — all integrated with smart building data.</p>
+
+                <h3>Privacy, Security & Data Governance</h3>
+                <p>Smart building IoT networks collect sensitive data about building operations, occupant behaviors, and in some cases personally identifiable information. Infrasys implements privacy-by-design principles and robust security controls:</p>
+                <ul>
+                    <li><strong>Anonymized Occupancy Data:</strong> Occupancy sensing using passive infrared or ultrasonic sensors rather than cameras, ensuring privacy compliance while capturing space utilization patterns</li>
+                    <li><strong>Edge Processing for PII:</strong> When computer vision is required (people counting, queue management), all face detection and counting occurs at the edge with only aggregated counts transmitted to cloud, ensuring video never leaves the premises</li>
+                    <li><strong>Network Segmentation:</strong> IoT sensors isolated on dedicated VLANs with firewall policies preventing lateral movement from compromised IoT devices to critical building control systems</li>
+                    <li><strong>Encryption & Authentication:</strong> TLS-encrypted sensor communication, certificate-based device authentication, and secure OTA (Over-The-Air) firmware updates preventing rogue device injection</li>
+                    <li><strong>GDPR/CCPA Compliance:</strong> Data retention policies, right-to-deletion workflows, and consent management for any systems processing personal data (badge access logs, WiFi probe data)</li>
+                </ul>
+
+                <h3>Smart Building Certifications & Standards</h3>
+                <p>Infrasys helps property owners achieve smart building certifications that differentiate properties in competitive markets and command premium valuations:</p>
+                <ul>
+                    <li><strong>LEED (Leadership in Energy and Environmental Design):</strong> Smart building platforms providing automated data collection for energy performance, water efficiency, and indoor environmental quality credits</li>
+                    <li><strong>WELL Building Standard:</strong> IAQ monitoring, lighting quality measurement, and thermal comfort tracking supporting health and wellness certification requirements</li>
+                    <li><strong>WiredScore & SmartScore:</strong> Digital infrastructure and smart building technology certifications evaluating IoT readiness, building analytics, and occupant digital experience</li>
+                    <li><strong>ENERGY STAR Certification:</strong> Continuous energy benchmarking and automated EPA Portfolio Manager integration streamlining annual certification renewals</li>
+                </ul>
+
+                <h3>Why Infrasys for Smart Building Platforms?</h3>
+                <p>Our smart building practice combines expertise in IoT system architecture, data engineering, building science, and commercial real estate operations. We've deployed smart building platforms in Class A office towers, life sciences facilities, data centers, and academic campuses across diverse climates and regulatory environments.</p>
+                <p>We focus on business outcomes: our clients typically achieve 15-25% energy cost reduction, 20-30% improvement in space utilization, 40-50% reduction in reactive maintenance costs, and 5-10% increases in property NOI through tenant satisfaction and premium positioning.</p>
+                <p>Whether you're retrofitting legacy office properties with IoT sensors, designing greenfield smart buildings from the ground up, or developing corporate smart building standards for portfolio-wide deployment, Infrasys brings the technical depth and real estate domain expertise to deliver measurable results.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-microchip"></i></div>
+            <h2 class="cta-title">Ready to transform your properties into smart buildings?</h2>
+            <p class="cta-desc">Schedule a consultation with our IoT and smart building specialists to discuss sensor network design, analytics platforms, or pilot program strategies.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to IoT Expert</a>
+                <a href="infrastructure-realestate.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Infrastructure & Real Estate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

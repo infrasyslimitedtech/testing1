@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI in ERP: Beyond Chatbots — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .blog-header{background:linear-gradient(135deg,var(--secondary-blue),#003d82);padding:80px 0 60px;color:#fff;text-align:center;}
+        .blog-meta-header{display:flex;gap:24px;justify-content:center;margin:24px 0;font-size:0.9rem;opacity:0.9;flex-wrap:wrap;}
+        .blog-meta-header span{display:flex;align-items:center;gap:8px;}
+        .blog-content-wrapper{max-width:820px;margin:0 auto;padding:60px 24px;}
+        .blog-content{font-size:1.05rem;line-height:1.85;color:var(--text-main);}
+        .blog-content h2{font-size:1.75rem;margin:48px 0 20px;color:var(--secondary-blue);font-family:var(--font-heading);}
+        .blog-content h3{font-size:1.35rem;margin:36px 0 16px;color:var(--secondary-blue);font-family:var(--font-heading);}
+        .blog-content p{margin-bottom:24px;}
+        .blog-content ul,.blog-content ol{margin:24px 0 24px 28px;line-height:1.9;}
+        .blog-content li{margin-bottom:12px;}
+        .blog-content strong{color:var(--secondary-blue);font-weight:700;}
+        .blog-content em{font-style:italic;color:var(--primary-orange);}
+        .blog-highlight{background:var(--primary-orange-light);border-left:4px solid var(--primary-orange);padding:20px 24px;margin:32px 0;border-radius:8px;}
+        .blog-cta{background:linear-gradient(135deg,var(--primary-orange),#e05e00);color:#fff;padding:48px;border-radius:var(--border-radius-lg);text-align:center;margin:60px 0;}
+        .blog-cta h3{font-size:1.6rem;margin-bottom:12px;}
+        .blog-cta p{margin-bottom:24px;opacity:0.95;}
+        @media(max-width:768px){.blog-header{padding:60px 0 40px;}.blog-content-wrapper{padding:40px 20px;}.blog-content{font-size:1rem;}.blog-content h2{font-size:1.5rem;}}
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;" alt="Infrasys"></a>
+            <nav><ul class="nav-menu" id="nav-menu">
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="industries.html" class="nav-link">Industries</a></li>
+                <li><a href="services.html" class="nav-link">Tech</a></li>
+                <li><a href="process.html" class="nav-link">Process</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-link active">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                        <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                    </ul>
+                </li>
+            </ul></nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle"><i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i></button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="blog-header">
+        <div class="container">
+            <span style="display:inline-block;background:rgba(255,255,255,0.2);padding:6px 16px;border-radius:100px;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;">AI/ML • Featured</span>
+            <h1 style="font-size:2.5rem;font-weight:800;line-height:1.3;margin-bottom:16px;font-family:var(--font-heading);color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.3);">Generative AI in ERP: Beyond Chatbots to Intelligent Automation</h1>
+            <p style="font-size:1.1rem;opacity:0.9;max-width:700px;margin:0 auto;">How Large Language Models are transforming enterprise resource planning from complex interfaces to natural conversations</p>
+            <div class="blog-meta-header">
+                <span><i class="fa-solid fa-calendar"></i> August 18, 2026</span>
+                <span><i class="fa-solid fa-clock"></i> 12 min read</span>
+                <span><i class="fa-solid fa-user"></i> Infrasys Research Team</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-content-wrapper">
+        <div class="blog-content">
+            <p><strong>The enterprise software landscape is experiencing a seismic shift.</strong> Large Language Models (LLMs) like GPT-4, Claude, and Gemini are no longer experimental tools — they're becoming the primary interface through which employees interact with complex ERP systems.</p>
+
+            <p>For decades, ERP platforms like SAP, Oracle, and Microsoft Dynamics have been notoriously difficult to use. Users needed extensive training to navigate multi-level menus, remember transaction codes, and interpret cryptic error messages. Today, generative AI is changing that paradigm entirely.</p>
+
+            <h2>1. The Shift from Menus to Conversations</h2>
+
+            <p>Traditional ERP interaction required users to know <em>where</em> to find information. Want to check inventory levels for Product SKU-12345 across all warehouses? You'd need to:</p>
+
+            <ul>
+                <li>Navigate to the Materials Management module</li>
+                <li>Select Inventory Management</li>
+                <li>Choose Stock Overview</li>
+                <li>Enter search parameters</li>
+                <li>Export and analyze the report</li>
+            </ul>
+
+            <p>With generative AI, the same task becomes: <strong>"Show me current inventory for SKU-12345 across all locations."</strong></p>
+
+            <p>The LLM understands the intent, queries the appropriate ERP tables, and presents the information in plain language — often with contextual insights like "Stock is critically low in the Mumbai warehouse" or "Reorder point reached for Delhi distribution center."</p>
+
+            <div class="blog-highlight">
+                <strong>Key Insight:</strong> Natural language interfaces reduce training time by 60-75% and increase user adoption rates significantly, especially among non-technical staff.
+            </div>
+
+            <h2>2. AI-Generated Workflows: Beyond Static Processes</h2>
+
+            <p>One of the most powerful applications of generative AI in ERP is <em>dynamic workflow generation</em>. Traditional ERP workflows are rigid — they follow predefined paths programmed during implementation. Generative AI changes this by creating adaptive workflows in real-time.</p>
+
+            <h3>Example: Purchase Order Approval</h3>
+
+            <p>In a traditional ERP system, a purchase order over ₹10 lakhs might follow a fixed approval chain: Department Head → Finance Manager → CFO. But what if the CFO is on leave? What if the vendor is on a restricted list? What if there's a compliance check needed for international purchases?</p>
+
+            <p>An AI-powered workflow engine can:</p>
+
+            <ol>
+                <li><strong>Analyze context</strong> — Vendor history, purchase category, regulatory requirements</li>
+                <li><strong>Identify exceptions</strong> — CFO unavailable, substitute approver needed</li>
+                <li><strong>Generate alternate path</strong> — Route through Acting CFO with notification to original approver</li>
+                <li><strong>Learn from outcomes</strong> — If the alternate path causes delays, adjust future routing logic</li>
+            </ol>
+
+            <p>This isn't pre-programmed. The AI <em>generates</em> the workflow based on business rules, historical data, and current context.</p>
+
+            <h2>3. Intelligent Data Entry and Validation</h2>
+
+            <p>Data entry is one of the most time-consuming aspects of ERP usage. Generative AI dramatically improves this through:</p>
+
+            <ul>
+                <li><strong>Auto-completion with context:</strong> Typing "Create PO for..." triggers suggestions based on recent supplier interactions, pending requisitions, and inventory needs</li>
+                <li><strong>Validation before submission:</strong> AI checks for anomalies ("This price is 40% higher than last month — verify with supplier?") before the transaction is committed</li>
+                <li><strong>Document extraction:</strong> Upload a supplier invoice PDF, and the AI extracts line items, matches them to purchase orders, flags discrepancies, and prepares the payment voucher — all automatically</li>
+            </ul>
+
+            <h2>4. Security and Accuracy: The Critical Considerations</h2>
+
+            <p>While the potential is enormous, deploying generative AI in ERP systems requires careful attention to security and accuracy.</p>
+
+            <h3>Data Security</h3>
+
+            <p>ERP systems contain the most sensitive business data — financials, employee records, customer information, trade secrets. When integrating LLMs, enterprises must ensure:</p>
+
+            <ul>
+                <li><strong>On-premise or private cloud deployment:</strong> Avoid sending sensitive data to public APIs</li>
+                <li><strong>Role-based access control:</strong> AI should only access data the user is authorized to see</li>
+                <li><strong>Audit trails:</strong> Every AI-generated action must be logged for compliance</li>
+            </ul>
+
+            <h3>Accuracy and Hallucinations</h3>
+
+            <p>LLMs sometimes "hallucinate" — generate plausible-sounding but incorrect information. In ERP contexts, this is unacceptable. Mitigation strategies include:</p>
+
+            <ul>
+                <li><strong>Retrieval-Augmented Generation (RAG):</strong> AI retrieves verified data from ERP databases before generating responses</li>
+                <li><strong>Confidence scores:</strong> Display uncertainty levels ("Medium confidence: verify with finance team")</li>
+                <li><strong>Human-in-the-loop:</strong> Critical actions (large payments, bulk deletions) require human approval</li>
+            </ul>
+
+            <div class="blog-highlight">
+                <strong>Best Practice:</strong> Start with read-only AI assistants (reporting, querying) before enabling write operations (data entry, approvals).
+            </div>
+
+            <h2>5. Integration Architecture: Making It Work</h2>
+
+            <p>Successful AI-ERP integration requires thoughtful architecture. At Infrasys, we recommend a layered approach:</p>
+
+            <ol>
+                <li><strong>API Layer:</strong> Expose ERP functionality through secure REST/GraphQL APIs</li>
+                <li><strong>AI Orchestration Layer:</strong> Manages LLM interactions, enforces business rules, handles authentication</li>
+                <li><strong>User Interface Layer:</strong> Chatbot, voice interface, or embedded AI assistant within existing ERP screens</li>
+            </ol>
+
+            <p>Popular implementation patterns include:</p>
+
+            <ul>
+                <li><strong>SAP + Azure OpenAI Service:</strong> Microsoft's enterprise-grade LLM deployment integrated with SAP S/4HANA</li>
+                <li><strong>Oracle + OCI Generative AI:</strong> Oracle's native AI services for Oracle Cloud ERP</li>
+                <li><strong>ERPNext + Open-source LLMs:</strong> Self-hosted models (Llama, Mistral) for cost-effective AI integration</li>
+            </ul>
+
+            <h2>6. The Road Ahead: What IT Leaders Should Do Now</h2>
+
+            <p>Generative AI in ERP is not a future possibility — it's happening now. Forward-thinking IT leaders are:</p>
+
+            <ul>
+                <li><strong>Running pilot programs:</strong> Start with a single department (e.g., finance) and a narrow use case (e.g., expense report queries)</li>
+                <li><strong>Investing in data quality:</strong> AI is only as good as the data it accesses — clean, structured ERP data is essential</li>
+                <li><strong>Upskilling teams:</strong> Train ERP administrators on prompt engineering, AI model fine-tuning, and integration patterns</li>
+                <li><strong>Partnering with specialists:</strong> Work with consultants who understand both ERP systems and AI architecture (like Infrasys 😊)</li>
+            </ul>
+
+            <div class="blog-cta">
+                <h3>Ready to Explore AI-Powered ERP?</h3>
+                <p>Infrasys has helped enterprises across India and globally integrate generative AI into SAP, Oracle, and ERPNext deployments. Let's discuss your use case.</p>
+                <a href="#" onclick="openContactModal(); return false;" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-comments"></i> Schedule a Consultation</a>
+            </div>
+
+            <h2>Conclusion</h2>
+
+            <p>Generative AI is not replacing ERP systems — it's making them <em>human</em>. By transforming complex software into conversational partners, enterprises can unlock productivity gains, improve user satisfaction, and accelerate decision-making.</p>
+
+            <p>The question is no longer <em>if</em> you should integrate AI into your ERP, but <em>how quickly</em> can you do it safely and effectively.</p>
+
+            <p style="margin-top:48px;padding-top:24px;border-top:1px solid var(--border-color);font-style:italic;color:var(--text-muted);">
+                <strong>About the Author:</strong> This article was researched and written by the Infrasys AI & ERP Practice team.
+            </p>
+
+            <div style="margin-top:48px;display:flex;gap:12px;flex-wrap:wrap;">
+                <a href="blogs.html" class="btn btn-outline" style="display:inline-flex;align-items:center;gap:8px;"><i class="fa-solid fa-arrow-left"></i> Back to Blogs</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal (same as other pages) -->
+    <!-- Include the modal here -->
+
+    <!-- Contact Modal -->
+<div class="contact-modal" id="contact-modal">
+    <div class="contact-modal-content">
+        <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="contact-modal-grid">
+            <div class="contact-modal-info">
+                <div>
+                    <h2>Let's Connect</h2>
+                    <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                </div>
+                <div class="contact-modal-details">
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Hotline</div>
+                            <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Email Address</div>
+                            <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Headquarters</div>
+                            <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Gurugram, India</div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-detail">
+                        <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-modal-detail-content">
+                            <div class="contact-modal-detail-label">Business Hours</div>
+                            <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-modal-socials">
+                    <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-modal-form-wrapper">
+                <h3>Send us a message</h3>
+                <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                <form class="contact-form" id="modal-contact-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-phone input-icon"></i>
+                                <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-tag input-icon"></i>
+                            <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                            <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openContactModal() {
+    document.getElementById('contact-modal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+function closeContactModal() {
+    document.getElementById('contact-modal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+// Close on outside click
+document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+    if (e.target === this) closeContactModal();
+});
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+        closeContactModal();
+    }
+});
+</script>
+
+
+<footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited">
+                        </a>
+                        <p class="footer-brand-desc">Transforming Through Technology � Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){var st=document.getElementById('search-toggle'),so=document.getElementById('search-overlay'),sc=document.getElementById('search-close'),si=document.getElementById('search-input');if(st&&so){st.addEventListener('click',function(){so.classList.add('open');document.body.style.overflow='hidden';setTimeout(function(){if(si)si.focus();},200);});if(sc)sc.addEventListener('click',function(){so.classList.remove('open');document.body.style.overflow='';});so.addEventListener('click',function(e){if(e.target===so){so.classList.remove('open');document.body.style.overflow='';}});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&so.classList.contains('open')){so.classList.remove('open');document.body.style.overflow='';}});}})();
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

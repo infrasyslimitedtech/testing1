@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry 4.0 & IoT Integration — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="End-to-end Industry 4.0 and IoT integration solutions for smart manufacturing, predictive maintenance, and production optimization.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .tech-stack { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .tech-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="manufacturing.html">Manufacturing</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Industry 4.0 & IoT Integration</span>
+            </nav>
+            <h1 class="page-hero-title">Industry 4.0 & <span>IoT Integration</span></h1>
+            <p class="page-hero-subtitle">Building connected factories with intelligent sensor networks, edge computing, and real-time analytics</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Enabling Smart Manufacturing Through Industrial IoT</h2>
+                <p>Industry 4.0 represents the fourth industrial revolution — the convergence of cyber-physical systems, the Internet of Things (IoT), cloud computing, and artificial intelligence to create self-optimizing production environments. At the heart of this transformation lies the Industrial Internet of Things (IIoT), connecting machines, sensors, control systems, and human operators into a unified digital ecosystem.</p>
+                <p>Infrasys architects end-to-end IIoT solutions that transform traditional manufacturing facilities into intelligent, data-driven operations. From deploying thousands of wireless sensors across shop floors to implementing edge computing infrastructure for real-time decision-making, we design scalable architectures that collect, process, and act on operational data with millisecond precision.</p>
+                <p>Our Industry 4.0 implementations span discrete manufacturing (automotive, electronics, aerospace) and process industries (chemicals, pharmaceuticals, food & beverage). We understand that successful IoT deployment requires more than sensor installation — it demands expertise in industrial protocols, wireless network design, cybersecurity, analytics platforms, and change management to drive adoption across operations, maintenance, and engineering teams.</p>
+
+                <h3>Core IoT Integration Capabilities</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-wifi"></i> Sensor Network Architecture</h4>
+                        <p>Design and deployment of industrial wireless sensor networks (ISA100, WirelessHART) and wired instrumentation for comprehensive asset monitoring across production lines.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-server"></i> Edge Computing Infrastructure</h4>
+                        <p>Local processing nodes at production sites for real-time analytics, reducing latency and bandwidth requirements while enabling autonomous decision-making.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-cloud"></i> Cloud Connectivity & Integration</h4>
+                        <p>Secure connectivity between shop floor systems and cloud-based analytics platforms using industrial gateways, MQTT brokers, and API integration layers.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-chart-line"></i> Predictive Maintenance Systems</h4>
+                        <p>Machine learning models analyzing vibration, temperature, and acoustic data to predict equipment failures and optimize maintenance schedules.</p>
+                    </div>
+                </div>
+
+                <h3>Industrial IoT Architecture Layers</h3>
+                <p>A robust Industry 4.0 solution requires careful orchestration across multiple technology layers, each addressing specific functional requirements:</p>
+                <p><strong>Perception Layer (Sensors & Actuators):</strong> This foundational layer comprises the physical sensors, meters, and control devices that interface with manufacturing equipment. We deploy industrial-grade sensors for vibration analysis, thermal imaging, pressure monitoring, flow measurement, and asset tracking. Sensor selection considers environmental factors — temperature extremes, humidity, electromagnetic interference, and explosion-proof requirements in hazardous areas. Our implementations include both wired instrumentation (4-20mA analog, HART, Foundation Fieldbus) and wireless sensor networks designed for industrial reliability.</p>
+                <p><strong>Network Layer (Connectivity):</strong> The network layer ensures reliable data transmission from sensors to processing systems. We design converged industrial networks combining wired Ethernet (Industrial Ethernet protocols like PROFINET, EtherNet/IP) with wireless technologies (Wi-Fi 6, Private 5G, LoRaWAN for long-range low-power devices). Network architecture follows ISA-95 hierarchical models with proper segmentation between enterprise, control, and device zones. Time-Sensitive Networking (TSN) implementation ensures deterministic communication for time-critical control loops.</p>
+                <p><strong>Edge Processing Layer (Local Intelligence):</strong> Edge computing nodes deployed at production sites perform local analytics, reducing cloud dependency and enabling sub-second response times. These systems run containerized applications for data filtering, protocol translation, alarm generation, and machine learning inference. Edge platforms aggregate data from multiple devices, performing pre-processing before selective transmission to cloud systems — optimizing bandwidth and reducing cloud storage costs.</p>
+                <p><strong>Platform Layer (IoT Management):</strong> The IoT platform layer provides device management, data ingestion, storage, and visualization services. We implement industrial IoT platforms (ThingWorx, Azure IoT, AWS IoT Core, Google Cloud IoT) with capabilities for device provisioning, firmware updates, security credential management, and data pipeline orchestration. Time-series databases (InfluxDB, TimescaleDB) store high-frequency sensor data, while data lakes consolidate historical information for advanced analytics.</p>
+                <p><strong>Application Layer (Business Logic):</strong> The top layer delivers business value through dashboards, analytics applications, and integration with enterprise systems. Custom applications provide real-time production visibility, quality management, energy monitoring, and supply chain coordination. Machine learning models detect anomalies, predict failures, optimize parameters, and provide prescriptive recommendations to operators and engineers.</p>
+
+                <h3>Predictive Maintenance & Asset Performance Management</h3>
+                <p>One of the most compelling Industry 4.0 use cases is transitioning from reactive or scheduled maintenance to predictive maintenance strategies. Traditional time-based maintenance schedules either result in premature component replacement (increasing costs) or unexpected failures (causing unplanned downtime). Predictive maintenance uses real-time condition monitoring to schedule interventions precisely when needed.</p>
+                <p>Our predictive maintenance solutions combine multiple data sources — vibration analysis from accelerometers detecting bearing degradation, thermal imaging identifying electrical connection issues, acoustic monitoring for compressed air leaks, oil analysis for gearbox health, and motor current signature analysis for detecting rotor bar defects. Data scientists develop machine learning models trained on historical failure patterns, creating early-warning systems that alert maintenance teams days or weeks before critical failures occur.</p>
+                <p>Asset Performance Management (APM) extends beyond failure prediction to optimization of asset lifecycle economics. APM systems analyze asset utilization, energy consumption, product quality impact, and maintenance costs to inform capital planning decisions — should equipment be repaired, refurbished, or replaced? Integration with enterprise asset management (EAM) systems automates work order generation, spare parts ordering, and maintenance history documentation.</p>
+
+                <h3>Production Optimization & Quality Management</h3>
+                <p>Industry 4.0 enables closed-loop optimization where production systems continuously adjust parameters based on real-time feedback. IoT sensors monitor product quality attributes during manufacturing — dimensional measurements, surface finish, material composition — identifying deviations before defects reach customers. Statistical process control (SPC) algorithms detect process drift, triggering automatic corrections or operator alerts.</p>
+                <p>Machine vision systems equipped with deep learning algorithms inspect 100% of products at production speeds, detecting defects invisible to human inspectors or traditional rule-based systems. These systems learn from labeled examples, continuously improving accuracy and adapting to new product variants without reprogramming.</p>
+                <p>Overall Equipment Effectiveness (OEE) monitoring provides real-time visibility into production efficiency across availability, performance, and quality dimensions. Automated data collection eliminates manual logging errors while providing granular insights into downtime causes, speed losses, and defect patterns — empowering continuous improvement teams with objective data for root cause analysis.</p>
+
+                <h3>Energy Management & Sustainability</h3>
+                <p>Industrial facilities account for substantial energy consumption, making energy optimization both an economic and environmental imperative. IoT-enabled energy management systems monitor electricity, natural gas, compressed air, steam, and water consumption across production zones. Sub-metering identifies energy-intensive processes, quantifies the impact of production schedules, and detects waste from equipment left running during idle periods.</p>
+                <p>Demand response integration allows manufacturers to shift energy-intensive operations to off-peak hours, reducing utility costs and supporting grid stability. Renewable energy integration — solar, wind, battery storage — requires intelligent load management to maximize self-consumption and minimize grid dependency. Our energy management implementations have delivered 15-25% reductions in energy costs while supporting corporate carbon neutrality commitments.</p>
+
+                <h3>Technology Stack & Protocols</h3>
+                <p>Industry 4.0 solutions integrate diverse technologies across the automation pyramid:</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">MQTT / OPC-UA</span>
+                    <span class="tech-badge">Azure IoT / AWS IoT Core</span>
+                    <span class="tech-badge">Node-RED / Apache NiFi</span>
+                    <span class="tech-badge">InfluxDB / TimescaleDB</span>
+                    <span class="tech-badge">Grafana / Power BI</span>
+                    <span class="tech-badge">TensorFlow / PyTorch</span>
+                    <span class="tech-badge">Kubernetes / Docker</span>
+                    <span class="tech-badge">ISA100 / WirelessHART</span>
+                    <span class="tech-badge">TSN / 5G</span>
+                </div>
+
+                <h3>Security & Compliance</h3>
+                <p>Connecting production systems to cloud platforms introduces cybersecurity risks that must be systematically addressed. We implement defense-in-depth strategies aligned with IEC 62443 industrial cybersecurity standards — network segmentation, encrypted communications, device authentication, role-based access control, and security monitoring. Edge gateways enforce security boundaries, allowing data flow while preventing unauthorized access to control systems.</p>
+                <p>Compliance requirements vary by industry — FDA 21 CFR Part 11 for pharmaceuticals, IATF 16949 for automotive, aerospace AS9100 — requiring documented traceability, audit trails, and validation protocols. Our implementations include configuration management, change control procedures, and validation documentation supporting regulatory compliance.</p>
+
+                <h3>Implementation Methodology</h3>
+                <p>Successful Industry 4.0 transformation follows a phased approach:</p>
+                <ul>
+                    <li><strong>Assessment & Use Case Definition:</strong> Collaborative workshops identify high-value opportunities, evaluating potential ROI across maintenance optimization, quality improvement, energy reduction, and throughput increases</li>
+                    <li><strong>Pilot Deployment:</strong> Proof-of-concept implementation on a single production line or asset, validating technical feasibility and refining business case assumptions</li>
+                    <li><strong>Platform Build:</strong> Establishment of scalable IoT platform infrastructure — edge computing, cloud services, analytics tools — designed to support enterprise-wide expansion</li>
+                    <li><strong>Rollout & Integration:</strong> Phased deployment across multiple sites, integrating with MES/ERP systems and establishing standard operating procedures for data-driven operations</li>
+                    <li><strong>Continuous Improvement:</strong> Ongoing refinement of analytics models, expansion to additional use cases, and capability building among operations and maintenance teams</li>
+                </ul>
+
+                <h3>Why Choose Infrasys for Industry 4.0 Transformation?</h3>
+                <p>Our Industry 4.0 practice combines deep manufacturing domain knowledge with technical expertise across IoT platforms, industrial automation, cloud architecture, data science, and cybersecurity. We have delivered smart factory solutions for automotive OEMs, pharmaceutical manufacturers, food processing companies, and heavy engineering plants across India, Southeast Asia, and the Middle East.</p>
+                <p>Unlike pure technology vendors, we understand manufacturing realities — production schedules that cannot tolerate downtime for system installation, harsh environments that destroy consumer-grade equipment, legacy systems requiring integration rather than replacement, and organizational change management essential for adoption.</p>
+                <p>We deliver measurable business outcomes: 20-35% reduction in unplanned downtime, 15-25% improvement in OEE, 10-20% reduction in maintenance costs, and 15-30% improvement in first-pass quality rates. Our clients don't just get technology — they get operational transformation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-microchip"></i></div>
+            <h2 class="cta-title">Ready to implement Industry 4.0 in your factory?</h2>
+            <p class="cta-desc">Discuss IoT architecture, predictive maintenance use cases, or pilot deployment strategies with our manufacturing specialists.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to IoT Expert</a>
+                <a href="manufacturing.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Manufacturing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

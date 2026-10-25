@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MES/ERP Connectivity & Integration — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Manufacturing Execution System integration with ERP for seamless production planning, tracking, and business operations coordination.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .tech-stack { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .tech-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="manufacturing.html">Manufacturing</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">MES/ERP Integration</span>
+            </nav>
+            <h1 class="page-hero-title">MES/ERP <span>Integration</span></h1>
+            <p class="page-hero-subtitle">Connecting shop floor execution systems with enterprise business operations for end-to-end visibility</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Bridging Manufacturing Execution and Enterprise Resource Planning</h2>
+                <p>Manufacturing Execution Systems (MES) and Enterprise Resource Planning (ERP) systems serve complementary but distinct roles in manufacturing organizations. ERP systems manage business processes — financial accounting, procurement, sales orders, inventory management, and supply chain planning — operating at the enterprise level with planning horizons measured in weeks and months. MES systems orchestrate shop floor operations — work order execution, material tracking, quality management, and production reporting — operating in real-time with second-by-second visibility into manufacturing processes.</p>
+                <p>The integration between MES and ERP creates a closed-loop manufacturing ecosystem where business plans translate into production execution, and shop floor realities inform business decisions. Without effective integration, manufacturers suffer from data silos, manual data entry errors, delayed production reporting, inventory discrepancies, and inability to deliver accurate customer commitments. Infrasys specializes in designing and implementing MES-ERP integration architectures that enable seamless data flow while respecting the distinct operational characteristics of each system.</p>
+                <p>Our integration implementations span discrete manufacturing (automotive, electronics, aerospace) and process industries (chemicals, pharmaceuticals, food & beverage), connecting MES platforms (Siemens Opcenter, Rockwell FactoryTalk, AVEVA MES, SAP ME) with ERP systems (SAP S/4HANA, Oracle ERP Cloud, Microsoft Dynamics 365, Infor CloudSuite). We understand ISA-95 functional hierarchies, handle complex data transformations, implement error handling strategies, and ensure integration reliability in mission-critical production environments.</p>
+
+                <h3>Core Integration Capabilities</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-arrows-left-right"></i> Bidirectional Data Exchange</h4>
+                        <p>Real-time synchronization of production schedules, material movements, quality results, and completion confirmations between shop floor and enterprise systems.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-clock"></i> Master Data Management</h4>
+                        <p>Synchronized product definitions, bill of materials, routing information, and resource master data ensuring consistency across MES and ERP environments.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-shuffle"></i> Workflow Orchestration</h4>
+                        <p>Automated business processes spanning MES and ERP — production order release, material staging, quality hold, goods receipt, and invoice verification.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-chart-simple"></i> Real-Time KPI Visibility</h4>
+                        <p>Enterprise dashboards aggregating shop floor metrics with financial data — actual vs. planned production costs, inventory turns, on-time delivery performance.</p>
+                    </div>
+                </div>
+
+                <h3>ISA-95 Integration Framework</h3>
+                <p>The ISA-95 standard (ANSI/ISA-95 Enterprise-Control System Integration) provides the foundational model for MES-ERP integration, defining functional hierarchies, information flows, and standardized terminology:</p>
+                <p><strong>Level 4 – Enterprise Resource Planning:</strong> Business logistics functions including plant production scheduling, purchasing, material requirements planning, inventory management, and financial accounting. ERP systems operate at this level with planning horizons of months to years.</p>
+                <p><strong>Level 3 – Manufacturing Execution Systems:</strong> Production workflow management, detailed production scheduling, resource allocation, material tracking, quality management, and production data collection. MES operates with hourly to shift-level time horizons.</p>
+                <p><strong>Level 2 – Supervisory Control:</strong> Real-time control monitoring and supervisory functions — SCADA systems, HMI workstations, batch management. Minutes to hours time horizon.</p>
+                <p><strong>Levels 1 & 0 – Basic Control & Sensing:</strong> Direct equipment control through PLCs, DCS, and physical sensors/actuators. Millisecond to second response times.</p>
+                <p>ISA-95 defines standardized transactions between Level 3 (MES) and Level 4 (ERP): Production Schedule (ERP → MES), Production Performance (MES → ERP), Product Definition (ERP → MES), Material and Energy Transfer (bidirectional). Our integration architectures implement these standard interfaces, ensuring interoperability and reducing custom development complexity.</p>
+
+                <h3>Key Integration Scenarios</h3>
+                <p><strong>Production Order Management:</strong> The production planning process begins in ERP where master production schedules are generated based on customer orders, demand forecasts, and inventory levels. Planned orders are released to MES with all necessary information — product specifications, bill of materials, routing sequences, quality requirements, and target completion dates. MES accepts orders, schedules them on specific production lines considering resource availability and changeover times, and begins execution. As production progresses, MES sends real-time status updates to ERP — order started, quantities completed, materials consumed, scrap generated. Upon completion, MES confirms finished goods quantities, triggering ERP inventory updates, goods receipt postings, and backflushing of component materials.</p>
+                <p><strong>Material Management & Inventory Tracking:</strong> Manufacturing requires tight coordination between ERP inventory management and MES material tracking. When production orders are released, ERP reserves raw materials and components. MES issues material requests, triggering warehouse picking and staging. As operators scan barcodes or RFID tags at production lines, MES tracks material consumption at serial number or batch level. This granular tracking enables full product genealogy — which specific component lots were used in which finished products — essential for quality investigations and regulatory compliance. Material movements synchronize back to ERP, updating inventory balances, work-in-process values, and triggering procurement when stock levels fall below reorder points.</p>
+                <p><strong>Quality Management Integration:</strong> Quality data flows bidirectionally between MES and ERP Quality Management (QM) modules. Inspection plans defined in ERP download to MES, specifying which characteristics to measure, sampling frequencies, and acceptance criteria. During production, MES collects measurement data from inline sensors, coordinate measuring machines, and manual inspection stations. Statistical process control algorithms evaluate measurements against specifications, triggering alerts when processes drift. Quality results upload to ERP, populating certificates of analysis, updating quality history records, and triggering hold or release decisions for finished products. Non-conformance events in MES automatically create quality notifications in ERP, initiating corrective action workflows.</p>
+                <p><strong>Maintenance & Asset Management:</strong> Predictive maintenance systems within MES detect equipment anomalies and predict failures. These alerts integrate with ERP Computerized Maintenance Management Systems (CMMS), automatically creating work orders, reserving spare parts, and scheduling maintenance technicians. Planned maintenance schedules flow from ERP to MES, which adjusts production schedules to accommodate downtime. Maintenance completion confirmations from ERP update asset histories in MES, informing future maintenance predictions and equipment performance models.</p>
+
+                <h3>Integration Architecture Patterns</h3>
+                <p>We implement three primary architectural approaches depending on technology stacks, performance requirements, and organizational preferences:</p>
+                <p><strong>Direct API Integration:</strong> Modern cloud-based MES and ERP systems expose RESTful APIs enabling direct system-to-system communication. MES applications call ERP APIs to fetch master data, create transactions, and query inventory. ERP systems invoke MES APIs to release production orders and retrieve performance metrics. This approach minimizes architectural complexity but creates tight coupling between systems — changes in one system may require modifications in the other. Direct integration works well for greenfield implementations using modern platforms with well-documented APIs.</p>
+                <p><strong>Enterprise Service Bus (ESB) Mediation:</strong> ESB platforms (MuleSoft, Dell Boomi, IBM App Connect, Azure Logic Apps) sit between MES and ERP, providing message routing, protocol transformation, data mapping, and error handling. ESB architectures decouple systems — MES and ERP don't communicate directly but instead publish and subscribe to messages via the integration bus. This flexibility allows swapping MES or ERP vendors without rewriting all integrations. ESBs also enable complex orchestration workflows involving multiple systems beyond MES and ERP — warehouse management, quality laboratories, supplier portals.</p>
+                <p><strong>Data Replication & Event Streaming:</strong> For scenarios requiring high-volume, low-latency data movement, we implement event streaming architectures using Apache Kafka, AWS Kinesis, or Azure Event Hubs. Production events (order start, material consumption, quality measurement) publish to event streams in real-time. ERP and analytics systems subscribe to relevant event topics, consuming data at their own pace. This pattern enables real-time visibility into shop floor operations while avoiding performance impacts on production systems. Event stores provide audit trails and enable replay of historical events for analytics or debugging.</p>
+
+                <h3>Data Transformation & Master Data Management</h3>
+                <p>MES and ERP systems use different data models, identifiers, and units of measure. Robust integration requires comprehensive data transformation:</p>
+                <p><strong>Identifier Mapping:</strong> Products, materials, and equipment have different identifiers in MES and ERP. Integration layers maintain cross-reference tables mapping ERP material numbers to MES part codes, ERP work centers to MES production lines, and ERP plants to MES manufacturing sites. Lookup services resolve identifiers during message processing, ensuring consistent references across systems.</p>
+                <p><strong>Unit of Measure Conversion:</strong> ERP may manage inventory in kilograms while MES tracks production in pieces or liters. Integration logic converts quantities using conversion factors defined in master data. Precision handling prevents rounding errors that accumulate into significant inventory discrepancies over time.</p>
+                <p><strong>Hierarchical Data Flattening:</strong> MES systems often represent bill of materials as hierarchical structures with parent-child relationships. ERP may require flattened lists with explicit indentation levels. Data transformation logic restructures hierarchies to match target system expectations.</p>
+                <p><strong>Status Code Translation:</strong> MES production order statuses (Released, In Progress, On Hold, Completed) map to ERP equivalents, though terminology and state machines differ between systems. Translation tables and business rules ensure status consistency.</p>
+                <p>Master Data Management (MDM) platforms (Informatica MDM, SAP Master Data Governance) provide centralized governance for product definitions, ensuring MES and ERP maintain synchronized master data. MDM systems act as golden records, with periodic synchronization jobs propagating changes to downstream systems.</p>
+
+                <h3>Error Handling & Resilience</h3>
+                <p>Production environments demand fault-tolerant integrations that gracefully handle failures without disrupting manufacturing operations:</p>
+                <ul>
+                    <li><strong>Message Queuing:</strong> Asynchronous message queues buffer data between systems, allowing continued operation even when destination systems are temporarily unavailable. Messages accumulate in queues during outages and process automatically once systems recover.</li>
+                    <li><strong>Retry Logic & Exponential Backoff:</strong> Transient network failures or system overloads trigger automatic retry attempts with increasing delays between retries, avoiding overwhelming systems during recovery.</li>
+                    <li><strong>Dead Letter Queues:</strong> Messages that repeatedly fail validation or processing move to dead letter queues for manual investigation, preventing infinite retry loops while preserving data for forensic analysis.</li>
+                    <li><strong>Circuit Breakers:</strong> When integration endpoints exhibit sustained failures, circuit breakers temporarily halt requests, preventing cascading failures and allowing time for system recovery.</li>
+                    <li><strong>Monitoring & Alerting:</strong> Real-time monitoring tracks message volumes, processing latencies, error rates, and queue depths. Threshold-based alerts notify integration support teams of anomalies before they impact operations.</li>
+                </ul>
+
+                <h3>Real-Time vs. Batch Integration</h3>
+                <p>Different data types have different timeliness requirements, influencing integration patterns:</p>
+                <p><strong>Real-Time Event Processing:</strong> Production order releases, material consumption events, quality holds, and equipment downtime require immediate synchronization to maintain operational continuity. Real-time integrations use message queues, webhooks, or API calls with sub-minute latencies.</p>
+                <p><strong>Near-Real-Time Periodic Polling:</strong> Production performance metrics (OEE, throughput, scrap rates) update every few minutes using scheduled jobs that query MES databases and push aggregated data to ERP. Polling intervals balance data freshness against system load.</p>
+                <p><strong>Nightly Batch Reconciliation:</strong> Master data synchronization, detailed cost calculations, and inventory reconciliation run as overnight batch jobs during low-activity periods. These processes handle high-volume data movements without impacting production hours.</p>
+
+                <h3>Security & Compliance</h3>
+                <p>Integration architectures must address security and regulatory requirements:</p>
+                <ul>
+                    <li><strong>Authentication & Authorization:</strong> Service accounts with least-privilege permissions access integration APIs. OAuth 2.0 tokens or certificate-based authentication prevent credential theft.</li>
+                    <li><strong>Data Encryption:</strong> TLS 1.3 encrypts data in transit between systems. Sensitive data fields (employee IDs, proprietary formulations) encrypt at rest in integration databases.</li>
+                    <li><strong>Audit Trails:</strong> Complete logging of all integration transactions — timestamps, user contexts, before/after values — supporting regulatory compliance (FDA 21 CFR Part 11, ISO 9001) and forensic investigations.</li>
+                    <li><strong>Change Management:</strong> Controlled deployment processes test integration changes in development and staging environments before production rollout, preventing configuration errors that disrupt manufacturing.</li>
+                </ul>
+
+                <h3>Technology Stack</h3>
+                <p>Our MES-ERP integration implementations leverage proven enterprise integration technologies:</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">SAP S/4HANA / Oracle ERP</span>
+                    <span class="tech-badge">Siemens Opcenter / Rockwell FT</span>
+                    <span class="tech-badge">MuleSoft / Dell Boomi</span>
+                    <span class="tech-badge">Apache Kafka / RabbitMQ</span>
+                    <span class="tech-badge">REST APIs / OData</span>
+                    <span class="tech-badge">Azure Logic Apps / AWS Lambda</span>
+                    <span class="tech-badge">SQL Server / PostgreSQL</span>
+                    <span class="tech-badge">Informatica / Talend</span>
+                </div>
+
+                <h3>Implementation Methodology</h3>
+                <p>Successful MES-ERP integration follows a structured approach:</p>
+                <ul>
+                    <li><strong>Business Process Mapping:</strong> Document as-is and to-be business processes spanning MES and ERP, identifying handoffs, data flows, and decision points</li>
+                    <li><strong>Interface Design:</strong> Define message formats, data mappings, timing requirements, and error handling strategies for each integration touchpoint</li>
+                    <li><strong>Pilot Implementation:</strong> Build and test integrations in development environments using representative production data, validating functional correctness and performance</li>
+                    <li><strong>User Acceptance Testing:</strong> Operations, materials, quality, and maintenance teams validate integration behaviors match business requirements before production deployment</li>
+                    <li><strong>Phased Rollout:</strong> Deploy integrations progressively — single production line, then facility-wide, then multi-site — managing risk and allowing iterative refinement</li>
+                    <li><strong>Operational Handoff:</strong> Train support teams on monitoring tools, troubleshooting procedures, and escalation paths ensuring sustainable long-term operations</li>
+                </ul>
+
+                <h3>Business Outcomes</h3>
+                <p>Effective MES-ERP integration delivers measurable operational and financial benefits:</p>
+                <ul>
+                    <li><strong>Inventory Accuracy:</strong> Real-time material tracking eliminates manual data entry errors, improving inventory accuracy from 85% to 98%+, reducing safety stock requirements and freeing working capital</li>
+                    <li><strong>Production Visibility:</strong> Enterprise-wide visibility into shop floor operations enables data-driven decision-making — expediting critical orders, reallocating resources to bottlenecks, proactively communicating delays to customers</li>
+                    <li><strong>Cost Accuracy:</strong> Actual material consumption, labor hours, and scrap reporting from MES provides accurate production costing, improving margin analysis and pricing decisions</li>
+                    <li><strong>Regulatory Compliance:</strong> Automated batch genealogy, quality documentation, and audit trails simplify regulatory submissions and reduce compliance risks</li>
+                    <li><strong>Cycle Time Reduction:</strong> Eliminating manual data reconciliation between MES and ERP reduces order-to-cash cycle times, accelerating cash flow</li>
+                </ul>
+
+                <h3>Why Choose Infrasys for MES-ERP Integration?</h3>
+                <p>Infrasys brings end-to-end capabilities spanning manufacturing operations, ERP implementation, integration architecture, and data engineering. We've delivered MES-ERP integration projects for automotive tier-1 suppliers, pharmaceutical manufacturers, chemical producers, and consumer goods companies across Asia-Pacific and the Middle East.</p>
+                <p>We understand that successful integration requires more than technical connectivity — it demands deep knowledge of manufacturing workflows, change management to drive user adoption, and partnership with client teams across IT, operations, and finance. Our integrations don't just move data — they enable digital manufacturing transformation that delivers competitive advantage through operational excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h2 class="cta-title">Ready to integrate your MES and ERP systems?</h2>
+            <p class="cta-desc">Discuss integration architecture, data synchronization strategies, or implementation roadmaps with our integration specialists.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to Integration Expert</a>
+                <a href="manufacturing.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Manufacturing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

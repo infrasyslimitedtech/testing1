@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropTech Solutions for Real Estate — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Digital tenant experience platforms, smart parking management, visitor management systems, and mobile-first building applications for modern commercial real estate.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .protocol-list { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .protocol-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="infrastructure-realestate.html">Infrastructure & Real Estate</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">PropTech Solutions</span>
+            </nav>
+            <h1 class="page-hero-title">PropTech <span>Solutions</span></h1>
+            <p class="page-hero-subtitle">Mobile-first digital experiences, automated operations, and data-driven property management for modern real estate</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Digital Transformation Through Property Technology</h2>
+                <p>PropTech (Property Technology) represents the convergence of real estate and digital innovation, transforming how properties are managed, occupied, and valued. Modern commercial tenants — particularly technology companies and professional services firms — expect consumer-grade digital experiences in their workplace: mobile access control, seamless visitor management, frictionless parking, real-time amenity booking, and integrated building services. Property owners and managers who deliver these digital experiences command premium rents, achieve higher tenant retention, and maximize Net Operating Income (NOI).</p>
+                <p>Infrasys designs and implements comprehensive PropTech platforms that transform traditional commercial real estate into digitally-enabled smart buildings. Our solutions span tenant experience applications, integrated property management systems, smart parking platforms, visitor management, workplace booking tools, and IoT-enabled amenity management. We combine deep expertise in enterprise software development, mobile app design, building systems integration, and commercial real estate operations to deliver PropTech solutions that enhance both operational efficiency and tenant satisfaction.</p>
+                <p>We understand that successful PropTech implementations must balance the competing priorities of property managers (operational efficiency, cost reduction), tenants (convenience, experience), and landlords (ROI, differentiation, asset valuation). Our approach focuses on delivering measurable business outcomes: reduced property management costs through automation, increased tenant satisfaction scores, improved retention rates, and premium positioning that justifies higher rental rates.</p>
+
+                <h3>Core PropTech Capabilities</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-mobile-screen-button"></i> Tenant Experience Apps</h4>
+                        <p>Mobile-first platforms providing tenants with building access, amenity booking, service requests, community engagement, and personalized building information.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-user-check"></i> Visitor Management Systems</h4>
+                        <p>Touchless visitor registration, pre-arrival authorization, digital badge printing, host notifications, and visitor analytics with compliance tracking.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-square-parking"></i> Smart Parking Management</h4>
+                        <p>Real-time parking availability, mobile-guided parking, automated billing, visitor parking allocation, and EV charging station management.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-calendar-check"></i> Workspace & Amenity Booking</h4>
+                        <p>Hot-desk reservation, meeting room scheduling, fitness center booking, and shared resource management integrated with occupancy sensors.</p>
+                    </div>
+                </div>
+
+                <h3>Tenant Experience Platforms</h3>
+                <p>Modern commercial tenants expect digital building interactions that mirror the consumer apps they use daily — intuitive interfaces, instant feedback, personalized content, and frictionless service delivery. Infrasys develops tenant experience platforms (also called building apps or tenant portals) that serve as the digital front door to commercial properties:</p>
+                <p><strong>Mobile Access & Digital Credentials:</strong> Smartphone-based building access using Bluetooth Low Energy (BLE) or NFC credentials, eliminating physical access cards. Tenants unlock doors, turnstiles, and elevators by simply approaching with their phone. Time-based access profiles automatically expire for terminated employees without requiring credential collection. Integration with corporate identity providers (Azure AD, Okta) enables automated provisioning and de-provisioning synchronized with HR systems.</p>
+                <p><strong>Service Request Management:</strong> In-app maintenance request submission with photo attachments, category selection (HVAC, plumbing, electrical), and priority designation. Requests automatically route to appropriate facility management teams and integrate with CMMS (Computerized Maintenance Management Systems) for work order creation. Tenants receive real-time status updates and can rate service quality, providing feedback that drives continuous improvement.</p>
+                <p><strong>Building Communication & Engagement:</strong> Push notifications for building events, emergency alerts (fire drills, weather warnings), planned maintenance schedules, and amenity updates. Community boards enable tenant-to-tenant interaction, services marketplaces (catering, IT support), and shared resources (surplus furniture, event tickets). Property managers curate content highlighting building features, sustainability achievements, and neighborhood information.</p>
+                <p><strong>Personalization & Preferences:</strong> Tenant profile management storing preferences for temperature setpoints (within acceptable ranges), lighting levels, notification preferences, and frequently-used amenities. Machine learning algorithms suggest relevant services based on usage patterns — recommending fitness class bookings to regular gym users or highlighting meeting rooms near a tenant's floor.</p>
+
+                <h3>Visitor Management Systems</h3>
+                <p>Traditional paper logbooks and manual badge printing create security gaps, poor visitor experiences, and compliance risks. Modern visitor management systems digitize and automate the entire visitor lifecycle from pre-arrival through check-out:</p>
+                <ul>
+                    <li><strong>Pre-Registration & Approval Workflows:</strong> Hosts pre-register expected visitors through web portals or mobile apps, triggering automated approval workflows for security review. Visitors receive email or SMS invitations with QR codes and building access instructions before arrival, expediting lobby check-in</li>
+                    <li><strong>Touchless Self-Service Kiosks:</strong> Lobby kiosks enabling visitors to check in by scanning QR codes from invitation emails or by entering phone numbers for lookup. Automated photo capture, legal agreement acceptance (NDA, safety waiver), and badge printing complete within 30 seconds. Host receives instant notification with visitor photo and location</li>
+                    <li><strong>Compliance & Audit Trails:</strong> Comprehensive visitor logs capturing entry/exit times, host association, visited floors, and legal agreement acceptance. Automated visitor screening against watchlists or sanctions databases. Data retention policies and GDPR-compliant data management ensure regulatory compliance</li>
+                    <li><strong>Integration with Access Control:</strong> Temporary access credentials issued to visitor badges enabling controlled access to specific floors or zones during visit duration. Automatic credential expiration upon check-out or after predefined time window prevents unauthorized after-hours access</li>
+                    <li><strong>Emergency Mustering & Roll Call:</strong> Integration with fire alarm systems provides real-time visitor occupancy data during emergency evacuations. Safety wardens receive lists of visitors on each floor enabling accurate roll call and ensuring no one remains in the building</li>
+                </ul>
+
+                <h3>Smart Parking Management</h3>
+                <p>Parking represents one of the most valuable and constrained resources in urban commercial real estate. Smart parking platforms optimize utilization while enhancing user experience and generating actionable analytics:</p>
+                <p><strong>Real-Time Availability & Wayfinding:</strong> Overhead sensors or computer vision systems detect parking space occupancy in real-time. Mobile apps display live availability by zone (visitor, tenant, executive, EV charging) before drivers enter the garage. In-app navigation guides drivers to available spaces using shortest-path algorithms, reducing search time and emissions.</p>
+                <p><strong>Dynamic Pricing & Revenue Optimization:</strong> For mixed-use properties offering public parking, dynamic pricing algorithms adjust hourly rates based on demand, time of day, special events, and competitor pricing — similar to airline yield management. Price signals guide drivers toward underutilized zones, optimizing facility utilization.</p>
+                <p><strong>Automated Billing & Payment:</strong> License plate recognition (LPR) cameras automatically associate vehicles with tenant accounts or payment methods, enabling frictionless in-and-out experiences without tickets or payment kiosks. Overstay alerts notify drivers approaching their reservation end time via push notification.</p>
+                <p><strong>Visitor Parking Management:</strong> Tenants allocate visitor parking permits through tenant experience apps, specifying guest name, license plate, and duration. System automatically reserves spaces and provides visitors with QR codes for validation. Property managers monitor visitor parking utilization to optimize tenant allocation policies.</p>
+                <p><strong>EV Charging Station Management:</strong> Integrated management of electric vehicle charging infrastructure including real-time availability display, reservation scheduling, usage tracking, and utility cost allocation. Automated waitlist management notifies EV drivers when charging spots become available.</p>
+
+                <h3>Workspace & Amenity Booking Platforms</h3>
+                <p>The shift toward hybrid work and activity-based workplace strategies has created demand for intelligent workspace booking tools that optimize space utilization while enhancing employee flexibility:</p>
+                <p><strong>Hot-Desking & Flex Space Reservation:</strong> Interactive floor plan interfaces enabling employees to reserve desks, workstations, or collaboration zones by the hour or day. Integration with calendar systems allows booking directly from Outlook or Google Calendar. Occupancy sensors validate actual usage, automatically releasing no-show reservations for reallocation.</p>
+                <p><strong>Meeting Room Scheduling & Optimization:</strong> Centralized meeting room booking across multiple buildings with capacity filtering, AV equipment selection, and catering requests. Smart scheduling algorithms suggest optimal rooms based on attendee locations, meeting duration, and room features. Automated check-in requirements (via mobile app or room tablets) release rooms within 10 minutes if meetings don't start, combating phantom bookings.</p>
+                <p><strong>Shared Resource Management:</strong> Booking systems for conference rooms, video conferencing equipment, shared vehicles (car-sharing programs), maker spaces, podcast studios, wellness rooms, and other specialized amenities. Usage analytics identify peak demand periods, informing decisions about resource expansion or policy adjustments.</p>
+                <p><strong>Integration with Building Systems:</strong> Room bookings trigger automated environmental conditioning — HVAC systems pre-cool conference rooms 30 minutes before meetings, lighting and AV equipment power on upon occupant arrival (via occupancy sensors or mobile app check-in), and signage displays update to show room status and next booking.</p>
+
+                <h3>Property Operations & Lease Management Integration</h3>
+                <p>PropTech platforms don't exist in isolation but integrate with core property management and lease administration systems to create unified operational environments:</p>
+                <ul>
+                    <li><strong>Property Management System (PMS) Integration:</strong> Bi-directional data sync between tenant experience apps and property management systems (Yardi, MRI, AppFolio) ensuring tenant rosters, lease terms, billing information, and maintenance histories remain consistent across platforms</li>
+                    <li><strong>Lease Administration & Billing:</strong> Automated tenant billing for variable charges — parking, amenity usage, conference room rentals, excess utilities — based on actual usage tracked by PropTech platforms. Usage data flows into lease administration systems for inclusion in monthly invoices</li>
+                    <li><strong>CMMS Integration:</strong> Service requests from tenant apps automatically create work orders in Computerized Maintenance Management Systems with appropriate categorization, priority, and routing. Work order status updates flow back to tenant apps providing real-time visibility</li>
+                    <li><strong>Energy Management & ESG Reporting:</strong> PropTech platforms aggregate building performance data (energy, water, waste) and publish sustainability dashboards accessible to tenants. Automated data export to ESG reporting frameworks (GRESB, CDP) streamlines sustainability certification processes</li>
+                </ul>
+
+                <h3>PropTech Data Analytics & Business Intelligence</h3>
+                <p>The digital instrumentation enabled by PropTech platforms generates valuable operational data that informs strategic decision-making:</p>
+                <p><strong>Tenant Engagement Metrics:</strong> Analytics tracking app adoption rates, feature usage patterns, service request frequency, and satisfaction ratings by tenant, building, or portfolio. Insights reveal which amenities drive engagement and which features require UX improvements or additional marketing.</p>
+                <p><strong>Space Utilization Analysis:</strong> Aggregated desk booking, meeting room usage, and occupancy sensor data reveals actual space utilization patterns. Portfolio-wide analysis identifies buildings with excess capacity suitable for sublease or consolidation opportunities, informing portfolio optimization strategies.</p>
+                <p><strong>Amenity ROI Assessment:</strong> Tracking amenity usage (fitness centers, conference rooms, shared kitchens) against operational costs quantifies ROI. Low-utilization amenities may warrant decommissioning while high-demand amenities justify expansion or premium pricing for external event rentals.</p>
+                <p><strong>Tenant Retention Prediction:</strong> Machine learning models analyzing engagement patterns, service request frequency, and satisfaction scores predict tenant churn risk. Property managers proactively address dissatisfaction and prioritize relationship-building with at-risk tenants before lease expiration.</p>
+
+                <h3>Security, Privacy & Compliance</h3>
+                <p>PropTech platforms handle sensitive data — tenant contact information, visitor records, access logs, payment details — requiring robust security controls and privacy protection:</p>
+                <ul>
+                    <li><strong>Data Encryption:</strong> End-to-end encryption for data in transit (TLS 1.3) and at rest (AES-256) protecting tenant and visitor information from unauthorized access. Mobile apps implement certificate pinning preventing man-in-the-middle attacks</li>
+                    <li><strong>Access Control & Authentication:</strong> Multi-factor authentication for tenant app access, role-based permissions for property management staff, and OAuth 2.0 integration with corporate identity providers enabling single sign-on</li>
+                    <li><strong>Privacy-By-Design:</strong> Minimal data collection principles, purpose limitation (data only used for stated purposes), and automated data retention policies ensuring compliance with GDPR, CCPA, and other privacy regulations</li>
+                    <li><strong>Audit Logging:</strong> Comprehensive audit trails recording all access to personally identifiable information (PII), configuration changes, and administrative actions enabling forensic investigation and compliance demonstration</li>
+                    <li><strong>Penetration Testing & Security Audits:</strong> Regular third-party security assessments including vulnerability scanning, penetration testing, and code reviews ensuring PropTech platforms meet enterprise security standards</li>
+                </ul>
+
+                <h3>Implementation & Change Management</h3>
+                <p>Successful PropTech deployment requires more than just technology — it demands thoughtful change management, stakeholder engagement, and continuous optimization:</p>
+                <p><strong>Phased Rollout Strategy:</strong> Pilot programs in representative buildings (Class A office, mixed-use) validating functionality and gathering user feedback before portfolio-wide deployment. Lessons learned inform configuration adjustments and training material development.</p>
+                <p><strong>Stakeholder Communication:</strong> Multi-channel communication campaigns (email, signage, training sessions, demo events) educating tenants about PropTech platform benefits and driving adoption. Gamification strategies (leaderboards, rewards for app usage) incentivize early adoption.</p>
+                <p><strong>Training & Support:</strong> Comprehensive training programs for property management staff, security personnel, and tenant representatives ensuring all stakeholders understand how to use and support PropTech platforms. Multi-tier support model (in-app help, chat support, phone escalation) provides user assistance.</p>
+                <p><strong>Continuous Improvement:</strong> Regular user feedback collection through in-app surveys, usage analytics review, and tenant advisory boards informing product roadmap and feature prioritization. Agile development cycles enable rapid iteration based on user needs.</p>
+
+                <h3>PropTech Market Differentiation & Asset Valuation</h3>
+                <p>PropTech implementations deliver tangible financial benefits beyond operational efficiency:</p>
+                <ul>
+                    <li><strong>Premium Positioning & Rent Growth:</strong> Buildings offering superior digital experiences command 5-10% rental premiums versus comparable non-smart buildings in competitive markets, particularly for technology sector tenants</li>
+                    <li><strong>Tenant Retention & Reduced Vacancy:</strong> Enhanced tenant satisfaction through PropTech experiences increases lease renewal rates by 10-15%, reducing costly tenant turnover and vacancy periods</li>
+                    <li><strong>Operational Cost Reduction:</strong> Automation of visitor management, parking management, and service request workflows reduces property management headcount requirements by 15-20%</li>
+                    <li><strong>Asset Valuation Uplift:</strong> Smart building certifications (WiredScore, SmartScore) enabled by PropTech platforms increase property valuations by 3-7% according to industry studies, directly impacting cap rates and exit values</li>
+                </ul>
+
+                <h3>Why Infrasys for PropTech Solutions?</h3>
+                <p>Our PropTech practice combines software engineering expertise, commercial real estate domain knowledge, and change management capabilities. We've implemented tenant experience platforms for Class A office towers, mixed-use developments, corporate campuses, and multi-building portfolios across diverse markets.</p>
+                <p>We deliver not just technology but business transformation — our clients achieve measurable improvements in tenant satisfaction (typically 25-35% increase in NPS scores), operational efficiency (20-30% reduction in property management costs), and financial performance (5-10% NOI improvement through premium positioning and reduced vacancy).</p>
+                <p>Whether you're a landlord seeking to differentiate trophy assets, a REIT implementing portfolio-wide PropTech standards, or a corporate real estate team modernizing workplace experiences, Infrasys brings the technical depth and industry expertise to deliver results.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <h2 class="cta-title">Ready to digitize your property operations?</h2>
+            <p class="cta-desc">Schedule a consultation with our PropTech specialists to discuss tenant experience platforms, visitor management, or smart parking implementation strategies.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to PropTech Expert</a>
+                <a href="infrastructure-realestate.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Infrastructure & Real Estate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

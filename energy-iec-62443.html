@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEC 62443 Compliance — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="IEC 62443 industrial automation and control systems security standard implementation, risk assessment, and compliance auditing services.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box { background:var(--primary-orange-light); border-radius:12px; padding:28px 24px; border-left:4px solid var(--primary-orange); }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .standard-parts { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin:30px 0; }
+        .part-box { background:var(--secondary-blue); color:#fff; border-radius:12px; padding:24px 20px; text-align:center; }
+        .part-box .number { font-size:2rem; font-weight:700; margin-bottom:8px; }
+        .part-box .label { font-size:0.9rem; opacity:0.95; }
+        @media(max-width:768px){ .feature-grid, .standard-parts{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="energy-utilities.html">Energy & Utilities</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">IEC 62443 Compliance</span>
+            </nav>
+            <h1 class="page-hero-title">IEC 62443 <span>Compliance</span></h1>
+            <p class="page-hero-subtitle">Industrial automation and control systems security standard implementation and compliance auditing</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>The Global Standard for Industrial Cybersecurity</h2>
+                <p>IEC 62443 (formerly ISA-99) is the internationally recognized standard for securing Industrial Automation and Control Systems (IACS). Originally developed by the International Society of Automation (ISA) and adopted by the International Electrotechnical Commission (IEC), this standard provides a comprehensive framework for implementing cybersecurity across the entire lifecycle of industrial control systems.</p>
+                <p>For energy and utility companies operating SCADA systems, distributed control platforms, and OT networks, IEC 62443 compliance is no longer optional. Regulators, insurance providers, and customers increasingly expect demonstrable adherence to recognized security frameworks. Beyond compliance, IEC 62443 provides actionable guidance for reducing cyber risk in environments where downtime can have catastrophic safety and financial consequences.</p>
+                <p>Infrasys specializes in IEC 62443 implementation for power generation, transmission, and distribution infrastructure. Our certified specialists guide clients through gap assessments, risk analysis, security level determination, technical implementation, and independent compliance auditing.</p>
+
+                <div class="standard-parts">
+                    <div class="part-box scroll-reveal reveal-up delay-1">
+                        <div class="number">Part 1</div>
+                        <div class="label">General Concepts & Models</div>
+                    </div>
+                    <div class="part-box scroll-reveal reveal-up delay-2">
+                        <div class="number">Part 2</div>
+                        <div class="label">Policies & Procedures</div>
+                    </div>
+                    <div class="part-box scroll-reveal reveal-up delay-3">
+                        <div class="number">Part 3</div>
+                        <div class="label">System Requirements</div>
+                    </div>
+                    <div class="part-box scroll-reveal reveal-up delay-4">
+                        <div class="number">Part 4</div>
+                        <div class="label">Component Requirements</div>
+                    </div>
+                </div>
+
+                <h3>The IEC 62443 Standard Structure</h3>
+                <p>IEC 62443 is organized into four major parts, each addressing different aspects of industrial cybersecurity:</p>
+                <ul>
+                    <li><strong>Part 1 - General:</strong> Terminology, concepts, and models providing the foundation. Defines terms like "zones," "conduits," "security levels," and the IACS lifecycle framework.</li>
+                    <li><strong>Part 2 - Policies and Procedures:</strong> Organizational requirements for asset owners and service providers. Covers security program development, risk assessment methodologies, and security awareness training.</li>
+                    <li><strong>Part 3 - System Requirements:</strong> Technical security requirements for IACS at the system level. Defines seven foundational requirements (FR) and four security levels (SL 1-4).</li>
+                    <li><strong>Part 4 - Component Requirements:</strong> Security requirements for individual products and components. Used by vendors to develop and certify secure PLCs, HMIs, firewalls, and SCADA servers.</li>
+                </ul>
+
+                <h3>Security Levels (SL 1 through SL 4)</h3>
+                <p>IEC 62443 defines four security levels based on the sophistication and resources of potential attackers. Each level builds upon the previous, with increasing rigor in security controls:</p>
+                <ul>
+                    <li><strong>SL 1 - Protection Against Casual Violation:</strong> Defends against accidental or casual attempts. Appropriate for systems with low consequence of compromise, isolated from external networks.</li>
+                    <li><strong>SL 2 - Protection Against Intentional Violation:</strong> Defends against intentional breach using simple means with low resources and generic skills. Typical for most industrial systems connected to corporate networks.</li>
+                    <li><strong>SL 3 - Protection Against Sophisticated Means:</strong> Defends against intentional breach using sophisticated means with moderate resources and IACS-specific skills. Required for critical infrastructure like power grids.</li>
+                    <li><strong>SL 4 - Protection Against Directed Attacks:</strong> Defends against intentional breach using sophisticated means with extended resources and IACS-specific skills. Reserved for systems with national security implications.</li>
+                </ul>
+                <p>Most energy sector SCADA and DCS implementations target SL 2 or SL 3, balancing security rigor with operational realities and budget constraints.</p>
+
+                <h3>The Seven Foundational Requirements</h3>
+                <p>IEC 62443-3-3 defines seven foundational requirements (FR) that form the basis of system-level security. Each FR is further broken down into system requirements (SR) with specific technical controls:</p>
+
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-user-lock"></i> FR 1: Identification & Authentication Control</h4>
+                        <p>Verify identity of users, devices, and applications before granting access. Implement multi-factor authentication, credential management, and authentication logging.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-shield-halved"></i> FR 2: Use Control</h4>
+                        <p>Enforce authorization policies ensuring authenticated entities only perform permitted actions. Role-based access control, least privilege, and activity auditing.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-database"></i> FR 3: System Integrity</h4>
+                        <p>Ensure system data and software are not tampered with. Configuration management, secure boot, firmware signing, and integrity verification.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-lock"></i> FR 4: Data Confidentiality</h4>
+                        <p>Protect information from unauthorized disclosure. Encryption in transit and at rest, secure communication protocols, and key management.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-5">
+                        <h4><i class="fa-solid fa-network-wired"></i> FR 5: Restricted Data Flow</h4>
+                        <p>Segment networks to limit data flow between zones. Firewalls, unidirectional gateways, and network access control enforcing zone policies.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-6">
+                        <h4><i class="fa-solid fa-triangle-exclamation"></i> FR 6: Timely Response to Events</h4>
+                        <p>Detect and respond to security violations. Security monitoring, event logging, incident response procedures, and SIEM integration.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-7">
+                        <h4><i class="fa-solid fa-server"></i> FR 7: Resource Availability</h4>
+                        <p>Ensure system availability against denial-of-service attacks. Redundancy, failover mechanisms, backup systems, and DDoS protection.</p>
+                    </div>
+                </div>
+
+                <h3>IEC 62443 Implementation Methodology</h3>
+                <p>Achieving IEC 62443 compliance requires a structured approach addressing people, processes, and technology. Our implementation methodology follows the standard's lifecycle framework:</p>
+
+                <h3>Phase 1: Initial Assessment & Scoping</h3>
+                <ul>
+                    <li><strong>Asset Inventory:</strong> Document all IACS components, networks, and interfaces. Identify SCADA servers, RTUs, PLCs, HMIs, engineering workstations, and communication infrastructure.</li>
+                    <li><strong>Zone & Conduit Definition:</strong> Group assets into security zones based on function, criticality, and trust level. Define conduits (communication channels) between zones.</li>
+                    <li><strong>Target SL Determination:</strong> Assess consequences of compromise (safety impact, environmental harm, financial loss, regulatory penalties) to determine appropriate Security Level for each zone.</li>
+                </ul>
+
+                <h3>Phase 2: Risk Assessment</h3>
+                <ul>
+                    <li><strong>Threat Modeling:</strong> Identify potential threat actors (nation-states, cybercriminals, insiders), attack vectors (remote access, malware, protocol exploitation), and vulnerabilities.</li>
+                    <li><strong>Consequence Analysis:</strong> Evaluate impact of successful attacks on each zone. Model worst-case scenarios like SCADA master compromise or RTU takeover.</li>
+                    <li><strong>Risk Prioritization:</strong> Calculate risk scores (likelihood × consequence) to prioritize remediation efforts. Focus on high-risk zones and critical assets first.</li>
+                </ul>
+
+                <h3>Phase 3: Gap Analysis & Remediation Planning</h3>
+                <ul>
+                    <li><strong>Capability Assessment:</strong> Evaluate current security posture against IEC 62443 requirements for target SL. Identify gaps in technical controls, policies, and procedures.</li>
+                    <li><strong>Compensating Controls:</strong> Where full compliance is not immediately feasible (legacy equipment, operational constraints), document compensating controls reducing risk to acceptable levels.</li>
+                    <li><strong>Roadmap Development:</strong> Prioritize remediation activities balancing risk reduction, cost, and operational impact. Define milestones, responsibilities, and success criteria.</li>
+                </ul>
+
+                <h3>Phase 4: Technical Implementation</h3>
+                <ul>
+                    <li><strong>Network Segmentation:</strong> Implement firewalls, VLANs, and unidirectional gateways enforcing zone boundaries. Deploy industrial DMZ isolating OT from corporate IT.</li>
+                    <li><strong>Access Control:</strong> Deploy multi-factor authentication, privileged access management, and role-based permissions aligned with FR1 and FR2 requirements.</li>
+                    <li><strong>Security Monitoring:</strong> Implement intrusion detection, SIEM correlation, and 24x7 monitoring meeting FR6 timely response requirements.</li>
+                    <li><strong>Hardening & Patching:</strong> Disable unused services, remove default credentials, apply security patches, and implement antivirus where operationally feasible.</li>
+                </ul>
+
+                <h3>Phase 5: Policies, Procedures & Training</h3>
+                <ul>
+                    <li><strong>Security Program Documentation:</strong> Develop cybersecurity management system aligned with IEC 62443-2-1. Document policies, standards, procedures, and work instructions.</li>
+                    <li><strong>Incident Response Planning:</strong> Create OT-specific incident response playbooks, establish roles and responsibilities, and conduct tabletop exercises.</li>
+                    <li><strong>Security Awareness Training:</strong> Educate operators, engineers, and management on OT cyber threats, secure operational practices, and their role in maintaining security posture.</li>
+                </ul>
+
+                <h3>Phase 6: Compliance Validation & Auditing</h3>
+                <ul>
+                    <li><strong>Self-Assessment:</strong> Internal validation of technical controls and documentation against IEC 62443 requirements. Identify any remaining gaps before formal audit.</li>
+                    <li><strong>Third-Party Audit:</strong> Independent assessment by IEC 62443 certified auditors. Review technical implementation, documentation, and interview staff to verify compliance.</li>
+                    <li><strong>Certification & Maintenance:</strong> Achieve formal certification (if required by regulators or customers). Establish continuous improvement processes to maintain compliance as threats evolve.</li>
+                </ul>
+
+                <h3>Continuous Monitoring & Improvement</h3>
+                <p>IEC 62443 compliance is not a one-time project but an ongoing program. Our clients establish continuous monitoring and improvement processes:</p>
+                <ul>
+                    <li>Quarterly security metrics reviews tracking incident trends, vulnerability management, and control effectiveness</li>
+                    <li>Annual risk reassessments adjusting security levels as threats and operational environments change</li>
+                    <li>Periodic penetration testing and red team exercises validating defensive controls</li>
+                    <li>Integration with change management ensuring new systems and modifications maintain compliance</li>
+                </ul>
+
+                <h3>Integration with Other Standards & Frameworks</h3>
+                <p>IEC 62443 complements other security frameworks and regulations. We help clients achieve alignment across multiple compliance obligations:</p>
+                <ul>
+                    <li><strong>NERC CIP:</strong> IEC 62443 technical controls satisfy many NERC CIP requirements for Bulk Electric System cyber security</li>
+                    <li><strong>NIST Cybersecurity Framework:</strong> IEC 62443 foundational requirements map to NIST CSF categories (Identify, Protect, Detect, Respond, Recover)</li>
+                    <li><strong>ISO/IEC 27001:</strong> IEC 62443 provides OT-specific controls complementing IT-focused ISO 27001 information security management</li>
+                    <li><strong>NIS Directive (EU):</strong> European energy operators subject to NIS Directive can use IEC 62443 as technical implementation guidance</li>
+                </ul>
+
+                <h3>Product Certification vs. System Certification</h3>
+                <p>IEC 62443 addresses both product (component) and system certification:</p>
+                <ul>
+                    <li><strong>Component Certification (Part 4):</strong> Vendors certify individual products (PLCs, HMIs, firewalls) meet security requirements. Asset owners can specify IEC 62443 certified components in procurement.</li>
+                    <li><strong>System Certification (Part 3):</strong> Asset owners certify their integrated IACS meets system-level requirements. Demonstrates comprehensive security across technology, processes, and people.</li>
+                </ul>
+                <p>We guide clients through both product selection (favoring certified components) and system-level certification (demonstrating comprehensive security posture).</p>
+
+                <h3>Why Choose Infrasys for IEC 62443 Compliance?</h3>
+                <p>IEC 62443 is a complex standard requiring deep understanding of both industrial operations and cybersecurity. Our team includes IEC 62443 certified professionals with hands-on experience implementing the standard in power generation, transmission, and distribution environments.</p>
+                <p>We don't deliver checkbox compliance — we build security programs that reduce real risk while respecting operational constraints. We understand that a hydroelectric plant cannot shutdown for security patching during monsoon season, that a thermal unit's DCS cannot tolerate network latency from intrusive security controls, and that control room operators need pragmatic security procedures, not academic policies.</p>
+                <p>From initial gap assessments to full system certification, from policy development to technical implementation, from operator training to continuous monitoring, Infrasys delivers IEC 62443 compliance programs that make your critical infrastructure demonstrably more secure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-file-certificate"></i></div>
+            <h2 class="cta-title">Achieve IEC 62443 compliance for your IACS</h2>
+            <p class="cta-desc">Schedule a gap assessment with our IEC 62443 certified specialists to begin your compliance journey.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Request Gap Assessment</a>
+                <a href="energy-utilities.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Energy & Utilities</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

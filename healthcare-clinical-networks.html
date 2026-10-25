@@ -1,0 +1,423 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Clinical Network Infrastructure Design — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Medical device network segmentation, IoMT security architecture, and biomedical engineering integration for secure clinical infrastructure.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="healthcare.html">Healthcare</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Clinical Network Infrastructure</span>
+            </nav>
+            <h1 class="page-hero-title">Clinical Network <span>Infrastructure</span></h1>
+            <p class="page-hero-subtitle">Secure, resilient networks for medical devices, clinical systems, and IoMT environments</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Engineering Secure Networks for Medical Device Ecosystems</h2>
+                <p>Clinical networks operate in fundamentally different environments than corporate IT networks. A single hospital floor might contain dozens of medical devices — infusion pumps, patient monitors, ventilators, anesthesia machines, imaging modalities — each generating real-time clinical data that must reach EMR systems, alarm management platforms, and nursing workstations without interruption. Network failures in clinical environments don't just inconvenience users; they can directly impact patient safety and care delivery.</p>
+                <p>Infrasys specializes in designing clinical network infrastructure that balances the competing demands of reliability (99.99%+ uptime for life-critical systems), security (protection against ransomware and medical device vulnerabilities), performance (low latency for real-time monitoring), and regulatory compliance (HIPAA technical safeguards). Our clinical network architectures serve intensive care units, operating rooms, emergency departments, diagnostic imaging centers, and outpatient clinics where network performance directly affects clinical outcomes.</p>
+                <p>We work with hospital biomedical engineering departments, IT infrastructure teams, and clinical leadership to design networks that support both legacy medical devices with outdated operating systems and modern Internet of Medical Things (IoMT) devices with built-in connectivity. Our solutions implement defense-in-depth security without disrupting clinical workflows or introducing latency that could delay critical alarms or telemetry data.</p>
+
+                <h3>Core Clinical Network Services</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-network-wired"></i> Network Segmentation</h4>
+                        <p>VLAN-based segmentation isolating medical devices, clinical workstations, and administrative systems with firewall policies preventing lateral movement of ransomware.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-laptop-medical"></i> Medical Device Integration</h4>
+                        <p>Connectivity design for infusion pumps, patient monitors, ventilators, anesthesia machines, and diagnostic equipment using HL7, DICOM, and proprietary protocols.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-wifi"></i> Wireless Networks</h4>
+                        <p>High-density Wi-Fi 6 networks supporting mobile clinical workstations, tablets, smartphones, and wireless medical devices with quality-of-service prioritization.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-clone"></i> Redundancy & Failover</h4>
+                        <p>Redundant switch fabric, dual uplink paths, and uninterruptible power supplies ensuring network availability even during equipment failures or power outages.</p>
+                    </div>
+                </div>
+
+                <h3>Medical Device Network Segmentation Architecture</h3>
+                <p>Traditional flat hospital networks allowed medical devices, clinical workstations, administrative computers, guest Wi-Fi, and building automation systems to coexist on the same network segments. This architecture created significant security risks: ransomware spreading from a compromised administrative workstation could reach medical devices running vulnerable Windows XP operating systems that cannot be patched without voiding FDA clearance.</p>
+                <p>Modern clinical network architectures implement zero-trust segmentation using VLANs (Virtual Local Area Networks) and micro-segmentation policies that restrict communication between devices to only what clinical workflows require. Our segmentation designs typically include these network zones:</p>
+                <ul>
+                    <li><strong>Clinical Systems VLAN:</strong> EMR servers, PACS imaging archives, laboratory information systems, and pharmacy platforms — core clinical IT infrastructure requiring maximum security and availability</li>
+                    <li><strong>Medical Device VLAN:</strong> Patient monitors, infusion pumps, ventilators, anesthesia machines, and other bedside devices that communicate with nursing stations and EMR systems but should not access the internet</li>
+                    <li><strong>Imaging Modality VLAN:</strong> CT scanners, MRI machines, ultrasound systems, and X-ray equipment transmitting large DICOM files to PACS — requires high bandwidth and low latency</li>
+                    <li><strong>Clinical Workstation VLAN:</strong> Physician and nurse workstations, mobile computers-on-wheels (COWs), and clinical thin clients accessing EMR and clinical applications</li>
+                    <li><strong>BioMed Management VLAN:</strong> Biomedical engineering access for medical device configuration, software updates, and remote support from equipment vendors</li>
+                    <li><strong>Administrative VLAN:</strong> Billing systems, HR applications, email, and office productivity tools — separated from clinical networks to prevent ransomware spread</li>
+                    <li><strong>Guest Wi-Fi VLAN:</strong> Public internet access for patients and visitors — completely isolated from hospital systems with bandwidth throttling and content filtering</li>
+                    <li><strong>Building Automation VLAN:</strong> HVAC, lighting, door access, and security cameras — IoT devices that should never communicate with clinical systems</li>
+                </ul>
+
+                <h3>Internet of Medical Things (IoMT) Security</h3>
+                <p>The proliferation of connected medical devices — often called the Internet of Medical Things (IoMT) — introduces cybersecurity challenges that didn't exist when hospitals used standalone, non-networked equipment. Modern infusion pumps, patient monitors, and imaging systems run embedded operating systems (often outdated Linux or Windows versions) with known vulnerabilities that cannot be patched without FDA revalidation and vendor approval.</p>
+                <p>Our IoMT security architectures implement compensating controls that protect vulnerable medical devices even when the devices themselves cannot be hardened. Key security measures include:</p>
+                <p><strong>Asset Inventory & Discovery:</strong> Automated network scanning using tools like Medigate, Cynerio, or Claroty continuously discovers medical devices, identifies make/model/firmware versions, and detects unauthorized devices connecting to clinical networks. This asset inventory becomes the foundation for risk assessment and vulnerability management.</p>
+                <p><strong>Behavioral Analytics:</strong> Machine learning models establish baseline communication patterns for each medical device type — which servers they contact, what protocols they use, what data volumes they transmit. Deviations from baseline trigger security alerts: an infusion pump suddenly communicating with external IP addresses might indicate malware infection or unauthorized remote access.</p>
+                <p><strong>Virtual Patching:</strong> When medical devices have vulnerabilities that cannot be patched directly, intrusion prevention systems (IPS) implement "virtual patches" that block exploit attempts at the network layer. For example, if a patient monitor has a web interface vulnerable to remote code execution, IPS rules can block malicious HTTP requests targeting that vulnerability without modifying the device itself.</p>
+                <p><strong>Unidirectional Gateways:</strong> For medical devices that only transmit data (patient monitors sending telemetry, imaging systems sending DICOM files), hardware-enforced unidirectional gateways physically prevent inbound network traffic. These data diodes allow clinical data to flow from devices to clinical systems while making it physically impossible for attackers to send commands back to the device.</p>
+
+                <h3>Clinical Wi-Fi Design for Mobile Healthcare</h3>
+                <p>Modern clinical workflows depend on wireless connectivity. Nurses use mobile medication administration workstations that verify medications via barcode scanning. Physicians access EMR systems on tablets during rounds. Respiratory therapists control ventilators via smartphone apps. Wireless patient monitors track vital signs as patients ambulate in hallways. All of these workflows require enterprise-grade Wi-Fi that provides seamless coverage, prioritizes critical traffic, and maintains security.</p>
+                <p>Clinical Wi-Fi design differs from corporate office Wi-Fi in critical ways. Hospital environments contain dense building materials (concrete, metal studs, lead-lined radiology rooms) that attenuate radio signals. High user density in waiting rooms and nursing stations requires careful access point placement to avoid co-channel interference. Life-critical telemetry data must not be delayed by bandwidth-intensive guest internet usage on shared frequency bands.</p>
+                <p>Our clinical Wi-Fi designs implement these best practices:</p>
+                <ul>
+                    <li><strong>Wi-Fi 6 (802.11ax) Deployment:</strong> Modern access points supporting OFDMA (Orthogonal Frequency-Division Multiple Access) and MU-MIMO (Multi-User MIMO) that improve performance in high-density environments with dozens of simultaneous device connections</li>
+                    <li><strong>Dedicated SSIDs for Clinical Devices:</strong> Separate wireless networks for clinical workstations, medical devices, staff smartphones, and guest access — each with appropriate security policies and bandwidth allocation</li>
+                    <li><strong>Quality of Service (QoS):</strong> Traffic prioritization ensuring that wireless patient monitor telemetry and voice-over-Wi-Fi (VoWi-Fi) nurse call systems receive priority over non-critical traffic like software updates or guest video streaming</li>
+                    <li><strong>Fast Roaming (802.11r):</strong> Fast BSS transition allowing mobile devices to roam between access points with less than 50ms handoff time, preventing dropped connections during patient transport or clinician movement</li>
+                    <li><strong>Predictive Site Surveys:</strong> RF planning using floor plans and building materials specifications to model coverage before installation, followed by validation surveys confirming signal strength, overlap, and interference levels</li>
+                </ul>
+
+                <h3>Real-Time Location Systems (RTLS) Integration</h3>
+                <p>Healthcare organizations deploy Real-Time Location Systems (RTLS) to track the location of patients (especially pediatric, memory care, and behavioral health patients), staff (for emergency duress alerts), mobile equipment (infusion pumps, wheelchairs, portable X-ray machines), and high-value assets (surgical instruments, ventilators). RTLS technology improves equipment utilization, reduces staff search time, and enhances patient safety through automated infant/child abduction prevention.</p>
+                <p>We integrate RTLS infrastructure using Wi-Fi-based location (leveraging existing clinical Wi-Fi infrastructure), Bluetooth Low Energy (BLE) beacons, Ultra-Wideband (UWB) for sub-meter accuracy, or infrared systems for room-level presence detection. RTLS deployments require careful network design to handle the continuous stream of location telemetry from thousands of tags, with integration into nurse call systems, access control, and EMR platforms.</p>
+
+                <h3>Nurse Call Systems & Clinical Communication</h3>
+                <p>Modern nurse call systems have evolved from simple push-button call lights into sophisticated clinical communication platforms integrating patient monitoring, bed exit detection, caregiver assignment, and mobile alerting. IP-based nurse call systems like Rauland Responder, Hill-Rom NaviCare, and Ascom IP-DECT unite voice communication, critical alerts, and workflow automation over converged clinical networks.</p>
+                <p>Our nurse call network designs ensure that critical patient call alerts reach assigned caregivers within seconds, even as nurses move throughout the facility. Integration with EMR systems enables "smart routing" where call lights automatically page the nurse assigned to that specific patient in the EMR. Integration with real-time location systems ensures that alerts route to the nearest available caregiver when primary nurses are engaged in other patient care activities.</p>
+
+                <h3>Operating Room & Surgical Network Design</h3>
+                <p>Operating rooms represent the most demanding network environment in healthcare facilities. A single OR might contain anesthesia machines, patient monitors, surgical imaging systems, endoscopy towers, surgical robots, medical-grade recording systems for resident education, and integration systems that route video from multiple sources to surgical displays. All of these devices generate real-time data that must reach clinical documentation systems and surgical information management platforms.</p>
+                <p>OR network designs require guaranteed bandwidth, minimal latency, and absolute reliability. Surgical robotic systems like the da Vinci Surgical System require dedicated network infrastructure with stringent packet loss requirements (less than 0.01%). Intraoperative imaging systems transmit high-resolution fluoroscopy or 3D imaging that requires multi-gigabit network capacity. Video streaming of surgical procedures for telemedicine consults or remote surgical assistance demands Quality of Service policies preventing interference from other traffic.</p>
+                <p>We design OR networks using dedicated switch infrastructure with redundant uplinks, uninterruptible power supplies, and fiber optic backhaul preventing electrical interference. Integration with surgical scheduling systems enables automated network provisioning for each case, ensuring that bandwidth and quality of service policies align with surgical requirements. Post-operative recording automatically transfers to secure archives without consuming bandwidth needed for real-time clinical operations.</p>
+
+                <h3>Biomedical Engineering Collaboration</h3>
+                <p>Medical device connectivity sits at the intersection of clinical engineering (biomedical engineering departments that maintain medical equipment) and IT infrastructure (network engineering teams that manage switches, firewalls, and wireless systems). Successful clinical network implementations require close collaboration between these historically separate departments.</p>
+                <p>We facilitate IT-BioMed collaboration through joint network assessment workshops, shared medical device inventory systems, and clear demarcation of responsibilities. IT teams manage network infrastructure (switches, firewalls, wireless access points) while BioMed teams handle device configuration and clinical validation. Shared dashboards provide both teams visibility into medical device connectivity status, enabling faster troubleshooting when clinical staff report equipment problems.</p>
+                <p>For medical device software updates and remote support sessions, we design secure BioMed management networks that allow vendor engineers controlled access to equipment without compromising clinical network security. Vendor remote access uses jump hosts, session recording, and time-limited VPN credentials that automatically expire after scheduled maintenance windows.</p>
+
+                <h3>Network Redundancy & High Availability</h3>
+                <p>Clinical networks cannot tolerate prolonged downtime. A network outage in an intensive care unit prevents nurses from viewing patient monitors at central stations. Loss of connectivity in an operating room disrupts surgical workflows and patient safety systems. Network failures affecting EMR access force hospitals into costly and dangerous "downtime procedures" where clinicians revert to paper documentation.</p>
+                <p>Our high-availability network designs eliminate single points of failure using redundant components at every layer:</p>
+                <ul>
+                    <li><strong>Redundant Core Switches:</strong> Active-active or active-standby switch pairs with sub-second failover using Virtual Router Redundancy Protocol (VRRP) or proprietary stacking technologies</li>
+                    <li><strong>Dual Uplink Topology:</strong> Every access switch connects to two distribution switches via separate fiber paths, ensuring connectivity even if one uplink fails</li>
+                    <li><strong>Diverse Fiber Paths:</strong> Physical cable routing through separate riser closets and conduit paths preventing single construction accidents or fires from severing all network connectivity</li>
+                    <li><strong>Uninterruptible Power Supplies (UPS):</strong> Battery backup for network equipment providing 30-60 minutes of runtime during power outages, allowing graceful shutdown or generator startup</li>
+                    <li><strong>Out-of-Band Management:</strong> Separate management network using cellular modems or secondary ISP connections enabling remote access to network equipment even when primary networks fail</li>
+                </ul>
+
+                <h3>Why Infrasys for Clinical Network Infrastructure?</h3>
+                <p>Clinical networks require specialized expertise beyond traditional enterprise IT networking. Our team understands medical device protocols, clinical workflows, biomedical engineering requirements, and the unique regulatory environment governing healthcare IT infrastructure. We don't just design networks — we design clinical systems that support safe, efficient patient care.</p>
+                <p>Whether you're building a new hospital, upgrading aging network infrastructure, implementing IoMT security controls, or troubleshooting chronic performance issues affecting clinical operations, Infrasys brings the healthcare networking expertise to deliver reliable, secure, high-performance clinical infrastructure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-network-wired"></i></div>
+            <h2 class="cta-title">Need clinical network design or IoMT security assessment?</h2>
+            <p class="cta-desc">Schedule a consultation with our healthcare network specialists to discuss medical device segmentation, wireless infrastructure, or network redundancy.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to Network Expert</a>
+                <a href="healthcare.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Healthcare</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

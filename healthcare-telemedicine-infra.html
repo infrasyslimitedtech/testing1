@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemedicine Infrastructure & Remote Care Platforms — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Cloud-based telemedicine platforms, remote patient monitoring systems, video consultation infrastructure, and telehealth compliance frameworks.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="healthcare.html">Healthcare</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Telemedicine Infrastructure</span>
+            </nav>
+            <h1 class="page-hero-title">Telemedicine <span>Infrastructure</span></h1>
+            <p class="page-hero-subtitle">Cloud-based telehealth platforms enabling remote consultations and continuous patient monitoring</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Building Digital Health Platforms for Remote Care Delivery</h2>
+                <p>The COVID-19 pandemic accelerated telemedicine adoption by a decade, transforming video consultations from a niche convenience into a mainstream healthcare delivery modality. Patients expect the ability to consult physicians via smartphone or computer, receive prescriptions electronically, and monitor chronic conditions from home using connected medical devices. Healthcare providers recognize that telemedicine reduces no-show rates, expands geographic reach to underserved rural areas, and improves access for mobility-impaired patients.</p>
+                <p>Infrasys specializes in designing telemedicine infrastructure that delivers clinical-grade video quality, integrates with existing EMR systems, meets HIPAA and data privacy requirements, and scales to support thousands of concurrent video sessions. Our telehealth platforms serve primary care practices, multi-specialty hospitals, mental health providers, chronic disease management programs, and direct-to-consumer telehealth startups.</p>
+                <p>We architect complete telemedicine ecosystems encompassing patient-facing mobile apps, clinician web portals, video conferencing infrastructure, appointment scheduling systems, e-prescribing integration, billing workflows, and remote patient monitoring device connectivity. Our solutions balance user experience (simple interfaces that non-technical patients can navigate) with clinical workflows (EMR integration that minimizes duplicate documentation) and regulatory compliance (end-to-end encryption, audit logging, consent management).</p>
+
+                <h3>Core Telemedicine Services</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-video"></i> Video Platform</h4>
+                        <p>WebRTC-based video consultation systems with HD quality, screen sharing, virtual waiting rooms, and EMR integration for seamless clinical documentation during visits.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-heartbeat"></i> Remote Monitoring</h4>
+                        <p>Integration with home medical devices (blood pressure monitors, glucose meters, pulse oximeters, weight scales) transmitting readings to clinician dashboards and EMR systems.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-cloud"></i> Cloud Infrastructure</h4>
+                        <p>HIPAA-compliant cloud architecture using AWS, Azure, or Google Cloud with auto-scaling, geographic redundancy, and disaster recovery ensuring 99.9% uptime.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-lock"></i> Security & Privacy</h4>
+                        <p>End-to-end encryption, multi-factor authentication, role-based access control, and comprehensive audit logging meeting HIPAA Security Rule requirements.</p>
+                    </div>
+                </div>
+
+                <h3>Video Consultation Platform Architecture</h3>
+                <p>The core of any telemedicine solution is the video consultation platform enabling real-time audio-visual communication between patients and healthcare providers. Unlike consumer video chat applications (Zoom, Google Meet, FaceTime), medical-grade telemedicine platforms require HIPAA compliance, EMR integration, clinical workflows, and reliability standards appropriate for healthcare delivery.</p>
+                <p>We build telemedicine video platforms using WebRTC (Web Real-Time Communication), an open standard enabling peer-to-peer audio, video, and data transmission directly between web browsers without requiring plugins or native applications. WebRTC provides superior video quality compared to traditional server-mediated streaming, with adaptive bitrate adjustment that maintains call quality even when network bandwidth fluctuates.</p>
+                <p><strong>Key Video Platform Features:</strong></p>
+                <ul>
+                    <li><strong>Virtual Waiting Room:</strong> Patients join video appointments early and wait in a secure holding area until the provider initiates the consultation, replicating the physical waiting room experience</li>
+                    <li><strong>Screen Sharing:</strong> Providers share educational materials, lab results, or medical images during consultations, enhancing patient understanding and engagement</li>
+                    <li><strong>Multi-Party Consultations:</strong> Support for family member participation, interpreter services, or multi-disciplinary team consultations with up to 10+ simultaneous participants</li>
+                    <li><strong>Session Recording:</strong> Encrypted recording of consultations for documentation purposes, quality assurance, or medicolegal protection, with patient consent management</li>
+                    <li><strong>Chat Messaging:</strong> In-session text chat enabling patients to share information (pharmacy preferences, medication names) without interrupting video flow</li>
+                    <li><strong>Peripheral Device Integration:</strong> Support for USB-connected medical peripherals (digital stethoscopes, otoscopes, dermatoscopes) transmitting diagnostic data during video consultations</li>
+                </ul>
+
+                <h3>EMR Integration for Clinical Workflows</h3>
+                <p>Standalone telemedicine platforms that don't integrate with Electronic Medical Records create double documentation burden: physicians conduct video consultations in one system, then manually transcribe notes into the EMR. This workflow inefficiency reduces provider productivity and creates data synchronization errors when information is transcribed incorrectly.</p>
+                <p>Our telemedicine platforms integrate tightly with leading EMR systems (Epic, Cerner, athenahealth, Meditech) using HL7 interfaces, FHIR APIs, and vendor-specific integration toolkits. Key integration points include:</p>
+                <p><strong>Single Sign-On (SSO):</strong> Providers authenticate once to the EMR and gain automatic access to the telemedicine platform without separate login credentials. Patient context follows providers between systems — when a clinician opens a patient chart in Epic, the telemedicine video interface automatically displays that patient's information.</p>
+                <p><strong>Appointment Scheduling Synchronization:</strong> Telemedicine appointments created in the EMR scheduling system automatically provision virtual visit links and send appointment reminders to patients via SMS and email. When patients cancel or reschedule telehealth visits, changes reflect immediately in the EMR scheduling calendar.</p>
+                <p><strong>Clinical Documentation:</strong> Visit notes documented during video consultations flow automatically into EMR progress notes, using discrete data fields where possible (chief complaint, vital signs, assessment, plan) rather than unstructured text blobs. Integration with speech-to-text transcription services enables real-time documentation as providers speak during consultations.</p>
+                <p><strong>E-Prescribing Integration:</strong> Prescriptions written during telehealth visits transmit electronically to patient pharmacies via the EMR's existing e-prescribing infrastructure, maintaining medication history continuity and formulary checking.</p>
+
+                <h3>Remote Patient Monitoring (RPM) Systems</h3>
+                <p>Remote Patient Monitoring extends healthcare delivery beyond episodic consultations into continuous observation of patients' health status in their homes. RPM programs provide patients with connected medical devices — blood pressure monitors, glucose meters, pulse oximeters, weight scales, cardiac event monitors — that automatically transmit measurements to clinical dashboards where care teams identify concerning trends before they become emergencies.</p>
+                <p>RPM delivers significant value for chronic disease management: heart failure patients tracked with daily weight scales and blood pressure monitoring experience 50% fewer hospital readmissions. Diabetic patients using connected glucose meters achieve better glycemic control through timely medication adjustments. Post-surgical patients monitored at home require fewer in-person follow-up visits while maintaining equivalent safety outcomes.</p>
+                <p><strong>FDA-Cleared Medical Devices:</strong> We integrate FDA 510(k)-cleared devices from leading manufacturers including Omron, Withings, iHealth, Masimo, BioTelemetry, and AliveCor. These devices meet medical-grade accuracy standards and support secure data transmission via Bluetooth Low Energy (BLE) to smartphone apps or directly to cellular gateways.</p>
+                <p><strong>RPM Data Aggregation:</strong> Patient-generated health data from multiple devices flows into centralized RPM platforms where clinical algorithms flag abnormal readings. Integration with EMR systems ensures that remote monitoring data populates the patient's longitudinal health record, maintaining continuity across care settings.</p>
+                <p><strong>Alert Management & Triage:</strong> Clinical rules engines generate alerts when measurements exceed configured thresholds — systolic blood pressure above 180, blood glucose below 70, weight gain of 5+ pounds in 3 days. Tiered alerting ensures that critical values reach clinicians immediately while less urgent alerts queue for review during scheduled monitoring windows.</p>
+
+                <h3>Mobile Health (mHealth) Applications</h3>
+                <p>Patient-facing mobile applications serve as the primary interface for telemedicine services, enabling appointment scheduling, video consultations, symptom checking, medication reminders, health record access, and billing. Well-designed mHealth apps drive patient engagement, improving adherence to treatment plans and satisfaction with care delivery.</p>
+                <p>We develop native iOS and Android applications as well as responsive web apps that work across smartphones, tablets, and desktop computers. Our mHealth development follows Apple App Store and Google Play Store requirements for health apps, including appropriate data handling disclosures, accessibility compliance, and security controls.</p>
+                <p><strong>Patient Portal Features:</strong></p>
+                <ul>
+                    <li><strong>Appointment Scheduling:</strong> Real-time provider availability calendars enabling patients to self-schedule telehealth visits without calling medical offices</li>
+                    <li><strong>Symptom Checker:</strong> AI-powered triage tools guiding patients through structured symptom questionnaires, recommending appropriate care settings (self-care, telemedicine, urgent care, emergency department)</li>
+                    <li><strong>Medication Management:</strong> Prescription history, medication reminders with push notifications, and automatic refill requests submitted to pharmacies</li>
+                    <li><strong>Health Records Access:</strong> Patient-controlled access to lab results, imaging reports, visit summaries, and immunization records complying with 21st Century Cures Act information blocking prohibitions</li>
+                    <li><strong>Secure Messaging:</strong> HIPAA-compliant asynchronous communication between patients and care teams for non-urgent questions, prescription refill requests, and follow-up clarifications</li>
+                    <li><strong>Billing & Payment:</strong> Transparent pricing for telehealth services, insurance eligibility verification, co-pay collection, and payment plan management</li>
+                </ul>
+
+                <h3>Telehealth Compliance & Regulatory Framework</h3>
+                <p>Telemedicine operates in a complex regulatory environment spanning federal laws (HIPAA, 21st Century Cures Act), state medical practice acts (licensure requirements for interstate practice), payer policies (Medicare/Medicaid reimbursement rules), and DEA regulations (controlled substance prescribing via telemedicine). Our compliance expertise ensures that telemedicine platforms meet all applicable legal and regulatory requirements.</p>
+                <p><strong>HIPAA Compliance:</strong> All telemedicine platforms must implement HIPAA Security Rule technical safeguards including encryption of PHI in transit (TLS 1.3 for all network communications) and at rest (AES-256 database encryption). Business Associate Agreements (BAA) with video conferencing vendors, cloud hosting providers, and SMS notification services document their HIPAA obligations. Audit logging captures all access to patient records, video session metadata, and administrative activities.</p>
+                <p><strong>State Licensure Considerations:</strong> Physicians must hold active medical licenses in the state where the patient is physically located during the telemedicine encounter (with exceptions for emergency consultations and federal programs like Veterans Administration). We design credentialing workflows tracking provider licensure across multiple states, automated license expiration alerts, and geolocation verification ensuring patients connect only with appropriately licensed providers.</p>
+                <p><strong>Informed Consent:</strong> Patients must provide informed consent specific to telemedicine before their first virtual visit, acknowledging the limitations of remote care, potential technology failures, privacy considerations, and alternative in-person care options. Our platforms present consent forms electronically with legally valid e-signature capture and documentation in the EMR.</p>
+                <p><strong>Prescribing Regulations:</strong> DEA regulations restrict prescribing of controlled substances (opioids, benzodiazepines, stimulants) via telemedicine, requiring at least one in-person medical evaluation except during declared public health emergencies. Our e-prescribing integrations enforce these restrictions, preventing providers from prescribing controlled substances during telehealth visits unless regulatory exceptions apply.</p>
+
+                <h3>Bandwidth Optimization for Rural Connectivity</h3>
+                <p>Telemedicine's promise to expand healthcare access to underserved rural areas confronts a significant technical challenge: many rural communities lack broadband internet infrastructure necessary for reliable video consultations. Patients attempting video visits from locations with less than 1 Mbps upload bandwidth experience frozen video, dropped calls, and frustration that undermines telemedicine adoption.</p>
+                <p>We design telemedicine platforms with adaptive bitrate streaming that automatically adjusts video resolution and frame rate based on available bandwidth. When network conditions degrade, the platform prioritizes audio quality (essential for clinical communication) over video quality, gracefully degrading to audio-only mode if necessary rather than dropping the call entirely.</p>
+                <p><strong>Low-Bandwidth Telemedicine Options:</strong></p>
+                <ul>
+                    <li><strong>Store-and-Forward Telemedicine:</strong> Asynchronous consultations where patients capture photos (dermatology lesions, wound healing), videos (physical therapy exercises), or diagnostic data (blood pressure readings) that specialists review on their schedule, returning recommendations via secure messaging</li>
+                    <li><strong>Telephonic Consultations:</strong> Traditional telephone calls classified as telemedicine when documented appropriately, providing reimbursable remote care without requiring internet connectivity</li>
+                    <li><strong>Mobile Telemedicine Units:</strong> Vehicles equipped with satellite internet, examination equipment, and telemedicine technology bringing virtual specialty consultations to rural clinics and community health centers</li>
+                    <li><strong>Community Broadband Partnerships:</strong> Collaboration with rural broadband expansion programs, providing telemedicine use cases supporting federal funding applications under programs like USDA ReConnect and FCC Rural Health Care</li>
+                </ul>
+
+                <h3>Cloud Infrastructure & Scalability</h3>
+                <p>Telemedicine platforms must handle dramatic usage fluctuations — seasonal flu surges, public health emergencies, or normal business hour concentration — without performance degradation or capacity constraints. Cloud infrastructure provides the elasticity needed to scale from hundreds to tens of thousands of concurrent video sessions while maintaining quality and reliability.</p>
+                <p>We architect telemedicine platforms on AWS, Microsoft Azure, or Google Cloud Platform, leveraging managed services that reduce operational overhead and improve resilience. Multi-region deployments provide geographic redundancy ensuring that regional cloud outages don't disrupt national telemedicine services. Content delivery networks (CDN) cache static assets close to users, reducing latency for application loading and improving perceived performance.</p>
+                <p><strong>HIPAA-Compliant Cloud Architecture:</strong> Cloud telemedicine deployments must use HIPAA-eligible services covered by Business Associate Agreements with cloud providers. This includes using AWS HIPAA-eligible services list, Azure compliance offerings, or Google Cloud healthcare APIs. Encryption key management using hardware security modules (HSM) ensures that healthcare organizations maintain control over encryption keys rather than relying on cloud provider key management.</p>
+
+                <h3>Telemental Health & Behavioral Health Platforms</h3>
+                <p>Mental health services adapted especially well to telemedicine delivery, with patients often preferring the privacy and convenience of therapy sessions from home compared to visiting mental health clinics. Telemental health platforms require specialized features addressing the unique workflows of psychiatric and counseling practices:</p>
+                <p>Crisis intervention protocols trigger when patients indicate suicidal ideation or self-harm intent during screening questionnaires or therapy sessions, providing therapists with emergency contact information and linking to crisis resources. Outcome measurement tools administer validated assessment instruments (PHQ-9 for depression, GAD-7 for anxiety) at regular intervals, tracking symptom improvement over treatment courses. Group therapy sessions support multiple patients simultaneously with screen layouts optimized for group dynamics, breakout rooms for smaller discussions, and presenter controls allowing therapists to lead exercises.</p>
+
+                <h3>Reimbursement & Billing Integration</h3>
+                <p>Telemedicine's clinical benefits materialize only if reimbursement models support financial sustainability. We design billing workflows that maximize appropriate reimbursement for telehealth services under Medicare, Medicaid, commercial insurance, and self-pay models:</p>
+                <p>Current Procedural Terminology (CPT) codes specific to telemedicine (99441-99443 for telephone consultations, 99421-99423 for online digital evaluation and management) flow from telemedicine platforms to practice management systems and billing clearinghouses. Place of service code 02 (telehealth) and appropriate modifiers (GT, 95) ensure claims adjudicate correctly. Real-time insurance eligibility verification confirms telehealth coverage before appointments, preventing denied claims and surprise patient bills.</p>
+
+                <h3>Why Infrasys for Telemedicine Infrastructure?</h3>
+                <p>Building telemedicine platforms requires expertise spanning video engineering, healthcare IT integration, regulatory compliance, user experience design, and cloud infrastructure architecture. Our telemedicine specialists have launched platforms serving millions of patient encounters, navigated 50-state licensure complexity, and designed systems that remain performant under viral load spikes.</p>
+                <p>Whether you're a health system launching a hospital-at-home program, a startup building a direct-to-consumer telehealth platform, or a specialty practice expanding geographic reach through virtual consultations, Infrasys delivers the technical expertise and healthcare domain knowledge to make telemedicine successful.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-video"></i></div>
+            <h2 class="cta-title">Ready to launch a telemedicine platform?</h2>
+            <p class="cta-desc">Schedule a consultation with our telehealth specialists to discuss video platform architecture, RPM integration, or compliance requirements.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to Telehealth Expert</a>
+                <a href="healthcare.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Healthcare</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

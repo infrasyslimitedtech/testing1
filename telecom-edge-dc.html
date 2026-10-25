@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Data Center Strategy & Implementation — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Edge computing infrastructure architecture, micro-datacenter deployment, colocation facility design, and low-latency service delivery for 5G and IoT applications.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .protocol-list { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .protocol-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="telecom-media.html">Telecom & Media</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Edge Data Center Strategy</span>
+            </nav>
+            <h1 class="page-hero-title">Edge Data Center <span>Strategy</span></h1>
+            <p class="page-hero-subtitle">Distributed computing infrastructure for ultra-low latency applications and 5G services</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Edge Computing Infrastructure for Telecom Operators</h2>
+                <p>Edge data centers represent a fundamental shift in how computing resources are deployed and consumed. Rather than centralizing all compute and storage in hyperscale cloud regions hundreds of miles from end users, edge infrastructure positions compute capacity at network aggregation points — within tens of milliseconds of mobile subscribers, IoT devices, and enterprise applications.</p>
+                <p>For telecom operators, edge data centers unlock new revenue opportunities in 5G services, augmented reality, autonomous vehicles, industrial IoT, and real-time video analytics. These applications cannot tolerate the 50-100ms round-trip latency of centralized cloud — they require single-digit millisecond response times that only edge computing can deliver.</p>
+                <p>Infrasys specializes in designing and deploying edge data center infrastructure for telecom operators transitioning from connectivity-only business models to edge computing platform providers. Our solutions span site selection, facility design, power and cooling systems, network connectivity, edge orchestration platforms, and operational integration with existing central office and NOC environments.</p>
+
+                <h3>Core Edge Data Center Services</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-map-location-dot"></i> Site Selection & Planning</h4>
+                        <p>Geographic analysis, latency modeling, real estate assessment, and capacity planning to identify optimal edge locations aligned with 5G coverage zones.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-building"></i> Facility Design & Build-Out</h4>
+                        <p>Micro-datacenter architecture, modular infrastructure deployment, prefabricated solutions, and retrofitting of existing central office space for edge compute.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-bolt"></i> Power & Cooling Systems</h4>
+                        <p>High-density power distribution (15-30kW per rack), backup power (UPS, generators), and efficient cooling designs for space-constrained environments.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-network-wired"></i> Network Integration</h4>
+                        <p>Fiber connectivity to metro rings, direct cloud on-ramps, peering fabrics, and integration with mobile packet core (5G UPF placement).</p>
+                    </div>
+                </div>
+
+                <h3>Edge Computing Architecture for 5G Networks</h3>
+                <p>The deployment of 5G Standalone networks creates a unique opportunity and requirement for edge computing. Unlike 4G LTE, where the packet gateway (PGW) was centralized in a few regional locations, 5G architecture distributes the User Plane Function (UPF) to the edge, enabling ultra-low latency and localized data processing.</p>
+                <p>Our edge data center designs support distributed UPF deployment, positioning compute resources within 10-20 milliseconds of radio access network (RAN) sites. This enables applications like cloud gaming, remote surgery, industrial automation, and autonomous vehicles that require guaranteed low latency and high reliability.</p>
+                <ul>
+                    <li><strong>Multi-Access Edge Computing (MEC):</strong> ETSI MEC-compliant platforms that expose radio network information, real-time network analytics, and location services to third-party applications running at the edge</li>
+                    <li><strong>5G UPF Co-Location:</strong> Hosting User Plane Functions within edge data centers to minimize latency between RAN and packet core, enabling network slicing and dedicated enterprise 5G services</li>
+                    <li><strong>Distributed CDN Nodes:</strong> Content delivery network caching infrastructure positioned at edge sites to reduce video streaming latency and backhaul bandwidth consumption</li>
+                    <li><strong>IoT Edge Gateways:</strong> Protocol translation, data aggregation, and local processing for massive IoT deployments in smart cities, manufacturing, and agriculture applications</li>
+                    <li><strong>AI Inference at the Edge:</strong> GPU-accelerated servers for real-time video analytics, facial recognition, predictive maintenance, and autonomous systems requiring local decision-making</li>
+                </ul>
+
+                <h3>Edge Facility Design & Infrastructure</h3>
+                <p>Edge data centers differ fundamentally from traditional hyperscale facilities. Space is constrained, skilled technical staff may not be on-site 24x7, and environmental conditions (temperature, humidity, air quality) may be less controlled than purpose-built datacenters. Our designs account for these operational realities while maintaining the reliability that telecom services demand.</p>
+                <p>We design edge facilities across three deployment models, each optimized for different coverage areas, capacity requirements, and operational constraints:</p>
+                <p><strong>Regional Edge Data Centers (100-500kW):</strong> Purpose-built facilities or build-outs within existing carrier hotels serving multiple cities or a large metropolitan area. These sites provide 500-2000 servers of capacity with full redundancy (N+1 power, dual-path cooling) and 24x7 on-site technical staff. Regional edge sites aggregate traffic from multiple far-edge locations and provide higher compute density for applications like video rendering, gaming servers, and enterprise virtualization.</p>
+                <p><strong>Metro Edge Sites (20-100kW):</strong> Compact data centers within central office buildings, cellular switching centers, or colocation facilities serving a single city or dense suburban area. These sites typically house 100-500 servers in 5-20 racks with N+1 redundancy and remote management capabilities. Metro edge sites host 5G UPFs, MEC platforms, and localized caching for densely populated urban zones.</p>
+                <p><strong>Far Edge Micro-DCs (2-20kW):</strong> Prefabricated, ruggedized enclosures deployed at cell tower aggregation sites, small cell hubs, or enterprise premises. These micro-datacenters contain 1-5 racks of compute and storage with integrated cooling and backup power in a weatherproof outdoor-rated enclosure. Far edge sites enable ultra-low latency for specific applications (factory automation, stadium experiences, campus networks) but with limited compute capacity.</p>
+
+                <h3>Power Infrastructure & Energy Efficiency</h3>
+                <p>Edge data centers must deliver datacenter-class power reliability within space and budget constraints that would be considered impossible in traditional facilities. We design power systems that balance reliability, efficiency, and capital costs while preparing for future density increases as workloads migrate to the edge.</p>
+                <ul>
+                    <li><strong>High-Density Power Distribution:</strong> 400V DC or 415V 3-phase AC power distribution systems supporting 15-30kW per rack, enabling GPU servers and high-density compute without requiring excessive floor space</li>
+                    <li><strong>Modular UPS Systems:</strong> Right-sized uninterruptible power supplies with lithium-ion battery backup providing 10-15 minutes of runtime to bridge utility interruptions and enable graceful shutdowns</li>
+                    <li><strong>Backup Generators:</strong> On-site diesel or natural gas generators for extended outages, with automatic transfer switches and weekly exercise schedules to ensure operational readiness</li>
+                    <li><strong>Renewable Energy Integration:</strong> Solar arrays and battery energy storage systems (BESS) to reduce operating costs, meet corporate sustainability goals, and provide resilience during grid outages</li>
+                    <li><strong>Power Usage Effectiveness (PUE):</strong> Targeting PUE values of 1.3-1.5 through efficient cooling designs, free cooling when climate permits, and elimination of unnecessary power conversion stages</li>
+                </ul>
+
+                <h3>Cooling System Design for Space-Constrained Environments</h3>
+                <p>Traditional raised-floor hot aisle/cold aisle cooling strategies often cannot be implemented in edge facilities due to ceiling height limitations, building structural constraints, and the need to retrofit existing telecom central offices. We design cooling solutions tailored to each site's unique constraints:</p>
+                <p>In-row cooling units positioned between server racks deliver chilled air directly into cold aisles, maximizing cooling efficiency in high-density deployments. Rear-door heat exchangers mount to the back of server racks, capturing hot exhaust air before it mixes with room air, enabling cooling within standard office environments without raised floors or overhead ducting.</p>
+                <p>For outdoor micro-datacenter deployments, we specify integrated cooling systems rated for extreme ambient temperatures (-40°C to +55°C) with air filtration to handle dusty or polluted environments near roadways and industrial sites. Liquid cooling solutions using direct-to-chip cold plates or immersion cooling enable densities exceeding 50kW per rack for AI/ML workloads in the smallest footprint possible.</p>
+
+                <h3>Edge Orchestration & Management Platforms</h3>
+                <p>Managing hundreds or thousands of geographically distributed edge sites requires automation and orchestration platforms that centralize lifecycle management, workload placement, and operational monitoring. We implement edge management solutions that integrate with existing telecom OSS/BSS systems:</p>
+                <div class="protocol-list">
+                    <span class="protocol-badge">Kubernetes Edge Distribution</span>
+                    <span class="protocol-badge">OpenStack Edge Computing</span>
+                    <span class="protocol-badge">ETSI MEC Framework</span>
+                    <span class="protocol-badge">Akraino Edge Stack</span>
+                    <span class="protocol-badge">VMware Telco Cloud</span>
+                    <span class="protocol-badge">Red Hat Edge Solutions</span>
+                </div>
+                <p>These platforms provide centralized orchestration, automated workload deployment, and remote lifecycle management across distributed edge infrastructure. Container-based deployments enable application portability and efficient resource utilization, while edge-native Kubernetes distributions handle the unique challenges of intermittent connectivity, limited bandwidth to central management systems, and autonomous operation during network partitions.</p>
+
+                <h3>Site Selection & Geographic Coverage Planning</h3>
+                <p>The value of edge computing depends entirely on positioning compute resources close to end users and devices. We use geospatial analysis and latency modeling to identify optimal edge site locations that balance coverage, capacity, and cost:</p>
+                <ul>
+                    <li><strong>Latency Heatmaps:</strong> Modeling network propagation delay from candidate edge sites to population centers, enterprise districts, and industrial zones to ensure target latency SLAs are achievable</li>
+                    <li><strong>Coverage vs. Density Analysis:</strong> Balancing the number of edge sites (more sites = lower latency but higher capex) against compute density per site to minimize total cost of ownership</li>
+                    <li><strong>Traffic Demand Forecasting:</strong> Analyzing mobile network data, video streaming patterns, and enterprise application usage to predict edge compute demand by geography</li>
+                    <li><strong>Real Estate Evaluation:</strong> Assessing existing central office locations, colocation facilities, and greenfield sites for power availability, fiber connectivity, zoning compliance, and lease costs</li>
+                    <li><strong>Redundancy & Resilience:</strong> Designing edge site pairs with overlapping coverage areas to enable failover when maintenance or outages occur at individual locations</li>
+                </ul>
+
+                <h3>Edge-to-Cloud Connectivity Architecture</h3>
+                <p>Edge data centers do not operate in isolation — they are part of a distributed computing continuum from IoT devices at the network edge to hyperscale public clouds hundreds of miles away. We design network architectures that optimize data flow across this continuum based on latency requirements, bandwidth costs, and regulatory constraints.</p>
+                <p>Workloads requiring sub-10ms latency (augmented reality, industrial control systems, autonomous vehicles) execute entirely at the edge. Applications needing moderate latency (video streaming, gaming, mobile app backends) process at regional edge sites with capacity to handle larger workload scale. Batch processing, data warehousing, and machine learning training occur in centralized cloud regions where economies of scale drive down compute costs.</p>
+                <p>We implement SD-WAN overlays and application-aware routing that automatically directs traffic to the appropriate tier of infrastructure based on latency, bandwidth, and cost policies. Direct cloud on-ramps at edge sites enable low-latency connectivity to AWS, Azure, and Google Cloud without traversing the public internet, reducing security risks and ensuring predictable performance.</p>
+
+                <h3>Operational Integration & Service Assurance</h3>
+                <p>Edge data centers must integrate with telecom operators' existing operational systems for provisioning, monitoring, fault management, and billing. We implement integrations that minimize operational friction and enable rapid service delivery:</p>
+                <ul>
+                    <li><strong>OSS/BSS Integration:</strong> Service catalog integration for customer self-service ordering, automated provisioning workflows, and usage-based billing for edge compute services</li>
+                    <li><strong>Network Monitoring:</strong> SNMP, NetFlow, and IPFIX telemetry collection from edge infrastructure, integrated into existing NOC monitoring platforms for unified fault and performance management</li>
+                    <li><strong>Remote Hands Services:</strong> Contracts with national technical service providers for remote hands support at unstaffed edge locations, reducing the need for dedicated on-site staff</li>
+                    <li><strong>Automated Remediation:</strong> Self-healing capabilities that automatically restart failed services, rebalance workloads, and alert NOC staff only when human intervention is required</li>
+                    <li><strong>Capacity Planning:</strong> Proactive monitoring of compute, storage, and network utilization with predictive analytics to identify sites approaching capacity constraints before service quality degrades</li>
+                </ul>
+
+                <h3>Security Architecture for Distributed Edge Infrastructure</h3>
+                <p>Edge data centers introduce new security challenges compared to centralized facilities. Physical security may be limited at unstaffed sites, network connectivity may traverse less secure pathways, and edge locations may be targeted by attackers seeking to compromise distributed infrastructure. We implement defense-in-depth security architectures tailored to edge environments:</p>
+                <p>Physical security includes biometric access control, video surveillance with cloud recording, and environmental sensors detecting unauthorized entry, temperature excursions, and water leaks. Edge servers use hardware root of trust (TPM, secure boot) to ensure only authenticated firmware and operating systems execute, preventing persistent malware infections.</p>
+                <p>Network segmentation isolates management traffic, customer workloads, and telco control plane traffic using VLANs, VRFs, and micro-segmentation. Zero-trust network access (ZTNA) replaces traditional VPNs for remote administration, requiring continuous authentication and authorization for every access session. All data in transit between edge sites and centralized management uses IPsec or TLS encryption to prevent eavesdropping and tampering.</p>
+
+                <h3>Why Infrasys for Edge Data Center Strategy?</h3>
+                <p>Our edge infrastructure team combines datacenter engineering expertise with deep knowledge of telecom networks and 5G architecture. We have designed edge deployments for mobile operators, tower companies, and infrastructure providers across greenfield builds and central office modernization projects.</p>
+                <p>We don't just deliver facility designs — we deliver operational edge platforms ready to generate revenue from day one. Our solutions integrate with billing systems, support multi-tenant isolation, and provide the automation and orchestration capabilities that enterprise customers expect from cloud providers.</p>
+                <p>Whether you're a mobile operator deploying distributed UPFs for 5G SA, a tower company monetizing real estate with edge colocation, or an enterprise building private 5G with on-premises edge compute, Infrasys brings the technical expertise and deployment experience to make your edge data center strategy succeed.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-server"></i></div>
+            <h2 class="cta-title">Ready to deploy edge computing infrastructure?</h2>
+            <p class="cta-desc">Schedule a consultation with our edge data center specialists to discuss site selection, facility design, or MEC platform integration.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Talk to Edge Specialist</a>
+                <a href="telecom-media.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Telecom & Media</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

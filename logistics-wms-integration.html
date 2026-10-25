@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Management System Integration — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="WMS implementation, ERP integration, inventory tracking, barcode/RFID systems, and order fulfillment optimization for distribution centers.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="logistics-transportation.html">Logistics & Transportation</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">Warehouse Management Integration</span>
+            </nav>
+            <h1 class="page-hero-title">Warehouse <span>Management Integration</span></h1>
+            <p class="page-hero-subtitle">Smart WMS implementation and ERP integration for efficient distribution center operations</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Enterprise Warehouse Management System Solutions</h2>
+                <p>Modern warehouse operations demand precision, speed, and real-time visibility as order volumes grow and customer expectations for same-day or next-day delivery intensify. Warehouse Management Systems (WMS) have evolved from simple inventory tracking applications into comprehensive platforms orchestrating every aspect of distribution center operations — from receiving and putaway to picking, packing, shipping, and returns processing.</p>
+                <p>Infrasys specializes in implementing, integrating, and optimizing WMS platforms for e-commerce fulfillment centers, third-party logistics (3PL) providers, retail distribution networks, manufacturing warehouses, and cold storage facilities. Our implementations span leading WMS platforms including Manhattan Associates, SAP Extended Warehouse Management (EWM), Oracle WMS, Blue Yonder, Körber, and Infor WMS.</p>
+                <p>We understand that WMS selection and implementation is not purely a technology decision—it requires deep understanding of warehouse processes, labor management, automation integration, and seamless connectivity with upstream and downstream systems. Our approach combines business process optimization, change management, and technical integration to deliver measurable improvements in order accuracy, fulfillment speed, labor productivity, and inventory visibility.</p>
+
+                <h3>Core WMS Implementation Services</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-clipboard-list"></i> WMS Platform Selection</h4>
+                        <p>Requirements gathering, vendor evaluation, feature comparison, total cost analysis, and platform selection aligned with operational requirements and growth trajectory.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-diagram-project"></i> Process Optimization</h4>
+                        <p>Workflow redesign, slotting optimization, pick path analysis, wave planning strategies, and labor standards development for maximum efficiency.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-link"></i> ERP Integration</h4>
+                        <p>Bi-directional integration with SAP, Oracle, Microsoft Dynamics, NetSuite ensuring real-time inventory synchronization and order fulfillment visibility.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-barcode"></i> Mobile Technology</h4>
+                        <p>Handheld scanner configuration, voice-directed picking implementation, mobile app development, and wearable technology integration for hands-free operations.</p>
+                    </div>
+                </div>
+
+                <p>Our WMS implementations are guided by industry best practices developed through hundreds of warehouse deployments across diverse industry verticals. We bring operational expertise that goes beyond software configuration—optimizing warehouse layouts, designing efficient pick paths, implementing zone-based picking strategies, and establishing key performance indicators that drive continuous improvement.</p>
+
+                <h3>Inventory Accuracy Through Automated Identification</h3>
+                <p>Inventory accuracy is the foundation of effective warehouse management. Manual data entry and paper-based processes introduce errors that cascade through the supply chain—mis-picks, incorrect shipments, inventory write-offs, and dissatisfied customers. Our WMS implementations leverage automated identification technologies eliminating manual errors:</p>
+                <ul>
+                    <li><strong>Barcode Systems:</strong> 1D and 2D barcode scanning for SKU identification, location verification, and shipment validation with real-time data capture at every transaction point</li>
+                    <li><strong>RFID Technology:</strong> Radio-frequency identification enabling hands-free scanning of multiple items simultaneously, ideal for high-velocity operations and serialized asset tracking</li>
+                    <li><strong>License Plate Numbers (LPN):</strong> Containerization strategies assigning unique identifiers to pallets, totes, and cartons for streamlined movement tracking throughout the warehouse</li>
+                    <li><strong>Vision Systems:</strong> Computer vision and AI-powered image recognition for automated dimensioning, damage detection, and quality control inspection</li>
+                    <li><strong>Voice Technology:</strong> Voice-directed picking and putaway enabling hands-free, eyes-free operations improving productivity and reducing training time for warehouse associates</li>
+                </ul>
+
+                <p>These technologies integrate with WMS platforms providing real-time inventory visibility, automated cycle counting workflows, and exception-based management where supervisors focus attention on discrepancies rather than verifying expected results.</p>
+
+                <h3>Order Fulfillment Optimization</h3>
+                <p>The order fulfillment process—from order download to shipment dispatch—is the lifeblood of warehouse operations. Our WMS implementations optimize every step of this workflow:</p>
+                <p><strong>Wave Planning:</strong> Intelligent order grouping based on shipping deadlines, carrier cutoff times, order characteristics, and warehouse zone capacity. Our wave planning algorithms balance workload across pick zones while maximizing carton consolidation opportunities reducing packaging materials and shipping costs.</p>
+                <p><strong>Pick Path Optimization:</strong> Warehouse layout analysis and slotting strategies placing fast-moving SKUs in accessible locations. Pick path algorithms sequence pick tasks minimizing travel distance—serpentine routing for zone picking, batch picking for similar orders, cluster picking for multi-order carts.</p>
+                <p><strong>Packing Optimization:</strong> Automated cartonization algorithms determining optimal box sizes based on item dimensions, fragility rules, and shipping carrier restrictions. Integration with dimensioning systems and shipping scales ensures accurate freight costing and compliance with carrier requirements.</p>
+                <p><strong>Shipping Integration:</strong> Real-time connection with UPS, FedEx, DHL, and regional carriers for rate shopping, label printing, tracking number assignment, and automated shipment manifesting. EDI transactions (EDI 856 Advanced Ship Notice) notify customers and trading partners the moment shipments depart.</p>
+
+                <h3>Labor Management & Productivity Analytics</h3>
+                <p>Labor represents the largest operating expense in most warehouses. WMS-integrated labor management systems (LMS) provide visibility into workforce productivity, enabling data-driven decisions that improve efficiency while maintaining employee engagement:</p>
+                <p>Engineered labor standards define expected productivity rates for each warehouse task—receiving, putaway, picking, packing, replenishment—calibrated for warehouse layout, equipment, and item characteristics. Real-time performance tracking compares actual productivity against standards, highlighting both top performers and opportunities for coaching.</p>
+                <p>Incentive programs tied to productivity metrics and accuracy rates motivate warehouse associates while quality controls ensure speed doesn't compromise accuracy. Gamification elements—leaderboards, achievement badges, team competitions—create positive culture around continuous improvement.</p>
+                <p>Workforce analytics identify training needs, evaluate impact of process changes, and support capacity planning for peak periods. Predictive models forecast labor requirements based on order volume, enabling proactive scheduling decisions that avoid both understaffing and excess labor costs.</p>
+
+                <h3>Warehouse Automation Integration</h3>
+                <p>Modern warehouses increasingly incorporate automation technologies augmenting human labor with robotics, conveyors, and autonomous systems. Our WMS implementations integrate with diverse automation platforms:</p>
+                <ul>
+                    <li><strong>Goods-to-Person Systems:</strong> Integration with automated storage and retrieval systems (AS/RS), vertical lift modules (VLM), and robotic shuttle systems bringing inventory to pick stations rather than workers traveling to locations</li>
+                    <li><strong>Autonomous Mobile Robots (AMR):</strong> WMS-directed robots transporting totes, pallets, and carts between zones eliminating unproductive travel time while human workers focus on value-adding picking and packing tasks</li>
+                    <li><strong>Sortation Systems:</strong> High-speed conveyor systems with barcode scanners and automated diverters routing packages to shipping lanes, reducing manual sorting labor and improving throughput</li>
+                    <li><strong>Automated Packing:</strong> Robotic carton erectors, void-fill dispensers, and tape applicators integrated with WMS packing workflows accelerating pack rates and standardizing packaging quality</li>
+                    <li><strong>Put Wall Systems:</strong> Batch picking with automated light-directed sorting into order containers, ideal for high-velocity multi-line order profiles common in e-commerce fulfillment</li>
+                </ul>
+
+                <p>Automation integration requires tight synchronization between WMS and warehouse control systems (WCS) managing physical automation equipment. Our implementations establish robust interfaces ensuring order flow optimization across manual and automated zones.</p>
+
+                <h3>Multi-Warehouse & 3PL Management</h3>
+                <p>Companies with distributed warehouse networks face additional complexities—inventory allocation across locations, inter-facility transfers, order routing logic, and consolidated reporting. Our WMS implementations support multi-site operations:</p>
+                <p>Centralized order management with network-level inventory visibility enables intelligent order routing decisions—fulfilling from the warehouse closest to the customer, splitting orders across facilities when inventory constraints exist, or routing specialty items to facilities with appropriate handling capabilities (temperature control, hazmat certification).</p>
+                <p>For third-party logistics providers managing inventory for multiple clients, our WMS implementations provide client-specific configurations, segregated inventory pools, customized reporting, and billing integration supporting various pricing models (per-transaction, storage-based, value-added services).</p>
+
+                <h3>Returns Management & Reverse Logistics</h3>
+                <p>E-commerce growth has created a reverse logistics challenge—processing high volumes of customer returns efficiently while maximizing recovery value. Our WMS implementations streamline returns workflows:</p>
+                <p>Return authorization management captures customer-provided reason codes and photographs, generating receiving expectations pre-validated before items arrive. Upon receipt, quality inspection workflows determine disposition—return to stock, refurbish/repack, liquidate through secondary channels, or dispose/recycle.</p>
+                <p>Automated disposition rules based on product condition, return reason, and time since purchase accelerate processing while vendor chargeback workflows recoup costs for defective or damaged items through supplier agreements.</p>
+
+                <h3>Why Infrasys for WMS Integration?</h3>
+                <p>Our warehouse management expertise combines deep operational knowledge with technical integration capabilities spanning ERP systems, transportation management platforms, e-commerce order management, carrier systems, and warehouse automation. We've implemented WMS solutions for facilities ranging from 50,000 to 2 million square feet, supporting operations processing hundreds to hundreds of thousands of orders daily.</p>
+                <p>We don't just implement software—we optimize warehouse operations. Our approach includes facility layout analysis, process redesign, change management, training program development, and post-go-live support ensuring your WMS investment delivers measurable ROI through improved accuracy, increased throughput, and reduced operating costs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+            <h2 class="cta-title">Ready to optimize your warehouse operations?</h2>
+            <p class="cta-desc">Talk to our WMS specialists about platform selection, implementation planning, or ERP integration strategies for your distribution center.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Discuss WMS Project</a>
+                <a href="logistics-transportation.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Logistics & Transportation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

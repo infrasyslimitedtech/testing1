@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OT Security for Energy & Utilities — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Operational Technology security architecture, network segmentation, and intrusion detection for industrial control systems in the energy sector.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box { background:var(--primary-orange-light); border-radius:12px; padding:28px 24px; border-left:4px solid var(--primary-orange); }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .threat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:30px 0; }
+        .threat-box { background:linear-gradient(135deg,#ff6b00,#ff8534); color:#fff; border-radius:12px; padding:24px 20px; text-align:center; }
+        .threat-box .icon { font-size:2rem; margin-bottom:12px; }
+        .threat-box h4 { font-size:1rem; margin-bottom:8px; }
+        .threat-box p { font-size:0.85rem; opacity:0.95; line-height:1.5; }
+        @media(max-width:768px){ .feature-grid, .threat-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="energy-utilities.html">Energy & Utilities</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">OT Security</span>
+            </nav>
+            <h1 class="page-hero-title">OT <span>Security</span></h1>
+            <p class="page-hero-subtitle">Protecting industrial control systems and critical infrastructure from cyber threats</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Securing the Cyber-Physical Power Infrastructure</h2>
+                <p>Operational Technology (OT) systems — SCADA, DCS, PLCs, and IEDs — were historically isolated from enterprise IT networks and the internet. This "air gap" provided inherent security. Today, the convergence of IT and OT, driven by smart grid initiatives and remote access requirements, has expanded the attack surface exponentially.</p>
+                <p>High-profile incidents like the Ukraine power grid attack (2015, 2016), the Saudi Aramco Triton malware targeting safety systems (2017), and the Colonial Pipeline ransomware (2021) demonstrate that critical infrastructure is an active target for nation-state actors, cybercriminals, and hacktivists.</p>
+                <p>Infrasys delivers defense-in-depth OT security architectures specifically designed for energy and utilities environments. Our approach recognizes that power system operations cannot tolerate the downtime associated with traditional IT security measures like frequent patching and reboots. We design security controls that protect without disrupting real-time control loops and millisecond-latency SCADA communications.</p>
+
+                <div class="threat-grid">
+                    <div class="threat-box scroll-reveal reveal-up delay-1">
+                        <div class="icon"><i class="fa-solid fa-virus"></i></div>
+                        <h4>Malware Threats</h4>
+                        <p>Stuxnet-class malware targeting PLCs, ransomware encrypting HMI systems, and wiper attacks destroying critical data</p>
+                    </div>
+                    <div class="threat-box scroll-reveal reveal-up delay-2">
+                        <div class="icon"><i class="fa-solid fa-user-secret"></i></div>
+                        <h4>Insider Threats</h4>
+                        <p>Disgruntled operators, compromised credentials, and supply chain infiltration through vendor remote access</p>
+                    </div>
+                    <div class="threat-box scroll-reveal reveal-up delay-3">
+                        <div class="icon"><i class="fa-solid fa-network-wired"></i></div>
+                        <h4>Protocol Exploits</h4>
+                        <p>Unauthenticated DNP3/Modbus commands, man-in-the-middle attacks, and replay of control sequences</p>
+                    </div>
+                </div>
+
+                <h3>OT Security Architecture Framework</h3>
+                <p>Our security designs follow the Purdue Model for Industrial Control System segmentation, enhanced with modern zero-trust principles. We implement multiple defensive layers that collectively protect against external intrusion, lateral movement, and unauthorized control commands.</p>
+
+                <h3>Network Segmentation & Isolation</h3>
+                <p>Proper network segmentation is the foundation of OT security. We architect multi-zone networks with strictly controlled data flows between zones:</p>
+                <ul>
+                    <li><strong>Level 0-1 (Process Control):</strong> Field devices, actuators, and sensors remain on isolated VLANs with no direct internet connectivity. Communication limited to local RTUs and PLCs.</li>
+                    <li><strong>Level 2 (Supervisory Control):</strong> SCADA master servers, HMI workstations, and engineering workstations isolated from corporate networks via industrial DMZ architecture.</li>
+                    <li><strong>Level 3-3.5 (DMZ Zone):</strong> Unidirectional gateways, data historians, and protocol translation servers facilitate secure data export to enterprise systems without allowing reverse traffic.</li>
+                    <li><strong>Level 4-5 (Enterprise):</strong> Corporate IT networks, ERP systems, and internet access remain logically separated with firewall rule sets enforcing deny-by-default policies.</li>
+                </ul>
+
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-shield-halved"></i> Industrial Firewalls</h4>
+                        <p>Deep packet inspection firewalls with ICS protocol awareness (DNP3, Modbus, IEC 61850) enforcing allowlists and blocking anomalous traffic patterns.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-arrow-right-long"></i> Unidirectional Gateways</h4>
+                        <p>Hardware-enforced data diodes allowing OT data to flow to corporate networks while making reverse communication physically impossible.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-lock"></i> Secure Remote Access</h4>
+                        <p>Jump servers, VPN concentrators with multi-factor authentication, and session recording for vendor and operator remote connections.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-microscope"></i> Network Micro-Segmentation</h4>
+                        <p>Software-defined networking (SDN) creating microsegments within OT zones, limiting lateral movement if perimeter defenses are breached.</p>
+                    </div>
+                </div>
+
+                <h3>Asset Discovery & Inventory Management</h3>
+                <p>You cannot protect what you don't know exists. Many utilities have incomplete asset inventories, with undocumented field devices, forgotten test systems, and shadow IT introduced by vendors during commissioning.</p>
+                <p>We deploy passive network monitoring tools that discover OT assets without sending active probes that could disrupt operations:</p>
+                <ul>
+                    <li>Passive protocol analysis identifies all SCADA master stations, RTUs, PLCs, IEDs, and field devices by observing network traffic</li>
+                    <li>Firmware version detection flags end-of-life equipment and devices with known vulnerabilities</li>
+                    <li>Network topology mapping visualizes communication paths, identifying unauthorized connections and potential attack vectors</li>
+                    <li>Continuous monitoring detects rogue devices or configuration changes indicating compromise or insider tampering</li>
+                </ul>
+
+                <h3>Intrusion Detection & Anomaly Analytics</h3>
+                <p>Traditional IT intrusion detection systems generate excessive false positives in OT environments and lack protocol-specific signatures. We deploy ICS-aware intrusion detection that understands normal SCADA behavior and alerts on deviations:</p>
+                <ul>
+                    <li><strong>Protocol Anomaly Detection:</strong> Identifies malformed DNP3 packets, unexpected Modbus function codes, or IEC 61850 GOOSE message manipulation</li>
+                    <li><strong>Behavioral Baselining:</strong> Machine learning models learn typical communication patterns between SCADA masters and RTUs, alerting on unusual data flows or connection attempts</li>
+                    <li><strong>Command Validation:</strong> Monitors control commands (breaker trip, set point changes) and alerts operators to unauthorized or out-of-policy operations</li>
+                    <li><strong>File Integrity Monitoring:</strong> Detects unauthorized changes to PLC ladder logic, HMI configuration files, or SCADA application binaries</li>
+                </ul>
+
+                <h3>Identity & Access Management</h3>
+                <p>Many OT environments still rely on shared passwords written on sticky notes and default vendor credentials unchanged since commissioning. We implement robust identity management without disrupting operational workflows:</p>
+                <ul>
+                    <li><strong>Role-Based Access Control (RBAC):</strong> Operators receive permissions aligned with job responsibilities — shift operators cannot reprogram PLCs; engineers cannot execute control commands without supervisor approval</li>
+                    <li><strong>Multi-Factor Authentication (MFA):</strong> Hardware tokens or mobile authenticators for remote access and administrative functions, preventing credential theft attacks</li>
+                    <li><strong>Privileged Access Management (PAM):</strong> Vendor remote access sessions brokered through secure jump servers with session recording and automated credential rotation</li>
+                    <li><strong>Activity Logging & Audit Trails:</strong> Immutable logs of all user actions, command executions, and configuration changes for forensic investigation and compliance reporting</li>
+                </ul>
+
+                <h3>Vulnerability Management in OT</h3>
+                <p>Patching OT systems presents unique challenges. Production systems cannot be taken offline during operational hours, and many industrial devices run legacy operating systems or firmware with no vendor support. Our structured vulnerability management process balances security and availability:</p>
+                <ul>
+                    <li><strong>Risk-Based Prioritization:</strong> Vulnerabilities assessed based on exploitability, asset criticality, and compensating controls — not all CVEs require immediate patching</li>
+                    <li><strong>Virtual Patching:</strong> IPS rules and firewall policies block exploitation attempts when physical patching is not feasible</li>
+                    <li><strong>Offline Patching & Testing:</strong> Patches validated in replica environments or during planned outages, minimizing risk of unintended disruption</li>
+                    <li><strong>Asset Lifecycle Planning:</strong> End-of-life systems identified and budgeted for replacement, recognizing that some legacy equipment will never receive security updates</li>
+                </ul>
+
+                <h3>Incident Response for OT Environments</h3>
+                <p>When a security incident occurs in an OT environment, the priority hierarchy differs from IT: safety first, then operational continuity, then data confidentiality. Our incident response frameworks recognize these unique priorities:</p>
+                <ul>
+                    <li><strong>OT-Specific Playbooks:</strong> Pre-defined procedures for common scenarios — malware on HMI, suspected RTU compromise, DDoS attack on SCADA master</li>
+                    <li><strong>Forensic Readiness:</strong> Network traffic captures (PCAP), SIEM log retention, and forensic images enable post-incident investigation without disrupting live operations</li>
+                    <li><strong>Containment Strategies:</strong> Procedures for isolating compromised systems while maintaining critical control paths, avoiding total grid shutdown</li>
+                    <li><strong>Recovery & Restoration:</strong> Golden images, configuration backups, and disaster recovery sites enabling rapid restoration of SCADA services</li>
+                </ul>
+
+                <h3>Security Monitoring & Operations Center (SOC)</h3>
+                <p>24x7 monitoring by analysts who understand both cybersecurity and power system operations. Our SOC services for OT environments include:</p>
+                <ul>
+                    <li>Real-time monitoring of OT network traffic, security device logs, and SCADA application events</li>
+                    <li>Correlation of security alerts with operational context (planned outages, maintenance windows, commissioning activities)</li>
+                    <li>Threat intelligence integration tracking adversaries targeting energy sector (APT groups, ransomware variants)</li>
+                    <li>Coordination with IT SOC, control center operators, and incident response teams during security events</li>
+                </ul>
+
+                <h3>Compliance & Standards Alignment</h3>
+                <p>Our OT security implementations meet regulatory requirements and industry best practices:</p>
+                <ul>
+                    <li><strong>NERC CIP (North American Electric Reliability Corporation):</strong> Critical Infrastructure Protection standards for BES Cyber Systems</li>
+                    <li><strong>IEC 62443:</strong> Security for industrial automation and control systems (covered in detail in our IEC 62443 section)</li>
+                    <li><strong>NIST Cybersecurity Framework:</strong> Identify, Protect, Detect, Respond, Recover framework adapted for OT environments</li>
+                    <li><strong>ISO/IEC 27019:</strong> Information security controls for energy utility industries</li>
+                    <li><strong>ISA/IEC 62443:</strong> Industrial Automation and Control Systems Security lifecycle framework</li>
+                </ul>
+
+                <h3>Security Awareness & Training</h3>
+                <p>Technology alone cannot secure OT environments. Operators, engineers, and executives must understand cyber threats and their role in maintaining security posture:</p>
+                <ul>
+                    <li>OT-specific phishing simulations and security awareness campaigns tailored to energy sector threats</li>
+                    <li>Tabletop exercises simulating cyber-physical attacks (SCADA compromise, substation outage) and testing response procedures</li>
+                    <li>Red team / blue team exercises where ethical hackers attempt to penetrate OT networks, validating defensive controls</li>
+                    <li>Executive briefings on nation-state threats, regulatory compliance obligations, and board-level risk governance</li>
+                </ul>
+
+                <h3>Why Choose Infrasys for OT Security?</h3>
+                <p>Securing operational technology requires a rare combination of skills — electrical engineering knowledge, understanding of power system operations, expertise in industrial protocols, and deep cybersecurity proficiency. Our team has designed OT security architectures for thermal and renewable power plants, transmission substations, and distribution control centers across multiple continents.</p>
+                <p>We don't apply cookie-cutter IT security approaches to OT environments. We recognize that a SCADA system controlling 400kV transmission cannot be taken offline for monthly patch cycles, that PLCs require deterministic network latency, and that safety systems must never be compromised — even for security measures.</p>
+                <p>From maturity assessments identifying gaps in your current security posture to comprehensive security transformation programs spanning technology, processes, and people, Infrasys delivers OT security solutions that protect your critical infrastructure without disrupting the mission-critical operations that keep the lights on.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-user-shield"></i></div>
+            <h2 class="cta-title">Secure your OT infrastructure from cyber threats</h2>
+            <p class="cta-desc">Schedule an OT security assessment with our industrial cybersecurity specialists.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Request Assessment</a>
+                <a href="energy-utilities.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Energy & Utilities</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>

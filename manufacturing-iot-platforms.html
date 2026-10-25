@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Platform Architecture for Factories — Infrasys Limited</title>
+    <link rel="icon" type="image/png" href="./assets/logo/logo.png">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <meta name="description" content="Industrial IoT platform design, device management, data pipelines, and analytics infrastructure for smart manufacturing operations.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>(function(){var t=localStorage.getItem('infrasys-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+    <style>
+        .content-section { background:var(--bg-white); border:1px solid var(--border-color); border-radius:var(--border-radius-lg); padding:50px 45px; margin-bottom:40px; }
+        .content-section h2 { font-size:1.75rem; color:var(--secondary-blue); margin-bottom:24px; }
+        .content-section h3 { font-size:1.35rem; color:var(--secondary-blue); margin:30px 0 16px; }
+        .content-section p { color:var(--text-color); font-size:1rem; line-height:1.8; margin-bottom:18px; }
+        .content-section ul { margin:20px 0 20px 24px; }
+        .content-section li { color:var(--text-color); line-height:1.8; margin-bottom:10px; }
+        .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:30px 0; }
+        .feature-box {
+            background:var(--primary-orange-light); border-radius:12px; padding:28px 24px;
+            border-left:4px solid var(--primary-orange);
+        }
+        .feature-box h4 { font-size:1.1rem; color:var(--secondary-blue); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+        .feature-box h4 i { color:var(--primary-orange); font-size:1.2rem; }
+        .feature-box p { font-size:0.92rem; color:var(--text-muted); line-height:1.65; margin:0; }
+        .tech-stack { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .tech-badge {
+            background:var(--secondary-blue); color:#fff; padding:10px 20px;
+            border-radius:8px; font-size:0.9rem; font-weight:600;
+        }
+        @media(max-width:768px){ .feature-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="./assets/logo/logo.png" height="36" style="height:36px;width:auto;max-height:36px;" alt="Infrasys Limited"></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="industries.html" class="nav-link">Industries</a></li>
+                    <li><a href="services.html" class="nav-link">Tech</a></li>
+                    <li><a href="process.html" class="nav-link">Process</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Resources <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;margin-left:4px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="careers.html" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="dropdown-link"><i class="fa-solid fa-chart-line"></i> Investor Relations</a></li>
+                            <li><a href="partners.html" class="dropdown-link"><i class="fa-solid fa-handshake"></i> Partners</a></li>
+                            <li><a href="blogs.html" class="dropdown-link"><i class="fa-solid fa-newspaper"></i> Blogs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-toggle" id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon icon-moon"></i><i class="fa-solid fa-sun icon-sun"></i>
+                </button>
+                <a href="#" class="btn btn-primary" id="btn-expert" onclick="openContactModal(); return false;">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-menu-close" id="mobile-menu-close"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-nav-list">
+            <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+            <li><a href="industries.html" class="mobile-nav-link">Industries</a></li>
+            <li><a href="services.html" class="mobile-nav-link">Tech</a></li>
+            <li><a href="process.html" class="mobile-nav-link">Process</a></li>
+            <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+            <li><a href="investor-relations.html" class="mobile-nav-link">Investor Relations</a></li>
+            <li><a href="blogs.html" class="mobile-nav-link">Blogs</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary mobile-cta" onclick="openContactModal(); return false;">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-inner">
+            <form class="search-form" onsubmit="return false;">
+                <i class="fa-solid fa-magnifying-glass search-form-icon"></i>
+                <input type="search" id="search-input" class="search-input" placeholder="Search services, insights, industries, careers..." autocomplete="off" aria-label="Search">
+                <button type="button" class="search-close-btn" id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <p class="search-hint">Quick Links</p>
+                <div class="search-quick-links">
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-layer-group"></i> ERP Solutions</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-brain"></i> AI &amp; ML</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</a>
+                    <a href="services.html" class="search-ql"><i class="fa-solid fa-cloud"></i> Cloud</a>
+                    <a href="industries.html" class="search-ql"><i class="fa-solid fa-building"></i> Industries</a>
+                    <a href="insights.html" class="search-ql"><i class="fa-solid fa-newspaper"></i> Insights</a>
+                    <a href="careers.html" class="search-ql"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                    <a href="contact.html" class="search-ql"><i class="fa-solid fa-phone"></i> Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="industries.html">Industries</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <a href="manufacturing.html">Manufacturing</a>
+                <span><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i></span>
+                <span class="current">IoT Platform Architecture</span>
+            </nav>
+            <h1 class="page-hero-title">IoT Platform <span>Architecture</span></h1>
+            <p class="page-hero-subtitle">Scalable industrial IoT infrastructure for comprehensive factory-wide digital visibility</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content-section scroll-reveal reveal-up">
+                <h2>Enterprise Industrial IoT Platform Design for Manufacturing</h2>
+                <p>A robust Industrial IoT platform serves as the digital backbone of modern manufacturing operations, providing the infrastructure to connect thousands of devices, process massive data streams, and deliver actionable insights to stakeholders across the organization. Unlike consumer IoT platforms designed for home automation or wearables, industrial IoT platforms must handle mission-critical operations with stringent requirements for reliability, security, scalability, and interoperability with legacy industrial systems.</p>
+                <p>Infrasys architects industrial IoT platforms that bridge the gap between shop floor operations and enterprise systems. Our platform designs accommodate diverse device types — from simple temperature sensors to sophisticated CNC controllers — while providing unified device management, data ingestion pipelines, real-time analytics, and visualization capabilities. We implement both cloud-based and hybrid architectures, selecting the appropriate approach based on latency requirements, data sovereignty constraints, and connectivity reliability.</p>
+                <p>Our IoT platform implementations power smart factories across automotive, pharmaceuticals, electronics, and process industries. These platforms aggregate data from production lines, utility systems, environmental sensors, and worker safety devices, providing a holistic view of factory operations while enabling targeted analytics applications for predictive maintenance, quality management, energy optimization, and supply chain coordination.</p>
+
+                <h3>Core Platform Components</h3>
+                <div class="feature-grid">
+                    <div class="feature-box scroll-reveal reveal-up delay-1">
+                        <h4><i class="fa-solid fa-microchip"></i> Device Management & Provisioning</h4>
+                        <p>Centralized registration, authentication, configuration management, firmware updates, and lifecycle management for thousands of industrial IoT devices.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-2">
+                        <h4><i class="fa-solid fa-arrow-up-right-dots"></i> Data Ingestion & Processing</h4>
+                        <p>High-throughput data pipelines supporting MQTT, OPC-UA, HTTP APIs, with stream processing for filtering, transformation, and enrichment.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-3">
+                        <h4><i class="fa-solid fa-database"></i> Time-Series Data Storage</h4>
+                        <p>Specialized databases optimized for high-frequency sensor data with compression, retention policies, and query performance for billions of data points.</p>
+                    </div>
+                    <div class="feature-box scroll-reveal reveal-up delay-4">
+                        <h4><i class="fa-solid fa-chart-area"></i> Visualization & Dashboards</h4>
+                        <p>Real-time dashboards, historical trend analysis, alarm management, and custom reporting for operations, maintenance, and management teams.</p>
+                    </div>
+                </div>
+
+                <h3>Platform Architecture Patterns</h3>
+                <p>IoT platform architecture varies based on manufacturing environments, connectivity constraints, and business requirements. We implement three primary architectural patterns:</p>
+                <p><strong>Cloud-Native Architecture:</strong> In this model, all data flows from factory floor devices to cloud-based IoT platforms (Azure IoT Hub, AWS IoT Core, Google Cloud IoT). Industrial gateways at factory sites aggregate data from local devices, performing protocol translation and establishing secure connections to cloud services. Cloud platforms provide device management, data storage, analytics, and application services. This architecture offers unlimited scalability, global accessibility, and integration with advanced cloud services (machine learning, data lakes, enterprise applications). It's ideal for manufacturers with reliable internet connectivity and no regulatory constraints prohibiting cloud data transfer.</p>
+                <p><strong>Hybrid Edge-Cloud Architecture:</strong> This approach combines edge computing infrastructure at factory sites with cloud-based services for enterprise-wide analytics. Edge nodes deployed locally perform real-time data processing, control logic, and local dashboards — ensuring operations continue even during internet outages. Selective data synchronization sends aggregated metrics, alerts, and historical trends to cloud platforms for cross-site analytics, corporate reporting, and machine learning model training. Hybrid architectures balance local autonomy with enterprise visibility, addressing latency-sensitive applications and intermittent connectivity scenarios.</p>
+                <p><strong>On-Premises Private Cloud:</strong> For manufacturers with data sovereignty requirements, security policies prohibiting cloud connections, or facilities in remote locations, we deploy on-premises IoT platforms using open-source or commercial software stacks. These private cloud implementations provide device management, data storage, analytics, and visualization services within factory data centers. While requiring more infrastructure investment and operational overhead, on-premises platforms offer complete data control and operate independently of external internet connectivity.</p>
+
+                <h3>Device Connectivity & Protocol Integration</h3>
+                <p>Manufacturing facilities contain diverse equipment from multiple vendors, each using different communication protocols and data formats. IoT platforms must seamlessly integrate this heterogeneous ecosystem:</p>
+                <p><strong>Industrial Protocol Support:</strong> Native connectivity for OPC-UA (Unified Architecture), Modbus TCP/RTU, Profinet, EtherNet/IP, BACnet, and proprietary vendor protocols. Protocol gateways perform translation between legacy serial protocols and modern Ethernet-based communications. OPC-UA serves as a common information model, providing standardized data structures and semantic definitions that applications can interpret without custom programming.</p>
+                <p><strong>IoT Messaging Protocols:</strong> MQTT (Message Queuing Telemetry Transport) has become the de facto standard for IoT communications due to its lightweight design, publish-subscribe architecture, and support for unreliable networks. Our platforms implement MQTT brokers with TLS encryption, client authentication, and Quality of Service levels ensuring message delivery guarantees. CoAP (Constrained Application Protocol) supports extremely resource-constrained devices, while HTTP REST APIs integrate with IT systems and cloud services.</p>
+                <p><strong>Edge Gateway Functions:</strong> Industrial gateways deployed at production lines serve multiple critical functions — protocol translation between OT and IT networks, data aggregation reducing bandwidth consumption, local buffering ensuring no data loss during connectivity interruptions, edge analytics for immediate anomaly detection, and security boundary enforcement preventing unauthorized access to control systems.</p>
+
+                <h3>Data Ingestion Pipeline Architecture</h3>
+                <p>Manufacturing IoT platforms handle massive data volumes — a single automotive assembly line can generate millions of sensor readings per hour. Efficient data ingestion pipelines are essential:</p>
+                <p>Our pipelines implement multi-stage processing: initial data validation filters malformed messages and out-of-range values; normalization converts diverse timestamp formats, unit measurements, and device identifiers into standardized schemas; enrichment adds contextual metadata like production line, shift, operator, and product SKU; aggregation computes statistical summaries (min, max, average, standard deviation) over time windows; and routing directs data streams to appropriate storage systems (time-series databases for sensor data, relational databases for discrete events, object storage for images and videos).</p>
+                <p>Stream processing frameworks (Apache Kafka, Apache Flink, Azure Stream Analytics) enable real-time computation on data in motion — calculating Overall Equipment Effectiveness (OEE) metrics as production events occur, detecting anomalies requiring immediate attention, triggering automated responses based on rule engines, and maintaining in-memory state for complex event processing across multiple data sources.</p>
+
+                <h3>Time-Series Data Management</h3>
+                <p>Industrial sensor data is fundamentally time-series in nature — measurements indexed by timestamps with high write rates, append-only patterns, and queries focused on recent data. Specialized time-series databases optimize for these characteristics:</p>
+                <p>We implement time-series databases (InfluxDB, TimescaleDB, Prometheus, Amazon Timestream) designed for industrial workloads. These systems provide high-performance data ingestion (millions of points per second), efficient compression reducing storage costs by 90% compared to relational databases, downsampling policies automatically aggregating older data to reduce granularity, retention policies expiring data based on age, and query languages optimized for time-range filtering, aggregation, and moving average calculations.</p>
+                <p>Data modeling follows tag-based schemas where measurements have associated tags (device ID, location, product type) enabling efficient multi-dimensional queries. Continuous queries perform automatic aggregation, computing hourly summaries from second-level data, maintaining energy consumption totals by production zone, and calculating equipment utilization statistics across shifts.</p>
+
+                <h3>Analytics & Machine Learning Integration</h3>
+                <p>Raw sensor data has limited value until transformed into actionable insights through analytics and machine learning:</p>
+                <p><strong>Descriptive Analytics:</strong> Historical dashboards visualizing production trends, energy consumption patterns, and quality metrics. Statistical analysis identifies process variability, equipment degradation trends, and operational inefficiencies. Root cause analysis tools correlate production events with quality deviations, helping engineers diagnose problems.</p>
+                <p><strong>Diagnostic Analytics:</strong> Anomaly detection algorithms identify unusual equipment behavior indicating potential failures. Comparative analysis benchmarks machine performance across production lines or facilities. Alarm analytics reduce nuisance alarms through intelligent filtering and root-cause consolidation.</p>
+                <p><strong>Predictive Analytics:</strong> Machine learning models predict equipment failures, quality defects, and production bottlenecks. Time-series forecasting estimates future demand, resource requirements, and maintenance needs. Remaining useful life calculations inform replacement decisions for critical assets.</p>
+                <p><strong>Prescriptive Analytics:</strong> Optimization engines recommend parameter adjustments improving energy efficiency, throughput, or quality. Simulation models evaluate "what-if" scenarios before implementing production changes. Automated control systems adjust setpoints based on AI recommendations.</p>
+                <p>Machine learning model development follows MLOps practices — data scientists train models on historical data stored in data lakes, validate performance using holdout datasets, deploy models to edge devices or cloud inference endpoints, and continuously monitor prediction accuracy with automatic retraining when model drift is detected.</p>
+
+                <h3>Visualization & User Experience</h3>
+                <p>IoT platforms serve diverse user personas — operators needing real-time equipment status, maintenance technicians investigating alarms, engineers analyzing process performance, and executives monitoring facility-level KPIs. Tailored dashboards address each audience:</p>
+                <p><strong>Operations Dashboards:</strong> Large-screen displays in control rooms showing real-time production status, equipment states, active alarms, and OEE metrics. Visual hierarchy emphasizes exceptions requiring attention. Mobile operator interfaces provide contextual information at machines — setup instructions, quality specifications, maintenance history.</p>
+                <p><strong>Maintenance Interfaces:</strong> Asset-centric views displaying equipment health scores, predictive maintenance alerts, work order status, and spare parts inventory. Historical trend charts reveal degradation patterns. Augmented reality overlays provide visual guidance during maintenance procedures.</p>
+                <p><strong>Engineering Analytics:</strong> Deep-dive analysis tools for process engineers — multi-variable trend comparisons, correlation analysis, statistical process control charts, and experiment tracking. Export capabilities integrate with statistical software packages and engineering simulation tools.</p>
+                <p><strong>Executive Dashboards:</strong> High-level KPIs tracking facility performance — production volumes, quality rates, energy consumption, maintenance costs, and sustainability metrics. Comparative views benchmark across facilities. Drill-down capabilities investigate underlying trends.</p>
+
+                <h3>Security Architecture</h3>
+                <p>Industrial IoT platforms present attractive targets for cyberattacks — disrupting production, stealing intellectual property, or causing safety incidents. Comprehensive security controls are mandatory:</p>
+                <ul>
+                    <li><strong>Device Authentication:</strong> X.509 certificates or secure credential injection during manufacturing ensure only authorized devices connect to platforms. Hardware security modules (TPM, secure elements) protect cryptographic keys from extraction.</li>
+                    <li><strong>Transport Encryption:</strong> TLS 1.3 encrypts all communications between devices and cloud platforms. VPN tunnels or dedicated circuits provide additional protection for high-security environments.</li>
+                    <li><strong>Authorization & Access Control:</strong> Role-based access control (RBAC) limits user permissions based on job functions. Device-level permissions restrict which data streams devices can publish or subscribe to.</li>
+                    <li><strong>Anomaly Detection:</strong> Security monitoring systems detect unusual device behavior — unexpected connection patterns, abnormal data rates, or suspicious commands — triggering automated responses or security team alerts.</li>
+                    <li><strong>Compliance Frameworks:</strong> Platform implementations address IEC 62443 industrial cybersecurity requirements, GDPR data protection regulations, and industry-specific mandates (FDA for pharmaceuticals, IATF 16949 for automotive).</li>
+                </ul>
+
+                <h3>Platform Technology Stack</h3>
+                <p>Our IoT platform implementations leverage proven technologies optimized for industrial environments:</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Azure IoT Hub / AWS IoT Core</span>
+                    <span class="tech-badge">MQTT / OPC-UA</span>
+                    <span class="tech-badge">Apache Kafka / RabbitMQ</span>
+                    <span class="tech-badge">InfluxDB / TimescaleDB</span>
+                    <span class="tech-badge">Grafana / Tableau</span>
+                    <span class="tech-badge">Node-RED / Apache NiFi</span>
+                    <span class="tech-badge">TensorFlow / Azure ML</span>
+                    <span class="tech-badge">Kubernetes / Docker</span>
+                    <span class="tech-badge">PostgreSQL / MongoDB</span>
+                </div>
+
+                <h3>Scalability & Performance Engineering</h3>
+                <p>IoT platforms must scale horizontally as manufacturers expand sensor deployments and add facilities:</p>
+                <p>Cloud-native platforms leverage auto-scaling infrastructure — ingestion services scale up during peak production hours, storage automatically expands as data accumulates, and compute resources adjust to analytics workloads. Load balancing distributes device connections across multiple endpoints, preventing single points of failure.</p>
+                <p>Performance optimization addresses database query patterns — materialized views pre-compute common aggregations, caching layers reduce database load for frequently accessed data, and data partitioning isolates workloads from different facilities or production lines. Monitoring systems track platform health metrics — message ingestion rates, storage utilization, query response times, and API latency — alerting administrators before performance degradation impacts users.</p>
+
+                <h3>Integration with Enterprise Systems</h3>
+                <p>IoT platforms don't operate in isolation — they integrate with broader enterprise IT ecosystems:</p>
+                <ul>
+                    <li><strong>MES/ERP Integration:</strong> Bidirectional data exchange with Manufacturing Execution Systems and Enterprise Resource Planning systems — production schedules drive IoT alerting rules, completed production counts flow to ERP inventory systems, and quality data updates product traceability records.</li>
+                    <li><strong>CMMS Integration:</strong> Predictive maintenance alerts automatically create work orders in Computerized Maintenance Management Systems, asset data synchronizes between platforms, and maintenance history informs machine learning model training.</li>
+                    <li><strong>Quality Management Systems:</strong> SPC data from IoT sensors integrates with quality management platforms, automated inspection results update certificate of analysis documents, and quality alerts trigger product quarantine workflows.</li>
+                    <li><strong>Supply Chain Systems:</strong> Real-time production visibility feeds planning systems, material consumption tracking updates inventory forecasts, and energy usage data informs carbon footprint calculations.</li>
+                </ul>
+
+                <h3>Implementation Best Practices</h3>
+                <p>Successful IoT platform deployments follow proven methodologies:</p>
+                <ul>
+                    <li><strong>Start with Use Cases:</strong> Define specific business objectives — reduce unplanned downtime by 30%, improve energy efficiency by 20% — before designing technical architectures</li>
+                    <li><strong>Pilot Before Scale:</strong> Deploy initial sensors and analytics on a single production line, validate value proposition, refine implementation approach, then expand enterprise-wide</li>
+                    <li><strong>Design for Growth:</strong> Select platform technologies supporting future expansion — additional devices, new analytics applications, integration with emerging technologies</li>
+                    <li><strong>Establish Data Governance:</strong> Define data ownership, quality standards, retention policies, and access controls preventing data sprawl and ensuring regulatory compliance</li>
+                    <li><strong>Build Organizational Capability:</strong> Train operations, maintenance, and engineering teams to use platform capabilities — technology alone doesn't drive outcomes without user adoption</li>
+                </ul>
+
+                <h3>Why Infrasys for IoT Platform Implementation?</h3>
+                <p>Infrasys brings end-to-end capabilities spanning industrial automation, cloud architecture, data engineering, and manufacturing domain expertise. We've implemented IoT platforms managing millions of devices across multi-national manufacturing operations, handling petabytes of sensor data, and delivering measurable ROI through predictive maintenance, quality improvement, and energy optimization.</p>
+                <p>We understand that platform selection is just the beginning — successful deployments require integration with legacy systems, customization for industry-specific requirements, performance tuning for scale, security hardening for production environments, and ongoing operational support. Our platform implementations are not proof-of-concepts — they're production-grade systems designed for 99.9% uptime supporting mission-critical manufacturing operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal reveal-scale">
+            <div class="cta-icon"><i class="fa-solid fa-sitemap"></i></div>
+            <h2 class="cta-title">Ready to build your industrial IoT platform?</h2>
+            <p class="cta-desc">Discuss platform architecture, device integration strategies, or analytics use cases with our IoT platform specialists.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Schedule Discussion</a>
+                <a href="manufacturing.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-arrow-left"></i> Back to Manufacturing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="contact-modal-grid">
+                <div class="contact-modal-info">
+                    <div>
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have a project in mind or just want to explore options, our specialists are ready to help.</p>
+                    </div>
+                    <div class="contact-modal-details">
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Hotline</div>
+                                <div class="contact-modal-detail-value"><a href="tel:+911244959639">+91 124 495 9639</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Email Address</div>
+                                <div class="contact-modal-detail-value"><a href="mailto:info@infrasys.tech">info@infrasys.tech</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Headquarters</div>
+                                <div class="contact-modal-detail-value">422B, Tower B-4, Spaze I Tech Park, Sector-49, Sohna Road, South City, Gurgaon - 122018, Haryana, India</div>
+                            </div>
+                        </div>
+                        <div class="contact-modal-detail">
+                            <div class="contact-modal-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-modal-detail-content">
+                                <div class="contact-modal-detail-label">Business Hours</div>
+                                <div class="contact-modal-detail-value">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-modal-socials">
+                        <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="contact-modal-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="contact-modal-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-modal-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <p>Fill in the form and we'll get back to you within 24 hours.</p>
+                    <form class="contact-form" id="modal-contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modal-name" class="form-label">Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="modal-name" name="name" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-phone" class="form-label">Phone No. <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="Enter your phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email" class="form-label">Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="modal-email" name="email" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-subject" class="form-label">Subject <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tag input-icon"></i>
+                                <input type="text" id="modal-subject" name="subject" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-message" class="form-label">Message <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-message input-icon textarea-icon"></i>
+                                <textarea id="modal-message" name="message" class="form-input" placeholder="Message type here" required style="height:120px;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openContactModal() {
+        document.getElementById('contact-modal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+        document.getElementById('contact-modal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeContactModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contact-modal')?.classList.contains('show')) {
+            closeContactModal();
+        }
+    });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><img src="./assets/logo/logo.png" height="42" style="height:42px;max-height:42px;" alt="Infrasys Limited"></a>
+                        <p class="footer-brand-desc">Transforming Through Technology — Global IT Services, ERP, AI, Cloud, and Cybersecurity Consulting from Gurugram, India.<br>Established 2012.</p>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/infrasysltd/" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/infrasysltd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="team.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
+                            <li><a href="industries.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+                            <li><a href="careers.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+                            <li><a href="investor-relations.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Investor Relations</a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Tech</a></li>
+                            <li><a href="process.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Process</a></li>
+                            <li><a href="insights.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                            <li><a href="blogs.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col footer-newsletter-col">
+                        <h4>Stay Updated</h4>
+                        <p class="footer-newsletter-desc">Get the latest insights on infrastructure trends and digital transformation.</p>
+                        <form class="footer-newsletter" id="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="newsletter-privacy"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; <span id="year">2026</span> Infrasys Limited. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="compliance.html" class="footer-legal-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>We use cookies</strong> to improve your experience, analyse site traffic, and remember your preferences like dark mode. By clicking "Accept All" you consent to our use of cookies.</p>
+                <a href="privacy-policy.html" class="cookie-policy-link">View Privacy Policy <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" id="cookie-accept">Accept All</button>
+                <button class="cookie-btn-decline" id="cookie-decline">Decline</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){if(!localStorage.getItem('infrasys-cookies')){setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('show');},1500);}var a=document.getElementById('cookie-accept');var d=document.getElementById('cookie-decline');if(a)a.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','accepted');document.getElementById('cookie-banner').classList.remove('show');});if(d)d.addEventListener('click',function(){localStorage.setItem('infrasys-cookies','declined');document.getElementById('cookie-banner').classList.remove('show');});})();
+    </script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script>
+</body>
+</html>
